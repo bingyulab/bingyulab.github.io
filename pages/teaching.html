@@ -262,6 +262,178 @@
       transition: opacity .5s ease, transform .5s ease;
     }
     .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── FEATURED COURSE ─────────────────────────────────────── */
+    .featured-course {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+    .featured-body {
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .featured-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .featured-title-zh {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 4px;
+    }
+    .featured-title-fr {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--ink-2);
+      margin-bottom: 20px;
+    }
+    .featured-desc {
+      font-size: 0.95rem;
+      color: var(--ink-2);
+      line-height: 1.7;
+      margin-bottom: 24px;
+    }
+    .featured-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+    .featured-tag {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 4px;
+      background: rgba(198, 146, 42, 0.1);
+      color: var(--gold);
+      border: 1px solid rgba(198, 146, 42, 0.2);
+    }
+    .featured-actions {
+      display: flex;
+      gap: 16px;
+    }
+    .btn-course {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .btn-course-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-course-primary:hover {
+      background: #1f4570;
+      color: #fff;
+    }
+    .btn-course-outline {
+      background: transparent;
+      border: 1.5px solid var(--accent);
+      color: var(--accent);
+    }
+    .btn-course-outline:hover {
+      background: var(--accent-lt);
+    }
+    .featured-panel {
+      background: var(--ink);
+      color: var(--surface);
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+    }
+    .panel-stat {
+      margin-bottom: 20px;
+    }
+    .panel-stat-num {
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .panel-stat-label {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: rgba(237, 233, 225, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .panel-divider {
+      border: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin: 8px 0 24px 0;
+    }
+    .panel-lessons {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .panel-lesson-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: rgba(237, 233, 225, 0.5);
+    }
+    .panel-lesson-row.available {
+      color: var(--surface);
+    }
+    .panel-lesson-row.available .panel-lesson-link {
+      color: var(--surface);
+      text-decoration: none;
+    }
+    .panel-lesson-row.available .panel-lesson-link:hover {
+      text-decoration: underline;
+    }
+    .panel-lesson-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+    .panel-lesson-row.available .panel-lesson-dot {
+      background: #5ecf80;
+      box-shadow: 0 0 8px rgba(94, 207, 128, 0.4);
+    }
+
+    @media (max-width: 850px) {
+      .featured-course {
+        grid-template-columns: 1fr;
+      }
+      .featured-panel {
+        padding: 30px;
+      }
+      .panel-stat-num {
+        font-size: 2rem;
+      }
+      .featured-actions {
+        flex-direction: column;
+      }
+    }
   </style>
 </head>
 <body>
@@ -303,8 +475,8 @@
           <span class="featured-tag">Weber · Comparative Civilisation</span>
         </div>
         <div class="featured-actions">
-          <a href="chinese-culture/index.html" class="btn-course btn-course-primary">View Course Outline →</a>
-          <a href="chinese-culture/lesson01.html" class="btn-course btn-course-outline">Lesson 1 · 天地人</a>
+          <a href="../asserts/slides/chinese-culture/index.html" class="btn-course btn-course-primary">View Course Outline →</a>
+          <a href="../asserts/slides/chinese-culture/lesson01.html" class="btn-course btn-course-outline">Lesson 1 · 天地人</a>
         </div>
       </div>
       <div class="featured-panel">
@@ -324,7 +496,7 @@
         <div class="panel-lessons">
           <div class="panel-lesson-row available">
             <div class="panel-lesson-dot"></div>
-            <a href="chinese-culture/lesson01.html" class="panel-lesson-link">I · 天地人 — Slides available</a>
+            <a href="../asserts/slides/chinese-culture/lesson01.html" class="panel-lesson-link">I · 天地人 — Slides available</a>
           </div>
           <div class="panel-lesson-row">
             <div class="panel-lesson-dot"></div>
@@ -350,10 +522,7 @@
       </div>
     </div>
 
-<div class="container">
-  <section id="teaching" class="fade-in">
-    <p class="section-label">Courses</p>
-    <h2 class="section-title">Teaching</h2>
+    <!-- ── OTHER COURSES ── -->
     <div class="teaching-list">
 
       <!-- <div class="course-item">
