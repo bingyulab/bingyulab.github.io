@@ -1,0 +1,1598 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第一课 · 天地人</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #0f0d08;
+  --ink2: #1e1a10;
+  --paper: #f5f0e8;
+  --paper2: #ede5d4;
+  --red: #c0392b;
+  --red2: #e05040;
+  --gold: #b89040;
+  --gold2: #d4ad60;
+  --jade: #2e7d5a;
+  --blue: #2a5a8a;
+  --soft: rgba(255,255,255,0.08);
+  --border: rgba(255,255,255,0.12);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body {
+  background:#0f0d08;
+  font-family:'Cormorant Garamond','Noto Serif SC',Georgia,serif;
+  overflow:hidden;
+  width:100vw; height:100vh;
+  user-select:none;
+}
+
+/* ── SLIDE CONTAINER ── */
+#deck {
+  width:100vw; height:100vh;
+  position:relative;
+}
+
+.slide {
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  padding:52px 72px 40px;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.4s ease;
+  overflow:hidden;
+}
+.slide.active {
+  opacity:1;
+  pointer-events:all;
+}
+
+/* ── BACKGROUND VARIANTS ── */
+.bg-dark { background:var(--ink2); }
+.bg-darker { background:#0a0806; }
+.bg-red {
+  background: linear-gradient(135deg, #1a0a08 0%, #2a0e0a 100%);
+}
+.bg-gold {
+  background: linear-gradient(135deg, #120f05 0%, #1e1608 100%);
+}
+.bg-jade {
+  background: linear-gradient(135deg, #060f0a 0%, #0c1a12 100%);
+}
+.bg-blue {
+  background: linear-gradient(135deg, #080c14 0%, #0f1622 100%);
+}
+
+/* ── SLIDE HEADER ── */
+.slide-header {
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  margin-bottom:32px;
+  border-bottom:1px solid var(--border);
+  padding-bottom:18px;
+}
+
+.lesson-tag {
+  font-size:10px;
+  letter-spacing:0.4em;
+  text-transform:uppercase;
+  color:var(--gold);
+  opacity:0.7;
+}
+
+.slide-progress {
+  font-size:11px;
+  color:rgba(255,255,255,0.3);
+  letter-spacing:0.1em;
+}
+
+/* ── TYPOGRAPHY ── */
+h1 {
+  font-family:'Noto Serif SC',serif;
+  font-size:clamp(36px,5vw,60px);
+  font-weight:600;
+  color:var(--paper);
+  line-height:1.15;
+  letter-spacing:0.06em;
+}
+h1 .red { color:var(--red2); }
+h1 .gold { color:var(--gold2); }
+
+h2 {
+  font-family:'Noto Serif SC',serif;
+  font-size:clamp(20px,3vw,32px);
+  font-weight:400;
+  color:var(--paper);
+  letter-spacing:0.08em;
+  margin-bottom:8px;
+}
+
+h3 {
+  font-size:14px;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--gold);
+  opacity:0.8;
+  margin-bottom:12px;
+  font-weight:400;
+}
+
+.subtitle-fr {
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-size:clamp(14px,2vw,22px);
+  color:rgba(245,240,232,0.55);
+  margin-top:8px;
+}
+.subtitle-en {
+  font-family:'IM Fell English',serif;
+  font-size:clamp(12px,1.5vw,18px);
+  color:var(--gold);
+  opacity:0.65;
+  margin-top:4px;
+}
+
+p {
+  font-size:clamp(13px,1.4vw,17px);
+  line-height:1.8;
+  color:rgba(245,240,232,0.75);
+}
+
+/* ── LAYOUT HELPERS ── */
+.two-col {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+  flex:1;
+  align-items:start;
+}
+.three-col {
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:28px;
+  flex:1;
+  align-items:start;
+}
+.four-col {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+  flex:1;
+  align-items:start;
+}
+.flex-center {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex:1;
+}
+.flex-col { flex:1; display:flex; flex-direction:column; justify-content:center; }
+.gap8 { gap:8px; }
+
+/* ── CARD ── */
+.card {
+  background:var(--soft);
+  border:1px solid var(--border);
+  border-radius:2px;
+  padding:20px 22px;
+  position:relative;
+}
+.card::before {
+  content:'';
+  position:absolute;
+  top:0; left:0;
+  width:3px; height:100%;
+}
+.card.red::before { background:var(--red); }
+.card.gold::before { background:var(--gold); }
+.card.jade::before { background:var(--jade); }
+.card.blue::before { background:var(--blue); }
+
+.card h4 {
+  font-family:'Noto Serif SC',serif;
+  font-size:18px;
+  color:var(--paper);
+  margin-bottom:8px;
+  letter-spacing:0.05em;
+}
+.card p { font-size:13px; line-height:1.75; }
+.card .tag {
+  font-size:9px;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  color:var(--gold);
+  opacity:0.6;
+  margin-bottom:6px;
+}
+
+/* ── ORACLE BONE BLOCK ── */
+.oracle-box {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  background:rgba(0,0,0,0.35);
+  border:1px solid rgba(184,144,64,0.2);
+  border-radius:3px;
+  padding:16px 12px 14px;
+  gap:8px;
+  position:relative;
+}
+.oracle-box .bone-label {
+  font-size:8px;
+  letter-spacing:0.3em;
+  text-transform:uppercase;
+  color:var(--gold);
+  opacity:0.5;
+  position:absolute;
+  top:6px; left:50%; transform:translateX(-50%);
+  white-space:nowrap;
+}
+.oracle-modern {
+  font-family:'Noto Serif SC',serif;
+  font-size:42px;
+  color:var(--gold2);
+  line-height:1;
+  margin-top:12px;
+}
+.oracle-desc {
+  font-size:11px;
+  color:rgba(245,240,232,0.55);
+  text-align:center;
+  line-height:1.5;
+  max-width:90px;
+}
+.oracle-pinyin {
+  font-size:11px;
+  color:var(--red2);
+  letter-spacing:0.05em;
+}
+
+/* evolution row */
+.evo-row {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-top:6px;
+  flex-wrap:wrap;
+}
+.evo-step {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:3px;
+}
+.evo-step .char {
+  font-family:'Noto Serif SC',serif;
+  font-size:26px;
+  color:rgba(245,240,232,0.8);
+  line-height:1;
+}
+.evo-step .lbl {
+  font-size:9px;
+  color:rgba(245,240,232,0.35);
+  letter-spacing:0.1em;
+}
+.evo-arrow {
+  font-size:14px;
+  color:rgba(245,240,232,0.2);
+  margin-bottom:12px;
+}
+
+/* ── SVG PICTOGRAPHS ── */
+.picto-wrap {
+  background:rgba(0,0,0,0.5);
+  border:1px solid rgba(184,144,64,0.15);
+  border-radius:3px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:12px;
+}
+
+/* ── CHARACTER GRID ── */
+.char-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+.char-item {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  padding:14px 8px 12px;
+  background:rgba(0,0,0,0.3);
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:2px;
+}
+.char-item .big {
+  font-family:'Noto Serif SC',serif;
+  font-size:34px;
+  color:var(--gold2);
+  line-height:1;
+}
+.char-item .py { font-size:11px; color:var(--red2); }
+.char-item .meaning { font-size:11px; color:rgba(245,240,232,0.5); text-align:center; line-height:1.4; }
+.char-item .note { font-size:10px; color:rgba(245,240,232,0.3); text-align:center; font-style:italic; }
+
+/* ── QUOTE BLOCK ── */
+.quote {
+  border-left:3px solid var(--red);
+  padding:16px 24px;
+  background:rgba(192,57,43,0.08);
+  margin:12px 0;
+}
+.quote .zh {
+  font-family:'Noto Serif SC',serif;
+  font-size:clamp(14px,1.8vw,20px);
+  color:var(--paper);
+  letter-spacing:0.1em;
+  line-height:1.7;
+}
+.quote .src { font-size:11px; color:var(--gold); opacity:0.6; margin-top:6px; }
+
+/* ── SCHOOL TAG ── */
+.school-tag {
+  display:inline-block;
+  padding:2px 10px;
+  border-radius:2px;
+  font-size:10px;
+  letter-spacing:0.15em;
+  margin-bottom:8px;
+  font-weight:600;
+}
+.school-tag.ru { background:rgba(192,57,43,0.25); color:var(--red2); }
+.school-tag.dao { background:rgba(46,125,90,0.25); color:#5ecfa0; }
+.school-tag.fa { background:rgba(42,90,138,0.25); color:#80b4e0; }
+
+/* ── YIN-YANG SVG WRAPPER ── */
+.diagram-wrap {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:16px;
+}
+.diagram-label {
+  font-size:11px;
+  letter-spacing:0.2em;
+  color:rgba(245,240,232,0.4);
+  text-align:center;
+  text-transform:uppercase;
+}
+
+/* ── TRIGRAM TABLE ── */
+.trigram-table {
+  width:100%;
+  border-collapse:collapse;
+}
+.trigram-table th {
+  font-size:10px;
+  letter-spacing:0.2em;
+  color:var(--gold);
+  opacity:0.6;
+  text-align:left;
+  padding:4px 10px;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  text-transform:uppercase;
+}
+.trigram-table td {
+  padding:7px 10px;
+  font-size:13px;
+  color:rgba(245,240,232,0.7);
+  border-bottom:1px solid rgba(255,255,255,0.04);
+  vertical-align:top;
+  line-height:1.5;
+}
+.trigram-table td:first-child {
+  font-family:'Noto Serif SC',serif;
+  font-size:22px;
+  color:var(--gold2);
+  text-align:center;
+  width:44px;
+}
+
+/* ── MIRROR BLOCK ── */
+.mirror-block {
+  background:linear-gradient(135deg,rgba(192,57,43,0.1),rgba(184,144,64,0.08));
+  border:1px solid rgba(192,57,43,0.25);
+  border-left:3px solid var(--red);
+  padding:18px 24px;
+  border-radius:0 3px 3px 0;
+  margin-top:auto;
+}
+.mirror-block .mirror-title {
+  font-size:9px;
+  letter-spacing:0.35em;
+  text-transform:uppercase;
+  color:var(--red2);
+  margin-bottom:8px;
+  opacity:0.8;
+}
+.mirror-block p { font-size:14px; line-height:1.7; }
+
+/* ── NEXT PREVIEW ── */
+.next-preview {
+  display:flex;
+  align-items:center;
+  gap:16px;
+  background:rgba(0,0,0,0.35);
+  border:1px solid rgba(255,255,255,0.06);
+  padding:16px 24px;
+  margin-top:16px;
+  border-radius:2px;
+}
+.next-preview .arrow { font-size:22px; color:var(--gold); }
+.next-preview .label { font-size:10px; letter-spacing:0.25em; color:rgba(255,255,255,0.3); text-transform:uppercase; margin-bottom:4px; }
+.next-preview .title { font-family:'Noto Serif SC',serif; font-size:18px; color:var(--paper); }
+
+/* ── NAVIGATION ── */
+#nav {
+  position:fixed;
+  bottom:24px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  align-items:center;
+  gap:12px;
+  z-index:100;
+}
+
+.nav-btn {
+  width:38px; height:38px;
+  border:1px solid rgba(255,255,255,0.15);
+  background:rgba(0,0,0,0.5);
+  color:rgba(255,255,255,0.6);
+  border-radius:50%;
+  cursor:pointer;
+  font-size:16px;
+  display:flex; align-items:center; justify-content:center;
+  transition:all 0.2s;
+}
+.nav-btn:hover { border-color:var(--gold); color:var(--gold); }
+
+#slide-counter {
+  font-size:12px;
+  color:rgba(255,255,255,0.3);
+  letter-spacing:0.15em;
+  min-width:50px;
+  text-align:center;
+}
+
+.dots {
+  display:flex;
+  gap:5px;
+}
+.dot {
+  width:5px; height:5px;
+  border-radius:50%;
+  background:rgba(255,255,255,0.2);
+  cursor:pointer;
+  transition:all 0.2s;
+}
+.dot.active { background:var(--gold); width:16px; border-radius:3px; }
+
+/* ── WUXING TABLE ── */
+.wx-row {
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:10px;
+  margin-top:8px;
+}
+.wx-cell {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:5px;
+  padding:12px 6px;
+  background:rgba(0,0,0,0.35);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:2px;
+}
+.wx-cell .wx-char {
+  font-family:'Noto Serif SC',serif;
+  font-size:28px;
+  line-height:1;
+}
+.wx-cell .wx-lbl { font-size:10px; color:rgba(245,240,232,0.4); letter-spacing:0.1em; }
+.wx-cell .wx-sub { font-size:10px; color:rgba(245,240,232,0.5); text-align:center; line-height:1.4; }
+
+/* colors */
+.wx-mu .wx-char { color:#5ecf80; }
+.wx-huo .wx-char { color:#e06040; }
+.wx-tu .wx-char { color:#c9a050; }
+.wx-jin .wx-char { color:#b8c8d8; }
+.wx-shui .wx-char { color:#5090d0; }
+</style>
+</head>
+<body>
+
+<a href="index.html" id="back-btn" title="Back to Course Outline" style="
+  position:fixed;top:16px;left:16px;z-index:9999;
+  display:inline-flex;align-items:center;gap:6px;
+  padding:7px 14px;border-radius:4px;
+  background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);
+  color:rgba(255,255,255,0.65);font-family:'DM Sans',sans-serif;font-size:12px;
+  letter-spacing:.06em;text-decoration:none;text-transform:uppercase;
+  backdrop-filter:blur(8px);transition:all .2s;
+" onmouseover="this.style.color='#fff';this.style.borderColor='rgba(255,255,255,0.4)'"
+   onmouseout="this.style.color='rgba(255,255,255,0.65)';this.style.borderColor='rgba(255,255,255,0.18)'">
+  ← Course Outline
+</a>
+<div id="deck">
+
+<!-- ══════════════════════════════════════════════
+  SLIDE 1 · COVER
+══════════════════════════════════════════════ -->
+<div class="slide bg-darker active" id="s1">
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:20px;position:relative;">
+    <!-- background 文 character -->
+    <div style="position:absolute;font-family:'Noto Serif SC',serif;font-size:400px;color:rgba(192,57,43,0.04);pointer-events:none;line-height:1;top:50%;left:50%;transform:translate(-50%,-50%);z-index:0;">天</div>
+
+    <div style="font-size:10px;letter-spacing:0.5em;color:var(--gold);opacity:0.6;text-transform:uppercase;z-index:1;">第一课 · Leçon I · Lesson 1</div>
+    <h1 style="z-index:1;font-size:clamp(52px,8vw,88px);">天地人</h1>
+    <div class="subtitle-fr" style="font-size:clamp(18px,2.5vw,28px);z-index:1;">Ciel, Terre, Humanité — Les trois dimensions du cosmos</div>
+    <div class="subtitle-en" style="font-size:clamp(14px,2vw,22px);z-index:1;">Heaven, Earth, Humanity — The Three Axes of the Cosmos</div>
+
+    <div style="display:flex;gap:36px;margin-top:24px;z-index:1;">
+      <div style="text-align:center;">
+        <div style="font-size:9px;letter-spacing:0.3em;color:rgba(255,255,255,0.25);text-transform:uppercase;margin-bottom:4px;">时长</div>
+        <div style="font-size:14px;color:rgba(245,240,232,0.6);">约 30 分钟</div>
+      </div>
+      <div style="width:1px;background:rgba(255,255,255,0.1);"></div>
+      <div style="text-align:center;">
+        <div style="font-size:9px;letter-spacing:0.3em;color:rgba(255,255,255,0.25);text-transform:uppercase;margin-bottom:4px;">甲骨文核心字</div>
+        <div style="font-size:14px;color:rgba(245,240,232,0.6);">天 · 地 · 人 · 从 · 众 · 入 · 男 · 女</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+  SLIDE 2 · ROADMAP
+══════════════════════════════════════════════ -->
+<div class="slide bg-dark" id="s2">
+    <div class="slide-header">
+    <span class="lesson-tag">第一课 · Leçon I</span>
+    <span class="slide-progress">导览 · Plan du cours</span>
+  </div>
+  <h2 style="margin-bottom:8px;">本课路线图 · Plan du cours</h2>
+  <div class="subtitle-en" style="margin-bottom:28px; font-size:16px;">Course Roadmap</div>
+  <div class="three-col" style="gap:24px;">
+    <div class="card red">
+      <div class="tag">第一部分 · Partie 1</div>
+      <h4 style="font-size:20px;">文字的根 · Racines scripturales</h4>
+      <p>从甲骨文出发，追溯天、地、人的字形演变——从具象场景到抽象符号。延伸：从、众、入、男、女。<br>
+      <span style="font-size:11px;color:rgba(245,240,232,0.45);font-style:italic;">L'évolution des caractères depuis les os oraculaires vers les concepts abstraits.</span></p>
+    </div>
+    <div class="card gold">
+      <div class="tag">第二部分 · Partie 2</div>
+      <h4 style="font-size:20px;">哲学的眼 · Regard philosophique</h4>
+      <p>儒、道、法三家如何定义「天」？易经中的天地人结构。比较：海德格尔的人栖居于世。<br>
+      <span style="font-size:11px;color:rgba(245,240,232,0.45);font-style:italic;">Le "Ciel" (Tian) vu par le confucianisme, le taoïsme et le légisme. Comparaison avec Heidegger.</span></p>
+    </div>
+    <div class="card jade">
+      <div class="tag">第三部分 · Partie 3</div>
+      <h4 style="font-size:20px;">宇宙的轮 · La roue cosmique</h4>
+      <p>一气→阴阳→三（天地人）→万物。四方、五行、八卦的生成逻辑。古代宇宙方位系统。<br>
+      <span style="font-size:11px;color:rgba(245,240,232,0.45);font-style:italic;">Du Yin-Yang aux Cinq Éléments (Wuxing) et aux Huit Trigrammes (Bagua).</span></p>
+    </div>
+  </div>
+  <div style="margin-top:24px;padding:14px 20px;background:rgba(0,0,0,0.25);border:1px solid rgba(255,255,255,0.06);border-radius:2px;">
+    <span style="font-size:10px;letter-spacing:0.25em;color:var(--gold);opacity:0.6;text-transform:uppercase;">核心问题 · Question centrale · </span>
+    <span style="font-size:14px;color:rgba(245,240,232,0.7);">汉字如何将宇宙观、人生观压缩进一个笔画？</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+  SLIDE 3 · 天 ORACLE BONE
+══════════════════════════════════════════════ -->
+<div class="slide bg-red" id="s3">
+  <div class="slide-header">
+    <span class="lesson-tag">甲骨文 · 第一字</span>
+    <span class="slide-progress">字源探索</span>
+  </div>
+  <div class="two-col" style="align-items:center;">
+    <!-- Left: evolution -->
+    <div style="display:flex;flex-direction:column;gap:20px;">
+      <div>
+        <h3 style="color:var(--red2);">天 tiān</h3>
+        <h2 style="font-size:clamp(28px,4vw,48px);">人头顶之上 → 天空</h2>
+        <p style="margin-top:10px;">甲骨文的「天」是一个人形，头部被特别标注一个大圆圈或横画，指示「人头顶之上的空间」。这片空间，是天。</p>
+        <p style="margin-top:8px;"><em style="color:var(--gold2);">Le caractère oracle montre un homme avec un repère sur la tête — l'espace au-dessus de la tête humaine.</em></p>
+      </div>
+
+      <div class="evo-row" style="align-items:flex-end;">
+        <!-- SVG Oracle Bone 天 -->
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+          <div class="picto-wrap">
+            <svg width="64" height="80" viewBox="0 0 64 80">
+              <!-- Oracle bone 天: person with mark above head -->
+              <!-- head marker (large mark = "above") -->
+              <line x1="16" y1="14" x2="48" y2="14" stroke="#d4ad60" stroke-width="3.5" stroke-linecap="round"/>
+              <!-- head -->
+              <circle cx="32" cy="26" r="9" fill="none" stroke="#d4ad60" stroke-width="2.5"/>
+              <!-- body -->
+              <line x1="32" y1="35" x2="32" y2="56" stroke="#d4ad60" stroke-width="2.5" stroke-linecap="round"/>
+              <!-- arms -->
+              <line x1="14" y1="44" x2="50" y2="44" stroke="#d4ad60" stroke-width="2" stroke-linecap="round"/>
+              <!-- legs -->
+              <line x1="32" y1="56" x2="18" y2="74" stroke="#d4ad60" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="32" y1="56" x2="46" y2="74" stroke="#d4ad60" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span style="font-size:9px;color:rgba(245,240,232,0.35);letter-spacing:0.15em;">甲骨文</span>
+          <span style="font-size:9px;color:var(--gold);opacity:0.7;">人+头顶标注</span>
+        </div>
+        <span class="evo-arrow">→</span>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+          <div class="picto-wrap">
+            <svg width="64" height="80" viewBox="0 0 64 80">
+              <!-- Bronze/Jinwen 天: more stylized -->
+              <line x1="14" y1="16" x2="50" y2="16" stroke="rgba(245,240,232,0.6)" stroke-width="3" stroke-linecap="round"/>
+              <line x1="32" y1="16" x2="32" y2="34" stroke="rgba(245,240,232,0.6)" stroke-width="2.5"/>
+              <line x1="14" y1="42" x2="50" y2="42" stroke="rgba(245,240,232,0.6)" stroke-width="2.5"/>
+              <line x1="32" y1="34" x2="18" y2="68" stroke="rgba(245,240,232,0.6)" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="32" y1="34" x2="46" y2="68" stroke="rgba(245,240,232,0.6)" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span style="font-size:9px;color:rgba(245,240,232,0.35);letter-spacing:0.15em;">金文</span>
+        </div>
+        <span class="evo-arrow">→</span>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+          <div class="picto-wrap" style="padding:16px 20px;">
+            <span style="font-family:'Noto Serif SC',serif;font-size:42px;color:rgba(245,240,232,0.7);line-height:1;">天</span>
+          </div>
+          <span style="font-size:9px;color:rgba(245,240,232,0.35);letter-spacing:0.15em;">楷书</span>
+        </div>
+      </div>
+
+      <div style="background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.07);padding:14px 18px;border-radius:2px;">
+        <span style="font-size:10px;letter-spacing:0.2em;color:var(--gold);opacity:0.7;display:block;margin-bottom:6px;text-transform:uppercase;">字形关键 · Clé du caractère</span>
+        <p style="font-size:13px;">横画「一」在人形之上 → 表示天空与至高无上的领域<br>The top stroke marks the space <em>above</em> a human being → heaven, the highest</p>
+      </div>
+    </div>
+
+    <!-- Right: five meanings -->
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <h3>天的五重含义 · Les cinq sens de 天</h3>
+      <div class="card red" style="padding:12px 16px;">
+        <div class="tag">① 物质之天</div>
+        <div style="font-family:'Noto Serif SC',serif;font-size:15px;color:var(--paper);">与地相对之天空 · le ciel physique</div>
+      </div>
+      <div class="card gold" style="padding:12px 16px;">
+        <div class="tag">② 主宰之天</div>
+        <div style="font-family:'Noto Serif SC',serif;font-size:15px;color:var(--paper);">皇天上帝，有人格的神 · le ciel souverain</div>
+        <div style="font-size:11px;color:rgba(245,240,232,0.45);margin-top:3px;">「获罪于天，无所祷也」——《论语》</div>
+      </div>
+      <div class="card jade" style="padding:12px 16px;">
+        <div class="tag">③ 运命之天</div>
+        <div style="font-family:'Noto Serif SC',serif;font-size:15px;color:var(--paper);">人所无奈之命运 · le destin</div>
+        <div style="font-size:11px;color:rgba(245,240,232,0.45);margin-top:3px;">「死生有命，富贵在天」——《论语》</div>
+      </div>
+      <div class="card blue" style="padding:12px 16px;">
+        <div class="tag">④ 自然之天</div>
+        <div style="font-family:'Noto Serif SC',serif;font-size:15px;color:var(--paper);">自然之运行 · la nature en mouvement</div>
+        <div style="font-size:11px;color:rgba(245,240,232,0.45);margin-top:3px;">「天何言哉？四时行焉，百物生焉」</div>
+      </div>
+      <div class="card" style="padding:12px 16px;border-left:3px solid rgba(200,180,120,0.5);">
+        <div class="tag">⑤ 义理之天</div>
+        <div style="font-family:'Noto Serif SC',serif;font-size:15px;color:var(--paper);">宇宙最高原理 · le principe suprême</div>
+        <div style="font-size:11px;color:rgba(245,240,232,0.45);margin-top:3px;">「天命之谓性」——《中庸》</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+  SLIDE 4 · 地 + 人 ORACLE BONE
+══════════════════════════════════════════════ -->
+<div class="slide bg-gold" id="s4">
+  <div class="slide-header">
+    <span class="lesson-tag">甲骨文 · 第二、三字</span>
+    <span class="slide-progress">字源探索</span>
+  </div>
+  <div class="two-col" style="gap:48px;">
+
+    <!-- 地 -->
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div>
+        <h3 style="color:var(--gold2);">地 dì</h3>
+        <h2>土地延伸 → 大地</h2>
+        <p style="margin-top:8px;">「地」的古字根是「土」——地面上隆起的土堆形。后加「也」（延伸扩展之义），表示土地无限延展、承载万物。</p>
+        <p style="margin-top:8px;"><em style="color:var(--gold2);font-size:13px;">Le caractère oracle "Terre" monte un monticule (土) de terre. L'ajout de "也" indique une extension infinie qui porte toute chose.</em></p>
+      </div>
+      <div class="evo-row" style="align-items:flex-end;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+          <div class="picto-wrap">
+            <svg width="64" height="80" viewBox="0 0 64 80">
+              <!-- 土: cross on ground = mound -->
+              <line x1="20" y1="70" x2="44" y2="70" stroke="#d4ad60" stroke-width="3" stroke-linecap="round"/>
+              <line x1="32" y1="30" x2="32" y2="70" stroke="#d4ad60" stroke-width="3" stroke-linecap="round"/>
+              <line x1="18" y1="48" x2="46" y2="48" stroke="#d4ad60" stroke-width="2.5" stroke-linecap="round"/>
+              <!-- extending lines below (地 = spread) -->
+              <line x1="10" y1="70" x2="54" y2="70" stroke="#d4ad60" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+            </svg>
+          </div>
+          <span style="font-size:9px;color:rgba(245,240,232,0.35);">甲骨文(土)</span>
+        </div>
+        <span class="evo-arrow">→</span>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+          <div class="picto-wrap" style="padding:16px 20px;">
+            <span style="font-family:'Noto Serif SC',serif;font-size:42px;color:rgba(245,240,232,0.7);line-height:1;">地</span>
+          </div>
+          <span style="font-size:9px;color:rgba(245,240,232,0.35);">楷书</span>
+        </div>
+      </div>
+      <div class="quote" style="margin:0;">
+        <div class="zh">地势坤，君子以厚德载物</div>
+        <div class="src">《易经》·坤卦 — 大地之德：承载一切，厚积而不显</div>
+      </div>
+      <p style="font-size:12px;font-style:italic;color:rgba(245,240,232,0.45);">La terre porte tout sans se vanter — la vertu du souverain est d'accueillir et de nourrir.</p>
+    </div>
+
+    <!-- 人 -->
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div>
+        <h3 style="color:var(--gold2);">人 rén</h3>
+        <h2>侧立人形 → 人类</h2>
+        <p style="margin-top:8px;">甲骨文「人」是侧面站立的人形，身体前倾，强调人作为直立行走的生命体。注意：「人」侧立，「入」是楔形进入之形——两者截然不同。</p>
+        <p style="margin-top:8px;"><em style="color:var(--gold2);font-size:13px;">"Humain" montre un profil debout incliné vers l'avant. À ne pas confondre avec "Entrer" (入), qui est une forme de coin pointant vers l'intérieur.</em></p>
+      </div>
+      <div class="evo-row" style="align-items:flex-end;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+          <div class="picto-wrap">
+            <svg width="64" height="80" viewBox="0 0 64 80">
+              <!-- 人 oracle: side profile, leaning forward -->
+              <!-- head -->
+              <circle cx="38" cy="18" r="8" fill="none" stroke="#d4ad60" stroke-width="2.5"/>
+              <!-- torso leaning -->
+              <line x1="34" y1="26" x2="26" y2="55" stroke="#d4ad60" stroke-width="2.5" stroke-linecap="round"/>
+              <!-- front leg -->
+              <line x1="26" y1="55" x2="40" y2="76" stroke="#d4ad60" stroke-width="2.5" stroke-linecap="round"/>
+              <!-- back leg -->
+              <line x1="26" y1="55" x2="14" y2="72" stroke="#d4ad60" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span style="font-size:9px;color:rgba(245,240,232,0.35);">甲骨文(人)</span>
+          <span style="font-size:9px;color:var(--gold);opacity:0.7;">侧立前倾</span>
+        </div>
+        <span class="evo-arrow">vs</span>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+          <div class="picto-wrap">
+            <svg width="64" height="80" viewBox="0 0 64 80">
+              <!-- 入 oracle: wedge entering inward, pointing DOWN/INWARD -->
+              <line x1="32" y1="12" x2="12" y2="72" stroke="#e05040" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="32" y1="12" x2="52" y2="72" stroke="#e05040" stroke-width="2.5" stroke-linecap="round"/>
+              <!-- small inner V to show entering -->
+              <line x1="24" y1="50" x2="32" y2="65" stroke="#e05040" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+              <line x1="40" y1="50" x2="32" y2="65" stroke="#e05040" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+            </svg>
+          </div>
+          <span style="font-size:9px;color:rgba(245,240,232,0.35);">甲骨文(入)</span>
+          <span style="font-size:9px;color:var(--red2);opacity:0.9;">楔形进入</span>
+        </div>
+      </div>
+      <div style="background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.07);padding:12px 16px;border-radius:2px;">
+        <p style="font-size:12px;line-height:1.7;">
+          <strong style="color:var(--gold2);">人</strong> ← 侧立之形，重心在人本身的存在状态<br>
+          <strong style="color:var(--red2);">入</strong> ← 楔形尖端，强调方向与动作（进入）<br>
+          <span style="color:rgba(245,240,232,0.4);font-style:italic;">Distinction graphique cruciale pour les apprenants</span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+  SLIDE 5 · 人 字族：从、众、男、女
+══════════════════════════════════════════════ -->
+<div class="slide bg-dark" id="s5">
+  <div class="slide-header">
+    <span class="lesson-tag">甲骨文 · 人字族</span>
+    <span class="slide-progress">字形延伸</span>
+  </div>
+  <h2 style="margin-bottom:22px;">以「人」为根的字族 · La famille de 人</h2>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;flex:1;">
+
+    <!-- 从 -->
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div style="display:flex;align-items:center;gap:16px;">
+        <div class="picto-wrap">
+          <svg width="72" height="88" viewBox="0 0 72 88">
+            <!-- 从: two people, one following -->
+            <!-- back person -->
+            <circle cx="22" cy="18" r="6" fill="none" stroke="rgba(245,240,232,0.5)" stroke-width="2"/>
+            <line x1="20" y1="24" x2="14" y2="48" stroke="rgba(245,240,232,0.5)" stroke-width="2" stroke-linecap="round"/>
+            <line x1="14" y1="48" x2="22" y2="66" stroke="rgba(245,240,232,0.5)" stroke-width="2" stroke-linecap="round"/>
+            <line x1="14" y1="48" x2="6" y2="64" stroke="rgba(245,240,232,0.5)" stroke-width="2" stroke-linecap="round"/>
+            <!-- front person (leading) -->
+            <circle cx="46" cy="14" r="7" fill="none" stroke="#d4ad60" stroke-width="2.5"/>
+            <line x1="43" y1="21" x2="36" y2="50" stroke="#d4ad60" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="36" y1="50" x2="50" y2="72" stroke="#d4ad60" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="36" y1="50" x2="24" y2="70" stroke="#d4ad60" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div style="font-family:'Noto Serif SC',serif;font-size:44px;color:var(--gold2);line-height:1;">从</div>
+          <div style="font-size:11px;color:var(--red2);margin-top:2px;">cóng</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:10px;letter-spacing:0.2em;color:var(--gold);opacity:0.6;margin-bottom:5px;text-transform:uppercase;">字源</div>
+        <p style="font-size:13px;">二人相随之形 → 跟随、从属<br><em style="color:rgba(245,240,232,0.4);font-size:12px;">Deux personnes, l'une suivant l'autre → suivre</em></p>
+      </div>
+      <div style="background:rgba(0,0,0,0.3);padding:10px 14px;border-radius:2px;border:1px solid rgba(255,255,255,0.06);">
+        <p style="font-size:12px;">相关字 (Mots liés)：<span style="color:var(--gold2);">从容</span>（calme/paisible）<span style="color:var(--gold2);">、服从</span> (obéir)<span style="color:var(--gold2);">、听从</span> (écouter)</p>
+      </div>
+    </div>
+
+    <!-- 众 -->
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div style="display:flex;align-items:center;gap:16px;">
+        <div class="picto-wrap">
+          <svg width="72" height="88" viewBox="0 0 72 88">
+            <!-- 众: three people, triangle arrangement -->
+            <!-- top center person -->
+            <circle cx="36" cy="12" r="6" fill="none" stroke="#d4ad60" stroke-width="2.5"/>
+            <line x1="34" y1="18" x2="28" y2="38" stroke="#d4ad60" stroke-width="2.5" stroke-linecap="round"/>
+            <line x1="28" y1="38" x2="36" y2="54" stroke="#d4ad60" stroke-width="2" stroke-linecap="round"/>
+            <line x1="28" y1="38" x2="20" y2="52" stroke="#d4ad60" stroke-width="2" stroke-linecap="round"/>
+            <!-- bottom left person -->
+            <circle cx="16" cy="52" r="5" fill="none" stroke="rgba(245,240,232,0.5)" stroke-width="2"/>
+            <line x1="15" y1="57" x2="10" y2="74" stroke="rgba(245,240,232,0.5)" stroke-width="2" stroke-linecap="round"/>
+            <line x1="10" y1="74" x2="16" y2="86" stroke="rgba(245,240,232,0.5)" stroke-width="2" stroke-linecap="round"/>
+            <line x1="10" y1="74" x2="4" y2="86" stroke="rgba(245,240,232,0.5)" stroke-width="2" stroke-linecap="round"/>
+            <!-- bottom right person -->
+            <circle cx="56" cy="52" r="5" fill="none" stroke="rgba(245,240,232,0.5)" stroke-width="2"/>
+            <line x1="55" y1="57" x2="50" y2="74" stroke="rgba(245,240,232,0.5)" stroke-width="2" stroke-linecap="round"/>
+            <line x1="50" y1="74" x2="56" y2="86" stroke="rgba(245,240,232,0.5)" stroke-width="2" stroke-linecap="round"/>
+            <line x1="50" y1="74" x2="44" y2="86" stroke="rgba(245,240,232,0.5)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div style="font-family:'Noto Serif SC',serif;font-size:44px;color:var(--gold2);line-height:1;">众</div>
+          <div style="font-size:11px;color:var(--red2);margin-top:2px;">zhòng</div>
+        </div>
+      </div>
+      <div>
+        <div style="font-size:10px;letter-spacing:0.2em;color:var(--gold);opacity:0.6;margin-bottom:5px;text-transform:uppercase;">字源</div>
+        <p style="font-size:13px;">三人并列，三为多数 → 众人、群体<br><em style="color:rgba(245,240,232,0.4);font-size:12px;">Trois personnes = pluralité → la foule, le peuple</em></p>
+      </div>
+      <div style="background:rgba(0,0,0,0.3);padding:10px 14px;border-radius:2px;border:1px solid rgba(255,255,255,0.06);">
+        <p style="font-size:12px;">「三」在汉字中常表示「多」<br><em style="color:rgba(245,240,232,0.4);font-size:11px;">"Trois" indique souvent le "pluriel" dans les caractères :</em><br><span style="color:var(--gold2);">森林</span>（三木, forêt）<span style="color:var(--gold2);">、淼</span>（三水, vaste étendue d'eau）<span style="color:var(--gold2);">、品</span>（三口, qualité/goûter）</p>
+      </div>
+    </div>
+
+    <!-- 男女 -->
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <!-- 男 -->
+      <div style="display:flex;gap:14px;align-items:center;">
+        <div class="picto-wrap" style="padding:10px;">
+          <svg width="60" height="70" viewBox="0 0 60 70">
+            <!-- 男: 田 (field) on top + 力 (force) below -->
+            <!-- 田 rectangle with cross -->
+            <rect x="10" y="4" width="40" height="30" fill="none" stroke="#d4ad60" stroke-width="2.5" rx="1"/>
+            <line x1="30" y1="4" x2="30" y2="34" stroke="#d4ad60" stroke-width="2"/>
+            <line x1="10" y1="19" x2="50" y2="19" stroke="#d4ad60" stroke-width="2"/>
+            <!-- 力 below: curved muscle/arm -->
+            <path d="M18 42 Q28 36 36 44 Q42 52 32 62" fill="none" stroke="#d4ad60" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div style="display:flex;align-items:baseline;gap:8px;">
+            <span style="font-family:'Noto Serif SC',serif;font-size:38px;color:var(--gold2);line-height:1;">男</span>
+            <span style="font-size:11px;color:var(--red2);">nán</span>
+          </div>
+          <p style="font-size:12px;margin-top:4px;">田(田地) + 力(力气) → 男性<br><em style="color:rgba(245,240,232,0.4);font-size:11px;">Champ + Force = l'homme</em></p>
+        </div>
+      </div>
+
+      <!-- 女 -->
+      <div style="display:flex;gap:14px;align-items:center;">
+        <div class="picto-wrap" style="padding:10px;">
+          <svg width="60" height="70" viewBox="0 0 60 70">
+            <!-- Oracle Female (女): Kneeling person with crossed arms -->
+            <!-- Curved kneeling body -->
+            <path d="M34 16 C22 32, 22 46, 36 60" fill="none" stroke="#e08070" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Crossed arms -->
+            <path d="M18 32 L34 38" fill="none" stroke="#e08070" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M18 40 L34 34" fill="none" stroke="#e08070" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Kneeling leg base -->
+            <path d="M26 48 L14 60 L36 60" fill="none" stroke="#e08070" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div style="display:flex;align-items:baseline;gap:8px;">
+            <span style="font-family:'Noto Serif SC',serif;font-size:38px;color:#e08070;line-height:1;">女</span>
+            <span style="font-size:11px;color:var(--red2);">nǚ</span>
+          </div>
+          <p style="font-size:12px;margin-top:4px;">双手交叠跪坐之形 → 女性<br><em style="color:rgba(245,240,232,0.4);font-size:11px;">Figure agenouillée bras croisés → la femme</em></p>
+        </div>
+      </div>
+
+      <div style="background:rgba(0,0,0,0.3);padding:10px 14px;border-radius:2px;border:1px solid rgba(255,255,255,0.06);">
+        <p style="font-size:12px;line-height:1.7;">「好」= 女+子 → 美好（母与子）<em style="color:rgba(245,240,232,0.4);font-size:11px;">"Bon/Bien" = Femme + Enfant → Merveilleux (Mère et enfant)</em><br>「妈妈、姐姐、妹妹」均从女旁<em style="color:rgba(245,240,232,0.4);font-size:11px;">"Maman, grande sœur, petite sœur" ont toutes la clé de la femme</em></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+  SLIDE 6 · 三家论天
+══════════════════════════════════════════════ -->
+<div class="slide bg-dark" id="s6">
+  <div class="slide-header">
+    <span class="lesson-tag">哲学视野 · Regard philosophique</span>
+    <span class="slide-progress">三家论天 / Trois Écoles et le Ciel</span>
+  </div>
+  <h2 style="margin-bottom:20px;">儒、道、法三家如何定义「天」<br><span style="font-size:24px;color:rgba(245,240,232,0.6);font-style:italic;font-family:'Cormorant Garamond', serif;">Comment le Confucianisme, le Taoïsme et le Légisme définissent-ils le "Ciel" ?</span></h2>
+  <div class="three-col" style="gap:22px;">
+
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div class="card red">
+        <div class="school-tag ru">儒家 · Confucianisme</div>
+        <h4>主宰之天 + 义理之天<br><span style="font-size:14px;color:rgba(245,240,232,0.6);font-style:italic;font-weight:normal;">Le Ciel souverain et moral</span></h4>
+        <p style="font-size:13px;">天是道德秩序的最高来源。天命赋予人德性，君子必须上达于天。天不是机械规律，是有目的的道德力量。<br>
+        <em style="color:rgba(245,240,232,0.5);font-size:11.5px;margin-top:4px;display:block;">Le Ciel est la source suprême de l'ordre moral. Le Mandat du Ciel dote l'homme de vertu. Ce n'est pas une loi mécanique, mais une force morale motivée.</em></p>
+      </div>
+      <div class="quote" style="margin:0;">
+        <div class="zh" style="font-size:13px;">「天生德于予，桓魋其如予何？」</div>
+        <div class="src">——孔子，《论语》</div>
+      </div>
+      <div class="quote" style="margin:0;">
+        <div class="zh" style="font-size:13px;">「天何言哉？四时行焉，百物生焉。天何言哉？」</div>
+        <div class="src">——孔子，《论语·阳货》</div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div class="card jade">
+        <div class="school-tag dao">道家 · Taoïsme</div>
+        <h4>自然之天 · 物质之天<br><span style="font-size:14px;color:rgba(245,240,232,0.6);font-style:italic;font-weight:normal;">Le Ciel naturel et matériel</span></h4>
+        <p style="font-size:13px;">天即自然之运行，无目的，无意志，无道德色彩。「道法自然」——天不赏善不罚恶，只是运行的有机整体。去除「天命」中的道德意涵。<br>
+        <em style="color:rgba(245,240,232,0.5);font-size:11.5px;margin-top:4px;display:block;">Le Ciel est le cours de la nature, sans but ni volonté. Il ne récompense ni ne punit. La connotation morale du Mandat Céleste en est retirée.</em></p>
+      </div>
+      <div class="quote" style="margin:0;">
+        <div class="zh" style="font-size:13px;">「天地不仁，以万物为刍狗」</div>
+        <div class="src">——《道德经》第五章</div>
+      </div>
+      <div class="quote" style="margin:0;">
+        <div class="zh" style="font-size:13px;">「人法地，地法天，天法道，道法自然」</div>
+        <div class="src">——《道德经》第二十五章</div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div class="card blue">
+        <div class="school-tag fa">法家 · Légisme</div>
+        <h4>否定天命 · 强调人制<br><span style="font-size:14px;color:rgba(245,240,232,0.6);font-style:italic;font-weight:normal;">Négation du Ciel, Accent sur l'Institution Humaine</span></h4>
+        <p style="font-size:13px;">法家基本否定天命在政治中的作用。社会秩序来自于制度、法律与权力，而非天的授权。君主的权威源于法、术、势，而非德行与天命。<br>
+        <em style="color:rgba(245,240,232,0.5);font-size:11.5px;margin-top:4px;display:block;">Le légisme nie le rôle du Ciel en politique. L'ordre social découle de la loi (Fa), des méthodes (Shu) et du pouvoir (Shi), et non de la vertu ou du Ciel.</em></p>
+      </div>
+      <div class="quote" style="margin:0;">
+        <div class="zh" style="font-size:13px;">「明主之道，一法而不求智，固术而不慕信」</div>
+        <div class="src">——韩非子，《韩非子·五蠹》</div>
+      </div>
+      <p style="font-size:12px;color:rgba(245,240,232,0.45);font-style:italic;">Le légisme : l'ordre social est artificiel, produit de lois et de pouvoir — non de la volonté du Ciel.</p>
+    </div>
+
+  </div>
+  <div style="margin-top:18px;background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.07);padding:12px 18px;border-radius:2px;">
+    <p style="font-size:13px;"><span style="color:var(--gold2);">关键问题：</span>三家虽然对「天」的理解各异，但均以「天地人」的三维框架为思考基础——这个框架本身才是中国文化最深层的共识。</p>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+  SLIDE 7 · 易经 + HEIDEGGER
+══════════════════════════════════════════════ -->
+<div class="slide bg-darker" id="s7">
+  <div class="slide-header">
+    <span class="lesson-tag">易经 · 跨文化比较</span>
+    <span class="slide-progress">天地人结构</span>
+  </div>
+  <div class="two-col" style="align-items:start;gap:44px;">
+    <div style="display:flex;flex-direction:column;gap:18px;">
+      <h3 style="color:var(--gold2);">易经·天地人</h3>
+      <h2 style="font-size:clamp(20px,2.8vw,36px);">《周易》：天地是人的行动准则</h2>
+
+      <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(184,144,64,0.2);padding:22px 24px;border-radius:2px;display:flex;flex-direction:column;gap:16px;">
+        <div>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+            <!-- Qian trigram lines -->
+            <div style="display:flex;flex-direction:column;gap:3px;">
+              <div style="width:28px;height:3px;background:var(--gold2);border-radius:1px;"></div>
+              <div style="width:28px;height:3px;background:var(--gold2);border-radius:1px;"></div>
+              <div style="width:28px;height:3px;background:var(--gold2);border-radius:1px;"></div>
+            </div>
+            <div>
+              <span style="font-size:10px;letter-spacing:0.2em;color:var(--gold);opacity:0.6;text-transform:uppercase;">乾卦 ☰ · Qián</span>
+            </div>
+          </div>
+          <div class="quote" style="margin:0;border-left-color:var(--gold);">
+            <div class="zh" style="font-size:clamp(15px,2vw,22px);">天行健，君子以自强不息</div>
+            <div class="src">《周易·乾卦》</div>
+          </div>
+          <p style="font-size:13px;margin-top:8px;color:rgba(245,240,232,0.55);font-style:italic;">Le mouvement du ciel est vigoureux et incessant — le noble homme se perfectionne sans relâche.</p>
+        </div>
+        <div>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+            <!-- Kun trigram lines (broken) -->
+            <div style="display:flex;flex-direction:column;gap:3px;">
+              <div style="display:flex;gap:4px;"><div style="width:12px;height:3px;background:#5ecf80;border-radius:1px;"></div><div style="width:12px;height:3px;background:#5ecf80;border-radius:1px;"></div></div>
+              <div style="display:flex;gap:4px;"><div style="width:12px;height:3px;background:#5ecf80;border-radius:1px;"></div><div style="width:12px;height:3px;background:#5ecf80;border-radius:1px;"></div></div>
+              <div style="display:flex;gap:4px;"><div style="width:12px;height:3px;background:#5ecf80;border-radius:1px;"></div><div style="width:12px;height:3px;background:#5ecf80;border-radius:1px;"></div></div>
+            </div>
+            <span style="font-size:10px;letter-spacing:0.2em;color:#5ecf80;opacity:0.7;text-transform:uppercase;">坤卦 ☷ · Kūn</span>
+          </div>
+          <div class="quote" style="margin:0;border-left-color:#5ecf80;">
+            <div class="zh" style="font-size:clamp(15px,2vw,22px);">地势坤，君子以厚德载物</div>
+            <div class="src">《周易·坤卦》</div>
+          </div>
+          <p style="font-size:13px;margin-top:8px;color:rgba(245,240,232,0.55);font-style:italic;">La vertu de la terre est soumise et portante — le noble homme soutient les êtres par sa vertu profonde.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:18px;">
+      <h3 style="color:#80b4e0;">跨文化比较 · Comparaison transculturelle</h3>
+      <h2 style="font-size:clamp(16px,2.2vw,28px);">海德格尔：人栖居于天地之间<br><span style="font-size:20px;color:rgba(245,240,232,0.6);font-style:italic;font-family:'Cormorant Garamond', serif;">Heidegger : L'Homme habite entre Ciel et Terre</span></h2>
+      <div class="card blue" style="padding:18px 20px;">
+        <div class="tag" style="color:#80b4e0;">Heidegger · Être et Temps</div>
+        <p style="font-size:14px;line-height:1.8;color:rgba(245,240,232,0.75);">海德格尔认为「栖居」(Wohnen) 是人的基本存在方式——人不是孤立的个体，而是处于天地（世界）之中，与事物、他人共处。</p>
+        <p style="font-size:13px;margin-top:10px;color:rgba(245,240,232,0.5);font-style:italic;">« Bauen, Wohnen, Denken » (1951) : habiter, c'est être en rapport avec le ciel, la terre, les mortels et les divins.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:16px 20px;border-radius:2px;">
+        <div style="font-size:10px;letter-spacing:0.25em;color:var(--gold);opacity:0.6;margin-bottom:10px;text-transform:uppercase;">相通之处 · Points communs</div>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div style="display:flex;gap:10px;align-items:flex-start;">
+            <span style="color:var(--gold2);font-size:14px;flex-shrink:0;">◆</span>
+            <p style="font-size:13px;">人不孤立存在，必须「栖居」于天地之间（易经：天地人三才）<br><em style="color:rgba(245,240,232,0.4);font-size:11px;">L'homme n'existe pas isolé, il doit "habiter" entre ciel et terre (Yijing : Les trois puissances).</em></p>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;">
+            <span style="color:var(--gold2);font-size:14px;flex-shrink:0;">◆</span>
+            <p style="font-size:13px;">天地的运行法则是人行动的准则（易经：效法乾坤）<br><em style="color:rgba(245,240,232,0.4);font-size:11px;">Les lois de l'univers guident les actions humaines (Yijing : imiter Qian et Kun).</em></p>
+          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;">
+            <span style="color:var(--gold2);font-size:14px;flex-shrink:0;">◆</span>
+            <p style="font-size:13px;">人是「被抛入」天地之中的——非造物主，是参与者<br><em style="color:rgba(245,240,232,0.4);font-size:11px;">L'homme est "jeté" dans le monde — il n'est pas le créateur, mais un participant.</em></p>
+          </div>
+        </div>
+      </div>
+      <div style="background:rgba(192,57,43,0.08);border:1px solid rgba(192,57,43,0.15);padding:12px 16px;border-radius:2px;">
+        <p style="font-size:12px;color:rgba(245,240,232,0.5);">区别：海德格尔强调个体的「此在」(Dasein)；易经强调的是群体与宇宙的和谐共振。<br><em style="font-size:11px;font-style:italic;">Différence : Heidegger souligne le Dasein (être-là) de l'individu ; le Yijing met l'accent sur la résonance harmonieuse entre le groupe et l'univers.</em></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+  SLIDE 8 · 一气化阴阳
+══════════════════════════════════════════════ -->
+<div class="slide bg-jade" id="s8">
+  <div class="slide-header">
+    <span class="lesson-tag">宇宙生成论 · Cosmogonie</span>
+    <span class="slide-progress">一气阴阳</span>
+  </div>
+  <div class="two-col" style="align-items:center;gap:44px;">
+
+    <!-- Left: taichi diagram -->
+    <div class="diagram-wrap">
+      <div class="diagram-label">太极图 · Taiji</div>
+      <svg width="220" height="220" viewBox="0 0 220 220">
+        <!-- Taichi: ancient orientation, yang=right(warm half), yin=left(cool half) -->
+        <!-- Background circle -->
+        <circle cx="110" cy="110" r="104" fill="#0c1a12" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <!-- Yang half (right, warm = solid red) -->
+        <path d="M110,6 A104,104 0 0,1 110,214 A52,52 0 0,0 110,110 A52,52 0 0,1 110,6" fill="rgba(192,57,43,0.45)"/>
+        <!-- Yin half (left, cool = blue) -->
+        <path d="M110,6 A104,104 0 0,0 110,214 A52,52 0 0,1 110,110 A52,52 0 0,0 110,6" fill="rgba(30,60,100,0.45)"/>
+        <!-- Small circles -->
+        <circle cx="110" cy="58" r="22" fill="rgba(30,60,100,0.6)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        <circle cx="110" cy="162" r="22" fill="rgba(192,57,43,0.6)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        <!-- Outer ring -->
+        <circle cx="110" cy="110" r="104" fill="none" stroke="rgba(184,144,64,0.3)" stroke-width="2"/>
+        <!-- Labels -->
+        <text x="152" y="110" fill="rgba(245,210,160,0.8)" font-size="18" font-family="Noto Serif SC,serif" text-anchor="middle" dominant-baseline="middle">阳</text>
+        <text x="68" y="110" fill="rgba(180,210,245,0.8)" font-size="18" font-family="Noto Serif SC,serif" text-anchor="middle" dominant-baseline="middle">阴</text>
+      </svg>
+      <div style="display:flex;gap:20px;margin-top:4px;">
+        <div style="display:flex;align-items:center;gap:6px;">
+          <div style="width:14px;height:3px;background:var(--red2);border-radius:1px;"></div>
+          <span style="font-size:11px;color:rgba(245,240,232,0.5);">阳 · 实线 · 温暖</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:6px;">
+          <div style="width:6px;height:3px;background:#5090d0;border-radius:1px;"></div>
+          <div style="width:6px;height:3px;background:#5090d0;border-radius:1px;"></div>
+          <span style="font-size:11px;color:rgba(245,240,232,0.5);">阴 · 虚线 · 寒冷</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: generation chain -->
+    <div style="display:flex;flex-direction:column;gap:20px;">
+      <div>
+        <h3 style="color:#5ecf80;">《道德经》第四十二章</h3>
+        <div class="quote">
+          <div class="zh">道生一，一生二，<br>二生三，三生万物。</div>
+          <div class="src">老子·道德经</div>
+        </div>
+      </div>
+
+      <!-- chain visualization -->
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="display:grid;grid-template-columns:60px 20px 1fr;align-items:center;gap:8px;">
+          <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.08);padding:8px;text-align:center;border-radius:2px;">
+            <span style="font-family:'Noto Serif SC',serif;font-size:22px;color:rgba(245,240,232,0.9);">道</span>
+          </div>
+          <span style="color:rgba(255,255,255,0.3);font-size:16px;">→</span>
+          <p style="font-size:13px;">无形无名的宇宙本原 · le principe originel inexprimable</p>
+        </div>
+        <div style="display:grid;grid-template-columns:60px 20px 1fr;align-items:center;gap:8px;">
+          <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.08);padding:8px;text-align:center;border-radius:2px;">
+            <span style="font-family:'Noto Serif SC',serif;font-size:22px;color:rgba(245,240,232,0.9);">一</span>
+          </div>
+          <span style="color:rgba(255,255,255,0.3);font-size:16px;">→</span>
+          <p style="font-size:13px;">混沌未分之气 · le souffle primordial indifférencié</p>
+        </div>
+        <div style="display:grid;grid-template-columns:60px 20px 1fr;align-items:center;gap:8px;">
+          <div style="background:rgba(192,57,43,0.2);border:1px solid rgba(192,57,43,0.3);padding:8px;text-align:center;border-radius:2px;">
+            <span style="font-family:'Noto Serif SC',serif;font-size:22px;color:var(--red2);">二</span>
+          </div>
+          <span style="color:rgba(255,255,255,0.3);font-size:16px;">→</span>
+          <p style="font-size:13px;"><strong style="color:var(--red2);">阴阳</strong>：气分为两极，温暖(阳)与寒冷(阴)<br><em style="font-size:11px;color:rgba(245,240,232,0.4);">le yin et le yang</em></p>
+        </div>
+        <div style="display:grid;grid-template-columns:60px 20px 1fr;align-items:center;gap:8px;">
+          <div style="background:rgba(46,125,90,0.2);border:1px solid rgba(46,125,90,0.3);padding:8px;text-align:center;border-radius:2px;">
+            <span style="font-family:'Noto Serif SC',serif;font-size:22px;color:#5ecf80;">三</span>
+          </div>
+          <span style="color:rgba(255,255,255,0.3);font-size:16px;">→</span>
+          <p style="font-size:13px;"><strong style="color:#5ecf80;">天地人</strong>：阴阳之间产生第三元素——人<br><em style="font-size:11px;color:rgba(245,240,232,0.4);">Ciel, Terre, Humanité</em></p>
+        </div>
+        <div style="display:grid;grid-template-columns:60px 20px 1fr;align-items:center;gap:8px;">
+          <div style="background:rgba(184,144,64,0.2);border:1px solid rgba(184,144,64,0.3);padding:8px;text-align:center;border-radius:2px;">
+            <span style="font-family:'Noto Serif SC',serif;font-size:22px;color:var(--gold2);">万物</span>
+          </div>
+          <span style="color:rgba(255,255,255,0.3);font-size:16px;">→</span>
+          <p style="font-size:13px;">天地人三才交织，化生世间一切存在<br><em style="font-size:11px;color:rgba(245,240,232,0.4);">les dix mille êtres</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+  SLIDE 9 · 古代方位 + 两仪四象
+══════════════════════════════════════════════ -->
+<div class="slide bg-blue" id="s9">
+  <div class="slide-header">
+    <span class="lesson-tag">宇宙方位 · Orientation cosmologique</span>
+    <span class="slide-progress">两仪生四象</span>
+  </div>
+  <div class="two-col" style="align-items:center;gap:40px;">
+
+    <!-- Cosmological wheel diagram -->
+    <div class="diagram-wrap">
+      <div class="diagram-label">太极生八卦 · Génération des 8 Trigrammes</div>
+      <svg width="260" height="260" viewBox="0 0 260 260">
+        <g transform="translate(130,130)">
+          <!-- Cross lines for axes (Spring/Autumn, Summer/Winter) -->
+          <line x1="-120" y1="0" x2="120" y2="0" stroke="rgba(255,255,255,0.15)" stroke-width="1" stroke-dasharray="4,4"/>
+          <line x1="0" y1="-120" x2="0" y2="120" stroke="rgba(255,255,255,0.15)" stroke-width="1" stroke-dasharray="4,4"/>
+          <line x1="-85" y1="-85" x2="85" y2="85" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="4,4"/>
+          <line x1="-85" y1="85" x2="85" y2="-85" stroke="rgba(255,255,255,0.05)" stroke-width="1" stroke-dasharray="4,4"/>
+
+          <!-- Ring 1: Radius 30 (两仪) -->
+          <!-- Left Hemisphere: Solid (Warm) -->
+          <path d="M 0,30 A 30 30 0 0 1 0,-30" fill="none" stroke="#e06040" stroke-width="12"/>
+          <!-- Right Hemisphere: Dashed (Cold) -->
+          <path d="M 0,-30 A 30 30 0 0 1 0,30" fill="none" stroke="#5090d0" stroke-width="12" stroke-dasharray="4,3"/>
+
+          <!-- Ring 2: Radius 60 (四象) -->
+          <!-- Bottom-Left (NE) -> Dashed -->
+          <path d="M 0,60 A 60 60 0 0 1 -60,0" fill="none" stroke="#5090d0" stroke-width="12" stroke-dasharray="4,3"/>
+          <!-- Top-Left (SE) -> Solid -->
+          <path d="M -60,0 A 60 60 0 0 1 0,-60" fill="none" stroke="#e06040" stroke-width="12"/>
+          <!-- Top-Right (SW) -> Solid -->
+          <path d="M 0,-60 A 60 60 0 0 1 60,0" fill="none" stroke="#e06040" stroke-width="12"/>
+          <!-- Bottom-Right (NW) -> Dashed -->
+          <path d="M 60,0 A 60 60 0 0 1 0,60" fill="none" stroke="#5090d0" stroke-width="12" stroke-dasharray="4,3"/>
+
+          <!-- Ring 3: Radius 90 (八卦) -->
+          <!-- N to NE (Bottom to BL_mid) -> Dashed -->
+          <path d="M 0,90 A 90 90 0 0 1 -63.6,63.6" fill="none" stroke="#5090d0" stroke-width="12" stroke-dasharray="4,3"/>
+          <!-- NE to E (BL_mid to Left) -> Solid -->
+          <path d="M -63.6,63.6 A 90 90 0 0 1 -90,0" fill="none" stroke="#e06040" stroke-width="12"/>
+          <!-- E to SE (Left to TL_mid) -> Dashed -->
+          <path d="M -90,0 A 90 90 0 0 1 -63.6,-63.6" fill="none" stroke="#5090d0" stroke-width="12" stroke-dasharray="4,3"/>
+          <!-- SE to S (TL_mid to Top) -> Solid -->
+          <path d="M -63.6,-63.6 A 90 90 0 0 1 0,-90" fill="none" stroke="#e06040" stroke-width="12"/>
+          <!-- S to SW (Top to TR_mid) -> Solid -->
+          <path d="M 0,-90 A 90 90 0 0 1 63.6,-63.6" fill="none" stroke="#e06040" stroke-width="12"/>
+          <!-- SW to W (TR_mid to Right) -> Dashed -->
+          <path d="M 63.6,-63.6 A 90 90 0 0 1 90,0" fill="none" stroke="#5090d0" stroke-width="12" stroke-dasharray="4,3"/>
+          <!-- W to NW (Right to BR_mid) -> Solid -->
+          <path d="M 90,0 A 90 90 0 0 1 63.6,63.6" fill="none" stroke="#e06040" stroke-width="12"/>
+          <!-- NW to N (BR_mid to Bottom) -> Dashed -->
+          <path d="M 63.6,63.6 A 90 90 0 0 1 0,90" fill="none" stroke="#5090d0" stroke-width="12" stroke-dasharray="4,3"/>
+
+          <!-- Trigram labels arranged around the circle -->
+          <!-- South (Top) -->
+          <text x="0" y="-105" fill="var(--gold2)" font-size="14" font-family="Noto Serif SC,serif" text-anchor="middle">☰ 夏至</text>
+          <!-- SE -->
+          <text x="-76" y="-76" fill="var(--gold2)" font-size="14" font-family="Noto Serif SC,serif" text-anchor="middle">☱</text>
+          <!-- East (Left) -->
+          <text x="-105" y="5" fill="var(--gold2)" font-size="14" font-family="Noto Serif SC,serif" text-anchor="middle">☲ 春分</text>
+          <!-- NE -->
+          <text x="-76" y="86" fill="var(--gold2)" font-size="14" font-family="Noto Serif SC,serif" text-anchor="middle">☳</text>
+          <!-- North (Bottom) -->
+          <text x="0" y="115" fill="var(--gold2)" font-size="14" font-family="Noto Serif SC,serif" text-anchor="middle">冬至 ☷</text>
+          <!-- NW -->
+          <text x="76" y="86" fill="var(--gold2)" font-size="14" font-family="Noto Serif SC,serif" text-anchor="middle">☶</text>
+          <!-- West (Right) -->
+          <text x="105" y="5" fill="var(--gold2)" font-size="14" font-family="Noto Serif SC,serif" text-anchor="middle">秋分 ☵</text>
+          <!-- SW -->
+          <text x="76" y="-76" fill="var(--gold2)" font-size="14" font-family="Noto Serif SC,serif" text-anchor="middle">☴</text>
+
+          <!-- Central label -->
+          <circle cx="0" cy="0" r="4" fill="rgba(184,144,64,0.5)"/>
+        </g>
+      </svg>
+      <div style="font-size:10px;color:rgba(245,240,232,0.35);text-align:center;max-width:240px;line-height:1.6;">
+        古代方位面南：上南下北，左东右西。<br>
+        <span style="font-style:italic;">L'orientation antique fait face au sud : Le sud en haut, le nord en bas, l'est à gauche, l'ouest à droite.</span><br>
+        <strong style="color:#e06040;">暖的一侧化为实线</strong>，<strong style="color:#5090d0;">冷的一侧化为虚线</strong>，逐层生成八卦。<br>
+        <span style="font-style:italic;">Le côté chaud devient ligne continue, le côté froid devient ligne brisée.</span>
+      </div>
+    </div>
+
+    <!-- Right: explanation + 四象 lines -->
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <h3 style="color:#80b4e0;">一划开天 → 两仪 → 四象 → 八卦<br><span style="font-size:16px;color:rgba(245,240,232,0.6);font-style:italic;font-family:'Cormorant Garamond', serif;">Du commencement au Taiji, aux Deux Pôles, aux Quatre Images et aux Huit Trigrammes</span></h3>
+      <div style="background:rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,0.07);padding:16px 18px;border-radius:2px;">
+        <p style="font-size:13px;line-height:1.8;"><span style="color:var(--gold2);">阴阳之轴 (L'axe Yin/Yang)</span>：竖线左侧为实线半圆，右侧为虚线。<br>
+        <span style="color:#e06040;">暖的半圆（左/阳）为实线 ━━━</span> <span style="font-size:11px;color:rgba(245,240,232,0.45);font-style:italic;">(Demi-cercle chaud/Yang : ligne continue)</span><br>
+        <span style="color:#5090d0;">冷的半圆（右/阴）为虚线 ╌╌╌</span> <span style="font-size:11px;color:rgba(245,240,232,0.45);font-style:italic;">(Demi-cercle froid/Yin : ligne brisée)</span><br><br>
+        <span style="color:var(--gold2);">衍化法则 (Loi de génération)</span>：横线（春秋）将圆分为四个扇形。在每一个部分中，再分阴阳——<strong style="color:#e06040;">暖的一侧依然加实线</strong>，<strong style="color:#5090d0;">冷的一侧加虚线</strong>，形成四象。<br>
+        <em style="color:rgba(245,240,232,0.45);font-size:11px;display:block;margin-top:4px;margin-bottom:6px;line-height:1.4;">L'axe horizontal (Printemps/Automne) divise le cercle. Dans chaque partie, le Yin et le Yang se divisent à nouveau : on ajoute une ligne continue du côté chaud, et une ligne brisée du côté froid pour former les Quatre Images (Sixiang).</em>
+        随后八方放射，切分成八个扇形，重复这套法则，便自然生成了伏羲先天八卦的图像模型。<br>
+        <em style="color:rgba(245,240,232,0.45);font-size:11px;display:block;margin-top:4px;line-height:1.4;">Ensuite, on divise en huit secteurs et on répète cette règle pour générer naturellement les huit trigrammes (Bagua) de Fuxi.</em></p>
+      </div>
+
+      <!-- 四象 table -->
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="font-size:10px;letter-spacing:0.25em;color:var(--gold);opacity:0.6;text-transform:uppercase;">四象 · Quatre images</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+
+          <div style="background:rgba(192,57,43,0.15);border:1px solid rgba(192,57,43,0.2);padding:12px 14px;border-radius:2px;">
+            <div style="display:flex;flex-direction:column;gap:3px;margin-bottom:8px;">
+              <div style="width:48px;height:3px;background:#e06040;border-radius:1px;"></div>
+              <div style="width:48px;height:3px;background:#e06040;border-radius:1px;"></div>
+            </div>
+            <div style="font-family:'Noto Serif SC',serif;font-size:16px;color:#e06040;">太阳</div>
+            <div style="font-size:11px;color:rgba(245,240,232,0.5);">夏至(北) · 二阳 (Solstice d'été, 2 Yang)</div>
+          </div>
+
+          <div style="background:rgba(30,60,120,0.15);border:1px solid rgba(80,140,200,0.2);padding:12px 14px;border-radius:2px;">
+            <div style="display:flex;flex-direction:column;gap:3px;margin-bottom:8px;">
+              <div style="display:flex;gap:4px;"><div style="width:20px;height:3px;background:#5090d0;border-radius:1px;"></div><div style="width:20px;height:3px;background:#5090d0;border-radius:1px;"></div></div>
+              <div style="display:flex;gap:4px;"><div style="width:20px;height:3px;background:#5090d0;border-radius:1px;"></div><div style="width:20px;height:3px;background:#5090d0;border-radius:1px;"></div></div>
+            </div>
+            <div style="font-family:'Noto Serif SC',serif;font-size:16px;color:#5090d0;">太阴</div>
+            <div style="font-size:11px;color:rgba(245,240,232,0.5);">冬至(南) · 二阴 (Solstice d'hiver, 2 Yin)</div>
+          </div>
+
+          <div style="background:rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.08);padding:12px 14px;border-radius:2px;">
+            <div style="display:flex;flex-direction:column;gap:3px;margin-bottom:8px;">
+              <div style="display:flex;gap:4px;"><div style="width:20px;height:3px;background:rgba(245,240,232,0.5);border-radius:1px;"></div><div style="width:20px;height:3px;background:rgba(245,240,232,0.5);border-radius:1px;"></div></div>
+              <div style="width:48px;height:3px;background:rgba(245,240,232,0.5);border-radius:1px;"></div>
+            </div>
+            <div style="font-family:'Noto Serif SC',serif;font-size:16px;color:rgba(245,240,232,0.7);">少阴</div>
+            <div style="font-size:11px;color:rgba(245,240,232,0.5);">秋分(东) · 阴起 (Équinoxe d'autom., Yin naissant)</div>
+          </div>
+
+          <div style="background:rgba(0,0,0,0.2);border:1px solid rgba(255,255,255,0.08);padding:12px 14px;border-radius:2px;">
+            <div style="display:flex;flex-direction:column;gap:3px;margin-bottom:8px;">
+              <div style="width:48px;height:3px;background:rgba(245,240,232,0.5);border-radius:1px;"></div>
+              <div style="display:flex;gap:4px;"><div style="width:20px;height:3px;background:rgba(245,240,232,0.5);border-radius:1px;"></div><div style="width:20px;height:3px;background:rgba(245,240,232,0.5);border-radius:1px;"></div></div>
+            </div>
+            <div style="font-family:'Noto Serif SC',serif;font-size:16px;color:rgba(245,240,232,0.7);">少阳</div>
+            <div style="font-size:11px;color:rgba(245,240,232,0.5);">春分(西) · 阳起 (Équinoxe de print., Yang naissant)</div>
+          </div>
+        </div>
+        <p style="font-size:11px;color:rgba(245,240,232,0.4);font-style:italic;">在每个四象上再加一爻（阴或阳）→ 八卦<br>En ajoutant un trait aux Quatre Images → Les Huit Trigrammes</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+  SLIDE 10 · 五行 + 八卦
+══════════════════════════════════════════════ -->
+<div class="slide bg-darker" id="s10">
+  <div class="slide-header">
+    <span class="lesson-tag">五行·八卦 · Wuxing · Bagua</span>
+    <span class="slide-progress">宇宙框架</span>
+  </div>
+  <div class="two-col" style="gap:40px;">
+
+    <!-- 五行 -->
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <h3 style="color:var(--gold2);">五行·以人为中心的世界模型</h3>
+      <div class="wx-row">
+        <div class="wx-cell wx-mu">
+          <span class="wx-char">木</span>
+          <span class="wx-lbl">Bois</span>
+          <span class="wx-sub">东·春 (Est/Prtps)<br>生长·青 (Croiss./Vert)</span>
+        </div>
+        <div class="wx-cell wx-huo">
+          <span class="wx-char">火</span>
+          <span class="wx-lbl">Feu</span>
+          <span class="wx-sub">南·夏 (Sud/Été)<br>炎热·赤 (Chaud/Rouge)</span>
+        </div>
+        <div class="wx-cell wx-tu">
+          <span class="wx-char">土</span>
+          <span class="wx-lbl">Terre</span>
+          <span class="wx-sub">中央 (Centre)<br>四季末·黄 (Fin-saisons/Jaune)</span>
+        </div>
+        <div class="wx-cell wx-jin">
+          <span class="wx-char">金</span>
+          <span class="wx-lbl">Métal</span>
+          <span class="wx-sub">西·秋 (Ouest/Aut.)<br>收敛·白 (Déclin/Blanc)</span>
+        </div>
+        <div class="wx-cell wx-shui">
+          <span class="wx-char">水</span>
+          <span class="wx-lbl">Eau</span>
+          <span class="wx-sub">北·冬 (Nord/Hiver)<br>寒藏·黑 (Froid/Noir)</span>
+        </div>
+      </div>
+
+      <!-- 相生相克 -->
+      <div style="background:rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,0.07);padding:14px 18px;border-radius:2px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div>
+            <div style="font-size:10px;letter-spacing:0.2em;color:#5ecf80;opacity:0.7;text-transform:uppercase;margin-bottom:6px;">相生 · Engendrement</div>
+            <p style="font-size:12px;color:rgba(245,240,232,0.6);line-height:1.8;">木→火→土→金→水→木<br><span style="font-size:10px;color:rgba(245,240,232,0.35);font-style:italic;">木燃火，火生灰土，土生金，金化水，水育木</span></p>
+          </div>
+          <div>
+            <div style="font-size:10px;letter-spacing:0.2em;color:var(--red2);opacity:0.7;text-transform:uppercase;margin-bottom:6px;">相克 · Domination</div>
+            <p style="font-size:12px;color:rgba(245,240,232,0.6);line-height:1.8;">木→土→水→火→金→木<br><span style="font-size:10px;color:rgba(245,240,232,0.35);font-style:italic;">木根破土，土吸水，水灭火，火熔金，金伐木</span></p>
+          </div>
+        </div>
+      </div>
+
+      <p style="font-size:12px;color:rgba(245,240,232,0.45);font-style:italic;line-height:1.6;">五行不是静态的物质，而是五种<strong style="color:rgba(245,240,232,0.6);">动态变化的过程</strong>。<br>Les Cinq Phases ne sont pas des éléments fixes mais des processus de transformation (flux cyclique).</p>
+
+      <!-- 跨文化比较 -->
+      <div style="background:rgba(42,90,138,0.15);border:1px solid rgba(42,90,138,0.25);border-left:3px solid #80b4e0;padding:12px 16px;border-radius:2px;margin-top:4px;">
+        <div style="font-size:10px;letter-spacing:0.2em;color:#80b4e0;text-transform:uppercase;margin-bottom:6px;">比较镜像 · Miroir Comparatif</div>
+        <p style="font-size:13px;line-height:1.6;"><strong style="color:var(--paper);">西方四元素 / 4 Éléments occidentaux：</strong>土、水、风、火 (Terre, Eau, Air, Feu)。在古希腊哲学中，它们是构成物质的<strong style="color:#d4ad60;">静态基石 (Substances de base statiques)</strong>。而中国的五行 (木火土金水) 更强调事物之间的<strong style="color:#e06040;">动态转化与生克关系</strong>，是生态循环的模型。<br><em style="color:rgba(245,240,232,0.45);font-size:11.5px;display:block;margin-top:6px;">Dans la philosophie grecque antique, ce sont les fondements statiques de la matière. En revanche, le Wuxing chinois souligne la transformation dynamique et les relations d'engendrement/domination, comme modèle de cycle écologique.</em></p>
+      </div>
+    </div>
+
+    <!-- 八卦 -->
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <h3 style="color:var(--gold2);">八卦·四象加一爻</h3>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+
+        <!-- 乾 ☰ -->
+        <div style="background:rgba(192,57,43,0.15);border:1px solid rgba(192,57,43,0.2);padding:10px 8px;border-radius:2px;display:flex;flex-direction:column;align-items:center;gap:5px;">
+          <div style="display:flex;flex-direction:column;gap:3px;">
+            <div style="width:32px;height:2.5px;background:#e06040;border-radius:1px;"></div>
+            <div style="width:32px;height:2.5px;background:#e06040;border-radius:1px;"></div>
+            <div style="width:32px;height:2.5px;background:#e06040;border-radius:1px;"></div>
+          </div>
+          <span style="font-family:'Noto Serif SC',serif;font-size:16px;color:#e06040;">乾</span>
+          <span style="font-size:9px;color:rgba(245,240,232,0.4);text-align:center;">天·健康<br>Ciel</span>
+        </div>
+
+        <!-- 坤 ☷ -->
+        <div style="background:rgba(30,60,120,0.15);border:1px solid rgba(80,140,200,0.2);padding:10px 8px;border-radius:2px;display:flex;flex-direction:column;align-items:center;gap:5px;">
+          <div style="display:flex;flex-direction:column;gap:3px;">
+            <div style="display:flex;gap:3px;"><div style="width:14px;height:2.5px;background:#5090d0;border-radius:1px;"></div><div style="width:14px;height:2.5px;background:#5090d0;border-radius:1px;"></div></div>
+            <div style="display:flex;gap:3px;"><div style="width:14px;height:2.5px;background:#5090d0;border-radius:1px;"></div><div style="width:14px;height:2.5px;background:#5090d0;border-radius:1px;"></div></div>
+            <div style="display:flex;gap:3px;"><div style="width:14px;height:2.5px;background:#5090d0;border-radius:1px;"></div><div style="width:14px;height:2.5px;background:#5090d0;border-radius:1px;"></div></div>
+          </div>
+          <span style="font-family:'Noto Serif SC',serif;font-size:16px;color:#5090d0;">坤</span>
+          <span style="font-size:9px;color:rgba(245,240,232,0.4);text-align:center;">地·柔顺<br>Terre</span>
+        </div>
+
+        <!-- 震 ☳ -->
+        <div style="background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.07);padding:10px 8px;border-radius:2px;display:flex;flex-direction:column;align-items:center;gap:5px;">
+          <div style="display:flex;flex-direction:column;gap:3px;">
+            <div style="display:flex;gap:3px;"><div style="width:14px;height:2.5px;background:rgba(245,240,232,0.5);border-radius:1px;"></div><div style="width:14px;height:2.5px;background:rgba(245,240,232,0.5);border-radius:1px;"></div></div>
+            <div style="display:flex;gap:3px;"><div style="width:14px;height:2.5px;background:rgba(245,240,232,0.5);border-radius:1px;"></div><div style="width:14px;height:2.5px;background:rgba(245,240,232,0.5);border-radius:1px;"></div></div>
+            <div style="width:32px;height:2.5px;background:rgba(245,240,232,0.5);border-radius:1px;"></div>
+          </div>
+          <span style="font-family:'Noto Serif SC',serif;font-size:16px;color:rgba(245,240,232,0.7);">震</span>
+          <span style="font-size:9px;color:rgba(245,240,232,0.4);text-align:center;">雷·震动<br>Tonnerre</span>
+        </div>
+
+        <!-- 巽 ☴ -->
+        <div style="background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.07);padding:10px 8px;border-radius:2px;display:flex;flex-direction:column;align-items:center;gap:5px;">
+          <div style="display:flex;flex-direction:column;gap:3px;">
+            <div style="width:32px;height:2.5px;background:rgba(245,240,232,0.5);border-radius:1px;"></div>
+            <div style="width:32px;height:2.5px;background:rgba(245,240,232,0.5);border-radius:1px;"></div>
+            <div style="display:flex;gap:3px;"><div style="width:14px;height:2.5px;background:rgba(245,240,232,0.5);border-radius:1px;"></div><div style="width:14px;height:2.5px;background:rgba(245,240,232,0.5);border-radius:1px;"></div></div>
+          </div>
+          <span style="font-family:'Noto Serif SC',serif;font-size:16px;color:rgba(245,240,232,0.7);">巽</span>
+          <span style="font-size:9px;color:rgba(245,240,232,0.4);text-align:center;">风·渗透<br>Vent</span>
+        </div>
+
+        <!-- 坎 ☵ -->
+        <div style="background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.07);padding:10px 8px;border-radius:2px;display:flex;flex-direction:column;align-items:center;gap:5px;">
+          <div style="display:flex;flex-direction:column;gap:3px;">
+            <div style="display:flex;gap:3px;"><div style="width:14px;height:2.5px;background:rgba(245,240,232,0.5);border-radius:1px;"></div><div style="width:14px;height:2.5px;background:rgba(245,240,232,0.5);border-radius:1px;"></div></div>
+            <div style="width:32px;height:2.5px;background:rgba(245,240,232,0.5);border-radius:1px;"></div>
+            <div style="display:flex;gap:3px;"><div style="width:14px;height:2.5px;background:rgba(245,240,232,0.5);border-radius:1px;"></div><div style="width:14px;height:2.5px;background:rgba(245,240,232,0.5);border-radius:1px;"></div></div>
+          </div>
+          <span style="font-family:'Noto Serif SC',serif;font-size:16px;color:rgba(245,240,232,0.7);">坎</span>
+          <span style="font-size:9px;color:rgba(245,240,232,0.4);text-align:center;">水·深渊<br>Eau</span>
+        </div>
+
+        <!-- 离 ☲ -->
+        <div style="background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.07);padding:10px 8px;border-radius:2px;display:flex;flex-direction:column;align-items:center;gap:5px;">
+          <div style="display:flex;flex-direction:column;gap:3px;">
+            <div style="width:32px;height:2.5px;background:rgba(245,240,232,0.5);border-radius:1px;"></div>
+            <div style="display:flex;gap:3px;"><div style="width:14px;height:2.5px;background:rgba(245,240,232,0.5);border-radius:1px;"></div><div style="width:14px;height:2.5px;background:rgba(245,240,232,0.5);border-radius:1px;"></div></div>
+            <div style="width:32px;height:2.5px;background:rgba(245,240,232,0.5);border-radius:1px;"></div>
+          </div>
+          <span style="font-family:'Noto Serif SC',serif;font-size:16px;color:rgba(245,240,232,0.7);">离</span>
+          <span style="font-size:9px;color:rgba(245,240,232,0.4);text-align:center;">火·明丽<br>Feu</span>
+        </div>
+
+        <!-- 艮 ☶ -->
+        <div style="background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.07);padding:10px 8px;border-radius:2px;display:flex;flex-direction:column;align-items:center;gap:5px;">
+          <div style="display:flex;flex-direction:column;gap:3px;">
+            <div style="width:32px;height:2.5px;background:rgba(245,240,232,0.5);border-radius:1px;"></div>
+            <div style="display:flex;gap:3px;"><div style="width:14px;height:2.5px;background:rgba(245,240,232,0.5);border-radius:1px;"></div><div style="width:14px;height:2.5px;background:rgba(245,240,232,0.5);border-radius:1px;"></div></div>
+            <div style="display:flex;gap:3px;"><div style="width:14px;height:2.5px;background:rgba(245,240,232,0.5);border-radius:1px;"></div><div style="width:14px;height:2.5px;background:rgba(245,240,232,0.5);border-radius:1px;"></div></div>
+          </div>
+          <span style="font-family:'Noto Serif SC',serif;font-size:16px;color:rgba(245,240,232,0.7);">艮</span>
+          <span style="font-size:9px;color:rgba(245,240,232,0.4);text-align:center;">山·笃实<br>Montagne</span>
+        </div>
+
+        <!-- 兑 ☱ -->
+        <div style="background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.07);padding:10px 8px;border-radius:2px;display:flex;flex-direction:column;align-items:center;gap:5px;">
+          <div style="display:flex;flex-direction:column;gap:3px;">
+            <div style="display:flex;gap:3px;"><div style="width:14px;height:2.5px;background:rgba(245,240,232,0.5);border-radius:1px;"></div><div style="width:14px;height:2.5px;background:rgba(245,240,232,0.5);border-radius:1px;"></div></div>
+            <div style="width:32px;height:2.5px;background:rgba(245,240,232,0.5);border-radius:1px;"></div>
+            <div style="width:32px;height:2.5px;background:rgba(245,240,232,0.5);border-radius:1px;"></div>
+          </div>
+          <span style="font-family:'Noto Serif SC',serif;font-size:16px;color:rgba(245,240,232,0.7);">兑</span>
+          <span style="font-size:9px;color:rgba(245,240,232,0.4);text-align:center;">泽·喜悦<br>Lac</span>
+        </div>
+      </div>
+
+      <p style="font-size:12px;color:rgba(245,240,232,0.45);line-height:1.7;">八卦是宇宙间一切现象的基本模型，代表自然力量（天地雷风水火山泽）与家庭角色，并可组合为六十四卦——<em style="color:rgba(245,240,232,0.6);">Les 8 trigrammes se combinent en 64 hexagrammes, décrivant toutes les transformations possibles.</em></p>
+
+      <!-- 补充扩展：三进制与微积分视角的哲学隐喻 -->
+      <div style="background:rgba(212,173,96,0.1);border:1px solid rgba(212,173,96,0.25);border-left:3px solid #d4ad60;padding:12px 14px;border-radius:2px;margin-top:0px;">
+        <div style="font-size:10px;letter-spacing:0.15em;color:#d4ad60;text-transform:uppercase;margin-bottom:4px;">数学与哲学视角 · Mathématiques et Philosophie</div>
+        <p style="font-size:12.5px;line-height:1.6;color:rgba(245,240,232,0.85);">现代常说八卦是二进制的起源。但在道家思想中，「一生二、二生三」更体现了<strong style="color:var(--gold2);">「三进制」 (Système ternaire)</strong>。有一种哲学解读认为：<strong style="color:#80b4e0;">「天圆地方是中国的三进制微积分」</strong>。即用方形（地/有限）去逼近和计算圆形（天/无限）——正如古代数学的「割圆术」，结合了天地人三才的渐进推演。这不仅是数学近似，更是古人丈量无极宇宙的浪漫隐喻。<br>
+        <em style="color:rgba(245,240,232,0.5);font-size:11px;display:block;margin-top:6px;line-height:1.4;">Bien que le Bagua soit binaire, le taoïsme suggère un "système ternaire". Une métaphore moderne décrit le concept du "Ciel rond et Terre carrée" comme "le calcul infinitésimal ternaire chinois" : utiliser le carré (le fini) pour approximer le cercle (l'infini) mathématiquement et philosophiquement.</em></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+  SLIDE 11 · MIRROR + CONCLUSION
+══════════════════════════════════════════════ -->
+<div class="slide bg-red" id="s11">
+  <div class="slide-header">
+    <span class="lesson-tag">文化镜像 · Miroir franco-chinois</span>
+    <span class="slide-progress">总结与展望</span>
+  </div>
+  <div class="two-col" style="gap:44px;align-items:start;">
+    <div style="display:flex;flex-direction:column;gap:18px;">
+      <h2 style="font-size:clamp(20px,3vw,36px);">汉法文化镜像<br><span style="font-size:24px;color:rgba(245,240,232,0.6);font-style:italic;font-family:'Cormorant Garamond', serif;">Miroir culturel franco-chinois</span></h2>
+      <div class="mirror-block" style="background:rgba(0,0,0,0.4);border-color:var(--gold);border-left-color:var(--gold);">
+        <div class="mirror-title" style="color:var(--gold2);">🪞 本课镜像问题 · Question miroir</div>
+        <p style="font-size:16px;line-height:1.8;">法语 <em style="color:var(--gold2);">ciel</em> 同时含有「天空」(ciel physique) 与「天堂」(paradis) 之意——法国人对天空是否也有宗教与哲学层面的复合感受？与中国「天有五义」相比，异同何在？<br><em style="color:rgba(245,240,232,0.6);font-size:14px;display:block;margin-top:8px;">Le mot français "ciel" désigne à la fois le ciel physique (sky) et le divin (heaven). Les Français ont-ils aussi une perception religieuse et philosophique complexe du ciel ? Quelles sont les similitudes et les différences avec les "cinq sens de Tian" en Chine ?</em></p>
+      </div>
+      <div style="background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.07);padding:16px 20px;border-radius:2px;">
+        <div style="font-size:10px;letter-spacing:0.25em;color:var(--gold);opacity:0.6;margin-bottom:10px;text-transform:uppercase;">延伸思考 · Pour aller plus loin</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;gap:8px;">
+            <span style="color:var(--gold2);flex-shrink:0;">◆</span>
+            <p style="font-size:13px;">《圣经》的「天父」与儒家「主宰之天」——同为人格神的天，有何不同？<br><em style="color:rgba(245,240,232,0.45);font-size:11.5px;">Le "Père céleste" de la Bible catholique et le "Ciel souverain" du confucianisme : quelles différences entre ces deux cieux personnels ?</em></p>
+          </div>
+          <div style="display:flex;gap:8px;">
+            <span style="color:var(--gold2);flex-shrink:0;">◆</span>
+            <p style="font-size:13px;">法国启蒙思想家对「自然之天」（理性主义）的追求，是否与道家相通？<br><em style="color:rgba(245,240,232,0.45);font-size:11.5px;">La quête du "Ciel naturel" (rationalisme) par les philosophes des Lumières est-elle compatible avec le taoïsme ?</em></p>
+          </div>
+          <div style="display:flex;gap:8px;">
+            <span style="color:var(--gold2);flex-shrink:0;">◆</span>
+            <p style="font-size:13px;">「人权」(droits de l'homme) 的法语说法直接把「人」置于中心——与中国「天地人三才」中人的位置相比较。<br><em style="color:rgba(245,240,232,0.45);font-size:11.5px;">L'expression française "droits de l'homme" place directement l'homme au centre : une comparaison avec la position de l'homme dans les "Trois Puissances" (Ciel-Terre-Homme).</em></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:18px;">
+      <h2 style="font-size:clamp(20px,3vw,36px);">本课总结<br><span style="font-size:24px;color:rgba(245,240,232,0.6);font-style:italic;font-family:'Cormorant Garamond', serif;">Résumé de la Leçon</span></h2>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="background:rgba(0,0,0,0.3);padding:12px 16px;border-radius:2px;border-left:3px solid var(--red2);display:flex;gap:10px;align-items:flex-start;">
+          <span style="color:var(--gold2);font-size:16px;flex-shrink:0;">一</span>
+          <p style="font-size:13px;">「天」的甲骨文从「人头顶之上」出发，延伸为宇宙最高原理——文字即哲学。<br><em style="color:rgba(245,240,232,0.45);font-size:11.5px;">Le caractère oracle "Tian" (Ciel) vient de "au-dessus de la tête", s'étendant au principe suprême : l'écriture, c'est de la philosophie.</em></p>
+        </div>
+        <div style="background:rgba(0,0,0,0.3);padding:12px 16px;border-radius:2px;border-left:3px solid var(--gold);display:flex;gap:10px;align-items:flex-start;">
+          <span style="color:var(--gold2);font-size:16px;flex-shrink:0;">二</span>
+          <p style="font-size:13px;">儒道法三家对「天」各有侧重，但天地人三才框架是共同的思维底座。<br><em style="color:rgba(245,240,232,0.45);font-size:11.5px;">Confucianisme, Taoïsme et Légisme perçoivent le "Ciel" différemment, mais le schéma Ciel-Terre-Homme reste le socle commun.</em></p>
+        </div>
+        <div style="background:rgba(0,0,0,0.3);padding:12px 16px;border-radius:2px;border-left:3px solid #5ecf80;display:flex;gap:10px;align-items:flex-start;">
+          <span style="color:var(--gold2);font-size:16px;flex-shrink:0;">三</span>
+          <p style="font-size:13px;">阴阳→四象→八卦→五行，是中国人用温度、季节、方位建构宇宙的方式。<br><em style="color:rgba(245,240,232,0.45);font-size:11.5px;">Du Yin/Yang au Wuxing, les Chinois structurent l'univers par la température, les saisons et les directions.</em></p>
+        </div>
+        <div style="background:rgba(0,0,0,0.3);padding:12px 16px;border-radius:2px;border-left:3px solid #80b4e0;display:flex;gap:10px;align-items:flex-start;">
+          <span style="color:var(--gold2);font-size:16px;flex-shrink:0;">四</span>
+          <p style="font-size:13px;">这个框架不是古代的遗迹——它至今存在于中医、建筑、节日、诗歌的语言之中。<br><em style="color:rgba(245,240,232,0.45);font-size:11.5px;">Ce cadre n'est pas une simple relique : il vit encore dans la médecine, l'architecture, les fêtes et la poésie.</em></p>
+        </div>
+      </div>
+
+      <!-- Next lesson preview -->
+      <div class="next-preview">
+        <div class="arrow">→</div>
+        <div>
+          <div class="label">下节课 · Prochaine leçon</div>
+          <div class="title">第二课：神话与宇宙观 · 盘古开天地<br><span style="font-size:16px;color:rgba(245,240,232,0.6);font-style:italic;font-family:'Cormorant Garamond', serif;">Leçon 2 : Mythes et Cosmologie · Pangu sépare le ciel et la terre</span></div>
+          <p style="font-size:12px;color:rgba(245,240,232,0.4);margin-top:3px;">天地分开之后，神话如何填充这个宇宙？<br><em>Après la séparation du ciel et de la terre, comment les mythes remplissent-ils cet univers ?</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /deck -->
+
+<!-- ── NAVIGATION ── -->
+<div id="nav">
+  <button class="nav-btn" id="prevBtn">←</button>
+  <div class="dots" id="dots"></div>
+  <span id="slide-counter">1 / 11</span>
+  <button class="nav-btn" id="nextBtn">→</button>
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const dotsContainer = document.getElementById('dots');
+const counter = document.getElementById('slide-counter');
+let current = 0;
+const total = slides.length;
+
+// Build dots
+slides.forEach((_, i) => {
+  const d = document.createElement('div');
+  d.className = 'dot' + (i === 0 ? ' active' : '');
+  d.onclick = () => goTo(i);
+  dotsContainer.appendChild(d);
+});
+
+function goTo(n) {
+  slides[current].classList.remove('active');
+  document.querySelectorAll('.dot')[current].classList.remove('active');
+  current = (n + total) % total;
+  slides[current].classList.add('active');
+  document.querySelectorAll('.dot')[current].classList.add('active');
+  counter.textContent = (current + 1) + ' / ' + total;
+}
+
+document.getElementById('nextBtn').onclick = () => goTo(current + 1);
+document.getElementById('prevBtn').onclick = () => goTo(current - 1);
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') goTo(current + 1);
+  if (e.key === 'ArrowLeft') goTo(current - 1);
+});
+</script>
+</body>
+</html>
