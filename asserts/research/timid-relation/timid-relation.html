@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>关系结构——一个未完成的研究框架</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0e0e0f;
+    --surface: #141416;
+    --border: #252528;
+    --text-primary: #e8e4dc;
+    --text-secondary: #9a9690;
+    --text-muted: #5a5855;
+    --accent: #c8a97e;
+    --accent-dim: rgba(200, 169, 126, 0.15);
+    --accent-glow: rgba(200, 169, 126, 0.06);
+    --red: #c0705a;
+    --blue: #7a9ab8;
+    --green: #7aaa8c;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: 'Noto Serif SC', 'EB Garamond', serif;
+    font-size: 16px;
+    line-height: 1.9;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ─── noise overlay ─── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0; opacity: 0.5;
+  }
+
+  /* ─── header ─── */
+  header {
+    position: relative;
+    padding: 100px 0 80px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 50%; transform: translateX(-50%);
+    width: 80px; height: 1px;
+    background: var(--accent);
+  }
+
+  .site-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.2s;
+  }
+
+  h1 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(28px, 5vw, 52px);
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    color: var(--text-primary);
+    line-height: 1.3;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.4s;
+  }
+
+  h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .subtitle {
+    margin-top: 20px;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--text-secondary);
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.6s;
+  }
+
+  .meta {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.8s;
+  }
+
+  .meta-item {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  .meta-item span {
+    color: var(--accent);
+    display: block;
+    font-size: 12px;
+  }
+
+  /* ─── layout ─── */
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ─── nav ─── */
+  .toc {
+    position: fixed;
+    top: 50%;
+    right: 32px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 10;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards 1.2s;
+  }
+
+  .toc-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--border);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .toc-dot:hover, .toc-dot.active {
+    background: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+  }
+
+  .toc-dot::before {
+    content: attr(data-label);
+    position: absolute;
+    right: 16px; top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    color: var(--text-muted);
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+  }
+
+  .toc-dot:hover::before { opacity: 1; }
+
+  /* ─── sections ─── */
+  section {
+    padding: 80px 0;
+    border-bottom: 1px solid var(--border);
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .section-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.3em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 20px; height: 1px;
+    background: var(--accent);
+  }
+
+  h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: clamp(22px, 3.5vw, 32px);
+    font-weight: 300;
+    color: var(--text-primary);
+    margin-bottom: 32px;
+    line-height: 1.4;
+  }
+
+  h3 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    margin: 40px 0 16px;
+    padding-left: 16px;
+    border-left: 2px solid var(--border);
+  }
+
+  p {
+    margin-bottom: 20px;
+    font-size: 15.5px;
+    color: var(--text-primary);
+  }
+
+  /* ─── callout / theorem boxes ─── */
+  .theorem {
+    margin: 36px 0;
+    padding: 24px 28px;
+    background: var(--accent-glow);
+    border: 1px solid rgba(200, 169, 126, 0.2);
+    border-left: 3px solid var(--accent);
+    position: relative;
+  }
+
+  .theorem-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .theorem p { margin: 0; font-style: italic; color: var(--text-secondary); font-size: 15px; }
+
+  /* ─── flow diagram ─── */
+  .flow {
+    margin: 32px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .flow-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 14px 0;
+  }
+
+  .flow-num {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--accent);
+    min-width: 24px;
+    padding-top: 4px;
+  }
+
+  .flow-text {
+    font-size: 14.5px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .flow-arrow {
+    height: 20px;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    color: var(--text-muted);
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  /* ─── tension diagram ─── */
+  .tension {
+    margin: 32px 0;
+    display: grid;
+    grid-template-columns: 1fr 40px 1fr;
+    gap: 0;
+    align-items: center;
+  }
+
+  .tension-side {
+    padding: 20px 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+  }
+
+  .tension-side-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+  }
+
+  .tension-side-text {
+    font-size: 14px;
+    color: var(--text-primary);
+    line-height: 1.6;
+  }
+
+  .tension-vs {
+    text-align: center;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    color: var(--red);
+    font-size: 13px;
+  }
+
+  /* ─── effect cards ─── */
+  .effects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px;
+    margin: 32px 0;
+  }
+
+  .effect-card {
+    padding: 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition: border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .effect-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .effect-card:hover { border-color: rgba(200, 169, 126, 0.3); }
+  .effect-card:hover::before { transform: scaleX(1); }
+
+  .effect-name {
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+
+  .effect-mechanism {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+
+  .effect-desc {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ─── open questions ─── */
+  .questions-list {
+    margin: 24px 0;
+    list-style: none;
+  }
+
+  .questions-list li {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 15px;
+    color: var(--text-secondary);
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .questions-list li::before {
+    content: '?';
+    font-family: 'Space Mono', monospace;
+    color: var(--accent);
+    font-size: 11px;
+    min-width: 16px;
+    padding-top: 3px;
+  }
+
+  /* ─── research suggestion box ─── */
+  .research-box {
+    margin: 32px 0;
+    padding: 28px 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    position: relative;
+  }
+
+  .research-box-label {
+    position: absolute;
+    top: -10px; left: 20px;
+    background: var(--bg);
+    padding: 0 8px;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  .research-row {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 13.5px;
+  }
+
+  .research-row:last-child { border-bottom: none; }
+
+  .research-key {
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    text-transform: uppercase;
+    padding-top: 2px;
+  }
+
+  .research-val { color: var(--text-secondary); line-height: 1.7; }
+
+  /* ─── inline highlight ─── */
+  mark {
+    background: var(--accent-dim);
+    color: var(--accent);
+    padding: 1px 4px;
+    font-style: normal;
+  }
+
+  code {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    background: rgba(255,255,255,0.04);
+    padding: 2px 6px;
+    color: var(--text-secondary);
+  }
+
+  /* ─── footer ─── */
+  footer {
+    padding: 60px 0;
+    text-align: center;
+    color: var(--text-muted);
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    line-height: 2;
+  }
+
+  /* ─── animations ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* ─── scrollbar ─── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+  /* ─── responsive ─── */
+  @media (max-width: 768px) {
+    .toc { display: none; }
+    .tension { grid-template-columns: 1fr; }
+    .tension-vs { padding: 10px 0; font-size: 16px; }
+    .research-row { grid-template-columns: 1fr; gap: 4px; }
+    .effects-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ─── reading progress ─── */
+  .progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    background: var(--accent);
+    z-index: 100;
+    width: 0%;
+    transition: width 0.1s linear;
+    box-shadow: 0 0 8px var(--accent);
+  }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progress"></div>
+
+<nav class="toc" id="toc">
+  <div class="toc-dot active" data-section="0" data-label="序言"></div>
+  <div class="toc-dot" data-section="1" data-label="结构性孤独"></div>
+  <div class="toc-dot" data-section="2" data-label="内部工作模型"></div>
+  <div class="toc-dot" data-section="3" data-label="表征系统"></div>
+  <div class="toc-dot" data-section="4" data-label="误归因效应"></div>
+  <div class="toc-dot" data-section="5" data-label="研究路径"></div>
+  <div class="toc-dot" data-section="6" data-label="开放问题"></div>
+  <div class="toc-dot" data-section="7" data-label="哲学补充"></div>
+</nav>
+
+<header>
+  <div class="container">
+    <p class="site-label">Personal Research Notes · Relationship Studies</p>
+    <h1>关系结构<br><em>一个未完成的研究框架</em></h1>
+    <p class="subtitle">Why do we love, and what actually happens when we do?</p>
+    <div class="meta">
+      <div class="meta-item">状态<span>草稿</span></div>
+      <div class="meta-item">版本<span>0.3</span></div>
+      <div class="meta-item">领域<span>关系社会学 / 认知心理学</span></div>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- §0 序言 -->
+  <section id="s0">
+    <div class="section-label">序言</div>
+    <h2>为什么把它当作学术问题</h2>
+    <p>理解异性——或者更准确地说，理解任何一个人——始终是困难的。这种困难不是信息不够，也不是诚意不足。它是结构性的。</p>
+    <p>这份笔记试图把这个困难对象化。不是为了解决它，而是为了看清楚它的轮廓——它由哪些部分构成，哪些是可以工作的，哪些是原则上无法穿越的。</p>
+    <p>以下是几个初步前提。它们可能是错的。这是研究的起点，不是结论。</p>
+    <div class="theorem">
+      <div class="theorem-label">核心假设</div>
+      <p>亲密关系中的痛苦，大多数时候不是因为找错了人，而是因为我们对关系本身的结构性认识是错误的。</p>
+    </div>
+  </section>
+
+  <!-- §1 结构性孤独 -->
+  <section id="s1">
+    <div class="section-label">I · Structural Loneliness</div>
+    <h2>为什么需要爱——结构性孤独</h2>
+
+    <h3>渴望的根源</h3>
+    <p>渴望被理解是渴望的<mark>内容</mark>，不是渴望的根源。</p>
+    <p>根源更原始：意识是封闭系统（卢曼）。你永远只能从内部体验自己，无法直接进入另一个人的系统。这是意识的基本拓扑——不是因为不够亲密，而是结构性的无法穿透。</p>
+    <p>渴望爱是对这个结构性孤独的持续反抗。不是因为反抗会成功，而是<mark>意识一旦意识到自身的封闭性，就无法停止向外伸手</mark>。</p>
+
+    <h3>渴望的内在矛盾</h3>
+    <p>渴望爱同时想要两件不兼容的事：</p>
+
+    <div class="tension">
+      <div class="tension-side">
+        <div class="tension-side-label">被碰撞</div>
+        <div class="tension-side-text">确认边界存在<br>确认自己是独立系统</div>
+      </div>
+      <div class="tension-vs">vs</div>
+      <div class="tension-side">
+        <div class="tension-side-label">边界消失</div>
+        <div class="tension-side-text">回到融合状态<br>不再孤独</div>
+      </div>
+    </div>
+
+    <p>得到碰撞，孤独还在；边界消失，自我也消失。<strong>渴望爱在结构上是无法被满足的渴望</strong>——不是因为找不到对的人，而是因为它的两个内核互相排斥。张力本身就是渴望的本质。</p>
+
+    <div class="theorem">
+      <div class="theorem-label">碰撞的定义</div>
+      <p>你向外伸手，遇到一个不随你意志变形的东西。对方有自己的重量，自己的不可穿透性。这个阻力同时告诉你对方是真实的，也告诉你自己是真实的——是瞬间，不是状态。</p>
+    </div>
+
+    <h3>女性视角中爱是什么</h3>
+    <p>这是当前框架的一个显著缺口。上述分析是中性（或隐含男性）视角的。</p>
+    <p>Sara Ahmed 的情感导向理论（<em>Queer Phenomenology</em>）提出：情感不仅有方向，还有<mark>倾向性历史</mark>——什么样的身体、什么样的时刻、什么样的关系类型被文化认定为"值得朝向"的。女性的爱之朝向性受到双重塑造：自身意识的封闭结构，加上外部对"何为正确的爱"的规范性压力。这两者叠加，意味着女性的结构性孤独不是一个，而是至少两个——来自意识封闭，以及来自规范要求她朝向某个预设形状。</p>
+  </section>
+
+  <!-- §2 内部工作模型 -->
+  <section id="s2">
+    <div class="section-label">II · Attachment</div>
+    <h2>内部工作模型——意向性的形状</h2>
+
+    <h3>什么是内部工作模型</h3>
+    <p>渴望爱不是无差别的朝向——它有形状，被内部工作模型预先塑造了方向。</p>
+    <p>内部工作模型（鲍尔比，Bowlby）：在早期亲子关系中写入的、对"他人是否可靠"的稳定预期程序。它决定了：什么样的回应能让你感到被接住；在对方缺席时你的系统如何反应；意向性朝向什么形状的匹配。</p>
+    <p>这就是为什么同样的人，对某些人是一切，对另一些人毫无感觉——不是感情深浅，而是<mark>意向性形状是否吻合</mark>。</p>
+
+    <h3>爱——一个匹配事件</h3>
+
+    <div class="flow">
+      <div class="flow-item">
+        <span class="flow-num">01</span>
+        <span class="flow-text">内部工作模型预先塑造了意向性的形状</span>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item">
+        <span class="flow-num">02</span>
+        <span class="flow-text">对方的回应恰好符合了那个形状</span>
+      </div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item">
+        <span class="flow-num">03</span>
+        <span class="flow-text">这才是真正的被接住——爱发生了</span>
+      </div>
+    </div>
+
+    <div class="theorem">
+      <div class="theorem-label">命题</div>
+      <p>被接住不是客观事件，是匹配事件。</p>
+    </div>
+
+    <h3>相爱的定义</h3>
+    <p>相爱是一个概率极低的结构性条件：A的意向性形状恰好被B的回应方式匹配，<em>且</em>B的意向性形状恰好被A的回应方式匹配。两个独立的偶然同时发生——不是命运，是<mark>结构性的巧合</mark>。</p>
+
+    <h3>爱情——一种关系结构</h3>
+    <p>爱情是稳定的合作结构，双方从中获取各自利益。结构中有没有爱，不是爱情的必要条件。</p>
+    <p>恋爱关系和婚姻确认的只是双方进入了权力结构，不确认匹配是否真实发生，也不确认匹配是否双向。有人在婚姻里感到彻底孤独——结构存在，但匹配从未发生过。</p>
+    <p>卢曼（Luhmann）：爱情是一套<mark>符号化的沟通媒介</mark>，让两个封闭系统之间的沟通成为可能。双方共同接受"我们理解彼此"这个虚构——它只是提高了理解发生的概率，不代表理解真的发生了。</p>
+  </section>
+
+  <!-- §3 表征系统 -->
+  <section id="s3">
+    <div class="section-label">III · Representation</div>
+    <h2>表征系统——在内部模型之上</h2>
+
+    <h3>不同的编码层</h3>
+    <p>有些人用身体感受编码，有些人用逻辑结构编码，有些人用叙事编码。这意味着对同一个情感事件，不同的人产生的"内部记录"格式是不同的。</p>
+
+    <h3>翻译能力</h3>
+    <p><strong>无效的翻译</strong>是：我知道你需要X，所以我表演X。<br><strong>有效的翻译</strong>需要一个前提：翻译者自己在那个编码层有足够的真实经验可以调用。</p>
+    <p>翻译不是模仿对方的表达格式，而是把自己的经验真正转换到对方的编码系统里。它需要翻译者先在那个系统内部真实地生活过。</p>
+
+    <h3>结构性盲区</h3>
+    <p>某些编码层之间的距离可能过大，翻译的代价超过关系本身能承受的。这部分在本框架内暂不展开——它可能只能在具体关系中磨合矫正，理论层面的工具有限。</p>
+  </section>
+
+  <!-- §4 误归因效应 -->
+  <section id="s4">
+    <div class="section-label">IV · Misattribution</div>
+    <h2>关系中的误归因效应</h2>
+
+    <p>以下效应共享同一个深层结构：</p>
+
+    <div class="flow" style="margin-bottom: 32px;">
+      <div class="flow-item"><span class="flow-num">→</span><span class="flow-text">利用神经回路（多巴胺 / 认知一致性 / 身份认同）</span></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item"><span class="flow-num">→</span><span class="flow-text">绕过理性判断，制造一个感受</span></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item"><span class="flow-num">→</span><span class="flow-text">感受被误归因为"这是爱 / 在乎 / 我的问题"</span></div>
+    </div>
+
+    <div class="effects-grid">
+
+      <div class="effect-card">
+        <div class="effect-name">吊桥效应</div>
+        <div class="effect-mechanism">生理唤醒误归因</div>
+        <p class="effect-desc">心跳加速被误读为心动。争吵后的和好、恐怖电影约会，都是高唤醒状态的误归因。感情并没有修复，只是生理状态被错误解读。</p>
+      </div>
+
+      <div class="effect-card">
+        <div class="effect-name">间歇性强化</div>
+        <div class="effect-mechanism">多巴胺预期回路</div>
+        <p class="effect-desc">奖励不可预测时，行为被强化得最牢固。忽冷忽热让多巴胺持续激活。PUA的核心机制，也是Dating App的设计逻辑。</p>
+      </div>
+
+      <div class="effect-card">
+        <div class="effect-name">登门槛效应</div>
+        <div class="effect-mechanism">认知一致性</div>
+        <p class="effect-desc">先建立"我们亲密"的认知，对方为维持一致性接受越来越多本不该接受的事。先小请求，后大请求。</p>
+      </div>
+
+      <div class="effect-card">
+        <div class="effect-name">沉没成本效应</div>
+        <div class="effect-mechanism">投入辩护机制</div>
+        <p class="effect-desc">"我付出了那么多"被误读为"我一定很在乎"。付出越多越难离开，不是感情越深，而是认知系统在为已有投入辩护。</p>
+      </div>
+
+      <div class="effect-card">
+        <div class="effect-name">罗密欧与朱丽叶效应</div>
+        <div class="effect-mechanism">障碍制造稀缺感</div>
+        <p class="effect-desc">外部阻力增强吸引力。障碍制造稀缺感，稀缺感激活多巴胺预期回路。</p>
+      </div>
+
+      <div class="effect-card">
+        <div class="effect-name">标签效应</div>
+        <div class="effect-mechanism">身份认同绑定</div>
+        <p class="effect-desc">"你是一个善解人意的人"——对方为维持标签做出超出意愿的妥协。</p>
+      </div>
+
+      <div class="effect-card">
+        <div class="effect-name">煤气灯效应</div>
+        <div class="effect-mechanism">现实感知扭曲</div>
+        <p class="effect-desc">系统性扭曲对方对现实的感知，让对方持续怀疑自己的判断，最终依赖操控者定义现实。</p>
+      </div>
+
+      <div class="effect-card">
+        <div class="effect-name">投射性认同</div>
+        <div class="effect-mechanism">行为内化机制</div>
+        <p class="effect-desc">A持续以某种方式对待B，B最终真的开始按A期待的方式行动。登门槛→沉没成本→投射性认同，是某些操控关系的完整演化路径。</p>
+      </div>
+
+    </div>
+
+    <p>一个尚未解决的问题：对方是否能够识别这些误归因效应？女性是否由于误归因误以为自己喜欢某人？识别能力与依恋风格之间是否存在关联？</p>
+  </section>
+
+  <!-- §5 研究路径 -->
+  <section id="s5">
+    <div class="section-label">V · Methodology</div>
+    <h2>研究路径建议</h2>
+
+    <div class="research-box">
+      <div class="research-box-label">理论文献</div>
+      <div class="research-row">
+        <div class="research-key">系统论</div>
+        <div class="research-val">卢曼《社会的社会》《爱情作为激情》——提供封闭系统、沟通媒介的基础概念</div>
+      </div>
+      <div class="research-row">
+        <div class="research-key">依恋理论</div>
+        <div class="research-val">Bowlby、Mary Ainsworth；当代扩展：Mario Mikulincer &amp; Phillip Shaver 的成人依恋研究</div>
+      </div>
+      <div class="research-row">
+        <div class="research-key">女性主义</div>
+        <div class="research-val">Sara Ahmed《情感导向》；Adrienne Rich《强制异性恋与女同志存在》；Simone de Beauvoir《第二性》中对爱的分析——补充当前框架的性别盲区</div>
+      </div>
+      <div class="research-row">
+        <div class="research-key">认知心理学</div>
+        <div class="research-val">Dutton &amp; Aron 1974（吊桥效应原始研究）；Cialdini《影响力》（误归因机制的行为层证据）</div>
+      </div>
+    </div>
+
+    <div class="research-box">
+      <div class="research-box-label">实证方法</div>
+      <div class="research-row">
+        <div class="research-key">定性路径</div>
+        <div class="research-val">半结构化深度访谈（现象学路径）。核心问题围绕："你上一次感到被接住是什么时候？那个时刻你的具体感受是什么？"——分性别、依恋风格分组对比</div>
+      </div>
+      <div class="research-row">
+        <div class="research-key">定量路径</div>
+        <div class="research-val">ECR（经验性亲密关系量表）测内部工作模型；设计误归因识别能力测验；探索依恋焦虑分与误归因识别率的相关性</div>
+      </div>
+      <div class="research-row">
+        <div class="research-key">框架缺口</div>
+        <div class="research-val">当前框架对"女性追求什么"的分析几乎空白。女性主义关系理论在这里是必要补充，而非可选项</div>
+      </div>
+    </div>
+
+    <div class="research-box">
+      <div class="research-box-label">核心问题（有待回答）</div>
+      <div class="research-row">
+        <div class="research-key">Q1</div>
+        <div class="research-val">爱和爱情是不同的结构吗？如果是，两者的边界如何界定？</div>
+      </div>
+      <div class="research-row">
+        <div class="research-key">Q2</div>
+        <div class="research-val">权力结构在关系中是普遍存在的还是仅在特定类型关系中出现？女性在关系中追求的核心是什么——安全感、被见见、资源、还是别的？</div>
+      </div>
+      <div class="research-row">
+        <div class="research-key">Q3</div>
+        <div class="research-val">误归因识别能力是稳定的个体特质，还是随关系阶段变化？</div>
+      </div>
+      <div class="research-row">
+        <div class="research-key">Q4</div>
+        <div class="research-val">表征系统不兼容的两个人，能否通过学习建立有效的翻译路径，还是翻译代价本身就是关系损耗的主要来源？</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- §6 开放问题 -->
+  <section id="s6">
+    <div class="section-label">VI · Open Questions</div>
+    <h2>还没想清楚的部分</h2>
+
+    <ul class="questions-list">
+      <li>权力结构在关系中是否普遍存在？双方的权力不对称如何与内部工作模型互动——是放大还是抑制了误归因的发生？</li>
+      <li>卢曼的爱情作为"沟通媒介"，与鲍尔比的内部工作模型，在理论上是否兼容？前者是系统论，后者是心理结构论——能否整合，还是两者只能并行？</li>
+      <li>如果相爱是结构性的概率极低事件，那么"培养感情"是在做什么？是在改变内部工作模型，还是在适应性调整表达方式，还是别的？</li>
+      <li>结构性盲区（表征系统不兼容）在实践中到底有多普遍？是大多数关系都在带着它运作，还是它实际上常常是关系破裂的主因？</li>
+      <li>女性的内部工作模型是否因为规范性压力而系统性地产生某些特定形状？如果是，这是否意味着女性群体的意向性朝向存在某种统计意义上的共性结构？</li>
+    </ul>
+
+    <div class="theorem">
+      <div class="theorem-label">写在最后</div>
+      <p>把困难的事情当作学术问题研究，不是为了祛魅，而是为了能够更清醒地、带着完整的结构认识，继续朝向它。</p>
+    </div>
+  </section>
+
+  <!-- §7 哲学补充 -->
+  <section id="s7">
+    <div class="section-label">VII · Philosophical Supplement</div>
+    <h2>关于爱情的额外随记</h2>
+
+    <h3>1. 爱的必要性</h3>
+    <p>布伯（Martin Buber）的《我与你》（Ich und Du, 1923）提供了最精准的框架：</p>
+    <ul>
+      <li style="margin-bottom: 8px;"><strong>"我—你"（I-Thou）关系</strong>：心理距离趋近于零，主体与主体之间形成真实的相遇（Begegnung）。</li>
+      <li><strong>"我—它"（I-It）关系</strong>：他者被客体化，心理距离实质上是无限大的——即使身体紧贴。</li>
+    </ul>
+    
+    <div class="theorem" style="margin-top: 24px;">
+      <div class="theorem-label">问题</div>
+      <p>一个人的青春年华，能用"曾经有过I-Thou的瞬间"来偿还吗？</p>
+    </div>
+
+    <h3>2. 臣服是唯一出路吗？</h3>
+    <p>黑格尔在《精神现象学》中的主奴辩证法描述的是自我意识如何通过他者获得承认（Anerkennung）：</p>
+    
+    <div class="flow" style="margin-bottom: 32px;">
+      <div class="flow-item"><span class="flow-num">→</span><span class="flow-text">两个自我意识相遇</span></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item"><span class="flow-num">→</span><span class="flow-text">生死搏斗（都需要被承认，却不愿承认对方）</span></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item"><span class="flow-num">→</span><span class="flow-text">一方臣服（奴隶）以求生存</span></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item"><span class="flow-num">→</span><span class="flow-text">悖论：主人依赖奴隶的承认，但奴隶的承认因其臣服而贬值</span></div>
+      <div class="flow-arrow">↓</div>
+      <div class="flow-item"><span class="flow-num">→</span><span class="flow-text">主人陷入空洞，奴隶在劳动中反而发展出真正的自我意识</span></div>
+    </div>
+    
+    <p>黑格尔在《法哲学原理》中实际上提出了爱情的不同模型：</p>
+    
+    <div class="theorem" style="margin-top: 24px;">
+      <p>"爱的第一个环节是：我不愿成为独立的孤立的人，如果我是这样的人，我会感到残缺和不完整。第二个环节是：我在另一个人那里获得了自身。"</p>
+    </div>
+    
+    <p style="margin-top: 24px;">这不是臣服，而是双向的自我让渡——不是奴隶放弃自我，而是两个自由意志选择在彼此之中重新找到自己。</p>
+    <p>萨特的问题在于他认为这种双向让渡不可能（因为每个意识都要把对方客体化）。但梅洛-庞蒂（Merleau-Ponty）在《知觉现象学》中用<mark>身体间性（intercorporéité）</mark>反驳了萨特：两个身体可以在感知层面真正交融，主客体的对立在此消解。</p>
+    
+    <p><strong>所以：</strong>臣服不是维持关系的唯一方式，但需要双方都发展出"在自我放弃中不失去自我"的能力。</p>
+    
+    <ul class="questions-list" style="margin-top: 16px;">
+      <li>这个结论是不是只是奢望？</li>
+    </ul>
+
+    <h3>3. 爱情与距离的关系</h3>
+    <div class="effects-grid" style="margin-top: 24px;">
+      
+      <div class="effect-card">
+        <div class="effect-name">1. 物理距离 (Physical Distance)</div>
+        <p class="effect-desc">最直观，却最具欺骗性。帕斯卡（Pascal）在《思想录》中写道："人类全部的不幸，都源于他不能安静地待在一个房间里。"物理距离的消除，从未自动带来其他距离的消除——这是人类关系中最古老的悲剧之一。</p>
+      </div>
+
+      <div class="effect-card">
+        <div class="effect-name">2. 心理距离 (Psychological Distance)</div>
+        <p class="effect-desc">布伯的《我与你》提供了精准框架："我—你"关系心理距离趋近于零；"我—它"关系他者被客体化，心理距离无限大。两人可以同住一屋，却处于完全的"我—它"状态，彼此都不被真正看见。这解释了为何"物理距离近，但心理距离远"。</p>
+      </div>
+
+      <div class="effect-card">
+        <div class="effect-name">3. 社会距离 (Social Distance)</div>
+        <p class="effect-desc">齐美尔在《社会学》中分析了<mark>陌生人（Der Fremde）</mark>这一社会类型：他是"今天来、明天留"的人——他在场，却不属于；他亲近，却保持距离。社会距离由角色地位构成，比物理距离更坚硬。贵族与平民共处一室，鸿沟依然。</p>
+      </div>
+
+      <div class="effect-card">
+        <div class="effect-name">4. 本体距离 (Ontological Distance)</div>
+        <p class="effect-desc">萨特在《存在与虚无》中写道："他人的目光将我变成物体"。萨特的"他人即地狱"并非说他人可恶，而是当两个存在相遇，各自的自由构成对彼此的威胁。本体距离是两个自由意志之间不可消除的张力。</p>
+      </div>
+
+      <div class="effect-card" style="grid-column: 1 / -1; max-width: 600px;">
+        <div class="effect-name">5. 时间距离 (Temporal Distance)</div>
+        <p class="effect-desc">普鲁斯特在《追忆似水年华》中揭示：时间距离并非线性的。通过"非自愿记忆"（mémoire involontaire），玛德莱娜小蛋糕的气味可以瞬间消除几十年的时间距离。记忆与期待，是人类特有的时间距离操纵工具。</p>
+      </div>
+      
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>Personal Research Notes · Draft 0.3</p>
+  <p style="margin-top: 8px; font-size: 9px; opacity: 0.5;">这是一个未完成的框架。所有结论都是暂时的。</p>
+</footer>
+
+<script>
+  // Progress bar
+  const progress = document.getElementById('progress');
+  window.addEventListener('scroll', () => {
+    const pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+    progress.style.width = pct + '%';
+  });
+
+  // Intersection observer for section reveal
+  const sections = document.querySelectorAll('section');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.08 });
+  sections.forEach(s => obs.observe(s));
+
+  // TOC dots
+  const dots = document.querySelectorAll('.toc-dot');
+  const sectionEls = document.querySelectorAll('section');
+  const tocObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const idx = [...sectionEls].indexOf(e.target);
+        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+      }
+    });
+  }, { threshold: 0.4 });
+  sectionEls.forEach(s => tocObs.observe(s));
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      sectionEls[i]?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
+</body>
+</html>
