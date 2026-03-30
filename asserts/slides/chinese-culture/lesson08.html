@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第八课：艺术：琴棋书画 · Les Quatre Arts de Lettré</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:#0a0807; --paper:#f5f0e8;
+  --red:#c0392b; --red2:#e05040;
+  --gold:#b89040; --gold2:#d4ad60;
+  --jade:#2e7d5a; --jade2:#5ecfa0;
+  --blue:#2a5a8a; --blue2:#80b4e0;
+  --purple:#6a3a8a; --purple2:#b070e0;
+  --mist:rgba(245,240,232,0.06);
+  --border:rgba(255,255,255,0.10);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0a0807;font-family:'Cormorant Garamond','Noto Serif SC',Georgia,serif;overflow:hidden;width:100vw;height:100vh;user-select:none;}
+#deck{width:100vw;height:100vh;position:relative;}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;padding:44px 64px 32px;opacity:0;pointer-events:none;transition:opacity 0.4s ease;overflow:hidden;}
+.slide.active{opacity:1;pointer-events:all;}
+
+/* Backgrounds from 01-07 */
+.bg-void{background:radial-gradient(ellipse at 30% 40%,rgba(160,50,50,0.15) 0%,transparent 60%),radial-gradient(ellipse at 70% 60%,rgba(180,140,50,0.12) 0%,transparent 60%),#060408;}
+.bg-dark{background:#0e0c0a;}
+.bg-oracle{background:linear-gradient(135deg,#060810 0%,#0a0c18 100%);}
+.bg-empire{background:linear-gradient(135deg,#150603 0%,#200808 100%);}
+.bg-culture{background:linear-gradient(135deg,#0a0904 0%,#130f06 100%);}
+.bg-jade{background:linear-gradient(135deg,#050e09 0%,#091508 100%);}
+
+/* Fixes for Slide Header & Typography mimicking old layout and allowing elements from 08-12 */
+.slide-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;border-bottom:1px solid var(--border);padding-bottom:12px; width: 100%;}
+.slide-title h2 { margin-bottom: 0; font-size: 32px; color: var(--gold); }
+.slide-title .fr { font-size: 16px; color: rgba(255,255,255,0.5); font-style: italic; }
+.lesson-tag, .page-num{font-size:10px;font-family:'DM Sans', sans-serif;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);opacity:0.65;}
+
+h1{font-family:'Noto Serif SC',serif;font-size:clamp(40px,6.5vw,74px);font-weight:600;color:var(--paper);line-height:1.15;letter-spacing:0.06em;}
+h2{font-family:'Noto Serif SC',serif;font-size:clamp(17px,2.5vw,30px);font-weight:400;color:var(--paper);letter-spacing:0.06em;margin-bottom:6px;}
+h3{font-size:16px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);opacity:0.85;margin-bottom:8px;font-weight:400;}
+p{font-size:clamp(13px,1.5vw,16px);line-height:1.8;color:rgba(245,240,232,0.75); margin-bottom: 12px;}
+em.fr, .fr, .fr-text {font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
+
+/* Utility Colors used in 08-12 */
+.red, .highlight { color: var(--red); font-weight:600; }
+.gold, .brown { color: var(--gold); }
+.blue, .night-blue { color: var(--blue2); }
+.plum { color: var(--purple2); }
+.bamboo, .leaf-grn, .leaf-green, .tea-green { color: var(--jade2); }
+
+/* Layouts */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:30px;flex:1;align-items:start;}
+.three-col{display:grid;grid-template-columns:repeat(3, 1fr);gap:18px;flex:1;align-items:start;}
+.four-col{display:grid;grid-template-columns:repeat(4, 1fr);gap:15px;flex:1;align-items:start;}
+.five-col{display:grid;grid-template-columns:repeat(5, 1fr);gap:10px;flex:1;align-items:start;}
+.content-grid { display:grid; grid-template-columns:1fr 1fr; gap:30px; flex:1;}
+.content-three-col { display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; flex:1;}
+
+.card{background:var(--mist);border:1px solid var(--border);padding:18px 20px;position:relative;border-radius:2px; height:auto; overflow-y:auto;}
+.card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%; background:var(--gold);}
+.quote-box { background:var(--mist); border-left: 3px solid var(--gold); padding: 15px 20px; margin: 15px 0; }
+
+.picto, .oracle-svg {background:rgba(0,0,0,0.5);border:1px solid rgba(184,144,64,0.14);display:block;margin:0 auto 10px;padding:12px;border-radius:2px; width:90px; height:90px;}
+svg { stroke: var(--gold) !important; stroke-width: 2 !important; fill: none; }
+.seal { width: 90px; height: 90px; border: 3px solid var(--red); display: flex; justify-content: center; align-items: center; font-size: 42px; color: var(--red); font-weight: 700; margin:0 auto 30px; transform: rotate(-2deg); }
+.oracle-box { text-align: center; }
+
+h2.red, h2.gold, h2.brown, h2.blue, h2.bamboo, h2.leaf-grn { margin-top:0; margin-bottom:10px; }
+
+/* Navigation 01-07 style */
+#nav{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;z-index:100;}
+.nb{width:34px;height:34px;border:1px solid rgba(255,255,255,0.14);background:rgba(0,0,0,0.55);color:rgba(255,255,255,0.55);border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+.nb:hover{border-color:var(--gold);color:var(--gold);}
+#sc{font-size:11px;color:rgba(255,255,255,0.28);letter-spacing:0.12em;min-width:44px;text-align:center;}
+.dots{display:flex;gap:4px;}
+.dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.18);cursor:pointer;transition:all 0.2s;}
+.dot.active{background:var(--gold);width:14px;border-radius:3px;}
+
+/* Hide 11/12 specific controls completely as we add our own */
+.controls { display: none !important; }
+.cover h1 { text-align: center; width: 100%; display: block; margin-top:20px; }
+.cover h3, .cover .fr-title { text-align: center; width: 100%; display: block; margin-top:10px; font-size:24px; color:var(--gold); font-family:var(--font-fr);}
+.cover { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+</style>
+
+</head>
+<body>
+
+<div id="deck">
+
+  <!-- ================= PAGE 1: COVER ================= -->
+  <div class="slide bg-void active" id="slide-1">
+    <div class="seal">艺</div>
+    <h1>第八课：艺术 —— 琴棋书画</h1>
+    <h3 class="gold" style="margin-top:20px; font-family: var(--font-fr);">Leçon VIII : Les Arts — Guqin, Go, Calligraphie, Peinture</h3>
+    <div style="width: 60px; height: 1px; background: var(--ink); margin: 40px auto;"></div>
+    <p style="font-size:18px; color:#666; letter-spacing:4px; text-transform:uppercase;">Université du Luxembourg · 文化对比系列</p>
+  </div>
+
+  <!-- ================= PAGE 2: CORE SVGs ================= -->
+  <div class="slide bg-dark" id="slide-2">
+    <h2 class="red">核心甲骨文 · Les Caractères Originels</h2>
+    <h3>琴棋书画的象形溯源</h3>
+    
+    <div class="three-col" style="grid-template-columns: 1fr 1fr 1fr 1fr; margin-top:40px;">
+      <div class="card" style="align-items:center; text-align:center;">
+        <div class="picto">
+          <!-- 乐: Silk threads on wood -->
+          <svg viewBox="0 0 100 100">
+            <path d="M50 20 L50 80 M25 80 L75 80 M30 30 C20 40 40 60 30 70 M70 30 C80 40 60 60 70 70 M25 20 L75 20 M15 50 L85 50" />
+            <path d="M40 30 C35 50 35 60 40 70 M60 30 C65 50 65 60 60 70" />
+          </svg>
+        </div>
+        <p style="font-size:32px; font-weight:600; margin:10px 0;">乐 (琴)</p>
+        <em class="fr">Musique/Instrument</em>
+        <p style="font-size:14px; margin-top:10px;">木上架丝之形 <br>Fils de soie sur bois.</p>
+      </div>
+
+      <div class="card" style="align-items:center; text-align:center;">
+        <div class="picto">
+          <!-- 画: Hand holding brush -->
+          <svg viewBox="0 0 100 100">
+            <path d="M40 80 L80 80 L80 60 L40 60 Z M50 20 L50 60 M40 50 L60 50 M20 20 C30 20 40 40 50 40" stroke-width="3"/>
+          </svg>
+        </div>
+        <p style="font-size:32px; font-weight:600; margin:10px 0;">画 (畵)</p>
+        <em class="fr">Peinture/Tracer</em>
+        <p style="font-size:14px; margin-top:10px;">手执笔画出疆界形 <br>Main traçant avec pinceau.</p>
+      </div>
+
+      <div class="card" style="align-items:center; text-align:center;">
+        <div class="picto">
+          <!-- 书: Brush pointing at vessel -->
+          <svg viewBox="0 0 100 100">
+            <path d="M30 15 L70 15 L50 90 M20 40 L80 40 M40 60 L60 60" />
+            <circle cx="50" cy="80" r="10" />
+          </svg>
+        </div>
+        <p style="font-size:32px; font-weight:600; margin:10px 0;">书</p>
+        <em class="fr">Calligraphie/Écrit</em>
+        <p style="font-size:14px; margin-top:10px;">手拿笔着墨于竹筒 <br>Pinceau encré sur bambou.</p>
+      </div>
+
+      <div class="card" style="align-items:center; text-align:center;">
+        <div class="picto">
+          <!-- 棋: Game board representation (stones on intersections) -->
+          <svg viewBox="0 0 100 100">
+            <path d="M20 20 L80 20 M20 50 L80 50 M20 80 L80 80 M20 20 L20 80 M50 20 L50 80 M80 20 L80 80" />
+            <circle cx="50" cy="50" r="8" fill="var(--ink)" />
+            <circle cx="20" cy="80" r="8" fill="var(--ink)" />
+            <circle cx="80" cy="20" r="8" fill="none" />
+          </svg>
+        </div>
+        <p style="font-size:32px; font-weight:600; margin:10px 0;">棋 (碁)</p>
+        <em class="fr">Jeu de Go</em>
+        <p style="font-size:14px; margin-top:10px;">石木之奕局 <br>Pierres sur une grille/Stratégie.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 3: Literati Spirit ================= -->
+  <div class="slide bg-empire" id="slide-3">
+    <div class="two-col">
+      <div style="padding-right:40px; border-right:1px solid var(--shadow);">
+        <h2 class="red">四艺的文人精神</h2>
+        <h3>道德乌托邦的延伸 <br><em class="fr">L'Utopie Morale et Spirituelle</em></h3>
+        <p>在《中国思想史》的视野下，中国四艺（琴棋书画）从不追求纯粹的<b>技巧本身</b>，而是追求最高级的<b>人格修养</b>。儒家文化将道德抬高至绝对地位，塑造了独特的“道德乌托邦”。</p>
+        <p>This contrasts deeply with Western art, which historically pursued mimesis (imitation of nature), technical mastery, and divine glorification.</p>
+      </div>
+      <div>
+        <p>魏晋时期，随着名教（儒家礼法）的衰败，文人开始转向<b>自然（Ziran - Naturalness）</b>。艺术成了通往“道”的方式。</p>
+        <p><em class="fr">En Chine, l'art n'est pas une fin en soi (maîtrise technique absolue), mais un outil de perfectionnement moral et philosophique. Des règles strictes du Confucianisme "Mingjiao" à la spontanéité taoïste "Ziran" de l'époque Wei-Jin.</em></p>
+        <div class="quote-box">
+          "道法自然" - L'art doit imiter la spontanéité du cosmos, au-delà de la forme matérielle. (Laotseu)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 4: Art Essence ================= -->
+  <div class="slide bg-culture" id="slide-4">
+    <h2 class="red">中国艺术的本质：自然与“意”</h2>
+    <h3>La Nature et l'Intention (Yi)</h3>
+    
+    <div class="two-col" style="margin-top:20px;">
+      <div>
+        <p>中国艺术本质上是由儒释道（儒家、佛教、道教）思想延伸而来的载体。最高境界在于传达<b>“意”</b>（l'Intention, ou l'esprit profond）而非其表象（形）。</p>
+        <p><em class="fr">L'essence de l'art chinois n'est pas la représentation photographique (mimesis). Porté par le Bouddhisme, le Taoïsme et le Confucianisme, il vise à exprimer le "Yi", c'est-à-dire l'intention et l'esprit de l'objet, tout en maintenant l'harmonie avec la nature.</em></p>
+        <p>苏轼提出“论画以形似，见与儿童邻”（To judge a painting by mere likeness is childish）。因此，西方绘画着迷于透视法与解剖学；而中国绘画追寻的则是“气韵生动”（Le souffle vital）。</p>
+      </div>
+      <div class="card" style="background:#5e6e58; color:white;">
+        <h3 style="color:#d1cbbe;">Comparaison:</h3>
+        <p><b>Ouest (Classique) :</b> Mathématiques, rationalité, imitation de la création divine, perspective géométrique.</p>
+        <p><b>Chine :</b> Impression, subjectivité spirituelle de l'auteur, fluidité, espace, et résonance énergétique (Qi).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 5: Music (Le) ================= -->
+  <div class="slide bg-jade" id="slide-5">
+    <h2 class="gold">乐：礼乐制度与演变</h2>
+    <h3>La Musique comme instrument de l'État</h3>
+    
+    <p>殷商时代，“乐”本质上是为了祭祀神灵。西周之后，周公制定“礼乐制度”（Rites et Musique），将乐作为统治和等级制度的核心工具。不同阶层只能欣赏规模不同的雅乐。</p>
+    
+    <div class="two-col" style="margin-top:20px;">
+      <div>
+        <p><em class="fr">À l'origine, la musique (Yuè) servait aux rituels sacrificiels. Elle devint un outil de gouvernance confucéen (système des rites) pour réguler la société et les émotions.</em></p>
+        <p>然而，由于“礼乐”对治国理政的实际作用式微，古乐的政治地位逐渐下降甚至消失。民间俗乐兴起，古曲失传。</p>
+      </div>
+      <div class="card" style="border-left: 4px solid var(--seal-red);">
+        <p><em class="fr">Max Weber a noté que la musique occidentale s'est rationalisée et mathématisée (tempérament, polyphonie), tandis que la musique chinoise a longtemps stagné d'un point de vue structurel parce qu'elle était fixée par son utilité politique et rituelle ancienne.</em></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 6: Guqin vs Piano ================= -->
+  <div class="slide bg-oracle" id="slide-6">
+    <div class="two-col">
+      <div>
+        <h2 class="red">琴：古琴 vs 钢琴</h2>
+        <h3>Philosophie du Timbre vs Harmonie</h3>
+        <p>古琴（Guqin）是中国乐器中最具文人色彩的乐器。其哲学在于<b>音色（Timbre）</b>与余音的控制。琴有七弦，散音、泛音、按音，意在孤芳自赏或遇知音（如伯牙子期）。</p>
+        <p><em class="fr">Le Guqin (Cithare chinoise) incarne la philosophie du timbre. L'attention est focalisée sur les nuances infinitésimales de chaque note, le silence entre elles, et la résonance. Il est joué pour l'introspection ou pour un seul ami (Zhiyin).</em></p>
+      </div>
+      <div class="card">
+        <h3 class="gold" style="margin-bottom:15px;">Le Piano Occidental</h3>
+        <p>钢琴则代表了西方音乐的<b>和声学（Harmonie）</b>架构与建筑般的宏大叙事。钢琴是为公开演奏（Concert）、和弦架构以及表达强烈冲突和力量而生。</p>
+        <p><em class="fr">Le piano est architectural : il repose sur l'harmonie multivoix, développé pour les salles de concert publiques, visant à maîtriser un espace acoustique riche et complexe.</em></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 7: Calligraphy (Shu) ================= -->
+  <div class="slide bg-dark" id="slide-7">
+    <h2 class="red">书：汉字本身的艺术</h2>
+    <h3>La Calligraphie : Liberté dans le cadre</h3>
+
+    <div class="two-col" style="margin-top:30px;">
+      <div class="card" style="background:#1a1a1a; color:var(--paper);">
+        <h3 style="color:var(--gold);">极致规矩下的自由</h3>
+        <p>法国等西方学者对汉字书法极度着迷，因为拼音文字难以演化为如此深度的独立视觉艺术。汉字提供了一个极其严格的法度“方块框架”。</p>
+        <p><em class="fr">La calligraphie est l'art ultime pour les lettrés chinois. Elle fascine en Europe car l'alphabet phonétique s'y prête moins. Elle exige des règles extrêmement strictes, mais offre une liberté absolue à l'intérieur de ce cadre.</em></p>
+      </div>
+      <div>
+        <p>古代知识分子追崇书法，是因为笔墨的变化直接对应了书写者当下的呼吸、心跳乃至道德修养与性格（“字如其人”）。</p>
+        <p><b>颜真卿的《祭侄文稿》</b>之所以伟大，不在于结构完美，而在于其突破了规矩，将极度的悲痛完全倾注于笔墨之间。</p>
+        <p><em class="fr">L'écriture révèle l'âme. Une calligraphie n'est pas qu'un beau texte, c'est l'électrocardiogramme de l'état d'esprit et de la vertu du lettré à un instant précis.</em></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 8: Painting (Hua) ================= -->
+  <div class="slide bg-empire" id="slide-8">
+    <h2 class="gold">水墨画：留白与山水哲学</h2>
+    <h3>La Peinture à l'encre : Philosophie du Vide (Liubai)</h3>
+
+    <p>人类历史上，基本上只有中西方文明诞生了独立且高度发达的“风景画/山水画（Paysage / Shanshui）”。</p>
+
+    <div class="two-col">
+      <div>
+        <h3 style="font-size:20px; font-weight:600; margin-bottom:10px;">留白的张力 <br><em class="fr">Le Vide (Liubai)</em></h3>
+        <p>西方绘画用颜料铺满整张画布；中国水墨画刻意在大面积的纸上“无墨”，留出空白。这片空白是水，是云，是道，是无限的想象空间。</p>
+        <p><em class="fr">En Occident, la toile entière est couverte de peinture. La peinture chinoise crée une tension métaphysique en laissant de vastes zones blanches (le Vide). Ce vide est respiration, nuages, ou l'infini spirituel.</em></p>
+      </div>
+      <div class="card" style="border-right:4px solid var(--bamboo);">
+        <h3 style="font-size:20px; font-weight:600; margin-bottom:10px;">借山水解脱 <br><em class="fr">Libération par le Paysage</em></h3>
+        <p>古代文人仕途受挫或面临社会黑暗时（如宋元变革），放弃对社会现实的描绘，转而寄情于客观且永恒的山水之间，以此追寻内心的解脱与精神乌托邦。</p>
+        <p><em class="fr">Les lettrés, frustrés par des crises politiques, se sont tournés vers la nature éternelle pour trouver l'évasion spirituelle et se détacher des douleurs du monde.</em></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 9: Go (Qi) ================= -->
+  <div class="slide bg-culture" id="slide-9">
+    <div class="two-col">
+      <div>
+        <h2 class="red">围棋：道与天下</h2>
+        <h3>Le Jeu de Go : Stratégie de l'Univers</h3>
+        
+        <p>围棋（Go）代表了古代中国人的宇宙观：“天圆地方”。棋盘由纵横直线构成网格，黑白两子代表阴阳运转。</p>
+        <p><em class="fr">Le jeu de Go représente la cosmologie chinoise : le plateau carré est la terre, les pierres circulaires sont le ciel. Le noir et le blanc symbolisent l'interaction dynamique du Yin et du Yang.</em></p>
+        
+        <ul style="font-size:20px; line-height:1.8; margin-top:20px; padding-left:20px;">
+          <li><b>无阶级之分：</b> 所有棋子地位平等，依靠位置（位势）而非固有兵种价值发挥作用。</li>
+          <li><b>包围哲学：</b> 意图在于获得生存空间（气) 和围地（包围圈），而非单点击杀。</li>
+        </ul>
+      </div>
+      <div class="card" style="justify-content:center;">
+        <h3 class="gold" style="margin-bottom:10px;">西洋棋 (Echecs) 的隐喻</h3>
+        <p>与之对比，国际象棋反映了欧洲封建社会的等级架构体系（皇、后、骑士、主教、平民）。游戏的核心是目标明确的“弑权”（将死国王 Echec et Mat）。</p>
+        <p><em class="fr">Les Échecs occidentaux reflètent la société féodale européenne (Rois, Chevaliers, Pions) et se concentrent sur l'élimination directe du monarque adverse. Le Go, lui, est un jeu de contrôle géopolitique de l'espace abstrait et d'influence.</em></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 10: MIRROR ================= -->
+  <div class="slide bg-jade" id="slide-10">
+    <div style="background-color: var(--ink); color: var(--paper); padding:40px; border-radius:8px; height:100%;">
+      <h2 style="color:var(--paper); margin-bottom:10px;">汉法文化镜像</h2>
+      <h3 style="color:var(--gold);">Miroir Culturel Franco-Chinois: Beaux-Arts vs Art Lettré</h3>
+      
+      <div class="two-col" style="margin-top:40px;">
+        <div style="border-right: 1px inset var(--shadow); padding-right: 30px;">
+          <h3 style="color:#dce8f3; font-size:22px;">📍 法国 / 西方（France / Occident）</h3>
+          <p><b>理性的再现 (Représentation rationnelle)</b><br>从古希腊到文艺复兴，再到巴黎法国美术学院（Beaux-Arts）。艺术追求解剖学、几何透视，追求再现物质世界的真实与神圣的完美。艺术是对物理世界的科学分析与感官再造。</p>
+        </div>
+        <div>
+          <h3 style="color:#eac496; font-size:22px;">📍 中国（Chine）</h3>
+          <p><b>精神的投射 (Projection spirituelle)</b><br>“琴棋书画”的终极目标不是艺术本体，而是造就一个拥有至高道德人格的“圣人/君子”。艺术仅仅是内心情感、哲学体悟（对佛家虚无、道家自然的领悟）的外在排气口，意在忘形。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 11: SUMMARY ================= -->
+  <div class="slide bg-oracle" id="slide-11">
+    <h2 class="red">第八课总结 · Conclusion</h2>
+    <h3>从“四艺”到天人合一</h3>
+    
+    <div style="max-width: 900px; margin: 40px auto 0; text-align: left;">
+      <p>1. <b>修心优于技艺：</b> 在中国思想史框架下，文人借由<span class="gold">“琴棋书画”</span>逃离现实的黑暗政治，追求个人的道德乌托邦与人格纯粹。艺术是修行的工具。</p>
+      <p><em class="fr">1. Le perfectionnement intérieur : Outils de cultivation morale, ces arts aidaient les lettrés à fuir les ténèbres politiques pour construire une utopie intérieure.</em></p>
+      
+      <p>2. <b>尚意弃形：</b> 不论是古琴独抚，书法挥洒，水墨留白，还是棋局纵横，其核心原则皆遵循老庄“道法自然”，寻求摆脱物理束缚，抵达精神的高度自由。</p>
+      <p><em class="fr">2. Saisir l'Esprit au-delà de la Forme : De la cithare à l'encre, l'objectif est d'atteindre la liberté spirituelle suprême (Ziran), loin de l'imitation rigide du monde matériel.</em></p>
+    </div>
+    
+    <div class="cover" style="margin-top:60px; background: transparent;">
+      <div class="seal" style="width:60px; height:60px; font-size:28px;">完</div>
+    </div>
+  </div>
+
+  
+  
+  
+  
+</div>
+
+
+<div id="nav">
+  <div class="nb" id="pb">◀</div>
+  <div id="sc">1 / X</div>
+  <div class="dots" id="dots"></div>
+  <div class="nb" id="nb2">▶</div>
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const dc = document.getElementById('dots');
+const sc = document.getElementById('sc');
+let cur = 0; const tot = slides.length;
+slides.forEach((_, i) => {
+  const d = document.createElement('div');
+  d.className = 'dot' + (i === 0 ? ' active' : '');
+  d.onclick = () => go(i);
+  dc.appendChild(d);
+});
+function go(n) {
+  if(n < 0 || n >= tot) return;
+  slides[cur].classList.remove('active');
+  dc.children[cur].classList.remove('active');
+  cur = n;
+  slides[cur].classList.add('active');
+  dc.children[cur].classList.add('active');
+  if(sc) sc.innerText = (cur + 1) + ' / ' + tot;
+}
+if(sc) sc.innerText = '1 / ' + tot;
+document.getElementById('pb').onclick = () => go(cur - 1);
+document.getElementById('nb2').onclick = () => go(cur + 1);
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') go(cur + 1);
+  if (e.key === 'ArrowLeft') go(cur - 1);
+});
+</script>
+</body>
+
+</html>

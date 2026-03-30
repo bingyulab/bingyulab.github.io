@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第九课：建筑 · L'Architecture</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:#0a0807; --paper:#f5f0e8;
+  --red:#c0392b; --red2:#e05040;
+  --gold:#b89040; --gold2:#d4ad60;
+  --jade:#2e7d5a; --jade2:#5ecfa0;
+  --blue:#2a5a8a; --blue2:#80b4e0;
+  --purple:#6a3a8a; --purple2:#b070e0;
+  --mist:rgba(245,240,232,0.06);
+  --border:rgba(255,255,255,0.10);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0a0807;font-family:'Cormorant Garamond','Noto Serif SC',Georgia,serif;overflow:hidden;width:100vw;height:100vh;user-select:none;}
+#deck{width:100vw;height:100vh;position:relative;}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;padding:44px 64px 32px;opacity:0;pointer-events:none;transition:opacity 0.4s ease;overflow:hidden;}
+.slide.active{opacity:1;pointer-events:all;}
+
+/* Backgrounds from 01-07 */
+.bg-void{background:radial-gradient(ellipse at 30% 40%,rgba(160,50,50,0.15) 0%,transparent 60%),radial-gradient(ellipse at 70% 60%,rgba(180,140,50,0.12) 0%,transparent 60%),#060408;}
+.bg-dark{background:#0e0c0a;}
+.bg-oracle{background:linear-gradient(135deg,#060810 0%,#0a0c18 100%);}
+.bg-empire{background:linear-gradient(135deg,#150603 0%,#200808 100%);}
+.bg-culture{background:linear-gradient(135deg,#0a0904 0%,#130f06 100%);}
+.bg-jade{background:linear-gradient(135deg,#050e09 0%,#091508 100%);}
+
+/* Fixes for Slide Header & Typography mimicking old layout and allowing elements from 08-12 */
+.slide-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;border-bottom:1px solid var(--border);padding-bottom:12px; width: 100%;}
+.slide-title h2 { margin-bottom: 0; font-size: 32px; color: var(--gold); }
+.slide-title .fr { font-size: 16px; color: rgba(255,255,255,0.5); font-style: italic; }
+.lesson-tag, .page-num{font-size:10px;font-family:'DM Sans', sans-serif;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);opacity:0.65;}
+
+h1{font-family:'Noto Serif SC',serif;font-size:clamp(40px,6.5vw,74px);font-weight:600;color:var(--paper);line-height:1.15;letter-spacing:0.06em;}
+h2{font-family:'Noto Serif SC',serif;font-size:clamp(17px,2.5vw,30px);font-weight:400;color:var(--paper);letter-spacing:0.06em;margin-bottom:6px;}
+h3{font-size:16px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);opacity:0.85;margin-bottom:8px;font-weight:400;}
+p{font-size:clamp(13px,1.5vw,16px);line-height:1.8;color:rgba(245,240,232,0.75); margin-bottom: 12px;}
+em.fr, .fr, .fr-text {font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
+
+/* Utility Colors used in 08-12 */
+.red, .highlight { color: var(--red); font-weight:600; }
+.gold, .brown { color: var(--gold); }
+.blue, .night-blue { color: var(--blue2); }
+.plum { color: var(--purple2); }
+.bamboo, .leaf-grn, .leaf-green, .tea-green { color: var(--jade2); }
+
+/* Layouts */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:30px;flex:1;align-items:start;}
+.three-col{display:grid;grid-template-columns:repeat(3, 1fr);gap:18px;flex:1;align-items:start;}
+.four-col{display:grid;grid-template-columns:repeat(4, 1fr);gap:15px;flex:1;align-items:start;}
+.five-col{display:grid;grid-template-columns:repeat(5, 1fr);gap:10px;flex:1;align-items:start;}
+.content-grid { display:grid; grid-template-columns:1fr 1fr; gap:30px; flex:1;}
+.content-three-col { display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; flex:1;}
+
+.card{background:var(--mist);border:1px solid var(--border);padding:18px 20px;position:relative;border-radius:2px; height:auto; overflow-y:auto;}
+.card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%; background:var(--gold);}
+.quote-box { background:var(--mist); border-left: 3px solid var(--gold); padding: 15px 20px; margin: 15px 0; }
+
+.picto, .oracle-svg {background:rgba(0,0,0,0.5);border:1px solid rgba(184,144,64,0.14);display:block;margin:0 auto 10px;padding:12px;border-radius:2px; width:90px; height:90px;}
+svg { stroke: var(--gold) !important; stroke-width: 2 !important; fill: none; }
+.seal { width: 90px; height: 90px; border: 3px solid var(--red); display: flex; justify-content: center; align-items: center; font-size: 42px; color: var(--red); font-weight: 700; margin:0 auto 30px; transform: rotate(-2deg); }
+.oracle-box { text-align: center; }
+
+h2.red, h2.gold, h2.brown, h2.blue, h2.bamboo, h2.leaf-grn { margin-top:0; margin-bottom:10px; }
+
+/* Navigation 01-07 style */
+#nav{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;z-index:100;}
+.nb{width:34px;height:34px;border:1px solid rgba(255,255,255,0.14);background:rgba(0,0,0,0.55);color:rgba(255,255,255,0.55);border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+.nb:hover{border-color:var(--gold);color:var(--gold);}
+#sc{font-size:11px;color:rgba(255,255,255,0.28);letter-spacing:0.12em;min-width:44px;text-align:center;}
+.dots{display:flex;gap:4px;}
+.dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.18);cursor:pointer;transition:all 0.2s;}
+.dot.active{background:var(--gold);width:14px;border-radius:3px;}
+
+/* Hide 11/12 specific controls completely as we add our own */
+.controls { display: none !important; }
+.cover h1 { text-align: center; width: 100%; display: block; margin-top:20px; }
+.cover h3, .cover .fr-title { text-align: center; width: 100%; display: block; margin-top:10px; font-size:24px; color:var(--gold); font-family:var(--font-fr);}
+.cover { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+</style>
+
+</head>
+<body>
+
+<div id="deck">
+
+  <!-- ================= PAGE 1: COVER ================= -->
+  <div class="slide bg-void active" id="slide-1">
+    <div class="seal">建</div>
+    <h1>第九课：建筑 —— 木石之间与礼制空间</h1>
+    <h3 class="brown" style="margin-top:20px; font-family: var(--font-fr);">Leçon IX : L'Architecture — Bois, Pierre et Ordre Spatial</h3>
+    <div style="width: 80px; height: 1px; background: var(--ink); margin: 40px auto;"></div>
+    <p style="font-size:18px; color:#666; letter-spacing:4px; text-transform:uppercase;">Université du Luxembourg · 文化对比系列</p>
+  </div>
+
+  <!-- ================= PAGE 2: CORE SVGs ================= -->
+  <div class="slide bg-dark" id="slide-2">
+    <h2 class="red">核心甲骨文 · Les Caractères Originels</h2>
+    <h3>建筑元素的象形溯源</h3>
+    
+    <div class="five-col" style="margin-top:40px;">
+      <div class="card" style="align-items:center; text-align:center; padding:20px 10px;">
+        <div class="picto">
+          <!-- 宫: Roof with two connected rooms under -->
+          <svg viewBox="0 0 100 100">
+            <path d="M50 15 L15 35 L85 35 Z" fill="rgba(107, 68, 35, 0.1)"/>
+            <path d="M25 35 L25 85 L75 85 L75 35 M25 60 L75 60" />
+            <circle cx="50" cy="48" r="4" fill="var(--ink)" />
+            <circle cx="50" cy="72" r="4" fill="var(--ink)" />
+          </svg>
+        </div>
+        <p style="font-size:28px; font-weight:600; margin:10px 0;">宫</p>
+        <em class="fr" style="font-size:16px;">Palais (Pièces multiples sous le toit)</em>
+      </div>
+
+      <div class="card" style="align-items:center; text-align:center; padding:20px 10px;">
+        <div class="picto">
+          <!-- 门: Double door -->
+          <svg viewBox="0 0 100 100">
+            <path d="M20 20 L45 20 L45 80 L20 80 Z M55 20 L80 20 L80 80 L55 80 Z" />
+            <path d="M20 40 L45 40 M20 60 L45 60 M55 40 L80 40 M55 60 L80 60" />
+          </svg>
+        </div>
+        <p style="font-size:28px; font-weight:600; margin:10px 0;">门 (門)</p>
+        <em class="fr" style="font-size:16px;">Portes (Deux battants symétriques)</em>
+      </div>
+
+      <div class="card" style="align-items:center; text-align:center; padding:20px 10px;">
+        <div class="picto">
+          <!-- 堂: High earth platform with building -->
+          <svg viewBox="0 0 100 100">
+            <path d="M30 20 L70 20 L70 50 L30 50 Z" />
+            <path d="M10 60 L90 60 M20 80 L80 80 M40 60 L40 80 M60 60 L60 80" />
+          </svg>
+        </div>
+        <p style="font-size:28px; font-weight:600; margin:10px 0;">堂</p>
+        <em class="fr" style="font-size:16px;">Salle (Bâtiment sur haute fondation)</em>
+      </div>
+
+      <div class="card" style="align-items:center; text-align:center; padding:20px 10px;">
+        <div class="picto">
+          <!-- 院: Enclosure -->
+          <svg viewBox="0 0 100 100">
+            <path d="M15 20 L85 20 L85 80 L15 80 Z" />
+            <path d="M40 40 L60 40 L60 60 L40 60 Z" />
+          </svg>
+        </div>
+        <p style="font-size:28px; font-weight:600; margin:10px 0;">院</p>
+        <em class="fr" style="font-size:16px;">Cour (Mur encerclant l'espace)</em>
+      </div>
+
+      <div class="card" style="align-items:center; text-align:center; padding:20px 10px;">
+        <div class="picto">
+          <!-- 城: Weapon and wall -->
+          <svg viewBox="0 0 100 100">
+            <path d="M60 20 L20 20 L20 80 L60 80 Z" />
+            <path d="M80 15 L80 85 M65 40 L95 40 M70 60 L90 60 M80 30 L95 15" />
+          </svg>
+        </div>
+        <p style="font-size:28px; font-weight:600; margin:10px 0;">城</p>
+        <em class="fr" style="font-size:16px;">Cité (Mur défendu par des armes)</em>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 3: Wood vs Stone ================= -->
+  <div class="slide bg-empire" id="slide-3">
+    <div class="two-col">
+      <div style="padding-right:40px; border-right:1px solid var(--shadow);">
+        <h2 class="brown">木构体系 vs 石构体系</h2>
+        <h3>Système de Bois vs Système de Pierre</h3>
+        <p>这是中西建筑哲学最根本的差异。<b>西方选择石头 (Pierre)</b>，追求不朽（Éternité）、征服重力与几何的永恒。巨石被用来对抗时间的侵蚀，保留神圣的记忆（如古希腊神庙、哥特式大教堂）。</p>
+        <p><em class="fr">L'Occident construit en pierre pour défier le temps et la gravité, cherchant la monumentalité et l'éternité géométrique pour glorifier le Divin ou l'État.</em></p>
+      </div>
+      <div>
+        <p><b>中国选择木头 (Bois)</b>。《中国思想史》认为，中国人追求的不是物质的不朽，而是<b>精神与家族血脉的延续</b>。木材是有生命的，会腐朽，但也符合儒道两家对生命轮回（Cycle de la vie）和生生不息的理解。</p>
+        <p><em class="fr">La Chine choisit le bois. Le bois est périssable, mais il symbolise la vie, le renouveau cyclique, et l'harmonie avec la nature (Dao). L'éternité n'est pas dans le matériau, mais dans la transmission de l'esprit et du lignage clanique.</em></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 4: Mortise and Tenon ================= -->
+  <div class="slide bg-culture" id="slide-4">
+    <h2 class="brown">榫卯：阴阳的物理投射</h2>
+    <h3>Tenon et Mortaise : L'incarnation du Yin et du Yang</h3>
+    
+    <div class="two-col" style="margin-top:20px;">
+      <div>
+        <p>中国木构建筑极为罕见地不使用铁钉，而是依靠<b>“榫卯” (Sun Mao)</b>凹凸结合，让木材之间互相咬合。这不仅是力学奇迹（抗震性能极强，如应县木塔），更是<b>阴阳哲学</b>在建筑上的物理呈现。</p>
+        <p><em class="fr">L'architecture en bois chinoise n'utilise pas de clous. Elle repose sur des systèmes d'assemblage (tenon-mortaise) qui s'emboîtent parfaitement. Cette flexibilité absorbe les séismes et reflète la complémentarité du Yin (creux) et du Yang (plein).</em></p>
+        <div class="quote-box">
+          "不用一钉一铆，却能坚固千年" <br>L'intégration sans violence : L'harmonie structurelle naît de la soumission mutuelle, non de la contrainte par le fer.
+        </div>
+      </div>
+      <div class="card" style="background:var(--wood-brwn); color:var(--paper); justify-content:center; align-items:center;">
+        <!-- Simple Sun Mao SVG Diagram -->
+        <svg viewBox="0 0 200 150" style="width:70%; height:auto; stroke:var(--paper); stroke-width:3; fill:none;">
+          <path d="M20 50 L80 50 L80 30 L120 30 L120 50 L180 50 L180 140 L20 140 Z" />
+          <path d="M80 0 L120 0 L120 30 L80 30 Z" fill="rgba(255,255,255,0.2)"/>
+          <text x="100" y="80" fill="var(--paper)" stroke="none" font-family="var(--font-zh)" font-size="20" text-anchor="middle">卯 (Yin)</text>
+          <text x="100" y="20" fill="var(--paper)" stroke="none" font-family="var(--font-zh)" font-size="20" text-anchor="middle">榫 (Yang)</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 5: Central Axis & Rituals ================= -->
+  <div class="slide bg-jade" id="slide-5">
+    <h2 class="red">中轴线与礼制</h2>
+    <h3>Axe Central et Système Rituel (Lǐzhì)</h3>
+    
+    <p>儒家将社会秩序（尊卑、长幼、内外）直接转化为空间秩序。<b>中轴线 (Axe Central)</b>是政治权力的具象化脊梁。</p>
+    
+    <div class="two-col" style="margin-top:20px;">
+      <div>
+        <p><em class="fr">Le Confucianisme transforme l'ordre politique et moral en ordre spatial. L'axe central (Sud-Nord) des villes et des palais symbolise la colonne vertébrale du pouvoir impérial et l'équilibre de l'univers terrestre.</em></p>
+        <p>所有最重要的政治建筑必然坐北朝南（面向阳光，背靠寒风，象征君临天下），并排列在这条绝对对称的中心线上。</p>
+      </div>
+      <div class="card" style="border-left: 4px solid var(--seal-red);">
+        <h3 style="color:var(--seal-red); margin-bottom:15px;">La Symétrie Confucianiste</h3>
+        <p>在礼制文化中，偏离中轴线意味着地位下降。西方城市（如古罗马或中世纪欧洲）往往以教堂或公共广场（Agora）为辐射中心；而中国城市是基于网格和中轴线的<b>权力坐标系</b>。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 6: Forbidden City Logic ================= -->
+  <div class="slide bg-oracle" id="slide-6">
+    <div class="two-col">
+      <div>
+        <h2 class="gold">故宫的空间逻辑：院与墙</h2>
+        <h3>Cité Interdite : La Logique des Cours et Murs</h3>
+        <p>北京故宫并非一栋孤立的巨型建筑，而是由无数个<b>“院落” (Courtyards) </b>嵌套组成的超级矩阵。院落是由高度封闭的墙包围的留白空间。</p>
+        <p><em class="fr">La Cité Interdite n'est pas un monument monolithique (comme le Louvre), mais une matrice de cours fermées imbriquées. Les murs séparent l'extérieur profane de l'intérieur sacré.</em></p>
+      </div>
+      <div class="card">
+        <h3 class="brown" style="margin-bottom:15px;">内外之别 (Intérieur vs Extérieur)</h3>
+        <p>每一道门（门、午门、太和门）都是社会阶层的生境过滤网。空间越往后（内庭），政治权力越集中，隐私度越高。</p>
+        <p><em class="fr">L'architecture de cour (Siheyuan, Palais) reflète la structure familiale patriarcale et le mystère du despote. La profondeur spatiale mesure l'intimité et le pouvoir absolutiste.</em></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 7: Fengshui (Science) ================= -->
+  <div class="slide bg-dark" id="slide-7">
+    <h2 class="leaf-grn">风水作为建筑选址科学</h2>
+    <h3>Le Fengshui (Vent et Eau) : Science de l'Implantation</h3>
+
+    <div class="two-col" style="margin-top:30px;">
+      <div class="card" style="background:#2e4026; color:var(--paper);">
+        <h3 style="color:var(--roof-gold);">呼应第七课地理与气候</h3>
+        <p>中国建筑并非突兀地插入大地，而是必须顺应地形与气脉。“背山面水”（Adossé à la montagne, face à l'eau）是最理想的风水格局。山用来阻挡西北西伯利亚的冷风，水用来保证农业灌溉与微气候。</p>
+        <p><em class="fr">Lié aux contraintes géographiques (Leçon 7), le Fengshui cherche le site optimal. La montagne protège du vent froid du nord, l'eau au sud offre vitalité et irrigation.</em></p>
+      </div>
+      <div>
+        <p>风水学实际上是早期的<b>环境科学、地质学与心理学</b>的结合。它认为人与自然并不是征服与被征服的关系，而是居住者必须寻找与其生命气场“共振”的空间。</p>
+        <p><em class="fr">Plus qu'une superstition, le Fengshui est la protoscience environnementale chinoise. Contrairement aux bâtisseurs occidentaux domptant le paysage, le constructeur chinois insère le bâti dans les flux d'énergie (Qi) de la Terre.</em></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 8: Garden Philosophy ================= -->
+  <div class="slide bg-empire" id="slide-8">
+    <h2 class="brown">园林哲学："虽由人作，宛自天开"</h2>
+    <h3>Philosophie des Jardins : Fait par l'homme, tel que créé par le Ciel</h3>
+
+    <p>如果说中国宫殿和四合院代表了严格对称的<b>儒家礼教</b>，那么中国园林则代表了自由与逃避的<b>道家思想</b>。这是中国文人精神分裂与平衡的建筑载体。</p>
+
+    <div class="two-col">
+      <div>
+        <h3 style="font-size:20px; font-weight:600; margin-bottom:10px;">曲径通幽 <br><em class="fr">L'Harmonie Ondulante</em></h3>
+        <p>园林绝对拒绝直线和对称。必须是弯曲的走廊、太湖石的奇峰、柳暗花明的视觉掩映。“步移景异”。</p>
+        <p><em class="fr">Le jardin Lettré (ex: Suzhou) rejette la ligne droite. Il privilégie la courbe, le trompe-l'œil et les rochers de Taihu, permettant à l'homme de se retrouver dans une nature recréée microscopiquement.</em></p>
+      </div>
+      <div class="card" style="border-right:4px solid #3e5933;">
+        <h3 style="font-size:20px; font-weight:600; margin-bottom:10px;">借景手法 <br><em class="fr">L'Emprunt du Paysage (Jiejing)</em></h3>
+        <p>通过窗框洞门作为画框，将远处的山、近处的竹“借”入自己的视线中，打破了空间的物理局限，无限延伸了意境。</p>
+        <p><em class="fr">Encadrement visuel via des fenêtres sans vitre, intégrant la montagne lointaine ou la lune dans la composition du jardin privé.</em></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 9: Pavilions & Poetry ================= -->
+  <div class="slide bg-culture" id="slide-9">
+    <div class="two-col">
+      <div>
+        <h2 class="red">亭台楼阁的诗学意象</h2>
+        <h3>Kiosques et Pavillons : La Poétique de l'Espace</h3>
+        
+        <p>中国的建筑（如黄鹤楼、岳阳楼、滕王阁）不仅仅是物理存在，由于木材易毁，它们往往在物理上被焚毁，却在《登鹤雀楼》、《岳阳楼记》等<b>诗词文本中获得了真正的永生</b>。</p>
+        <p><em class="fr">Les pavillons et les tours en bois brûlaient souvent et étaient reconstruits. Mais leur véritable éternité ne réside pas dans le bois, mais dans la Littérature et la Poésie classiques (ex: Le Pavillon du Prince Teng). L'édifice devient une Entité Littéraire.</em></p>
+        
+      </div>
+      <div class="card" style="justify-content:center;">
+        <h3 class="gold" style="margin-bottom:10px;">高楼与哲思 <br><em class="fr">Ascension et Réflexion</em></h3>
+        <p>登高不仅是为了军事防御，更是文人感叹宇宙浩瀚、历史兴衰（“念天地之悠悠，独怆然而涕下”）的哲学仪式场所。</p>
+        <p><em class="fr">Monter dans une tour est un acte philosophique pour observer l'immensité de l'univers et méditer sur la fugacité de l'histoire humaine.</em></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 10: MIRROR ================= -->
+  <div class="slide bg-jade" id="slide-10">
+    <div style="background-color: var(--ink); color: var(--paper); padding:40px; border-radius:8px; height:100%;">
+      <h2 style="color:var(--paper); margin-bottom:10px;">汉法文化镜像</h2>
+      <h3 style="color:var(--roof-gold);">Miroir Franco-Chinois: Versailles vs Jardins de Suzhou</h3>
+      
+      <div class="two-col" style="margin-top:40px;">
+        <div style="border-right: 1px inset var(--shadow); padding-right: 30px;">
+          <h3 style="color:#dce8f3; font-size:22px;">📍 凡尔赛宫 (Versailles / Occident)</h3>
+          <p><b>征服自然与理性几何：</b><br>法国几何式皇家园林是笛卡尔理性主义的产物。将植物修剪成精确的方锥体，引水入几何喷泉。通过绝对的轴线与视觉控制，展示人对自然法则和空间的绝对统治与王权的荣光。</p>
+        </div>
+        <div>
+          <h3 style="color:#eac496; font-size:22px;">📍 苏州园林 (Suzhou / Chine)</h3>
+          <p><b>融入自然与虚实相生：</b><br>中国私家园林则是老庄哲学的物质化。顺应自然生长的本性，通过造山理水、长廊曲折，人为制造“隐蔽”与“发现”的过程。不求征服，而是追求人与自然的有机融合。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 11: SUMMARY ================= -->
+  <div class="slide bg-oracle" id="slide-11">
+    <h2 class="red">第九课总结 · Conclusion</h2>
+    <h3>从木土之身看文化灵魂</h3>
+    
+    <div style="max-width: 900px; margin: 40px auto 0; text-align: left;">
+      <p>1. <b>不朽的转变：</b> 西方以坚硬的石头（石构）对抗时间，追求物质与神的永恒；中国以柔韧的木头（木构）顺应时间，追求精神、家族与文脉的生生不息。</p>
+      <p><em class="fr">1. Concept d'Éternité : La pierre occidentale défie le temps, le bois oriental l'accompagne dans un cycle organique perpétuel. L'éternité chinoise est textuelle et spirituelle.</em></p>
+      
+      <p>2. <b>儒道的双重空间：</b> 中轴线上的宫殿院落（如故宫）是儒家严密政治礼制的化身；而曲径通幽的园林则是道家冲破束缚、回归自然的极乐净土。二者构成了中国人完整的精神建筑体系。</p>
+      <p><em class="fr">2. L'Espace Bipolaire : L'axe central des palais impose l'ordre confucéen rigide, tandis que la sinuosité des jardins offre l'évasion taoïste vers la liberté naturelle.</em></p>
+    </div>
+    
+    <div class="cover" style="margin-top:60px; background: transparent;">
+      <div class="seal" style="width:60px; height:60px; font-size:28px;">完</div>
+    </div>
+  </div>
+
+  
+  
+  
+  
+</div>
+
+
+<div id="nav">
+  <div class="nb" id="pb">◀</div>
+  <div id="sc">1 / X</div>
+  <div class="dots" id="dots"></div>
+  <div class="nb" id="nb2">▶</div>
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const dc = document.getElementById('dots');
+const sc = document.getElementById('sc');
+let cur = 0; const tot = slides.length;
+slides.forEach((_, i) => {
+  const d = document.createElement('div');
+  d.className = 'dot' + (i === 0 ? ' active' : '');
+  d.onclick = () => go(i);
+  dc.appendChild(d);
+});
+function go(n) {
+  if(n < 0 || n >= tot) return;
+  slides[cur].classList.remove('active');
+  dc.children[cur].classList.remove('active');
+  cur = n;
+  slides[cur].classList.add('active');
+  dc.children[cur].classList.add('active');
+  if(sc) sc.innerText = (cur + 1) + ' / ' + tot;
+}
+if(sc) sc.innerText = '1 / ' + tot;
+document.getElementById('pb').onclick = () => go(cur - 1);
+document.getElementById('nb2').onclick = () => go(cur + 1);
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') go(cur + 1);
+  if (e.key === 'ArrowLeft') go(cur - 1);
+});
+</script>
+</body>
+
+</html>

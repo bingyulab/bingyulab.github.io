@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第11课 · 民俗与节日 | Folklore et Festivals</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+SC:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+:root {
+  --ink:#0a0807; --paper:#f5f0e8;
+  --red:#c0392b; --red2:#e05040;
+  --gold:#b89040; --gold2:#d4ad60;
+  --jade:#2e7d5a; --jade2:#5ecfa0;
+  --blue:#2a5a8a; --blue2:#80b4e0;
+  --purple:#6a3a8a; --purple2:#b070e0;
+  --mist:rgba(245,240,232,0.06);
+  --border:rgba(255,255,255,0.10);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0a0807;font-family:'Cormorant Garamond','Noto Serif SC',Georgia,serif;overflow:hidden;width:100vw;height:100vh;user-select:none;}
+#deck{width:100vw;height:100vh;position:relative;}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;padding:44px 64px 32px;opacity:0;pointer-events:none;transition:opacity 0.4s ease;overflow:hidden;}
+.slide.active{opacity:1;pointer-events:all;}
+
+/* Backgrounds from 01-07 */
+.bg-void{background:radial-gradient(ellipse at 30% 40%,rgba(160,50,50,0.15) 0%,transparent 60%),radial-gradient(ellipse at 70% 60%,rgba(180,140,50,0.12) 0%,transparent 60%),#060408;}
+.bg-dark{background:#0e0c0a;}
+.bg-oracle{background:linear-gradient(135deg,#060810 0%,#0a0c18 100%);}
+.bg-empire{background:linear-gradient(135deg,#150603 0%,#200808 100%);}
+.bg-culture{background:linear-gradient(135deg,#0a0904 0%,#130f06 100%);}
+.bg-jade{background:linear-gradient(135deg,#050e09 0%,#091508 100%);}
+
+/* Fixes for Slide Header & Typography mimicking old layout and allowing elements from 08-12 */
+.slide-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;border-bottom:1px solid var(--border);padding-bottom:12px; width: 100%;}
+.slide-title h2 { margin-bottom: 0; font-size: 32px; color: var(--gold); }
+.slide-title .fr { font-size: 16px; color: rgba(255,255,255,0.5); font-style: italic; }
+.lesson-tag, .page-num{font-size:10px;font-family:'DM Sans', sans-serif;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);opacity:0.65;}
+
+h1{font-family:'Noto Serif SC',serif;font-size:clamp(40px,6.5vw,74px);font-weight:600;color:var(--paper);line-height:1.15;letter-spacing:0.06em;}
+h2{font-family:'Noto Serif SC',serif;font-size:clamp(17px,2.5vw,30px);font-weight:400;color:var(--paper);letter-spacing:0.06em;margin-bottom:6px;}
+h3{font-size:16px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);opacity:0.85;margin-bottom:8px;font-weight:400;}
+p{font-size:clamp(13px,1.5vw,16px);line-height:1.8;color:rgba(245,240,232,0.75); margin-bottom: 12px;}
+em.fr, .fr, .fr-text {font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
+
+/* Utility Colors used in 08-12 */
+.red, .highlight { color: var(--red); font-weight:600; }
+.gold, .brown { color: var(--gold); }
+.blue, .night-blue { color: var(--blue2); }
+.plum { color: var(--purple2); }
+.bamboo, .leaf-grn, .leaf-green, .tea-green { color: var(--jade2); }
+
+/* Layouts */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:30px;flex:1;align-items:start;}
+.three-col{display:grid;grid-template-columns:repeat(3, 1fr);gap:18px;flex:1;align-items:start;}
+.four-col{display:grid;grid-template-columns:repeat(4, 1fr);gap:15px;flex:1;align-items:start;}
+.five-col{display:grid;grid-template-columns:repeat(5, 1fr);gap:10px;flex:1;align-items:start;}
+.content-grid { display:grid; grid-template-columns:1fr 1fr; gap:30px; flex:1;}
+.content-three-col { display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; flex:1;}
+
+.card{background:var(--mist);border:1px solid var(--border);padding:18px 20px;position:relative;border-radius:2px; height:auto; overflow-y:auto;}
+.card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%; background:var(--gold);}
+.quote-box { background:var(--mist); border-left: 3px solid var(--gold); padding: 15px 20px; margin: 15px 0; }
+
+.picto, .oracle-svg {background:rgba(0,0,0,0.5);border:1px solid rgba(184,144,64,0.14);display:block;margin:0 auto 10px;padding:12px;border-radius:2px; width:90px; height:90px;}
+svg { stroke: var(--gold) !important; stroke-width: 2 !important; fill: none; }
+.seal { width: 90px; height: 90px; border: 3px solid var(--red); display: flex; justify-content: center; align-items: center; font-size: 42px; color: var(--red); font-weight: 700; margin:0 auto 30px; transform: rotate(-2deg); }
+.oracle-box { text-align: center; }
+
+h2.red, h2.gold, h2.brown, h2.blue, h2.bamboo, h2.leaf-grn { margin-top:0; margin-bottom:10px; }
+
+/* Navigation 01-07 style */
+#nav{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;z-index:100;}
+.nb{width:34px;height:34px;border:1px solid rgba(255,255,255,0.14);background:rgba(0,0,0,0.55);color:rgba(255,255,255,0.55);border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+.nb:hover{border-color:var(--gold);color:var(--gold);}
+#sc{font-size:11px;color:rgba(255,255,255,0.28);letter-spacing:0.12em;min-width:44px;text-align:center;}
+.dots{display:flex;gap:4px;}
+.dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.18);cursor:pointer;transition:all 0.2s;}
+.dot.active{background:var(--gold);width:14px;border-radius:3px;}
+
+/* Hide 11/12 specific controls completely as we add our own */
+.controls { display: none !important; }
+.cover h1 { text-align: center; width: 100%; display: block; margin-top:20px; }
+.cover h3, .cover .fr-title { text-align: center; width: 100%; display: block; margin-top:10px; font-size:24px; color:var(--gold); font-family:var(--font-fr);}
+.cover { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+</style>
+
+</head>
+<body>
+
+<div id="deck">
+
+    <!-- Slide 1: Cover -->
+    <div class="slide bg-void active" id="slide1">
+        <h1>民俗与节日</h1>
+        <div class="fr-title">Folklore et Festivals : Le Temps et la Vie</div>
+        <p style="font-size: 1.5rem; color: var(--red); margin-bottom: 1rem;">中国文化中的顺时与常识理性</p>
+        <div class="fr-text" style="font-size: 1.2rem; text-align: center;">Vivre en harmonie avec les saisons et la rationalité du sens commun</div>
+        <div style="margin-top: 4rem; font-family: 'DM Sans', sans-serif; letter-spacing: 2px;">LEÇON 11</div>
+    </div>
+
+    <!-- Slide 2: Oracle Bones -->
+    <div class="slide bg-dark" id="slide2">
+        <div class="slide-header">
+            <div class="slide-title">
+                <h2>核心甲骨文：时间的具象化</h2>
+                <div class="fr">Caractères Oculaires : La Matérialisation du Temps</div>
+            </div>
+            
+        </div>
+        <div class="content-three-col" style="grid-template-columns: repeat(4, 1fr);">
+            <!-- 年 -->
+            <div class="card oracle-box">
+                <svg class="oracle-svg" viewBox="0 0 100 100">
+                    <path d="M50 20 L50 80 M30 35 L50 20 L70 35 M30 55 L70 55 M25 70 L40 55 M75 70 L60 55" />
+                    <circle cx="50" cy="80" r="5" />
+                </svg>
+                <h3>年 (nián)</h3>
+                <span class="fr">Année / Récolte</span>
+                <p>甲骨文上部为“禾”（成熟的谷物），下部为“人”，意为人背负着丰收的谷物。年本义为谷物成熟一次的周期。</p>
+                <div class="fr-text">La partie supérieure représente des céréales mûres (禾), et l'inférieure une personne. L'année est le cycle d'une moisson.</div>
+            </div>
+            <!-- 节 -->
+            <div class="card oracle-box">
+                <svg class="oracle-svg" viewBox="0 0 100 100">
+                    <path d="M30 25 C45 10, 55 10, 70 25 M50 20 L50 40 M40 50 L60 50 M50 50 L50 85 M40 70 L50 80 L60 70 M30 85 L70 85" />
+                </svg>
+                <h3>节 (jié)</h3>
+                <span class="fr">Festival / Nœud</span>
+                <p>本义指竹子的节点。引申为岁时气节转换的节点，即“节日”或“节气”。体现了中国时间观的阶段性与节奏感。</p>
+                <div class="fr-text">Originellement un "nœud" de bambou. Par extension, le nœud ou la transition dans le flux du temps (fête, période solaire).</div>
+            </div>
+            <!-- 祭 -->
+            <div class="card oracle-box">
+                <svg class="oracle-svg" viewBox="0 0 100 100">
+                    <path d="M25 40 Q40 30, 50 50 T75 40 M30 65 Q45 55, 50 75 T70 65 M45 25 Q50 15, 60 25" />
+                    <line x1="20" y1="85" x2="80" y2="85" />
+                    <line x1="50" y1="85" x2="50" y2="75" />
+                </svg>
+                <h3>祭 (jì)</h3>
+                <span class="fr">Sacrifice / Rituel</span>
+                <p>甲骨文左上为“肉”（祭品），右上为“手”，下方为“神主（或祭台）”，表示以手持肉献祭。节日多起始于祭祀仪式。</p>
+                <div class="fr-text">Composé de la viande (offrande), d'une main, et d'un autel. Les fêtes trouvent souvent leur origine dans les rituels sacrificiels.</div>
+            </div>
+            <!-- 岁 -->
+            <div class="card oracle-box">
+                <svg class="oracle-svg" viewBox="0 0 100 100">
+                    <path d="M30 20 L70 20 M50 20 L50 80 M20 50 L80 50 M25 75 L45 50 M75 75 L55 50 M40 40 A10 10 0 0 0 60 40" />
+                </svg>
+                <h3>岁 (suì)</h3>
+                <span class="fr">Âge / Année (Jupiter)</span>
+                <p>原形为一种刃形兵器（收割工具）或与岁星（木星）十二年一周天相关。指收割的周期或岁星更迭，后指年龄。</p>
+                <div class="fr-text">Lié soit à un outil de récolte, soit à Jupiter (l'étoile de l'année, cycle de 12 ans). Désigne l'année ou l'âge.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Agricultural Calendar -->
+    <div class="slide bg-empire" id="slide3">
+        <div class="slide-header">
+            <div class="slide-title">
+                <h2>节日的农历基础：顺天应时</h2>
+                <div class="fr">Fondement du Calendrier Agricole : Suivre le Temps Céleste</div>
+            </div>
+            
+        </div>
+        <div class="content-grid">
+            <div class="card">
+                <h3>从二十四节气到节日 <span class="fr">Des 24 périodes solaires aux Fêtes</span></h3>
+                <p>呼应第7课天文历法，中国传统节日深植于<span class="highlight">阴阳合历</span>与农业节律。节日（节气）是天地阴阳之气转换的节点。</p>
+                <p>“春生、夏长、秋收、冬藏”，不同的节日承担着在特定季节调和人与自然关系的功能。</p>
+                <div class="fr-text">Faisant écho à la leçon 7, les fêtes traditionnelles sont profondément ancrées dans le calendrier luni-solaire et le rythme agricole. Ce sont des points de transition du Yin et du Yang.</div>
+                <div class="fr-text">"Naître au printemps, croître en été, récolter en automne, conserver en hiver" : les fêtes harmonisent l'homme et la nature.</div>
+            </div>
+            <div class="card">
+                <h3>自然节奏与社会节奏的同一 <span class="fr">Identité des rythmes naturels et sociaux</span></h3>
+                <p>葛兆光在《中国思想史》中指出，中国古代的思想世界缺乏一个外在的、超越的创造神，天道即自然之理。节日不是为了纪念神的奇迹，而是<span class="highlight">确认人与宇宙节奏的同步</span>。</p>
+                <div class="fr-text">Ge Zhaoguang note dans "L'Histoire de la Pensée Chinoise" que la pensée ancienne manque d'un Dieu créateur transcendant ; la Voie du Ciel (Tiandao) est la Raison de la Nature.</div>
+                <div class="fr-text">Les fêtes ne commémorent pas des miracles divins, mais confirment la synchronisation humaine avec le rythme cosmique.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: Spring Festival -->
+    <div class="slide bg-culture" id="slide4">
+        <div class="slide-header">
+            <div class="slide-title">
+                <h2>春节：岁始的更新与团聚</h2>
+                <div class="fr">Nouvel An Chinois : Renouveau et Réunion au Début de l'Année</div>
+            </div>
+            
+        </div>
+        <div class="content-grid">
+            <div class="card">
+                <h3>起源与神话 <span class="fr">Origines et Mythes</span></h3>
+                <p>“年”兽的神话象征着克服严冬的威胁，迎接春天的生机。鞭炮（声）、红春联（色）皆为驱邪、辟阴，迎阳的手段。</p>
+                <p>除夕夜的“守岁”是对时间流逝的敬畏与生命延续的祈求。</p>
+                <div class="fr-text">Le mythe du monstre "Nian" symbolise la victoire sur la menace du rude hiver pour accueillir le printemps. Les pétards et la couleur rouge chassent le mal et le Yin pour inviter le Yang.</div>
+                <div class="fr-text">"Veiller l'année" (Shousui) la veille exprime le respect du temps qui passe et la prière pour la continuité de la vie.</div>
+            </div>
+            <div class="card">
+                <h3>宗法社会的呈现 <span class="fr">Manifestation de la société patriarcale</span></h3>
+                <p>春节的核心是<span class="highlight">团圆（祭祖与聚餐）</span>。它在时间维度上连结已故的祖先、当下的生者与未来的子孙。</p>
+                <p>这是中国血缘社会（宗法制）最重要的社会凝聚仪式。</p>
+                <div class="fr-text">Le cœur de la Fête du Printemps est la réunion (culte des ancêtres et banquet). Elle relie temporellement les ancêtres défunts, les vivants et les descendants.</div>
+                <div class="fr-text">C'est le rituel de cohésion sociale le plus important de la société chinoise basée sur la parenté.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: Qingming and Duanwu -->
+    <div class="slide bg-jade" id="slide5">
+        <div class="slide-header">
+            <div class="slide-title">
+                <h2>清明与端午：生死与卫生的时序</h2>
+                <div class="fr">Qingming et Duanwu : Temps de la Vie/Mort et de l'Hygiène</div>
+            </div>
+            
+        </div>
+        <div class="content-grid">
+            <div class="card">
+                <h3>清明：春祭与踏青 <span class="fr">Qingming : Sacrifice printanier et Sortie verdoyante</span></h3>
+                <p>清明既是节气也是节日。扫墓（祭死）与踏青（赏生）在此刻奇妙融合。反映了中国文化对待死亡的达观：生命如自然草木般循环。</p>
+                <div class="fr-text">Qingming est à la fois période solaire et fête. Le balayage des tombes (mort) et la promenade printanière (vie) fusionnent, reflétant la vision cyclique de la vie, pareille à la nature.</div>
+            </div>
+            <div class="card">
+                <h3>端午：仲夏的“公共卫生” <span class="fr">Duanwu : Cérémonie d'hygiène du milieu de l'été</span></h3>
+                <p>起源于对抗仲夏“五毒”（毒虫疫病），悬艾草、饮雄黄酒、赛龙舟（祭水神）皆为驱疫避邪。</p>
+                <p>后附会于屈原殉国，增加了<span class="highlight">忠孝与家国情怀</span>的伦理色彩。</p>
+                <div class="fr-text">Né pour combattre les venins et maladies de mi-été : absinthe accrochée, vin de réalgar, courses de bateaux-dragons repoussent épidémies et mauvais esprits.</div>
+                <div class="fr-text">Associé plus tard au suicide du poète patriote Qu Yuan, ajoutant une portée éthique de loyauté et d'amour de la patrie.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 6: Mid-Autumn -->
+    <div class="slide bg-oracle" id="slide6">
+        <div class="slide-header">
+            <div class="slide-title">
+                <h2>中秋节：月亮、秋收与圆满</h2>
+                <div class="fr">La Mi-Automne : La Lune, la Récolte et la Plénitude</div>
+            </div>
+            
+        </div>
+        <div class="content-grid">
+            <div class="card">
+                <h3>圆月的美学象征 <span class="fr">Le symbole esthétique de la pleine lune</span></h3>
+                <p>呼应第10课诗歌意象，中秋之月满，象征人间之团圆。“但愿人长久，千里共婵娟”（苏轼）。圆（Yuan）在中国哲学中意味着完满与和谐。</p>
+                <div class="fr-text">Faisant écho à la poésie (Leçon 10), la pleine lune symbolise la réunion humaine. "Rond" (Yuan) en philosophie chinoise signifie plénitude et harmonie.</div>
+                <div class="fr-text" style="margin-top:0.5rem">"Puisse notre vie être longue, pour partager la beauté de la lune même à mille lieues." (Su Shi)</div>
+            </div>
+            <div class="card">
+                <h3>秋报：农业的感恩 <span class="fr">Action de grâce agricole</span></h3>
+                <p>中秋源于古代秋季庆祝丰收的“秋报”仪式。吃月饼、赏月是对自然恩赐的感恩，区别于西方的祈祷，中国节日更加世俗化与享乐化。</p>
+                <div class="fr-text">Originaire des rituels de moisson d'automne célébrant l'abondance. Manger des gâteaux de lune et l'admirer est une gratitude envers la nature.</div>
+                <div class="fr-text">À l'inverse des prières occidentales, les fêtes chinoises sont souvent plus séculières et axées sur la jouissance terrestre.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 7: Rites of Passage - Birth/Age -->
+    <div class="slide bg-dark" id="slide7">
+        <div class="slide-header">
+            <div class="slide-title">
+                <h2>生命礼仪：出生与成年</h2>
+                <div class="fr">Rites de Passage : Naissance et Majorité</div>
+            </div>
+            
+        </div>
+        <div class="content-grid">
+            <div class="card">
+                <h3>满月与抓周 <span class="fr">Premier mois et Zhuazhou</span></h3>
+                <p>婴儿出生后一个月庆祝“满月”，一年庆祝“周岁”时进行“抓周”（让婴儿抓取物品以预测未来职业志向）。</p>
+                <p>体现了中国家长对子女入世的现世期许（读书做官或经商发财），而非灵魂得救。</p>
+                <div class="fr-text">On célèbre le "Plein mois" et à un an le "Zhuazhou" (l'enfant saisit des objets prédisant son avenir professionnel).</div>
+                <div class="fr-text">Cela reflète l'attente séculière des parents (réussite aux examens ou richesse) plutôt que le salut de l'âme.</div>
+            </div>
+            <div class="card">
+                <h3>冠礼与笄礼 <span class="fr">Rites du Bonnet (Guan) et de l'Épingle (Ji)</span></h3>
+                <p>《礼记》载男子二十岁行冠礼，女子十五岁行笄礼，标志着获得成年人的社会角色与责任。成年礼是将自然人转化为<span class="highlight">社会人（礼教中人）</span>的关键节点。</p>
+                <div class="fr-text">Selon le Liji, cérémonie du bonnet pour les garçons à 20 ans, de l'épingle pour les filles à 15 ans, marquant l'accès aux responsabilités adultes.</div>
+                <div class="fr-text">C'est le point clé transformant la personne naturelle en une personne sociale intégrée aux rites (Lijiao).</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 8: Rites of Passage - Marriage/Death -->
+    <div class="slide bg-empire" id="slide8">
+        <div class="slide-header">
+            <div class="slide-title">
+                <h2>生命礼仪：婚姻与丧葬</h2>
+                <div class="fr">Rites de Passage : Mariage et Funérailles</div>
+            </div>
+            
+        </div>
+        <div class="content-grid">
+            <div class="card">
+                <h3>婚姻：合二姓之好 <span class="fr">Mariage : Unir deux noms de famille</span></h3>
+                <p>传统婚礼不仅是个人爱情的结合，更是“合二姓之好，上以事宗庙，下以继后世”。体现了家族本位的价值观。“拜天地”确认了婚姻的宇宙合法性。</p>
+                <div class="fr-text">Le mariage traditionnel unit les familles pour "servir les ancêtres en haut et assurer la descendance en bas". Valeurs centrées sur le clan.</div>
+                <div class="fr-text">"Se prosterner devant le Ciel et la Terre" confirme la légitimité cosmique de l'union.</div>
+            </div>
+            <div class="card">
+                <h3>丧葬：事死如事生 <span class="fr">Funérailles : Servir les morts comme les vivants</span></h3>
+                <p>儒家主张“慎终追远”，厚葬与守孝是孝道的最终体现。死者并未离开世界的秩序，而是进入了祖先的行列，依然对生者世界施加影响与庇护。</p>
+                <div class="fr-text">Le confucianisme prône de "traiter prudemment la fin et se souvenir de loin". L'enterrement et le deuil sont la concrétisation ultime de la Piété Filiale.</div>
+                <div class="fr-text">Le mort ne quitte pas l'ordre du monde, mais entre parmi les ancêtres, protégeant et influençant toujours les vivants.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 9: Rationality -->
+    <div class="slide bg-culture" id="slide9">
+        <div class="slide-header">
+            <div class="slide-title">
+                <h2>民俗与常识理性：驱鬼与祈福</h2>
+                <div class="fr">Folklore et Rationalité Commune : Exorcisme et Bénédiction</div>
+            </div>
+            
+        </div>
+        <div class="content-three-col" style="grid-template-columns: 1fr 1fr;">
+            <div class="card">
+                <h3>实用主义的信仰体系 <span class="fr">Un système de croyance pragmatique</span></h3>
+                <p>《中国思想史》指出，中国民间的信仰具有高度的实用性与包容性（常识理性）。所谓“信则有，不信则无”。</p>
+                <p>拜财神、贴门神、挂钟馗驱鬼，其本质是对未知的防御机制和对现世福祉（福、禄、寿）的强烈渴望，而非对彼岸世界的超越性追求。</p>
+                <div class="fr-text">"L'Histoire de la Pensée Chinoise" note que les croyances populaires sont hautement pragmatiques : "Si on y croit c'est là, sinon non."</div>
+                <div class="fr-text">Prier le Dieu de la richesse ou coller des Dieux des portes n'est pas une quête transcendante, mais un mécanisme de défense et un désir de bonheur terrestre (Bonheur, Prospérité, Longévité).</div>
+            </div>
+            <div class="card">
+                <h3>“敬鬼神而远之” <span class="fr">"Respecter les esprits et s'en tenir éloigné"</span></h3>
+                <p>儒家的这种态度深深塑造了民俗。节日庆典中的神明常常是拟人化的、可贿赂的（如祭灶神供糖果）。人与神的关系是一种世俗的契约交换关系，而非绝对的依附与敬畏。</p>
+                <div class="fr-text">L'attitude confucéenne a moulé le folklore. Les divinités des fêtes sont anthropomorphes et "corruptibles" (ex: offrir des bonbons au Dieu de la cuisine).</div>
+                <div class="fr-text">La relation entre l'homme et le dieu est un contrat séculier d'échange, non une dépendance et soumission absolues.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 10: Mirror -->
+    <div class="slide bg-jade" id="slide10">
+        <div class="slide-header">
+            <div class="slide-title">
+                <h2>汉法文化镜像：自然节律 vs 宗教叙事</h2>
+                <div class="fr">Miroir Franco-Chinois : Rythme Naturel vs Récit Religieux</div>
+            </div>
+            
+        </div>
+        <div class="content-grid">
+            <div class="card">
+                <h3>法国（西方）：以宗教事件锚定时间 <span class="fr">France : Le temps ancré par les événements religieux</span></h3>
+                <p>西方的传统节日（圣诞节、复活节、诸圣节、升天节）多围绕<span class="highlight">基督教的救赎史</span>展开。时间是线性的，从创世走向末日。</p>
+                <p>节日的核心意涵是神的恩典、牺牲超越与灵魂得救，带有强烈的超越界维度。</p>
+                <div class="fr-text">Les fêtes traditionnelles occidentales (Noël, Pâques, Toussaint) gravitent autour de l'histoire du salut chrétien. Le temps est linéaire, de la Création au Jugement.</div>
+                <div class="fr-text">Le sens central est la grâce divine, le sacrifice et le salut de l'âme, impliquant une forte dimension transcendante.</div>
+            </div>
+            <div class="card">
+                <h3>中国：以自然节候锚定时间 <span class="fr">Chine : Le temps ancré par les saisons naturelles</span></h3>
+                <p>中国的传统节日（春节、清明、中秋）则严格遵循<span class="highlight">自然界的阴阳流转与农业节气</span>。时间是循环往复的。</p>
+                <p>节日的核心意涵是重生、感恩自然、敬拜祖先及生民的世俗享乐，体现了中国文化的“此世性”与“天人合一”的常识理性。</p>
+                <div class="fr-text">Les fêtes chinoises suivent strictement la rotation du Yin et Yang naturel et les saisons agricoles. Le temps est cyclique.</div>
+                <div class="fr-text">Le sens central est la renaissance, la gratitude envers la nature et les ancêtres, et les joies séculières, reflétant la rationalité du monde présent et l'unité Ciel-Homme.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 11: Summary -->
+    <div class="slide bg-oracle" id="slide11">
+        <div class="slide-header">
+            <div class="slide-title">
+                <h2>本讲总结与参考文献</h2>
+                <div class="fr">Résumé de la leçon & Bibliographie</div>
+            </div>
+            
+        </div>
+        <div class="content-grid">
+            <div class="card">
+                <h3>总结 <span class="fr">Résumé</span></h3>
+                <p>1. 甲骨文“年、节、祭”揭示了时间与农业周期、祭祀仪式的同源性。</p>
+                <p>2. 春节、清明、中秋等节日结构了中国人的自然时间观，使得生活节奏与宇宙节奏同步。</p>
+                <p>3. 冠婚丧祭等生命礼仪将自然生命纳入宗法伦理秩序，确认了社会角色的转换。</p>
+                <p>4. 相比西方节日的宗教救赎属性，中国民俗节日呈现出高度的常识理性、世俗享乐与现世祈福精神。</p>
+                <div class="fr-text">Les fêtes et rituels chinois ancrés dans l'agriculture cadencent le temps selon la nature et l'ordre patriarcal. Contrairement à la nature eschatologique des fêtes chrétiennes, les célébrations chinoises expriment une rationalité séculière du sens commun et le désir de prospérité terrestre.</div>
+            </div>
+            <div class="card">
+                <h3>参考文献 <span class="fr">Références bibliographiques</span></h3>
+                <ul style="list-style-position: inside; font-size: 1.1rem; line-height: 1.8;">
+                    <li>葛兆光 (Ge Zhaoguang), 《中国思想史》(<em>Histoire de la pensée chinoise</em>), 复旦大学出版社.</li>
+                    <li>钟敬文 (Zhong Jingwen), 《民俗学概论》(<em>Introduction au folklore</em>), 上海文艺出版社.</li>
+                    <li>Granet, Marcel. <em>Fêtes et chansons anciennes de la Chine</em>. Editions Albin Michel, 1982.</li>
+                    <li>Liji (Le Classique des Rites) 《礼记》.</li>
+                    <li>Gernet, Jacques. <em>La Vie quotidienne en Chine à la veille de l'invasion mongole (1250-1276)</em>. Hachette, 1959. (Pour le contexte des rituels temporels).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+<div id="nav">
+  <div class="nb" id="pb">◀</div>
+  <div id="sc">1 / X</div>
+  <div class="dots" id="dots"></div>
+  <div class="nb" id="nb2">▶</div>
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const dc = document.getElementById('dots');
+const sc = document.getElementById('sc');
+let cur = 0; const tot = slides.length;
+slides.forEach((_, i) => {
+  const d = document.createElement('div');
+  d.className = 'dot' + (i === 0 ? ' active' : '');
+  d.onclick = () => go(i);
+  dc.appendChild(d);
+});
+function go(n) {
+  if(n < 0 || n >= tot) return;
+  slides[cur].classList.remove('active');
+  dc.children[cur].classList.remove('active');
+  cur = n;
+  slides[cur].classList.add('active');
+  dc.children[cur].classList.add('active');
+  if(sc) sc.innerText = (cur + 1) + ' / ' + tot;
+}
+if(sc) sc.innerText = '1 / ' + tot;
+document.getElementById('pb').onclick = () => go(cur - 1);
+document.getElementById('nb2').onclick = () => go(cur + 1);
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') go(cur + 1);
+  if (e.key === 'ArrowLeft') go(cur - 1);
+});
+</script>
+</body>
+
+</html>

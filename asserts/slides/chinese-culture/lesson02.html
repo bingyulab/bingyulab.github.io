@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第二课 · 神话与宇宙观</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:#0a0807;
+  --paper:#f5f0e8;
+  --red:#c0392b; --red2:#e05040;
+  --gold:#b89040; --gold2:#d4ad60;
+  --jade:#2e7d5a; --jade2:#5ecfa0;
+  --blue:#2a5a8a; --blue2:#80b4e0;
+  --purple:#6a3a8a; --purple2:#b070e0;
+  --mist:rgba(245,240,232,0.06);
+  --border:rgba(255,255,255,0.10);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0a0807;font-family:'Cormorant Garamond','Noto Serif SC',Georgia,serif;overflow:hidden;width:100vw;height:100vh;user-select:none;}
+#deck{width:100vw;height:100vh;position:relative;}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;padding:44px 64px 32px;opacity:0;pointer-events:none;transition:opacity 0.4s ease;overflow:hidden;}
+.slide.active{opacity:1;pointer-events:all;}
+
+/* Backgrounds */
+.bg-dark{background:#0e0c0a;}
+.bg-darker{background:#080605;}
+.bg-void{background:radial-gradient(ellipse at 30% 40%,rgba(100,50,160,0.18) 0%,transparent 60%),radial-gradient(ellipse at 70% 60%,rgba(30,80,60,0.15) 0%,transparent 60%),#060408;}
+.bg-chaos{background:radial-gradient(ellipse at 30% 40%,rgba(100,50,160,0.18) 0%,transparent 60%),radial-gradient(ellipse at 70% 60%,rgba(30,80,60,0.15) 0%,transparent 60%),#060408;}
+.bg-jade{background:linear-gradient(135deg,#050e09 0%,#091508 100%);}
+.bg-soul{background:linear-gradient(135deg,#07060f 0%,#0f0a18 100%);}
+.bg-hell{background:linear-gradient(135deg,#150603 0%,#200808 100%);}
+.bg-ancestor{background:linear-gradient(135deg,#0a0904 0%,#130f06 100%);}
+.bg-close{background:linear-gradient(135deg,#0d0507 0%,#180a0c 100%);}
+.bg-oracle{background:linear-gradient(135deg,#060810 0%,#0a0c18 100%);}
+
+/* Header */
+.slide-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;border-bottom:1px solid var(--border);padding-bottom:12px;}
+.lesson-tag{font-size:10px;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);opacity:0.65;}
+.slide-num{font-size:11px;color:rgba(255,255,255,0.22);letter-spacing:0.15em;}
+
+/* Typography */
+h1{font-family:'Noto Serif SC',serif;font-size:clamp(40px,6.5vw,74px);font-weight:600;color:var(--paper);line-height:1.15;letter-spacing:0.06em;}
+h2{font-family:'Noto Serif SC',serif;font-size:clamp(17px,2.5vw,30px);font-weight:400;color:var(--paper);letter-spacing:0.06em;margin-bottom:6px;}
+h3{font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);opacity:0.75;margin-bottom:8px;font-weight:400;}
+p{font-size:clamp(11px,1.2vw,14px);line-height:1.85;color:rgba(245,240,232,0.72);}
+em.fr{font-size:0.85em;color:rgba(245,240,232,0.38);font-style:italic;}
+.tri{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:3px;}
+.tri span{font-size:9px;letter-spacing:0.2em;color:rgba(245,240,232,0.3);text-transform:uppercase;}
+
+/* Layout */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:30px;flex:1;align-items:start;}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;flex:1;align-items:start;}
+.flex1{flex:1;display:flex;flex-direction:column;}
+.center{display:flex;align-items:center;justify-content:center;flex:1;}
+
+/* Card */
+.card{background:var(--mist);border:1px solid var(--border);padding:14px 16px;position:relative;border-radius:2px;}
+.card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;}
+.card.red::before{background:var(--red);}
+.card.gold::before{background:var(--gold);}
+.card.jade::before{background:var(--jade);}
+.card.blue::before{background:var(--blue);}
+.card.purple::before{background:var(--purple);}
+.card h4{font-family:'Noto Serif SC',serif;font-size:16px;color:var(--paper);margin-bottom:6px;letter-spacing:0.04em;}
+.card .tag{font-size:9px;letter-spacing:0.25em;color:var(--gold);opacity:0.6;text-transform:uppercase;margin-bottom:5px;}
+
+/* Quote */
+.quote{border-left:3px solid var(--red);padding:10px 16px;background:rgba(192,57,43,0.07);}
+.quote .zh{font-family:'Noto Serif SC',serif;font-size:clamp(12px,1.5vw,17px);color:var(--paper);letter-spacing:0.08em;line-height:1.7;}
+.quote .src{font-size:10px;color:var(--gold);opacity:0.55;margin-top:4px;}
+
+/* Oracle bone */
+.picto{background:rgba(0,0,0,0.5);border:1px solid rgba(184,144,64,0.14);display:flex;align-items:center;justify-content:center;padding:8px;border-radius:2px;}
+.evo{display:flex;align-items:flex-end;gap:8px;flex-wrap:wrap;margin-top:4px;}
+.evo-step{display:flex;flex-direction:column;align-items:center;gap:3px;}
+.evo-step .ch{font-family:'Noto Serif SC',serif;font-size:clamp(18px,2.2vw,25px);color:rgba(245,240,232,0.75);line-height:1;}
+.evo-step .lb{font-size:8px;color:rgba(245,240,232,0.3);letter-spacing:0.08em;}
+.evo-arr{font-size:13px;color:rgba(255,255,255,0.18);margin-bottom:12px;}
+
+/* Timeline */
+.timeline{display:flex;flex-direction:column;gap:0;}
+.tl-item{display:grid;grid-template-columns:80px 16px 1fr;gap:0;align-items:stretch;}
+.tl-date{font-family:'Cormorant Garamond',serif;font-size:11px;color:var(--gold);opacity:0.7;text-align:right;padding:6px 10px 6px 0;line-height:1.4;}
+.tl-dot-wrap{display:flex;flex-direction:column;align-items:center;}
+.tl-dot{width:9px;height:9px;border-radius:50%;background:var(--red);margin-top:9px;flex-shrink:0;}
+.tl-line{width:2px;background:rgba(255,255,255,0.07);flex:1;}
+.tl-content{padding:5px 0 12px 12px;}
+.tl-content strong{font-family:'Noto Serif SC',serif;font-size:13px;color:var(--paper);display:block;margin-bottom:2px;}
+.tl-content p{font-size:11px;}
+
+/* UW grid */
+.uw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
+.uw-cell{padding:9px 11px;background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.06);border-radius:2px;}
+.uw-cell .name{font-family:'Noto Serif SC',serif;font-size:13px;color:var(--gold2);margin-bottom:2px;}
+.uw-cell p{font-size:10px;color:rgba(245,240,232,0.5);line-height:1.5;}
+
+/* Mirror */
+.mirror{background:linear-gradient(135deg,rgba(192,57,43,0.1),rgba(184,144,64,0.07));border:1px solid rgba(192,57,43,0.22);border-left:3px solid var(--red);padding:14px 18px;border-radius:0 3px 3px 0;}
+.mirror .mt{font-size:9px;letter-spacing:0.35em;text-transform:uppercase;color:var(--red2);margin-bottom:6px;}
+
+/* Correction banner */
+.correction{background:rgba(184,144,64,0.08);border:1px solid rgba(184,144,64,0.25);border-left:3px solid var(--gold);padding:10px 14px;border-radius:0 3px 3px 0;margin-top:8px;}
+.correction .ct{font-size:9px;letter-spacing:0.3em;color:var(--gold2);text-transform:uppercase;margin-bottom:5px;}
+
+/* Nav */
+#nav{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;z-index:100;}
+.nb{width:34px;height:34px;border:1px solid rgba(255,255,255,0.14);background:rgba(0,0,0,0.55);color:rgba(255,255,255,0.55);border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+.nb:hover{border-color:var(--gold);color:var(--gold);}
+#sc{font-size:11px;color:rgba(255,255,255,0.28);letter-spacing:0.12em;min-width:44px;text-align:center;}
+.dots{display:flex;gap:4px;}
+.dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.18);cursor:pointer;transition:all 0.2s;}
+.dot.active{background:var(--gold);width:14px;border-radius:3px;}
+
+/* Pill */
+.pill{display:inline-block;padding:2px 9px;border-radius:12px;font-size:9px;letter-spacing:0.15em;font-weight:600;}
+.pill.r{background:rgba(192,57,43,0.22);color:var(--red2);}
+.pill.g{background:rgba(184,144,64,0.18);color:var(--gold2);}
+.pill.j{background:rgba(46,125,90,0.22);color:var(--jade2);}
+.pill.b{background:rgba(42,90,138,0.22);color:var(--blue2);}
+.pill.p{background:rgba(106,58,138,0.22);color:var(--purple2);}
+
+/* Badge for accuracy note */
+.badge-warn{display:inline-flex;align-items:center;gap:5px;background:rgba(184,144,64,0.15);border:1px solid rgba(184,144,64,0.3);padding:3px 9px;border-radius:10px;font-size:9px;color:var(--gold2);letter-spacing:0.1em;}
+.badge-ok{display:inline-flex;align-items:center;gap:5px;background:rgba(46,125,90,0.15);border:1px solid rgba(46,125,90,0.3);padding:3px 9px;border-radius:10px;font-size:9px;color:var(--jade2);letter-spacing:0.1em;}
+.badge-no{display:inline-flex;align-items:center;gap:5px;background:rgba(192,57,43,0.15);border:1px solid rgba(192,57,43,0.3);padding:3px 9px;border-radius:10px;font-size:9px;color:var(--red2);letter-spacing:0.1em;}
+</style>
+</head>
+<body>
+<div id="deck">
+
+<!-- ═══════════════════════════════════════════
+  S1 · COVER
+═══════════════════════════════════════════ -->
+<div class="slide bg-void active" id="s1">
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:16px;position:relative;">
+    <div style="position:absolute;font-family:'Noto Serif SC',serif;font-size:340px;color:rgba(106,58,138,0.05);pointer-events:none;line-height:1;top:50%;left:50%;transform:translate(-50%,-50%);">灵</div>
+    <div style="display:flex;gap:20px;z-index:1;">
+      <div style="font-family:'Noto Serif SC',serif;font-size:52px;color:var(--gold2);opacity:0.9;">鬼</div>
+      <div style="font-family:'Noto Serif SC',serif;font-size:52px;color:rgba(245,240,232,0.7);">神</div>
+      <div style="font-family:'Noto Serif SC',serif;font-size:52px;color:rgba(245,240,232,0.5);">灵</div>
+    </div>
+    <div style="font-size:10px;letter-spacing:0.5em;color:var(--gold);opacity:0.6;text-transform:uppercase;z-index:1;">第二课 · Leçon II · Lesson 2</div>
+    <h1 style="font-size:clamp(38px,5.5vw,66px);z-index:1;">神话与宇宙观</h1>
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(15px,2vw,24px);color:rgba(245,240,232,0.5);z-index:1;">Mythologie, Cosmologie et Monde des Esprits</div>
+    <div style="font-family:'IM Fell English',serif;font-size:clamp(12px,1.5vw,17px);color:var(--gold);opacity:0.6;z-index:1;">Mythology, Cosmology &amp; the Spirit World</div>
+    <div style="display:flex;gap:28px;margin-top:16px;z-index:1;">
+      <div style="text-align:center;"><div style="font-size:9px;letter-spacing:0.3em;color:rgba(255,255,255,0.22);text-transform:uppercase;margin-bottom:3px;">时长 · Durée</div><div style="font-size:12px;color:rgba(245,240,232,0.55);">约 35 分钟</div></div>
+      <div style="width:1px;background:rgba(255,255,255,0.08);"></div>
+      <div style="text-align:center;"><div style="font-size:9px;letter-spacing:0.3em;color:rgba(255,255,255,0.22);text-transform:uppercase;margin-bottom:3px;">核心文字 · Caractères</div><div style="font-size:12px;color:rgba(245,240,232,0.55);">鬼 · 神 · 祭 · 灵</div></div>
+      <div style="width:1px;background:rgba(255,255,255,0.08);"></div>
+      <div style="text-align:center;"><div style="font-size:9px;letter-spacing:0.3em;color:rgba(255,255,255,0.22);text-transform:uppercase;margin-bottom:3px;">主线 · Fil directeur</div><div style="font-size:12px;color:rgba(245,240,232,0.55);">甲骨 → 混沌 → 三界 → 祭</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+  S2 · ROADMAP
+═══════════════════════════════════════════ -->
+<div class="slide bg-dark" id="s2">
+  <div class="slide-header"><span class="lesson-tag">第二课 · Leçon II</span><span class="slide-num">导览 · Plan</span></div>
+  <h2 style="margin-bottom:18px;">本课路线图 · Plan du cours · Course Map</h2>
+  <div class="three-col" style="gap:16px;">
+    <div class="card purple">
+      <div class="tag">第一部分 · Partie 1 · 12 min</div>
+      <h4>最早的记载与创世神话<br><span style="font-size:12px;opacity:0.8;font-weight:normal;">Premières annales et mythes de création</span></h4>
+      <p style="font-size:11px;">商代甲骨文中最早的鬼神记录。盘古神话第一份文字记录（三国，3世纪）与口传传统的区别。女娲造人·补天。<em class="fr">Des os oraculaires Shang au mythe de Pangu.</em></p>
+    </div>
+    <div class="card jade">
+      <div class="tag">第二部分 · Partie 2 · 12 min</div>
+      <h4>三界与地府<br><span style="font-size:12px;opacity:0.8;font-weight:normal;">Les Trois Mondes et les Enfers</span></h4>
+      <p style="font-size:11px;">天庭—人间—地府的宇宙结构。从泰山府君到佛教传入（东汉），再到唐宋完成本土化的十殿阎王体系。十八层地狱图解。<em class="fr">Structure des Trois Mondes et géographie de l'Enfer.</em></p>
+    </div>
+    <div class="card gold">
+      <div class="tag">第三部分 · Partie 3 · 11 min</div>
+      <h4>化形·祭祀·祖灵<br><span style="font-size:12px;opacity:0.8;font-weight:normal;">Métamorphose, rites et esprits ancestraux</span></h4>
+      <p style="font-size:11px;">万物修炼化形的神话逻辑。死亡→鬼→祖先→神明的升格链。祭祀祖先的文化逻辑。字源：鬼、神、祭、灵。<em class="fr">Transformation des êtres, culte des ancêtres.</em></p>
+    </div>
+  </div>
+  <div style="margin-top:16px;background:rgba(184,144,64,0.07);border:1px solid rgba(184,144,64,0.2);border-left:3px solid var(--gold);padding:12px 16px;border-radius:0 3px 3px 0;">
+    <div style="font-size:9px;letter-spacing:0.3em;color:var(--gold2);text-transform:uppercase;margin-bottom:6px;">📌 本课修正说明 · Notes de correction · Factual corrections</div>
+    <p style="font-size:12px;line-height:1.75;color:rgba(245,240,232,0.7);">① 盘古神话最早文字见于三国（3世纪，徐整《三五历纪》），口传传统可能更古老 · ② 「十殿阎王」完整体系成型于唐宋，历经约600年 · ③ 「十二祖巫化轮回」出自小说《封神演义》（16世纪），非古典文献 · ④ 仙、佛非甲骨文字形</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+  S3 · 最早的记载 NEW SLIDE
+═══════════════════════════════════════════ -->
+<div class="slide bg-oracle" id="s3">
+  <div class="slide-header"><span class="lesson-tag">最早的记载 · Les plus anciens témoignages · Earliest Records</span><span class="slide-num">甲骨 → 文本</span></div>
+  <div class="two-col" style="gap:32px;">
+
+    <!-- Left: Shang oracle bones -->
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <h3 style="color:var(--gold2);">商代甲骨文中的鬼神 · Esprits dans les Os Oraculaires Shang · ~1250–1046 BCE</h3>
+      <h2 style="font-size:clamp(15px,2vw,22px);">最早的神灵：「帝」与祖先崇拜 · Premières divinités : Di et culte des ancêtres</h2>
+      <p>商代甲骨文（约公元前1250年起）是目前已知最早系统记录鬼神信仰的文字。此时还没有创世神话——只有两类核心神灵概念：</p>
+      <div style="display:flex;flex-direction:column;gap:8px;margin-top:2px;">
+        <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(184,144,64,0.15);padding:12px 14px;border-radius:2px;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:18px;color:var(--gold2);margin-bottom:4px;">帝 / 上帝 <span style="font-size:11px;color:rgba(245,240,232,0.4);font-style:italic;">Dì / Shàngdì — Le Seigneur Suprême</span></div>
+          <p style="font-size:12px;">商代最高神，可能是商王的神化始祖，也可能是天上的主宰。能降福降灾、控制风雨。商王通过占卜询问其意志。<br><em class="fr">Le dieu suprême des Shang — ancêtre divinisé ou souverain céleste — consulté par divination.</em></p>
+        </div>
+        <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(184,144,64,0.15);padding:12px 14px;border-radius:2px;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:18px;color:var(--gold2);margin-bottom:4px;">祖先神 <span style="font-size:11px;color:rgba(245,240,232,0.4);font-style:italic;">Esprits ancestraux</span></div>
+          <p style="font-size:12px;">历代商王死后成为「祖先神」，可以向帝代为请愿，也可降灾于子孙。甲骨文中大量记录：「贞，某祖是否作祟？」<br><em class="fr">Les rois défunts deviennent des intermédiaires entre les vivants et le Seigneur Suprême.</em></p>
+        </div>
+        <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(192,57,43,0.15);padding:12px 14px;border-radius:2px;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:18px;color:var(--red2);margin-bottom:4px;">鬼 <span style="font-size:11px;color:rgba(245,240,232,0.4);font-style:italic;">Guǐ — Esprits hostiles</span></div>
+          <p style="font-size:12px;">甲骨文中「鬼」字已出现，指非家族成员的死者灵魂——游荡的、可能有害的存在，需要安抚或驱除。<br><em class="fr">Les esprits des morts non intégrés à la lignée familiale — potentiellement dangereux.</em></p>
+        </div>
+      </div>
+      <div class="correction">
+        <div class="ct">关键点 · Point clé</div>
+        <p style="font-size:11px;">商代没有「创世神话」文字记录。宇宙如何诞生？《诗经》和《尚书》（西周）也没有系统回答。这与古希腊（《神谱》）或美索不达米亚（《埃努玛·埃利什》）的早期创世神话形成对比。<br><em class="fr">Contrairement à la Grèce ou la Mésopotamie, la Chine ancienne ne possède pas de mythe de création systématisé.</em></p>
+      </div>
+    </div>
+
+    <!-- Right: Timeline of early texts -->
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <h3 style="color:var(--blue2);">创世叙事的逐步形成 · Émergence progressive des récits de création</h3>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-date">~1250 BCE<br>商代</div>
+          <div class="tl-dot-wrap"><div class="tl-dot" style="background:var(--gold);"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <strong>甲骨文 · Os oraculaires Shang</strong>
+            <p>帝/上帝、祖先神、鬼的概念出现。无创世神话。占卜问吉凶。<em class="fr">Dieu suprême, esprits ancestraux, mais pas de cosmogonie.</em></p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">~4–3c BCE<br>战国</div>
+          <div class="tl-dot-wrap"><div class="tl-dot" style="background:var(--purple);"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <strong>《道德经》宇宙生成论 · Cosmogonie du Laozi</strong>
+            <p>「道生一，一生二，二生三，三生万物」——哲学性的宇宙起源，非神话叙事。<em class="fr">Le Dao engendre l'Un, le Deux, le Trois, puis les dix mille êtres.</em></p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">~3c BCE<br>楚国</div>
+          <div class="tl-dot-wrap"><div class="tl-dot" style="background:var(--blue);"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <strong>《楚辞·天问》屈原提问 · Questions au Ciel</strong>
+            <p>屈原连问170余问：「遂古之初，谁传道之？」——宇宙起源之问，但没有给出答案。<em class="fr">Qu Yuan pose 170 questions cosmologiques sans répondre — preuve que les origines restaient mystérieuses.</em></p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">~3c BCE<br>战国–汉初</div>
+          <div class="tl-dot-wrap"><div class="tl-dot" style="background:var(--jade);"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <strong>《山海经》神话地理 · Classique des Montagnes et Mers</strong>
+            <p>女娲出现（人首蛇身）；各类神灵、怪兽记录。非系统神话，而是神话地理百科。<em class="fr">Nüwa apparaît pour la première fois dans les textes écrits.</em></p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">139 BCE<br>汉代</div>
+          <div class="tl-dot-wrap"><div class="tl-dot" style="background:var(--jade);"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <strong>《淮南子》女娲补天 · Huainanzi</strong>
+            <p>女娲补天故事完整版；混沌→宇宙的叙事。<em class="fr">Nüwa répare le Ciel — première version complète du mythe.</em></p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">3c CE<br>三国</div>
+          <div class="tl-dot-wrap"><div class="tl-dot" style="background:var(--red);"></div></div>
+          <div class="tl-content">
+            <strong>徐整《三五历纪》盘古首现 · Première apparition écrite de Pangu</strong>
+            <p>盘古开天地神话<span style="color:var(--red2);">第一次出现于文字</span>，距商代甲骨文已过去千年以上。<em class="fr">La première mention écrite de Pangu — plus de 1000 ans après les os oraculaires.</em></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+  S4 · 盘古开天地
+═══════════════════════════════════════════ -->
+<div class="slide bg-chaos" id="s4">
+  <div class="slide-header"><span class="lesson-tag">创世神话 · Mythe de la création · Creation Myth</span><span class="slide-num">盘古 · Pangu</span></div>
+  <div class="two-col" style="align-items:start;">
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div>
+        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px;">
+          <h3 style="color:var(--purple2);margin-bottom:0;">盘古开天地 · Pangu sépare le Ciel de la Terre</h3>
+          <span class="badge-warn">⚠ 首见三国 3c CE · Xu Zheng 徐整</span>
+        </div>
+        <h2>混沌 → 天地 → 万物<br><span style="font-size:14px;opacity:0.8;">Du Chaos au Ciel et à la Terre</span></h2>
+        <p style="margin-top:8px;">起初宇宙是一个混沌的蛋，盘古在其中沉睡了一万八千年。醒来后，他用斧凿开混沌：轻清之气上升为天，重浊之气下沉为地。盘古立于天地之间，每天长高一丈，天地随之扩展，历时又一万八千年。</p>
+        <p style="margin-top:6px;"><em class="fr">Pangu dormit 18 000 ans dans l'œuf du chaos ; en s'éveillant, il sépara le ciel de la terre. Après sa mort, son corps se transforma en cosmos — une vision pan-animiste profonde.</em></p>
+        <p style="margin-top:4px; font-size:11px; color:rgba(245,240,232,0.45);"><em>Pangu slept 18,000 years inside the cosmic egg; upon waking, he separated heaven from earth with an axe. His death transformed his body into the world itself.</em></p>
+      </div>
+      <!-- chaos visualization -->
+      <div style="display:flex;align-items:center;gap:12px;justify-content:center;background:rgba(0,0,0,0.3);padding:14px;border-radius:2px;border:1px solid rgba(255,255,255,0.06);">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
+          <svg width="72" height="80" viewBox="0 0 72 80">
+            <ellipse cx="36" cy="40" rx="30" ry="35" fill="rgba(106,58,138,0.25)" stroke="rgba(176,112,224,0.4)" stroke-width="1.5"/>
+            <ellipse cx="36" cy="40" rx="18" ry="22" fill="rgba(106,58,138,0.15)" stroke="rgba(176,112,224,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
+            <text x="36" y="45" font-family="Noto Serif SC,serif" font-size="14" fill="rgba(245,240,232,0.6)" text-anchor="middle">混沌</text>
+          </svg>
+          <span style="font-size:9px;color:rgba(245,240,232,0.3);">太初 Chaos</span>
+        </div>
+        <span style="font-size:18px;color:rgba(255,255,255,0.18);">→</span>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:0;">
+          <svg width="72" height="80" viewBox="0 0 72 80">
+            <rect x="6" y="4" width="60" height="28" rx="2" fill="rgba(42,90,138,0.3)" stroke="rgba(128,180,224,0.35)" stroke-width="1.5"/>
+            <text x="36" y="23" font-family="Noto Serif SC,serif" font-size="13" fill="rgba(128,180,224,0.9)" text-anchor="middle">天 Ciel</text>
+            <line x1="36" y1="32" x2="36" y2="46" stroke="rgba(184,144,64,0.5)" stroke-width="1.5"/>
+            <circle cx="36" cy="30" r="3.5" fill="none" stroke="rgba(184,144,64,0.5)" stroke-width="1.5"/>
+            <rect x="6" y="48" width="60" height="28" rx="2" fill="rgba(46,125,90,0.3)" stroke="rgba(94,207,160,0.35)" stroke-width="1.5"/>
+            <text x="36" y="67" font-family="Noto Serif SC,serif" font-size="13" fill="rgba(94,207,160,0.9)" text-anchor="middle">地 Terre</text>
+          </svg>
+          <span style="font-size:9px;color:rgba(245,240,232,0.3);">盘古撑天地</span>
+        </div>
+        <span style="font-size:18px;color:rgba(255,255,255,0.18);">→</span>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
+          <svg width="72" height="80" viewBox="0 0 72 80">
+            <circle cx="36" cy="40" r="7" fill="rgba(192,57,43,0.2)" stroke="rgba(192,57,43,0.4)" stroke-width="1.5"/>
+            <line x1="36" y1="18" x2="36" y2="30" stroke="rgba(128,180,224,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="36" y1="50" x2="36" y2="62" stroke="rgba(94,207,160,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="12" y1="26" x2="22" y2="34" stroke="rgba(192,57,43,0.4)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="50" y1="46" x2="60" y2="54" stroke="rgba(192,57,43,0.4)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="12" y1="54" x2="22" y2="46" stroke="rgba(212,173,96,0.4)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="50" y1="34" x2="60" y2="26" stroke="rgba(212,173,96,0.4)" stroke-width="1.5" stroke-linecap="round"/>
+            <text x="36" y="44" font-family="Noto Serif SC,serif" font-size="10" fill="rgba(245,240,232,0.7)" text-anchor="middle">化</text>
+          </svg>
+          <span style="font-size:9px;color:rgba(245,240,232,0.3);">化为万物</span>
+        </div>
+      </div>
+      <div style="background:rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,0.07);padding:12px 14px;border-radius:2px;">
+        <p style="font-size:12px;line-height:1.75;"><span style="color:var(--gold2);">盘古死后化为 · Son corps devient :</span><br>气息→风云 · souffle→vent et nuages，双眼→日月 · yeux→soleil et lune，四肢→四极 · membres→les quatre horizons，血肉→大地 · chair→la terre，汗水→雨露 · sueur→pluie，毛发→草木 · cheveux→végétation</p>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div>
+        <h3 style="color:var(--gold2);">历史化倾向 · Tendance à l'historicisation · Euhemerism</h3>
+        <h2 style="font-size:clamp(14px,1.9vw,22px);">神话人物 → 历史圣王 · De Héros mythiques à Rois sages</h2>
+        <p style="margin-top:8px;">中国神话有一个独特现象：神明被「降格」为历史上的圣王贤君，融入文明起源的历史叙事。与希腊神话中神明永远保持神性不同，中国的神往往变成了人。<br><em class="fr">Contrairement à la Grèce, les divinités chinoises ont tendance à devenir des souverains historiques — la mythologie se fond dans l'histoire politique.</em></p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <div style="display:grid;grid-template-columns:72px 16px 1fr;align-items:center;gap:6px;background:rgba(0,0,0,0.3);padding:8px 12px;border-radius:2px;">
+          <div style="text-align:right;font-family:'Noto Serif SC',serif;font-size:15px;color:var(--purple2);">伏羲</div>
+          <span style="color:rgba(255,255,255,0.2);">→</span>
+          <p style="font-size:11px;">人首蛇身，画八卦 → 文明始祖、上古帝王 <em class="fr">Tête humaine, corps de serpent → Fondateur de la civilisation</em></p>
+        </div>
+        <div style="display:grid;grid-template-columns:72px 16px 1fr;align-items:center;gap:6px;background:rgba(0,0,0,0.3);padding:8px 12px;border-radius:2px;">
+          <div style="text-align:right;font-family:'Noto Serif SC',serif;font-size:15px;color:var(--purple2);">女娲</div>
+          <span style="color:rgba(255,255,255,0.2);">→</span>
+          <p style="font-size:11px;">造人补天 → 古代女皇，礼制创立者 <em class="fr">Créatrice de l'humanité → Impératrice légendaire</em></p>
+        </div>
+        <div style="display:grid;grid-template-columns:72px 16px 1fr;align-items:center;gap:6px;background:rgba(0,0,0,0.3);padding:8px 12px;border-radius:2px;">
+          <div style="text-align:right;font-family:'Noto Serif SC',serif;font-size:15px;color:var(--purple2);">神农</div>
+          <span style="color:rgba(255,255,255,0.2);">→</span>
+          <p style="font-size:11px;">尝百草、教农耕 → 炎帝，农业与医药之祖 <em class="fr">Goûteur des herbes médicinales → Ancêtre de l'agriculture</em></p>
+        </div>
+        <div style="display:grid;grid-template-columns:72px 16px 1fr;align-items:center;gap:6px;background:rgba(0,0,0,0.3);padding:8px 12px;border-radius:2px;">
+          <div style="text-align:right;font-family:'Noto Serif SC',serif;font-size:15px;color:var(--purple2);">黄帝</div>
+          <span style="color:rgba(255,255,255,0.2);">→</span>
+          <p style="font-size:11px;">战蚩尤、造指南车 → 华夏民族始祖 <em class="fr">Vainqueur de Chiyou → Ancêtre des Han</em></p>
+        </div>
+      </div>
+      <div class="card purple" style="padding:11px 14px;">
+        <div class="tag">文化逻辑 · Logique culturelle · Cultural Logic</div>
+        <p style="font-size:11px;">中国文化以「历史」为合法性来源——神的权威需要转化为「古圣王的智慧」才能被儒家体系接受。<br><em class="fr">En Chine, l'autorité se légitime par l'histoire et la sagesse des anciens, non par la transcendance divine permanente.</em></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+  S5 · 女娲 + 化形修炼 (CORRECTED)
+═══════════════════════════════════════════ -->
+<div class="slide bg-jade" id="s5">
+  <div class="slide-header"><span class="lesson-tag">女娲 · 化形修炼 · Transformation des êtres · Metamorphosis through Cultivation</span><span class="slide-num">S5</span></div>
+  <div class="two-col" style="align-items:start;">
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <h3 style="color:var(--jade2);">女娲造人与补天 · Nüwa : créatrice et réparatrice · Creator and Repairer</h3>
+      <div style="display:flex;gap:12px;align-items:flex-start;">
+        <svg width="80" height="110" viewBox="0 0 80 110" style="flex-shrink:0;">
+          <ellipse cx="40" cy="22" rx="13" ry="15" fill="none" stroke="rgba(94,207,160,0.7)" stroke-width="2"/>
+          <line x1="34" y1="18" x2="30" y2="12" stroke="rgba(94,207,160,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="46" y1="18" x2="50" y2="12" stroke="rgba(94,207,160,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M40 37 Q56 50 46 65 Q36 80 50 95 Q58 104 54 110" fill="none" stroke="rgba(94,207,160,0.65)" stroke-width="3" stroke-linecap="round"/>
+          <path d="M44 48 Q48 52 52 48" fill="none" stroke="rgba(94,207,160,0.3)" stroke-width="1"/>
+          <path d="M40 61 Q44 65 48 61" fill="none" stroke="rgba(94,207,160,0.3)" stroke-width="1"/>
+          <circle cx="24" cy="50" r="4.5" fill="none" stroke="rgba(212,173,96,0.6)" stroke-width="1.5"/>
+          <line x1="24" y1="55" x2="24" y2="66" stroke="rgba(212,173,96,0.6)" stroke-width="1.5"/>
+          <line x1="18" y1="60" x2="30" y2="60" stroke="rgba(212,173,96,0.4)" stroke-width="1.2"/>
+          <line x1="24" y1="66" x2="18" y2="75" stroke="rgba(212,173,96,0.6)" stroke-width="1.5"/>
+          <line x1="24" y1="66" x2="30" y2="75" stroke="rgba(212,173,96,0.6)" stroke-width="1.5"/>
+        </svg>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div class="quote" style="border-left-color:var(--jade);">
+            <div class="zh" style="font-size:13px;">「天地开辟，未有人民，女娲抟黄土作人。」</div>
+            <div class="src">——应劭《风俗通义》 · Fengsu Tongyi, 2nd c. CE</div>
+          </div>
+          <p style="font-size:12px;">女娲用黄土捏成人形，又怕捏的人太少，便用绳子蘸泥甩出，形成众多普通人。有钱有势者是亲手捏的，普通人则是甩绳所生——这一神话反映了古代阶级观念的合理化。<br><em class="fr">Nüwa modèle les humains dans la boue jaune — ceux pétris à la main deviennent nobles, ceux éclaboussés deviennent peuple commun : une justification mythique de la hiérarchie sociale.</em></p>
+          <div class="quote" style="border-left-color:var(--jade);">
+            <div class="zh" style="font-size:12px;">女娲补天：炼五色石补苍天，斩鳌足立四极。</div>
+            <div class="src">——《淮南子》139 BCE · Huainanzi</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CORRECTED animism section -->
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+        <h3 style="color:var(--jade2);margin-bottom:0;">神话中的化形修炼 · Transformation et Cultivation dans la Mythologie</h3>
+      </div>
+      <h2 style="font-size:clamp(14px,1.9vw,22px);">万物皆可修炼 → 化形为人 · La culture de soi universelle</h2>
+      <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(94,207,160,0.2);border-left:3px solid var(--jade);padding:12px 14px;border-radius:0 3px 3px 0;">
+        <p style="font-size:12px;line-height:1.85;">在中国神话体系中，万物（动物、植物、石头）皆含有「灵气」——聚集足够灵气后，经过数百乃至数千年的修炼（<span style="color:var(--jade2);">修炼 · cultivation</span>），可以<span style="color:var(--jade2);">化形（化为人形）</span>，进而获得智慧与法力，最终可能成仙或成神。这不是静态的「万物有灵」，而是动态的<span style="color:var(--jade2);">修炼进化论</span>。</p>
+        <p style="font-size:11px;margin-top:6px;"><em class="fr">En mythologie chinoise, tout être vivant contient du « souffle spirituel » (língqì). Après des siècles de cultivation, animaux et plantes peuvent <strong>prendre forme humaine</strong> (huàxíng) et acquérir des pouvoirs surnaturels — une vision dynamique de l'évolution spirituelle.</em></p>
+      </div>
+      <!-- Examples grid -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div style="padding:9px 11px;background:rgba(0,0,0,0.35);border:1px solid rgba(94,207,160,0.12);border-radius:2px;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:14px;color:var(--jade2);">孙悟空 · Sun Wukong</div>
+          <p style="font-size:10px;line-height:1.5;margin-top:3px;">天地灵气孕育的石猴 → 修炼得道 → 化形 → 齐天大圣。<em class="fr">Singe né d'une pierre sacrée → Roi des singes céleste.</em></p>
+        </div>
+        <div style="padding:9px 11px;background:rgba(0,0,0,0.35);border:1px solid rgba(94,207,160,0.12);border-radius:2px;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:14px;color:var(--jade2);">白素贞 · Dame Blanche</div>
+          <p style="font-size:10px;line-height:1.5;margin-top:3px;">千年白蛇修炼 → 化为美人 → 与人相恋。<em class="fr">Serpent blanc après mille ans de cultivation → Belle femme capable d'aimer.</em></p>
+        </div>
+        <div style="padding:9px 11px;background:rgba(0,0,0,0.35);border:1px solid rgba(94,207,160,0.12);border-radius:2px;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:14px;color:var(--jade2);">狐狸精 · Esprit renard</div>
+          <p style="font-size:10px;line-height:1.5;margin-top:3px;">九尾狐修炼数百年 → 化为绝色女子，诱惑人间。《聊斋志异》<em class="fr">Renard à neuf queues → Séductrice humaine (Liaozhai Zhiyi).</em></p>
+        </div>
+        <div style="padding:9px 11px;background:rgba(0,0,0,0.35);border:1px solid rgba(94,207,160,0.12);border-radius:2px;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:14px;color:var(--jade2);">花仙 · Esprits floraux</div>
+          <p style="font-size:10px;line-height:1.5;margin-top:3px;">百花仙子、梅精、竹仙——植物得道化形，常出现在唐宋志怪小说中。<em class="fr">Génies floraux des contes Tang-Song.</em></p>
+        </div>
+      </div>
+      <div style="background:rgba(0,0,0,0.35);border:1px solid rgba(255,255,255,0.06);padding:11px 14px;border-radius:2px;">
+        <p style="font-size:11px;line-height:1.75;"><span style="color:var(--gold2);">修炼路径 · Chemin de cultivation :</span><br>灵气积累 → 开启灵智 → 化形（取得人形）→ 修行进阶 → 得道成仙/成神 · <em class="fr">Accumulation de souffles vitaux → éveil de l'intelligence → prise de forme humaine → progression spirituelle → immortalité</em></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+  S6 · 灵 是何物
+═══════════════════════════════════════════ -->
+<div class="slide bg-soul" id="s6">
+  <div class="slide-header"><span class="lesson-tag">核心字 · Caractère-clé · Key Character</span><span class="slide-num">靈 · Líng</span></div>
+  <div class="two-col" style="align-items:start;gap:40px;">
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div>
+        <h3 style="color:var(--purple2);">靈 / 灵 líng · Lǐng · Spirit / Efficacité divine</h3>
+        <h2>巫的雨祭 → 神性回应<br><span style="font-size:14px;opacity:0.8;">Sacrifice du chaman → Réponse divine</span></h2>
+        <p style="margin-top:8px;">「靈」的繁体字形极为丰富：上部三口（象征祈祷/呼唤），中部「雨」（祭祀的目的——求雨），下部「巫」（主持仪式的萨满）。整个字表示：巫师通过仪式祈祷，上天有所回应。<br><em class="fr">Le caractère 靈 représente : trois bouches en haut (prières), la pluie au milieu (but du rituel), le chaman en bas. Ensemble : le chaman appelle les esprits, le ciel répond.</em></p>
+      </div>
+      <div style="background:rgba(0,0,0,0.45);border:1px solid rgba(176,112,224,0.2);padding:18px 22px;border-radius:2px;">
+        <div style="display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:14px;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:3px;">
+            <div style="font-family:'Noto Serif SC',serif;font-size:58px;color:var(--purple2);line-height:1;">靈</div>
+            <div style="font-size:9px;color:rgba(245,240,232,0.3);letter-spacing:0.15em;">繁体 · Traditionnel</div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:7px;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="background:rgba(106,58,138,0.3);padding:2px 8px;border-radius:2px;font-family:'Noto Serif SC',serif;font-size:15px;color:var(--purple2);">三口</div>
+              <p style="font-size:11px;">祈祷声、呼唤 · Prières, invocations</p>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="background:rgba(42,90,138,0.3);padding:2px 8px;border-radius:2px;font-family:'Noto Serif SC',serif;font-size:15px;color:var(--blue2);">雨</div>
+              <p style="font-size:11px;">祭祀目的（求雨）· But du rituel : la pluie</p>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="background:rgba(46,125,90,0.3);padding:2px 8px;border-radius:2px;font-family:'Noto Serif SC',serif;font-size:15px;color:var(--jade2);">巫</div>
+              <p style="font-size:11px;">萨满、仪式主持者 · Chaman, officiant</p>
+            </div>
+          </div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,0.07);padding-top:10px;">
+          <p style="font-size:11px;text-align:center;color:rgba(245,240,232,0.5);">字义核心 · Sens fondamental : 巫的仪式求雨，上天回应 → <span style="color:var(--purple2);">神性的有效回应 · Efficacité de la réponse divine</span></p>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <h3 style="color:var(--purple2);">「灵」的四层含义 · Quatre sens de líng · Four Meanings</h3>
+      <div class="card purple" style="padding:12px 14px;">
+        <div class="tag">① 神性效力 · Efficacité divine · Divine Efficacy</div>
+        <h4 style="font-size:14px;">灵验 · 灵应 · Líng yàn - Efficacité</h4>
+        <p style="font-size:11px;">神明「有灵」，祈祷得到回应。例：「这个庙很灵」= 神明有回应效力。<br><em class="fr">« Ce temple est líng » = il répond aux prières. La clé : l'efficacité pratique, pas la transcendance.</em></p>
+      </div>
+      <div class="card blue" style="padding:12px 14px;">
+        <div class="tag">② 精神实体 · Entité spirituelle · Spiritual Entity</div>
+        <h4 style="font-size:14px;">灵魂 · 精灵 · Líng hún - Âme/Esprit</h4>
+        <p style="font-size:11px;">人或物所具有的精神性存在，可以脱离肉体存在。灵魂 = 精神实体+魂的组合。<br><em class="fr">L'âme comme entité distincte du corps, capable de survivre à la mort.</em></p>
+      </div>
+      <div class="card jade" style="padding:12px 14px;">
+        <div class="tag">③ 聪慧灵性 · Intelligence innée · Innate Genius</div>
+        <h4 style="font-size:14px;">心灵 · 灵巧 · Xīn líng - Esprit/Intelligence</h4>
+        <p style="font-size:11px;">「聪明灵巧」中的灵：内在的精神性才能，天赋而非习得。心灵 = 精神+意识的结合。</p>
+      </div>
+      <div class="card gold" style="padding:12px 14px;">
+        <div class="tag">④ 死者之灵 · Âme des défunts · Souls of the Dead</div>
+        <h4 style="font-size:14px;">英灵 · 亡灵 · Yīng líng</h4>
+        <p style="font-size:11px;">死者的精神存在，可庇护后代。「英灵」= 英勇牺牲者之灵，受人尊敬。<br><em class="fr">Les âmes des ancêtres peuvent protéger les vivants — fondement du culte ancestral.</em></p>
+      </div>
+      <div style="background:rgba(0,0,0,0.35);padding:10px 14px;border-radius:2px;border:1px solid rgba(255,255,255,0.06);">
+        <p style="font-size:11px;">「灵」vs 西方「soul / âme」：灵不只是个人的精神实体，更是<span style="color:var(--purple2);">与神明沟通的媒介</span>，以及<span style="color:var(--purple2);">神性有效回应的力量</span>。<em class="fr">La différence avec « âme » occidental : líng inclut la notion d'efficacité divine — une âme qui ne « répond » pas n'est pas líng.</em></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+  S7 · 甲骨文：鬼、神、祭 (CORRECTED)
+═══════════════════════════════════════════ -->
+<div class="slide bg-dark" id="s7">
+  <div class="slide-header"><span class="lesson-tag">字源考 · Étymologie des caractères · Character Etymology</span><span class="slide-num">鬼 · 神 · 祭</span></div>
+  <h2 style="margin-bottom:16px;">鬼神的文字之根 · Racines graphiques des esprits · Graphic Roots of Spirit Characters</h2>
+  <div class="three-col" style="gap:20px;">
+
+    <!-- 鬼 -->
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div style="display:flex;align-items:center;gap:10px;justify-content:space-between;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="picto">
+            <img src="https://ctext.org/font/jiagu/9b3c.gif" width="64" height="80" style="filter: invert(0.8) sepia(1) saturate(3) hue-rotate(5deg); object-fit: contain;">
+          </div>
+          <div>
+            <div style="font-family:'Noto Serif SC',serif;font-size:46px;color:var(--gold2);line-height:1;">鬼</div>
+            <div style="font-size:11px;color:var(--red2);margin-top:2px;">guǐ · Fantôme · Ghost</div>
+          </div>
+        </div>
+        <span class="badge-ok">✓ 甲骨文</span>
+      </div>
+      <div style="background:rgba(0,0,0,0.35);padding:11px;border-radius:2px;border:1px solid rgba(255,255,255,0.06);">
+        <div style="font-size:9px;letter-spacing:0.2em;color:var(--gold);opacity:0.6;text-transform:uppercase;margin-bottom:5px;">字源解析 · Étymologie</div>
+        <p style="font-size:11px;line-height:1.75;">大头人形 → 头部夸张强调其异常性。古人认为人死后灵魂不散，变为「鬼」，头部尤为显眼，难以被遗忘。甲骨文中「鬼」字已见于商代占卜记录。<br><em class="fr">Homme à grande tête — le mort dont l'esprit erre, reconnaissable par sa tête disproportionnée. Attesté dès les os oraculaires Shang.</em></p>
+      </div>
+      <div style="background:rgba(192,57,43,0.08);padding:9px 11px;border-radius:2px;border-left:3px solid var(--red);">
+        <p style="font-size:11px;">魂魄：<span style="color:var(--gold2);">魂</span>（鬼+云气 · âme yang, monte au ciel）<span style="color:var(--gold2);">魄</span>（鬼+白 · âme yin, reste avec les os）<br>三魂七魄 — théorie complète élaborée par le Taoïsme</p>
+      </div>
+    </div>
+
+    <!-- 神 CORRECTED -->
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div style="display:flex;align-items:center;gap:10px;justify-content:space-between;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="picto">
+            <img src="https://ctext.org/font/jin/795e.gif" width="64" height="80" style="filter: invert(0.8) sepia(1) saturate(3) hue-rotate(5deg); object-fit: contain;">
+          </div>
+          <div>
+            <div style="font-family:'Noto Serif SC',serif;font-size:46px;color:var(--gold2);line-height:1;">神</div>
+            <div style="font-size:11px;color:var(--red2);margin-top:2px;">shén · Divinité · God/Deity</div>
+          </div>
+        </div>
+        <span class="badge-warn">⚠ 主要见金文</span>
+      </div>
+      <div style="background:rgba(0,0,0,0.35);padding:11px;border-radius:2px;border:1px solid rgba(255,255,255,0.06);">
+        <div style="font-size:9px;letter-spacing:0.2em;color:var(--gold);opacity:0.6;text-transform:uppercase;margin-bottom:5px;">字源解析 · Étymologie · PRÉCISION</div>
+        <p style="font-size:11px;line-height:1.75;">「示」（祭台形）在甲骨文中已有，表示祭祀场所。「申」（闪电形）象征天降神力。但「神」作为完整合体字，<span style="color:var(--gold2);">主要见于西周金文（青铜器铭文）</span>，而非甲骨文。概念本身（帝+祖先神）在商代已有，但这个字形略晚。<br><em class="fr">Le composant 示 (autel) est dans les os oraculaires, mais le caractère complet 神 apparaît surtout dans les inscriptions sur bronze (金文, Zhou occidental). La notion divine est Shang, mais le graphème est Zhou.</em></p>
+      </div>
+      <div style="background:rgba(42,90,138,0.08);padding:9px 11px;border-radius:2px;border-left:3px solid var(--blue);">
+        <p style="font-size:11px;">示字族（示旁）：<span style="color:var(--gold2);">祖 祠 福 禧 禅 祭 祀</span>——凡涉及祭祀、祈祷、神灵之字均从「示」· Tous les caractères avec 示 concernent le sacré et les rites.</p>
+      </div>
+    </div>
+
+    <!-- 祭 -->
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div style="display:flex;align-items:center;gap:10px;justify-content:space-between;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="picto">
+            <img src="https://ctext.org/font/jiagu/796d.gif" width="64" height="80" style="filter: invert(0.8) sepia(1) saturate(3) hue-rotate(5deg); object-fit: contain;">
+          </div>
+          <div>
+            <div style="font-family:'Noto Serif SC',serif;font-size:46px;color:var(--gold2);line-height:1;">祭</div>
+            <div style="font-size:11px;color:var(--red2);margin-top:2px;">jì · Sacrifier · To Offer/Sacrifice</div>
+          </div>
+        </div>
+        <span class="badge-ok">✓ 甲骨文</span>
+      </div>
+      <div style="background:rgba(0,0,0,0.35);padding:11px;border-radius:2px;border:1px solid rgba(255,255,255,0.06);">
+        <div style="font-size:9px;letter-spacing:0.2em;color:var(--gold);opacity:0.6;text-transform:uppercase;margin-bottom:5px;">字源解析 · Étymologie</div>
+        <p style="font-size:11px;line-height:1.75;">手（又）持肉（血肉牺牲）置于祭台（示）上——祭祀场景最直接的视觉还原。甲骨文中祭字清晰呈现了商代祭祀的核心行为：献上牺牲。<br><em class="fr">Main tenant de la viande sacrificielle sur l'autel — représentation directe de l'acte sacrificiel Shang. Attesté dans les os oraculaires.</em></p>
+      </div>
+      <div style="background:rgba(184,144,64,0.08);padding:9px 11px;border-radius:2px;border-left:3px solid var(--gold);">
+        <p style="font-size:11px;">相关字：<span style="color:var(--gold2);">祭祀 祭奠 祭扫 祭祖</span>；现代「祭」字形几乎无变化 · Le caractère moderne est presque identique à l'original.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+  S8 · 仙、佛、魂魄 (CORRECTED - not oracle bone)
+═══════════════════════════════════════════ -->
+<div class="slide bg-dark" id="s8">
+  <div class="slide-header"><span class="lesson-tag">字源考（续）· Étymologie (suite) · Etymology cont.</span><span class="slide-num">仙 · 佛 · 魂魄</span></div>
+  <h2 style="margin-bottom:14px;">超越人间的字形 · Caractères du dépassement · Characters of Transcendence</h2>
+  <div style="background:rgba(192,57,43,0.07);border:1px solid rgba(192,57,43,0.2);border-left:3px solid var(--red);padding:10px 14px;margin-bottom:14px;border-radius:0 3px 3px 0;">
+    <p style="font-size:11px;line-height:1.6;"><span style="color:var(--red2);">⚠ 重要说明 · Note importante · Important note :</span> 「仙」和「佛」均<strong style="color:var(--red2);">不是甲骨文字形</strong>。仙是战国至汉代道教概念，佛是东汉音译梵文 Buddha。以下按实际字形来源分级标注。<em class="fr">« 仙 » et « 佛 » ne sont PAS des caractères d'os oraculaires. 仙 est un concept taoïste (Royaumes Combattants–Han), 佛 est une translittération du sanskrit Buddha (Han oriental).</em></p>
+  </div>
+  <div class="three-col" style="gap:20px;">
+
+    <!-- 仙 -->
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div style="display:flex;align-items:center;gap:10px;justify-content:space-between;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="picto">
+            <svg width="64" height="80" viewBox="0 0 64 80">
+              <path d="M6 72 L32 28 L58 72" fill="none" stroke="rgba(212,173,96,0.55)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16 72 L32 44 L48 72" fill="none" stroke="rgba(212,173,96,0.3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="32" cy="16" r="5.5" fill="none" stroke="#d4ad60" stroke-width="2.5"/>
+              <line x1="30" y1="22" x2="26" y2="34" stroke="#d4ad60" stroke-width="2" stroke-linecap="round"/>
+              <line x1="20" y1="27" x2="34" y2="27" stroke="#d4ad60" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="44" y1="9" x2="48" y2="15" stroke="#d4ad60" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+              <line x1="48" y1="7" x2="52" y2="13" stroke="#d4ad60" stroke-width="1" stroke-linecap="round" opacity="0.3"/>
+            </svg>
+          </div>
+          <div>
+            <div style="font-family:'Noto Serif SC',serif;font-size:46px;color:var(--gold2);line-height:1;">仙</div>
+            <div style="font-size:11px;color:var(--red2);">xiān · Immortel taoïste · Daoist Immortal</div>
+          </div>
+        </div>
+        <span class="badge-no">✗ 非甲骨文</span>
+      </div>
+      <div style="background:rgba(0,0,0,0.35);padding:11px;border-radius:2px;border:1px solid rgba(255,255,255,0.06);">
+        <div style="font-size:9px;letter-spacing:0.2em;color:var(--gold);opacity:0.6;text-transform:uppercase;margin-bottom:5px;">字源 · Origine réelle</div>
+        <p style="font-size:11px;line-height:1.75;">人(亻)+山 → 进入山中的人，脱离凡俗。早期写作<span style="color:var(--gold2);">「僊」</span>= 人飞升之形（战国文字）。「仙」字概念源自战国道家的养生、炼丹思想，是道教的独特概念，非远古神话原生词。<br><em class="fr">亻(homme) + 山(montagne) → celui qui monte dans les montagnes pour transcender le monde. Le concept est taoïste (Royaumes Combattants). Non attesté sur os oraculaires.</em></p>
+      </div>
+      <div style="background:rgba(184,144,64,0.08);padding:9px 11px;border-radius:2px;border-left:3px solid var(--gold);">
+        <p style="font-size:11px;">「仙」是道教修炼的最高境界：羽化登仙，超越生死 · L'immortalité taoïste — transcender la mort par la cultivation spirituelle et alchimique.</p>
+      </div>
+    </div>
+
+    <!-- 佛 CORRECTED -->
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div style="display:flex;align-items:center;gap:10px;justify-content:space-between;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <div class="picto">
+            <svg width="64" height="80" viewBox="0 0 64 80">
+              <path d="M18 10 L12 26" fill="none" stroke="#d4ad60" stroke-width="2.5" stroke-linecap="round"/>
+              <line x1="18" y1="12" x2="12" y2="18" stroke="#d4ad60" stroke-width="2" stroke-linecap="round"/>
+              <path d="M32 16 Q40 20 38 32 Q36 44 32 52" fill="none" stroke="#d4ad60" stroke-width="2" stroke-linecap="round"/>
+              <path d="M48 16 Q56 20 54 32 Q52 44 48 52" fill="none" stroke="#d4ad60" stroke-width="2" stroke-linecap="round"/>
+              <line x1="30" y1="28" x2="50" y2="28" stroke="#d4ad60" stroke-width="2" stroke-linecap="round"/>
+              <line x1="30" y1="40" x2="50" y2="40" stroke="#d4ad60" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="40" cy="8" r="7" fill="none" stroke="rgba(212,173,96,0.3)" stroke-width="1" stroke-dasharray="2,3"/>
+            </svg>
+          </div>
+          <div>
+            <div style="font-family:'Noto Serif SC',serif;font-size:46px;color:var(--gold2);line-height:1;">佛</div>
+            <div style="font-size:11px;color:var(--red2);">fó · Bouddha · Buddha</div>
+          </div>
+        </div>
+        <span class="badge-no">✗ 东汉音译</span>
+      </div>
+      <div style="background:rgba(0,0,0,0.35);padding:11px;border-radius:2px;border:1px solid rgba(255,255,255,0.06);">
+        <div style="font-size:9px;letter-spacing:0.2em;color:var(--gold);opacity:0.6;text-transform:uppercase;margin-bottom:5px;">字源 · Translittération du sanskrit</div>
+        <p style="font-size:11px;line-height:1.75;">「佛」是梵文 <em>Buddha</em> 的音译字（东汉，约公元1世纪）。亻（人）+ 弗（fú，近似音）——取「似人非人、难以看清之存在」的意味来匹配「觉悟者」。这是中国造字史上重要的<span style="color:var(--gold2);">音译实践</span>，与甲骨文无关。<br><em class="fr">Translittération du sanscrit « Buddha » (1er siècle apr. J.-C., Han oriental). 亻 (homme) + 弗 (fú, phonétique) = « un être humain mais insaisissable ». Exemple classique d'adaptation phonétique.</em></p>
+      </div>
+      <div style="background:rgba(42,90,138,0.1);padding:9px 11px;border-radius:2px;border-left:3px solid var(--blue);">
+        <p style="font-size:11px;">「佛」字进入中文 ≈ 东汉（约1世纪），是外来宗教词汇本土化的典型案例 · Exemple majeur d'assimilation linguistique d'une religion étrangère.</p>
+      </div>
+    </div>
+
+    <!-- 魂魄 -->
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <h3 style="color:var(--gold2);">灵的两面：魂与魄 · Les deux âmes : hún et pò</h3>
+      <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.07);padding:14px;border-radius:2px;display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:40px;color:var(--gold2);line-height:1;flex-shrink:0;">魂</div>
+          <div>
+            <div style="font-size:9px;letter-spacing:0.15em;color:var(--gold);opacity:0.6;text-transform:uppercase;margin-bottom:3px;">hún · 鬼+云气 · Âme yang, aérienne</div>
+            <p style="font-size:11px;line-height:1.7;">阳性灵魂，属气。人死后，魂升天或游荡于世。三魂（天魂、地魂、命魂）可转世。<em class="fr">L'âme yang, aérienne, monte au ciel après la mort.</em></p>
+          </div>
+        </div>
+        <div style="height:1px;background:rgba(255,255,255,0.06);"></div>
+        <div style="display:flex;gap:10px;align-items:flex-start;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:40px;color:rgba(200,220,240,0.7);line-height:1;flex-shrink:0;">魄</div>
+          <div>
+            <div style="font-size:9px;letter-spacing:0.15em;color:var(--blue2);opacity:0.7;text-transform:uppercase;margin-bottom:3px;">pò · 鬼+白 · Âme yin, corporelle</div>
+            <p style="font-size:11px;line-height:1.7;">阴性灵魂，附于肉体。七魄随身体腐化而消散，留于地下。魄若不散，人便不能安息。<em class="fr">L'âme yin, corporelle, reste avec les os et se dissout progressivement.</em></p>
+          </div>
+        </div>
+      </div>
+      <div style="background:rgba(106,58,138,0.1);padding:10px;border-radius:2px;border:1px solid rgba(106,58,138,0.18);">
+        <p style="font-size:10px;line-height:1.7;">三魂七魄是道教整合理论，解释了为何需要厚葬（让魄安息）与祭祀（让魂得食）。<em class="fr">Les 3 âmes yang + 7 âmes yin expliquent les rites funèbres : enterrement élaboré pour apaiser le pò, offrandes pour nourrir le hún.</em></p>
+      </div>
+      <div class="correction">
+        <div class="ct">📚 后土祖巫化轮回 — 小说虚构 · Fiction narrative</div>
+        <p style="font-size:10px;line-height:1.7;">「十二祖巫」身化轮回的叙事出自<span style="color:var(--gold2);">《封神演义》</span>（许仲琳，16世纪），非先秦古典文献。后土本人作为大地女神是古代真实信仰（见《礼记》），但祖巫化轮回是后世小说创作。<em class="fr">Le récit des douze chamanes ancestraux provient du roman « Investiture des Dieux » (16e s.), non des textes classiques.</em></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+  S9 · 三界结构
+═══════════════════════════════════════════ -->
+<div class="slide bg-soul" id="s9">
+  <div class="slide-header"><span class="lesson-tag">宇宙结构 · Structure cosmologique · Cosmological Structure</span><span class="slide-num">三界 · Trois Mondes</span></div>
+  <div class="two-col" style="align-items:stretch;gap:36px;">
+    <div style="display:flex;flex-direction:column;gap:0;flex:1;">
+      <h3 style="color:var(--gold2);margin-bottom:14px;">三界图 · Les trois mondes · The Three Realms</h3>
+      <div style="background:linear-gradient(135deg,rgba(42,90,138,0.3),rgba(42,90,138,0.15));border:1px solid rgba(128,180,224,0.25);padding:14px 18px;border-radius:3px 3px 0 0;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+          <div>
+            <div style="font-family:'Noto Serif SC',serif;font-size:20px;color:var(--blue2);letter-spacing:0.1em;">天庭 · Le Ciel · Heaven</div>
+            <p style="font-size:11px;margin-top:4px;">玉皇大帝统治，与人间政府结构平行——天庭有六部，等同吏户礼兵刑工。<br><em class="fr">La cour céleste, miroir bureaucratique de la cour impériale.</em></p>
+          </div>
+        </div>
+        <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;">
+          <span class="pill b">玉皇大帝 Jade Emperor</span><span class="pill b">王母娘娘</span><span class="pill b">天兵天将</span>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:center;padding:5px 18px;background:rgba(0,0,0,0.4);">
+        <div style="font-size:9px;color:rgba(255,255,255,0.2);">↕ 修行 · cultivation · 仙界 immortels</div>
+      </div>
+      <div style="background:linear-gradient(135deg,rgba(46,125,90,0.22),rgba(46,125,90,0.1));border:1px solid rgba(94,207,160,0.2);padding:14px 18px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:20px;color:var(--jade2);letter-spacing:0.1em;">人间 · Le Monde humain · Human World</div>
+        <p style="font-size:11px;margin-top:4px;">凡人生活之所，亦是修行（道/佛）的场域。人的行为会被记录（判官），影响来世。<br><em class="fr">Le monde des vivants, lieu d'accumulation de mérites ou de péchés.</em></p>
+        <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;">
+          <span class="pill j">凡人 Humains</span><span class="pill j">修行者 Cultivateurs</span><span class="pill j">鬼魂留连 Fantômes errants</span>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:center;padding:5px 18px;background:rgba(0,0,0,0.4);">
+        <div style="font-size:9px;color:rgba(255,255,255,0.2);">↕ 黄泉路 · chemin des enfers · 奈何桥 pont du destin</div>
+      </div>
+      <div style="background:linear-gradient(135deg,rgba(192,57,43,0.22),rgba(192,57,43,0.1));border:1px solid rgba(224,80,64,0.2);padding:14px 18px;border-radius:0 0 3px 3px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:20px;color:var(--red2);letter-spacing:0.1em;">地府 · Les Enfers · The Underworld</div>
+        <p style="font-size:11px;margin-top:4px;">死者的审判与转世之处。由十殿阎王管辖，决定灵魂的来世去向。<br><em class="fr">Lieu de jugement et de réincarnation des âmes défuntes.</em></p>
+        <div style="display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;">
+          <span class="pill r">十殿阎王 Dix Rois</span><span class="pill r">崔判官</span><span class="pill r">十八层地狱 18 Enfers</span><span class="pill r">轮回 Samsāra</span>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <h3 style="color:var(--gold2);">三界体系的历史演化 · Évolution historique du système</h3>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-date">上古先秦<br>Antiquité</div>
+          <div class="tl-dot-wrap"><div class="tl-dot" style="background:var(--jade);"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <strong>泰山府君主宰阴阳 · Le Dieu de Taishan</strong>
+            <p>古代相信泰山神（东岳大帝）掌管死者灵魂，记录生死簿。此时没有系统性的道德审判——只是登记管理。<em class="fr">Enregistrement des âmes, pas encore de jugement moral systématique.</em></p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">东汉<br>~67 CE</div>
+          <div class="tl-dot-wrap"><div class="tl-dot" style="background:var(--gold);"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <strong>佛教传入（明帝求法）· Arrivée du Bouddhisme</strong>
+            <p>随佛教传入，「轮回」(saṃsāra) 与「业报」(karma) 观念进入中国，为道德审判提供了框架。<em class="fr">La réincarnation et le karma entrent en Chine — cadre pour un jugement moral post-mortem.</em></p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">魏晋南北朝<br>3–6 CE</div>
+          <div class="tl-dot-wrap"><div class="tl-dot" style="background:var(--blue);"></div><div class="tl-line"></div></div>
+          <div class="tl-content">
+            <strong>佛道融合 · Fusion bouddhiste-taoïste</strong>
+            <p>佛教地狱（naraka）与道教阴间开始融合。阎罗王（梵文 Yama）被本土化为「阎王」，与泰山府君共存。<em class="fr">Le Yama indien devient l'Yanwang chinois — syncrétisme en cours.</em></p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">唐宋<br>7–13 CE</div>
+          <div class="tl-dot-wrap"><div class="tl-dot" style="background:var(--red);"></div></div>
+          <div class="tl-content">
+            <strong>十殿阎王体系定型 · Système des Dix Rois codifié</strong>
+            <p>《玉历宝钞》等文本系统化了十殿阎王、崔判官、黑白无常、孟婆汤、十八层地狱等完整体系——这才是我们今日熟知的「地府」。历时约<span style="color:var(--red2);">600年</span>的本土化。<em class="fr">La géographie des Enfers que nous connaissons aujourd'hui est le résultat de 600 ans de syncrétisme.</em></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+  S10 · 地府完整系统 + 十八层地狱图
+═══════════════════════════════════════════ -->
+<div class="slide bg-hell" id="s10">
+  <div class="slide-header"><span class="lesson-tag">地府体系 · Géographie des Enfers · Underworld Geography</span><span class="slide-num">十八层地狱</span></div>
+  <div class="two-col" style="gap:28px;">
+
+    <!-- Left: 18 levels SVG diagram -->
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <h3 style="color:var(--red2);">十八层地狱图 · Carte des 18 Enfers · Map of the 18 Hells</h3>
+      <div style="flex:1;display:flex;align-items:center;justify-content:center;">
+        <svg viewBox="0 0 320 520" width="100%" style="max-height:420px;" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background -->
+          <rect x="0" y="0" width="320" height="520" fill="rgba(10,4,3,0.0)"/>
+
+          <!-- Entry: 奈何桥 / 崔判官 -->
+          <rect x="60" y="4" width="200" height="28" rx="3" fill="rgba(184,144,64,0.22)" stroke="rgba(184,144,64,0.45)" stroke-width="1.5"/>
+          <text x="160" y="23" font-family="Noto Serif SC,serif" font-size="11" fill="rgba(212,173,96,0.95)" text-anchor="middle">奈何桥 · 崔判官 审查</text>
+
+          <!-- Arrow down -->
+          <line x1="160" y1="32" x2="160" y2="44" stroke="rgba(192,57,43,0.5)" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <polygon points="155,42 165,42 160,48" fill="rgba(192,57,43,0.5)"/>
+
+          <!-- Levels 1-18 -->
+          <!-- Each level: rect + chinese name + french note -->
+          <!-- Level 1 -->
+          <rect x="40" y="48" width="240" height="22" rx="2" fill="rgba(192,57,43,0.12)" stroke="rgba(192,57,43,0.25)" stroke-width="1"/>
+          <text x="52" y="63" font-family="Noto Serif SC,serif" font-size="9.5" fill="rgba(224,80,64,0.8)">① 割舌地狱</text>
+          <text x="140" y="63" font-family="Cormorant Garamond,serif" font-size="9" fill="rgba(245,240,232,0.35)" font-style="italic">Enfer de la langue coupée — menteurs</text>
+
+          <rect x="36" y="72" width="248" height="22" rx="2" fill="rgba(192,57,43,0.14)" stroke="rgba(192,57,43,0.28)" stroke-width="1"/>
+          <text x="48" y="87" font-family="Noto Serif SC,serif" font-size="9.5" fill="rgba(224,80,64,0.85)">② 剪刀地狱</text>
+          <text x="140" y="87" font-family="Cormorant Garamond,serif" font-size="9" fill="rgba(245,240,232,0.35)" font-style="italic">Enfer des ciseaux — séducteurs</text>
+
+          <rect x="32" y="96" width="256" height="22" rx="2" fill="rgba(192,57,43,0.16)" stroke="rgba(192,57,43,0.3)" stroke-width="1"/>
+          <text x="44" y="111" font-family="Noto Serif SC,serif" font-size="9.5" fill="rgba(224,80,64,0.88)">③ 铁树地狱</text>
+          <text x="140" y="111" font-family="Cormorant Garamond,serif" font-size="9" fill="rgba(245,240,232,0.35)" font-style="italic">Enfer de l'arbre de fer — familles brisées</text>
+
+          <rect x="28" y="120" width="264" height="22" rx="2" fill="rgba(192,57,43,0.18)" stroke="rgba(192,57,43,0.32)" stroke-width="1"/>
+          <text x="40" y="135" font-family="Noto Serif SC,serif" font-size="9.5" fill="rgba(224,80,64,0.9)">④ 孽镜地狱</text>
+          <text x="140" y="135" font-family="Cormorant Garamond,serif" font-size="9" fill="rgba(245,240,232,0.35)" font-style="italic">Miroir du karma — confrontation aux péchés</text>
+
+          <rect x="24" y="144" width="272" height="22" rx="2" fill="rgba(192,57,43,0.20)" stroke="rgba(192,57,43,0.34)" stroke-width="1"/>
+          <text x="36" y="159" font-family="Noto Serif SC,serif" font-size="9.5" fill="rgba(224,80,64,0.9)">⑤ 蒸笼地狱</text>
+          <text x="140" y="159" font-family="Cormorant Garamond,serif" font-size="9" fill="rgba(245,240,232,0.35)" font-style="italic">Enfer de la vapeur — ingrats envers parents</text>
+
+          <rect x="20" y="168" width="280" height="22" rx="2" fill="rgba(192,57,43,0.22)" stroke="rgba(192,57,43,0.36)" stroke-width="1"/>
+          <text x="32" y="183" font-family="Noto Serif SC,serif" font-size="9.5" fill="rgba(224,80,64,0.92)">⑥ 铜柱地狱</text>
+          <text x="140" y="183" font-family="Cormorant Garamond,serif" font-size="9" fill="rgba(245,240,232,0.35)" font-style="italic">Pilier de bronze brûlant — corrompus</text>
+
+          <rect x="16" y="192" width="288" height="22" rx="2" fill="rgba(192,57,43,0.24)" stroke="rgba(192,57,43,0.38)" stroke-width="1"/>
+          <text x="28" y="207" font-family="Noto Serif SC,serif" font-size="9.5" fill="rgba(224,80,64,0.93)">⑦ 刀山地狱</text>
+          <text x="140" y="207" font-family="Cormorant Garamond,serif" font-size="9" fill="rgba(245,240,232,0.35)" font-style="italic">Montagne de lames — violents</text>
+
+          <rect x="12" y="216" width="296" height="22" rx="2" fill="rgba(192,57,43,0.26)" stroke="rgba(192,57,43,0.4)" stroke-width="1"/>
+          <text x="24" y="231" font-family="Noto Serif SC,serif" font-size="9.5" fill="rgba(224,80,64,0.94)">⑧ 冰山地狱</text>
+          <text x="140" y="231" font-family="Cormorant Garamond,serif" font-size="9" fill="rgba(245,240,232,0.35)" font-style="italic">Montagne de glace — indifférents à la souffrance</text>
+
+          <rect x="8" y="240" width="304" height="22" rx="2" fill="rgba(192,57,43,0.28)" stroke="rgba(192,57,43,0.42)" stroke-width="1"/>
+          <text x="20" y="255" font-family="Noto Serif SC,serif" font-size="9.5" fill="rgba(224,80,64,0.95)">⑨ 油锅地狱</text>
+          <text x="140" y="255" font-family="Cormorant Garamond,serif" font-size="9" fill="rgba(245,240,232,0.35)" font-style="italic">Chaudron d'huile bouillante — adultères</text>
+
+          <rect x="6" y="264" width="308" height="22" rx="2" fill="rgba(192,57,43,0.30)" stroke="rgba(192,57,43,0.44)" stroke-width="1"/>
+          <text x="18" y="279" font-family="Noto Serif SC,serif" font-size="9.5" fill="rgba(224,80,64,0.95)">⑩ 牛坑地狱</text>
+          <text x="140" y="279" font-family="Cormorant Garamond,serif" font-size="9" fill="rgba(245,240,232,0.35)" font-style="italic">Fosse aux bœufs — mauvais traitements aux animaux</text>
+
+          <rect x="4" y="288" width="312" height="22" rx="2" fill="rgba(192,57,43,0.33)" stroke="rgba(192,57,43,0.46)" stroke-width="1"/>
+          <text x="16" y="303" font-family="Noto Serif SC,serif" font-size="9.5" fill="rgba(224,80,64,0.96)">⑪ 石压地狱</text>
+          <text x="140" y="303" font-family="Cormorant Garamond,serif" font-size="9" fill="rgba(245,240,232,0.35)" font-style="italic">Écrasement par pierre — meurtriers</text>
+
+          <rect x="2" y="312" width="316" height="22" rx="2" fill="rgba(192,57,43,0.35)" stroke="rgba(192,57,43,0.48)" stroke-width="1"/>
+          <text x="14" y="327" font-family="Noto Serif SC,serif" font-size="9.5" fill="rgba(224,80,64,0.96)">⑫ 舂磨地狱</text>
+          <text x="140" y="327" font-family="Cormorant Garamond,serif" font-size="9" fill="rgba(245,240,232,0.35)" font-style="italic">Broyage — voleurs de céréales</text>
+
+          <rect x="2" y="336" width="316" height="22" rx="2" fill="rgba(192,57,43,0.37)" stroke="rgba(192,57,43,0.5)" stroke-width="1"/>
+          <text x="14" y="351" font-family="Noto Serif SC,serif" font-size="9.5" fill="rgba(224,80,64,0.97)">⑬ 血池地狱</text>
+          <text x="140" y="351" font-family="Cormorant Garamond,serif" font-size="9" fill="rgba(245,240,232,0.35)" font-style="italic">Bassin de sang — manquements aux rites</text>
+
+          <rect x="2" y="360" width="316" height="22" rx="2" fill="rgba(192,57,43,0.40)" stroke="rgba(192,57,43,0.52)" stroke-width="1"/>
+          <text x="14" y="375" font-family="Noto Serif SC,serif" font-size="9.5" fill="rgba(224,80,64,0.97)">⑭ 枉死地狱</text>
+          <text x="140" y="375" font-family="Cormorant Garamond,serif" font-size="9" fill="rgba(245,240,232,0.35)" font-style="italic">Enfer des morts injustes</text>
+
+          <rect x="2" y="384" width="316" height="22" rx="2" fill="rgba(192,57,43,0.42)" stroke="rgba(192,57,43,0.54)" stroke-width="1"/>
+          <text x="14" y="399" font-family="Noto Serif SC,serif" font-size="9.5" fill="rgba(224,80,64,0.97)">⑮ 磔刑地狱</text>
+          <text x="140" y="399" font-family="Cormorant Garamond,serif" font-size="9" fill="rgba(245,240,232,0.35)" font-style="italic">Démembrement — traîtres à la patrie</text>
+
+          <rect x="2" y="408" width="316" height="22" rx="2" fill="rgba(192,57,43,0.44)" stroke="rgba(192,57,43,0.56)" stroke-width="1"/>
+          <text x="14" y="423" font-family="Noto Serif SC,serif" font-size="9.5" fill="rgba(224,80,64,0.97)">⑯ 火山地狱</text>
+          <text x="140" y="423" font-family="Cormorant Garamond,serif" font-size="9" fill="rgba(245,240,232,0.35)" font-style="italic">Montagne de feu — destructeurs de temples</text>
+
+          <rect x="2" y="432" width="316" height="22" rx="2" fill="rgba(192,57,43,0.46)" stroke="rgba(192,57,43,0.58)" stroke-width="1"/>
+          <text x="14" y="447" font-family="Noto Serif SC,serif" font-size="9.5" fill="rgba(224,80,64,0.98)">⑰ 磨磨地狱</text>
+          <text x="140" y="447" font-family="Cormorant Garamond,serif" font-size="9" fill="rgba(245,240,232,0.35)" font-style="italic">Broyage par meule — grains gaspillés</text>
+
+          <!-- Level 18 — special, darker, larger -->
+          <rect x="1" y="456" width="318" height="32" rx="2" fill="rgba(60,0,0,0.6)" stroke="rgba(192,57,43,0.8)" stroke-width="2"/>
+          <text x="14" y="474" font-family="Noto Serif SC,serif" font-size="11" fill="rgba(255,80,60,1)">⑱ 阿鼻地狱 · 无间地狱</text>
+          <text x="165" y="474" font-family="Cormorant Garamond,serif" font-size="10" fill="rgba(245,240,232,0.55)" font-style="italic">Avīci — crimes impardonnables, sans répit</text>
+
+          <!-- Arrow and exit -->
+          <line x1="160" y1="488" x2="160" y2="498" stroke="rgba(184,144,64,0.4)" stroke-width="1.5" stroke-dasharray="3,2"/>
+          <polygon points="155,496 165,496 160,502" fill="rgba(184,144,64,0.4)"/>
+          <rect x="80" y="502" width="160" height="18" rx="3" fill="rgba(106,58,138,0.25)" stroke="rgba(176,112,224,0.3)" stroke-width="1"/>
+          <text x="160" y="515" font-family="Noto Serif SC,serif" font-size="9" fill="rgba(176,112,224,0.8)" text-anchor="middle">孟婆汤 → 三生石 → 投胎轮回</text>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Right: key figures + comparison -->
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <h3 style="color:var(--red2);">地府主要人物 · Personnages principaux · Main Figures</h3>
+      <div class="uw-grid">
+        <div class="uw-cell">
+          <div class="name">十殿阎王</div>
+          <p>十位阎王分管十殿，按生前罪行审判亡灵。<em class="fr">Les Dix Rois des Enfers — juges des morts.</em></p>
+        </div>
+        <div class="uw-cell">
+          <div class="name">崔判官</div>
+          <p>手持生死簿，记录世间每个人的一生善恶。<em class="fr">Le Juge Cui, gardien du Livre des Âmes.</em></p>
+        </div>
+        <div class="uw-cell">
+          <div class="name">黑白无常</div>
+          <p>专门勾人魂魄的差役，常见于民间庙会。<em class="fr">Les Messagers noir et blanc — collecteurs d'âmes.</em></p>
+        </div>
+        <div class="uw-cell">
+          <div class="name">牛头马面</div>
+          <p>护送亡灵走过黄泉路，执行地狱刑罚。<em class="fr">Tête de bœuf, Face de cheval — gardiens.</em></p>
+        </div>
+        <div class="uw-cell" style="border-color:rgba(106,58,138,0.2);">
+          <div class="name" style="color:var(--purple2);">孟婆</div>
+          <p>守在轮回最后一关，送上「孟婆汤」，喝下后忘记前世。<em class="fr">La Vieille Dame Meng — potion de l'oubli avant la réincarnation.</em></p>
+        </div>
+        <div class="uw-cell" style="border-color:rgba(106,58,138,0.2);">
+          <div class="name" style="color:var(--purple2);">三生石</div>
+          <p>奈何桥旁，刻录三世（前世、今生、来世）因缘。<em class="fr">La Pierre des Trois Vies — destin inscrit.</em></p>
+        </div>
+      </div>
+
+      <!-- Journey flow -->
+      <div style="background:rgba(0,0,0,0.45);border:1px solid rgba(255,255,255,0.07);padding:12px 14px;border-radius:2px;">
+        <div style="font-size:9px;letter-spacing:0.3em;color:var(--red2);text-transform:uppercase;margin-bottom:8px;">亡灵旅程 · Voyage de l'âme · Soul's Journey</div>
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:5px;">
+          <span style="font-size:10px;color:var(--paper);">死亡</span>
+          <span style="color:rgba(192,57,43,0.5);">→</span>
+          <span style="font-size:10px;color:var(--paper);">黄泉路</span>
+          <span style="color:rgba(192,57,43,0.5);">→</span>
+          <span style="font-size:10px;color:var(--paper);">崔判官</span>
+          <span style="color:rgba(192,57,43,0.5);">→</span>
+          <span style="font-size:10px;color:var(--paper);">十殿审判</span>
+          <span style="color:rgba(192,57,43,0.5);">→</span>
+          <span style="font-size:10px;color:var(--purple2);">孟婆汤</span>
+          <span style="color:rgba(184,144,64,0.5);">→</span>
+          <span style="font-size:10px;color:var(--gold2);">投胎</span>
+        </div>
+      </div>
+
+      <!-- Comparison -->
+      <div class="card red" style="padding:12px 14px;">
+        <div class="tag">比较 · Comparaison France-Chine · Comparative</div>
+        <p style="font-size:11px;line-height:1.8;">地府的审判结构与天主教的「最后审判」(Jugement dernier) 有相似之处，但关键区别：<span style="color:var(--gold2);">审判不是最终的</span>——罪行偿尽后可重新投胎，没有永恒地狱，也没有永恒天堂。<br><em class="fr">Pas de jugement définitif — le cycle continue. Différence fondamentale avec l'eschatologie chrétienne : il n'y a pas d'enfer éternel, seulement un purgatoire temporaire.</em></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+  S11 · 祖先崇拜与祭祀
+═══════════════════════════════════════════ -->
+<div class="slide bg-ancestor" id="s11">
+  <div class="slide-header"><span class="lesson-tag">祭祀祖先 · Culte des ancêtres · Ancestor Veneration</span><span class="slide-num">第一类祭祀</span></div>
+  <div class="two-col" style="gap:36px;">
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <h3 style="color:var(--gold2);">死亡→鬼→祖灵→保佑 · Mort → Fantôme → Esprit ancestral → Protection</h3>
+      <h2 style="font-size:clamp(14px,1.9vw,22px);">「祖宗保佑」的文化逻辑</h2>
+      <p>在中国的信仰体系中，人死后并不是彻底消失，而是进入一个社会性的「灵魂管理体系」：</p>
+      <div style="display:flex;flex-direction:column;gap:6px;">
+        <div style="display:grid;grid-template-columns:88px 16px 1fr;align-items:center;gap:6px;padding:9px 12px;background:rgba(0,0,0,0.35);border-radius:2px;border:1px solid rgba(255,255,255,0.06);">
+          <div style="font-family:'Noto Serif SC',serif;font-size:14px;color:var(--gold2);">普通亡者</div>
+          <span style="color:rgba(255,255,255,0.2);">→</span>
+          <p style="font-size:11px;">变为「鬼」（游荡灵魂），须通过祭祀安抚，否则变为厉鬼祸害人间。<em class="fr">Fantôme errant, potentiellement malveillant.</em></p>
+        </div>
+        <div style="display:grid;grid-template-columns:88px 16px 1fr;align-items:center;gap:6px;padding:9px 12px;background:rgba(0,0,0,0.35);border-radius:2px;border:1px solid rgba(255,255,255,0.06);">
+          <div style="font-family:'Noto Serif SC',serif;font-size:14px;color:var(--gold2);">家族成员</div>
+          <span style="color:rgba(255,255,255,0.2);">→</span>
+          <p style="font-size:11px;">经由祭祀「认领」，成为「祖灵」，庇护子孙，接受供奉。<em class="fr">Reconnu par les rites → Esprit ancestral protecteur de la lignée.</em></p>
+        </div>
+        <div style="display:grid;grid-template-columns:88px 16px 1fr;align-items:center;gap:6px;padding:9px 12px;background:rgba(0,0,0,0.35);border-radius:2px;border:1px solid rgba(255,255,255,0.06);">
+          <div style="font-family:'Noto Serif SC',serif;font-size:14px;color:var(--jade2);">有大功德者</div>
+          <span style="color:rgba(255,255,255,0.2);">→</span>
+          <p style="font-size:11px;">升格为「神」，受更广泛的民间供奉（如关帝、妈祖、城隍）。<em class="fr">Élevé au rang de divinité publique (Guandi, Mazu, Dieu de la Cité).</em></p>
+        </div>
+      </div>
+      <!-- Altar illustration -->
+      <div style="display:flex;justify-content:center;">
+        <div style="background:rgba(0,0,0,0.45);border:1px solid rgba(184,144,64,0.2);padding:16px 28px;border-radius:2px;text-align:center;">
+          <svg width="180" height="110" viewBox="0 0 180 110">
+            <rect x="70" y="6" width="40" height="50" rx="3" fill="rgba(40,30,15,0.8)" stroke="rgba(184,144,64,0.5)" stroke-width="1.5"/>
+            <rect x="74" y="10" width="32" height="42" rx="2" fill="rgba(50,38,18,0.6)" stroke="rgba(184,144,64,0.2)" stroke-width="0.5"/>
+            <text x="90" y="27" font-family="Noto Serif SC,serif" font-size="7.5" fill="rgba(212,173,96,0.8)" text-anchor="middle">某氏先祖</text>
+            <text x="90" y="40" font-family="Noto Serif SC,serif" font-size="7.5" fill="rgba(212,173,96,0.8)" text-anchor="middle">神位</text>
+            <rect x="62" y="56" width="56" height="7" rx="2" fill="rgba(60,45,20,0.7)" stroke="rgba(184,144,64,0.3)" stroke-width="1"/>
+            <line x1="78" y1="56" x2="78" y2="28" stroke="rgba(160,100,40,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="90" y1="56" x2="90" y2="22" stroke="rgba(160,100,40,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+            <line x1="102" y1="56" x2="102" y2="28" stroke="rgba(160,100,40,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+            <ellipse cx="90" cy="58" rx="18" ry="4.5" fill="rgba(80,60,30,0.5)" stroke="rgba(184,144,64,0.3)" stroke-width="1"/>
+            <path d="M78 28 Q74 20 78 14 Q82 8 78 3" fill="none" stroke="rgba(255,255,255,0.13)" stroke-width="1" stroke-linecap="round"/>
+            <path d="M90 22 Q86 15 90 9 Q94 3 90 0" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-linecap="round"/>
+            <path d="M102 28 Q106 20 102 14 Q98 8 102 3" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-linecap="round"/>
+            <ellipse cx="48" cy="76" rx="11" ry="7" fill="rgba(192,57,43,0.22)" stroke="rgba(192,57,43,0.4)" stroke-width="1"/>
+            <text x="48" y="80" font-family="Noto Serif SC,serif" font-size="7" fill="rgba(245,240,232,0.5)" text-anchor="middle">供品</text>
+            <ellipse cx="132" cy="76" rx="11" ry="7" fill="rgba(192,57,43,0.22)" stroke="rgba(192,57,43,0.4)" stroke-width="1"/>
+            <text x="132" y="80" font-family="Noto Serif SC,serif" font-size="7" fill="rgba(245,240,232,0.5)" text-anchor="middle">供品</text>
+            <rect x="36" y="66" width="5" height="16" rx="1" fill="rgba(220,180,50,0.3)" stroke="rgba(220,180,50,0.4)" stroke-width="1"/>
+            <ellipse cx="38.5" cy="65" rx="2.5" ry="1.8" fill="rgba(220,180,50,0.4)"/>
+            <rect x="139" y="66" width="5" height="16" rx="1" fill="rgba(220,180,50,0.3)" stroke="rgba(220,180,50,0.4)" stroke-width="1"/>
+            <ellipse cx="141.5" cy="65" rx="2.5" ry="1.8" fill="rgba(220,180,50,0.4)"/>
+            <rect x="18" y="85" width="144" height="5" rx="1" fill="rgba(60,45,20,0.5)" stroke="rgba(184,144,64,0.2)" stroke-width="1"/>
+            <line x1="26" y1="90" x2="26" y2="106" stroke="rgba(60,45,20,0.5)" stroke-width="3" stroke-linecap="round"/>
+            <line x1="154" y1="90" x2="154" y2="106" stroke="rgba(60,45,20,0.5)" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          <div style="font-size:9px;color:rgba(245,240,232,0.3);margin-top:5px;letter-spacing:0.1em;">家中神龛 · Autel familial · Family Altar</div>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <h3 style="color:var(--gold2);">祭祀体系 · Système sacrificiel · The Three Ritual Spheres</h3>
+      <div class="card gold" style="padding:11px 14px;">
+        <div class="tag">① 祭祖 · Culte des ancêtres · Ancestor Rites — 最普遍</div>
+        <h4 style="font-size:13px;">每家必行的根本祭祀 · Fondement de la vie religieuse familiale</h4>
+        <p style="font-size:11px;">每逢年节（春节、清明、冬至）供奉食物、烧纸钱，以「纸钱」象征给祖先的财富。家中常年保留香火，早晚三柱香。<em class="fr">Offrandes alimentaires, brûlure de papier-monnaie, encens quotidien — à chaque fête du calendrier.</em></p>
+      </div>
+      <div class="card jade" style="padding:11px 14px;">
+        <div class="tag">② 祭天地 · Sacrifice au Ciel et à la Terre · Heaven/Earth Rites</div>
+        <h4 style="font-size:13px;">帝王专属 / 民间简化版 · Réservé à l'Empereur</h4>
+        <p style="font-size:11px;">皇帝于冬至祭天（天坛）、夏至祭地（地坛），彰显天命正统。民间则于新年拜天地。<br><em class="fr">L'Empereur sacrifie au Ciel (solstice d'hiver) et à la Terre (solstice d'été) pour légitimer son mandat céleste.</em></p>
+      </div>
+      <div class="card blue" style="padding:11px 14px;">
+        <div class="tag">③ 祭神明 · Culte des divinités · Local/Functional Deities</div>
+        <h4 style="font-size:13px;">地方神、行业神、自然神 · Panthéon fonctionnel</h4>
+        <p style="font-size:11px;">土地公（每块土地）、灶君（厨房）、财神（商业）、妈祖（航海）——各司其职，民间多元信仰。<br><em class="fr">Chaque domaine de la vie a sa divinité fonctionnelle — pragmatisme religieux typique.</em></p>
+      </div>
+      <div class="quote" style="border-left-color:var(--gold);">
+        <div class="zh" style="font-size:13px;">祭如在，祭神如神在。<br>吾不与祭，如不祭。</div>
+        <div class="src">——《论语·八佾》· Analectes de Confucius, Bāyì · Confucius on ritual sincerity</div>
+      </div>
+      <div style="background:rgba(0,0,0,0.35);padding:11px 14px;border-radius:2px;border:1px solid rgba(255,255,255,0.06);">
+        <p style="font-size:11px;line-height:1.7;">孔子的关键贡献：将祭祀从「交换行为」提升为<span style="color:var(--gold2);">「道德实践」</span>——祭祀的核心是真诚（诚），而非形式。<br><em class="fr">Confucius transforme le sacrifice d'un acte d'échange (donner pour recevoir) en pratique morale : la sincérité prime sur la forme — contribution majeure à la tradition rituelle chinoise.</em></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+  S12 · MIRROR + CONCLUSION
+═══════════════════════════════════════════ -->
+<div class="slide bg-close" id="s12">
+  <div class="slide-header"><span class="lesson-tag">文化镜像 · Miroir franco-chinois · Franco-Chinese Mirror</span><span class="slide-num">总结 · Conclusion</span></div>
+  <div class="two-col" style="gap:36px;align-items:start;">
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <h2>汉法文化镜像 · Miroir Franco-Chinois</h2>
+      <div class="mirror">
+        <div class="mt">🪞 镜像问题一 · Question miroir 1 · Purgatory vs Underworld</div>
+        <p style="font-size:12px;">法国天主教的「炼狱」(Purgatoire) 是灵魂在审判后等待净化的地方——这与中国地府的「受罚后轮回」在结构上有何相似？最根本的区别（有没有永恒地狱/天堂）折射了怎样不同的宇宙观？<br><em class="fr">Le Purgatoire est temporaire, les Enfers chinois aussi — mais leur issue diffère : le Paradis chrétien est éternel, le retour dans le cycle chinois est perpétuel.</em></p>
+      </div>
+      <div class="mirror" style="border-left-color:var(--jade);">
+        <div class="mt" style="color:var(--jade2);">🪞 镜像问题二 · Question miroir 2 · Toussaint vs Qingming</div>
+        <p style="font-size:12px;">法国的「万圣节」(Toussaint) 是祭奠亡者的节日，中国的清明节和中元节（鬼节）也是如此——为何两种文化都保留了「定期与死者沟通」的需要？死亡在文化中扮演了怎样的社会功能？<br><em class="fr">Deux cultures, deux fêtes des morts : Toussaint (novembre) et Qingming (avril). Pourquoi ce besoin universel de dialogue périodique avec les morts ?</em></p>
+      </div>
+      <div class="mirror" style="border-left-color:var(--gold);">
+        <div class="mt" style="color:var(--gold2);">🪞 镜像问题三 · Question miroir 3 · Filial piety vs Individual salvation</div>
+        <p style="font-size:12px;">「孝道」（孝敬父母祖先）是中国文化的核心，在死后延伸为祭祀。法国文化中是否有类似的「家族延续性」价值观？还是更强调个体与上帝的直接关系？<br><em class="fr">La piété filiale (xiào) s'étend au-delà de la mort. En France, le salut est individuel — la relation âme-Dieu est directe et personnelle. Deux visions de l'appartenance.</em></p>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <h2>本课总结 · Résumé · Summary</h2>
+      <div style="display:flex;flex-direction:column;gap:7px;">
+        <div style="display:grid;grid-template-columns:24px 1fr;gap:9px;align-items:flex-start;background:rgba(0,0,0,0.3);padding:11px 13px;border-radius:2px;border-left:3px solid var(--purple);">
+          <span style="font-family:'Noto Serif SC',serif;font-size:17px;color:var(--purple2);line-height:1.2;">一</span>
+          <p style="font-size:12px;">商代甲骨文是最早记录鬼神的文字证据（约1250 BCE），但没有创世神话。盘古神话首见于三国（3世纪），体现了神话文字化晚于口传的现象。<em class="fr">Les os oraculaires Shang sont le premier témoignage écrit de croyances aux esprits ; le mythe de Pangu n'est attesté qu'au 3e s. CE.</em></p>
+        </div>
+        <div style="display:grid;grid-template-columns:24px 1fr;gap:9px;align-items:flex-start;background:rgba(0,0,0,0.3);padding:11px 13px;border-radius:2px;border-left:3px solid var(--jade);">
+          <span style="font-family:'Noto Serif SC',serif;font-size:17px;color:var(--jade2);line-height:1.2;">二</span>
+          <p style="font-size:12px;">中国神话中「万物有灵」的独特形式：动植物通过「修炼→化形」这一动态过程获得人格与法力，而非静态地「拥有灵魂」。<em class="fr">En mythologie chinoise, les êtres ne « possèdent » pas une âme — ils peuvent en cultiver une et prendre forme humaine après des siècles de pratique.</em></p>
+        </div>
+        <div style="display:grid;grid-template-columns:24px 1fr;gap:9px;align-items:flex-start;background:rgba(0,0,0,0.3);padding:11px 13px;border-radius:2px;border-left:3px solid var(--blue);">
+          <span style="font-family:'Noto Serif SC',serif;font-size:17px;color:var(--blue2);line-height:1.2;">三</span>
+          <p style="font-size:12px;">地府体系是佛道融合历经约600年（东汉→唐宋）的产物，体现了中国文化吸收外来思想再本土化的能力。<em class="fr">Le système des Enfers est le résultat de 600 ans de syncrétisme bouddhiste-taoïste — démonstration de la capacité d'assimilation de la culture chinoise.</em></p>
+        </div>
+        <div style="display:grid;grid-template-columns:24px 1fr;gap:9px;align-items:flex-start;background:rgba(0,0,0,0.3);padding:11px 13px;border-radius:2px;border-left:3px solid var(--gold);">
+          <span style="font-family:'Noto Serif SC',serif;font-size:17px;color:var(--gold2);line-height:1.2;">四</span>
+          <p style="font-size:12px;">祭祀祖先是第一类也是最根本的祭祀形式——它将家族伦理（孝道）延伸到死后，并成为中国社会凝聚力的核心机制。孔子将其提升为道德实践。<em class="fr">Le culte ancestral — pilier de la cohésion sociale, élevé par Confucius au rang de pratique morale, non de simple contrat avec les esprits.</em></p>
+        </div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;background:rgba(0,0,0,0.4);border:1px solid rgba(255,255,255,0.06);padding:12px 16px;border-radius:2px;margin-top:4px;">
+        <div style="font-size:18px;color:var(--gold);">→</div>
+        <div>
+          <div style="font-size:9px;letter-spacing:0.25em;color:rgba(255,255,255,0.28);text-transform:uppercase;margin-bottom:2px;">下节课 · Prochaine leçon · Next Lesson</div>
+          <div style="font-family:'Noto Serif SC',serif;font-size:17px;color:var(--paper);">第三课：历史与权力——三皇五帝至清朝</div>
+          <p style="font-size:11px;color:rgba(245,240,232,0.38);margin-top:2px;">神话如何变成历史？皇帝称号的诞生，科举制度的独创性。<em class="fr">De la mythologie à l'histoire : naissance du titre « Huangdi », invention du système des examens impériaux.</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /deck -->
+
+<!-- NAV -->
+<div id="nav">
+  <button class="nb" id="pb">←</button>
+  <div class="dots" id="dots"></div>
+  <span id="sc">1 / 12</span>
+  <button class="nb" id="nb2">→</button>
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const dc = document.getElementById('dots');
+const sc = document.getElementById('sc');
+let cur = 0;
+const tot = slides.length;
+slides.forEach((_, i) => {
+  const d = document.createElement('div');
+  d.className = 'dot' + (i === 0 ? ' active' : '');
+  d.onclick = () => go(i);
+  dc.appendChild(d);
+});
+function go(n) {
+  slides[cur].classList.remove('active');
+  dc.children[cur].classList.remove('active');
+  cur = (n + tot) % tot;
+  slides[cur].classList.add('active');
+  dc.children[cur].classList.add('active');
+  sc.textContent = (cur + 1) + ' / ' + tot;
+}
+document.getElementById('pb').onclick = () => go(cur - 1);
+document.getElementById('nb2').onclick = () => go(cur + 1);
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') go(cur + 1);
+  if (e.key === 'ArrowLeft') go(cur - 1);
+});
+</script>
+</body>
+</html>

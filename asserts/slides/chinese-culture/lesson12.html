@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第12课 · 饮食文化 | Culture Gastronomique</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+SC:wght@300;400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+:root {
+  --ink:#0a0807; --paper:#f5f0e8;
+  --red:#c0392b; --red2:#e05040;
+  --gold:#b89040; --gold2:#d4ad60;
+  --jade:#2e7d5a; --jade2:#5ecfa0;
+  --blue:#2a5a8a; --blue2:#80b4e0;
+  --purple:#6a3a8a; --purple2:#b070e0;
+  --mist:rgba(245,240,232,0.06);
+  --border:rgba(255,255,255,0.10);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0a0807;font-family:'Cormorant Garamond','Noto Serif SC',Georgia,serif;overflow:hidden;width:100vw;height:100vh;user-select:none;}
+#deck{width:100vw;height:100vh;position:relative;}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;padding:44px 64px 32px;opacity:0;pointer-events:none;transition:opacity 0.4s ease;overflow:hidden;}
+.slide.active{opacity:1;pointer-events:all;}
+
+/* Backgrounds from 01-07 */
+.bg-void{background:radial-gradient(ellipse at 30% 40%,rgba(160,50,50,0.15) 0%,transparent 60%),radial-gradient(ellipse at 70% 60%,rgba(180,140,50,0.12) 0%,transparent 60%),#060408;}
+.bg-dark{background:#0e0c0a;}
+.bg-oracle{background:linear-gradient(135deg,#060810 0%,#0a0c18 100%);}
+.bg-empire{background:linear-gradient(135deg,#150603 0%,#200808 100%);}
+.bg-culture{background:linear-gradient(135deg,#0a0904 0%,#130f06 100%);}
+.bg-jade{background:linear-gradient(135deg,#050e09 0%,#091508 100%);}
+
+/* Fixes for Slide Header & Typography mimicking old layout and allowing elements from 08-12 */
+.slide-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;border-bottom:1px solid var(--border);padding-bottom:12px; width: 100%;}
+.slide-title h2 { margin-bottom: 0; font-size: 32px; color: var(--gold); }
+.slide-title .fr { font-size: 16px; color: rgba(255,255,255,0.5); font-style: italic; }
+.lesson-tag, .page-num{font-size:10px;font-family:'DM Sans', sans-serif;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);opacity:0.65;}
+
+h1{font-family:'Noto Serif SC',serif;font-size:clamp(40px,6.5vw,74px);font-weight:600;color:var(--paper);line-height:1.15;letter-spacing:0.06em;}
+h2{font-family:'Noto Serif SC',serif;font-size:clamp(17px,2.5vw,30px);font-weight:400;color:var(--paper);letter-spacing:0.06em;margin-bottom:6px;}
+h3{font-size:16px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);opacity:0.85;margin-bottom:8px;font-weight:400;}
+p{font-size:clamp(13px,1.5vw,16px);line-height:1.8;color:rgba(245,240,232,0.75); margin-bottom: 12px;}
+em.fr, .fr, .fr-text {font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
+
+/* Utility Colors used in 08-12 */
+.red, .highlight { color: var(--red); font-weight:600; }
+.gold, .brown { color: var(--gold); }
+.blue, .night-blue { color: var(--blue2); }
+.plum { color: var(--purple2); }
+.bamboo, .leaf-grn, .leaf-green, .tea-green { color: var(--jade2); }
+
+/* Layouts */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:30px;flex:1;align-items:start;}
+.three-col{display:grid;grid-template-columns:repeat(3, 1fr);gap:18px;flex:1;align-items:start;}
+.four-col{display:grid;grid-template-columns:repeat(4, 1fr);gap:15px;flex:1;align-items:start;}
+.five-col{display:grid;grid-template-columns:repeat(5, 1fr);gap:10px;flex:1;align-items:start;}
+.content-grid { display:grid; grid-template-columns:1fr 1fr; gap:30px; flex:1;}
+.content-three-col { display:grid; grid-template-columns:repeat(3, 1fr); gap:18px; flex:1;}
+
+.card{background:var(--mist);border:1px solid var(--border);padding:18px 20px;position:relative;border-radius:2px; height:auto; overflow-y:auto;}
+.card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%; background:var(--gold);}
+.quote-box { background:var(--mist); border-left: 3px solid var(--gold); padding: 15px 20px; margin: 15px 0; }
+
+.picto, .oracle-svg {background:rgba(0,0,0,0.5);border:1px solid rgba(184,144,64,0.14);display:block;margin:0 auto 10px;padding:12px;border-radius:2px; width:90px; height:90px;}
+svg { stroke: var(--gold) !important; stroke-width: 2 !important; fill: none; }
+.seal { width: 90px; height: 90px; border: 3px solid var(--red); display: flex; justify-content: center; align-items: center; font-size: 42px; color: var(--red); font-weight: 700; margin:0 auto 30px; transform: rotate(-2deg); }
+.oracle-box { text-align: center; }
+
+h2.red, h2.gold, h2.brown, h2.blue, h2.bamboo, h2.leaf-grn { margin-top:0; margin-bottom:10px; }
+
+/* Navigation 01-07 style */
+#nav{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;z-index:100;}
+.nb{width:34px;height:34px;border:1px solid rgba(255,255,255,0.14);background:rgba(0,0,0,0.55);color:rgba(255,255,255,0.55);border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+.nb:hover{border-color:var(--gold);color:var(--gold);}
+#sc{font-size:11px;color:rgba(255,255,255,0.28);letter-spacing:0.12em;min-width:44px;text-align:center;}
+.dots{display:flex;gap:4px;}
+.dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.18);cursor:pointer;transition:all 0.2s;}
+.dot.active{background:var(--gold);width:14px;border-radius:3px;}
+
+/* Hide 11/12 specific controls completely as we add our own */
+.controls { display: none !important; }
+.cover h1 { text-align: center; width: 100%; display: block; margin-top:20px; }
+.cover h3, .cover .fr-title { text-align: center; width: 100%; display: block; margin-top:10px; font-size:24px; color:var(--gold); font-family:var(--font-fr);}
+.cover { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+</style>
+
+</head>
+<body>
+
+<div id="deck">
+
+    <!-- Slide 1: Cover -->
+    <div class="slide bg-void active" id="slide1">
+        <h1>饮食文化</h1>
+        <div class="fr-title">Culture Gastronomique : De la Table au Cosmos</div>
+        <p style="font-size: 1.5rem; color: var(--gold); margin-bottom: 1rem;">“民以食为天”的历史与哲学</p>
+        <div class="fr-text" style="font-size: 1.2rem; text-align: center;">La primauté de la nourriture et sa signification philosophique dans la civilisation chinoise</div>
+        <div style="margin-top: 4rem; font-family: 'DM Sans', sans-serif; letter-spacing: 2px;">LEÇON 12</div>
+    </div>
+
+    <!-- Slide 2: Oracle Bones -->
+    <div class="slide bg-dark" id="slide2">
+        <div class="slide-header">
+            <div class="slide-title">
+                <h2>核心甲骨文：口腹之欲的文字纪实</h2>
+                <div class="fr">Caractères Oculaires : L'Écriture des Plaisirs du Palais</div>
+            </div>
+            
+        </div>
+        <div class="content-three-col" style="grid-template-columns: repeat(5, 1fr); gap: 1rem;">
+            <!-- 食 -->
+            <div class="card oracle-box">
+                <svg class="oracle-svg" viewBox="0 0 100 100">
+                    <path d="M50 20 L30 40 L70 40 Z M30 45 L70 45 C70 70, 60 80, 50 80 C40 80, 30 70, 30 45" />
+                    <line x1="50" y1="55" x2="50" y2="65" />
+                </svg>
+                <h3>食 (shí)</h3>
+                <span class="fr">Nourriture</span>
+                <p style="font-size:0.9rem">像一个盛满食物的食器（簋），上方有盖子。本义为吃饭、粮食。</p>
+            </div>
+            <!-- 饮 -->
+            <div class="card oracle-box">
+                <svg class="oracle-svg" viewBox="0 0 100 100">
+                    <path d="M70 20 C60 40, 50 40, 50 20 Z M50 30 L50 80 C60 80, 70 70, 70 30 M30 30 C40 40, 40 60, 30 70 M40 50 C45 45, 45 40, 40 35" />
+                </svg>
+                <h3>饮 (yǐn)</h3>
+                <span class="fr">Boire</span>
+                <p style="font-size:0.9rem">右边是一口酒坛（酉），左边是一个人俯身张口吐舌正在喝水。</p>
+            </div>
+            <!-- 酒 -->
+            <div class="card oracle-box">
+                <svg class="oracle-svg" viewBox="0 0 100 100">
+                    <path d="M40 20 L60 20 L65 50 C65 75, 55 85, 50 85 C45 85, 35 75, 35 50 Z M45 40 L55 40 M20 40 Q25 45 15 50 M20 60 Q25 65 15 70 M20 80 Q25 85 15 90" />
+                </svg>
+                <h3>酒 (jiǔ)</h3>
+                <span class="fr">Alcool / Vin</span>
+                <p style="font-size:0.9rem">右为酒器“酉”（尖底坛），左侧加了“水”旁（滴落的酒液）。</p>
+            </div>
+            <!-- 羹 -->
+            <div class="card oracle-box">
+                <svg class="oracle-svg" viewBox="0 0 100 100">
+                    <!-- 羊 -->
+                    <path d="M40 10 L60 10 M50 10 L50 40 M35 25 L65 25 M30 35 L70 35" />
+                    <!-- 鬲/火 -->
+                    <path d="M30 50 L70 50 C70 70, 60 70, 60 85 M40 85 C40 70, 30 70, 30 50 M25 90 L35 80 M75 90 L65 80" />
+                </svg>
+                <h3>羹 (gēng)</h3>
+                <span class="fr">Soupe / Ragoût</span>
+                <p style="font-size:0.9rem">上为“羔”（小羊），下为“鬲”（煮肉的锅）。本义即煮熟的羊肉汤。</p>
+            </div>
+            <!-- 茶(荼) -->
+            <div class="card oracle-box">
+                <svg class="oracle-svg" viewBox="0 0 100 100">
+                    <path d="M30 25 L70 25 M40 15 L40 35 M60 15 L60 35 M50 40 L30 70 M50 40 L70 70 M50 55 L50 90 M40 80 L30 75 M60 80 L70 75" />
+                </svg>
+                <h3>茶(荼) (chá)</h3>
+                <span class="fr">Thé (Seal Script)</span>
+                <p style="font-size:0.9rem">上为“草”，中为“人”，下为“木”。人在草木间。甲骨文无茶字，源于“荼”。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 3: Min yi shi wei tian -->
+    <div class="slide bg-empire" id="slide3">
+        <div class="slide-header">
+            <div class="slide-title">
+                <h2>饮食即哲学：“民以食为天”</h2>
+                <div class="fr">Philosophie : "Le peuple considère la nourriture comme le Ciel"</div>
+            </div>
+            
+        </div>
+        <div class="content-grid">
+            <div class="card">
+                <h3>此世性的生存逻辑 <span class="fr">La logique de survie dans "ce monde-ci"</span></h3>
+                <p>《汉书》言：“王者以民为天，而民以食为天”。在缺乏彼岸造物主信仰的中国文化里，“天”不是虚无缥缈的神国，而是现实的自然秩序与生存根本。</p>
+                <div class="fr-text">Le Livre des Han dit : "Le roi voit le peuple comme le Ciel, et le peuple voit la nourriture comme le Ciel." Dans une culture sans créateur transcendant, le "Ciel" (l'absolu) est l'ordre naturel et la base matérielle de la survie.</div>
+                <div class="quote-box">
+                    "百姓日用即道" (La Voie est dans l'usage quotidien du peuple).
+                </div>
+            </div>
+            <div class="card">
+                <h3>从“果腹”到“天理” <span class="fr">De la "satiété" au "Principe Céleste"</span></h3>
+                <p>葛兆光在《中国思想史》中强调，中国哲学的最大特点是<span class="highlight">不脱离世俗生活</span>。吃饭不仅仅是生物学本能的满足，更是调和阴阳、顺应节气（见第11课）的修身养性过程。</p>
+                <div class="fr-text">Ge Zhaoguang souligne dans son "Histoire de la pensée chinoise" que la philosophie chinoise ne se détache jamais de la vie séculière. </div>
+                <div class="fr-text">Manger n'est pas qu'un instinct biologique, c'est un processus de cultivation de soi, harmonisant le Yin-Yang et suivant les saisons.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 4: 8 Cuisines & Geography -->
+    <div class="slide bg-culture" id="slide4">
+        <div class="slide-header">
+            <div class="slide-title">
+                <h2>八大菜系：地理气候与味觉密码</h2>
+                <div class="fr">Les Huit Cuisines : Géographie, Climat et Code Gustatif</div>
+            </div>
+            
+        </div>
+        <div class="content-grid">
+            <div class="card">
+                <h3>南甜北咸，东酸西辣 <span class="fr">Sud sucré, Nord salé, Est acide, Ouest épicé</span></h3>
+                <p>呼应第7课（地理与天人感应），中国广袤的地形和多样的气候直接塑造了“八大菜系”（鲁、川、粤、闽、苏、浙、湘、徽）。一方水土养一方人。</p>
+                <p>如：四川盆地潮湿多雾，故川菜重麻辣以发汗祛湿；江南水乡物产丰饶，故苏浙菜清淡鲜甜，注重食材本味。</p>
+                <div class="fr-text">Faisant écho à la leçon 7, la géographie vaste et variée a forgé les 8 grandes cuisines. </div>
+                <div class="fr-text">Ex: Le bassin du Sichuan étant humide, sa cuisine est épicée pour chasser l'humidité interne. Le Jiangnan est riche en produits, sa cuisine est douce et met en valeur la saveur originelle de l'ingrédient.</div>
+            </div>
+            <div class="card">
+                <h3>风土与“自然之道” <span class="fr">Le Terroir (Fengtu) et la "Voie de la Nature"</span></h3>
+                <p>中国人讲究“不时不食”（孔子语，即不是当季的食物不吃）。饮食是对天地之“气”的最直接摄入。这与法国葡萄酒的 <span class="highlight">Terroir（风土）</span> 理念高度契合。</p>
+                <div class="fr-text">Confucius disait : "On ne mange pas ce qui n'est pas de saison." L'alimentation est l'absorption directe du "Qi" du monde.</div>
+                <div class="fr-text">Cette notion de manger selon le lieu et la saison résonne fortement avec le concept français de "Terroir" dans la viticulture.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 5: Tea Culture -->
+    <div class="slide bg-jade" id="slide5">
+        <div class="slide-header">
+            <div class="slide-title">
+                <h2>茶文化：从饮品到修行</h2>
+                <div class="fr">Culture du Thé : D'une Boisson à une Pratique Spirituelle</div>
+            </div>
+            
+        </div>
+        <div class="content-three-col" style="grid-template-columns: 1fr 1fr;">
+            <div class="card">
+                <h3>陆羽与《茶经》 <span class="fr">Lu Yu et le "Classique du thé"</span></h3>
+                <p>唐代陆羽撰写的《茶经》是世界上第一部关于茶的专著。他将茶从一种普通的解渴、提神药物，升华为一种具有严密仪式感的美学体验。</p>
+                <p>从采茶、造茶、备水（“山水上，江水中，井水下”）、煮茶到品啜，每一步都蕴含着对天地自然的敬畏与考究。</p>
+                <div class="fr-text">Le "Classique du thé" de Lu Yu (Dynastie Tang) a élevé le thé d'une boisson/remède à un art esthétique et rituel.</div>
+                <div class="fr-text">De la cueillette au choix de l'eau ("l'eau de montagne est supérieure..."), chaque étape reflète le respect de la Nature.</div>
+            </div>
+            <div class="card">
+                <h3>人在草木间 <span class="fr">L'Homme parmi les herbes et les arbres</span></h3>
+                <p>茶（荼）的字形（艹+人+木）完美诠释了中国哲学的核心：“天人合一”。饮茶是一种抽离世俗喧嚣，让心灵回归自然（<span class="highlight">自然 Ziran</span>）的通道。</p>
+                <div class="fr-text">L'étymologie du mot 茶 (l'homme 人 entre l'herbe 艹 et le bois 木) illustre le cœur de la philosophie chinoise : l'unité Ciel-Homme.</div>
+                <div class="fr-text">Boire le thé est un pont pour échapper au bruit du monde et ramener son esprit à la Nature (Ziran).</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 6: Tea Dao / Zen -->
+    <div class="slide bg-oracle" id="slide6">
+        <div class="slide-header">
+            <div class="slide-title">
+                <h2>茶道精神：和、敬、清、寂</h2>
+                <div class="fr">L'Esprit du Cha Dao : Harmonie, Respect, Pureté, Tranquillité</div>
+            </div>
+            
+        </div>
+        <div class="content-grid">
+            <div class="card">
+                <h3>儒释道的交融 <span class="fr">Fusion du Confucianisme, Bouddhisme et Daoïsme</span></h3>
+                <p>茶桌是一个微缩的思想道场。儒家借茶强调“礼”与人际之“和”（待客之道）；道家借茶追求“清”与“无为”；佛家（禅宗）则有“茶禅一味”之说：在品茶的专注与苦涩中顿悟真理。</p>
+                <div class="fr-text">La table à thé est un dojo philosophique miniature. Le confucianisme y voit l'étiquette et l'harmonie sociale ; le taoïsme y cherche la pureté et le non-agir.</div>
+                <div class="fr-text">Le bouddhisme Zen proclame "Le thé et le Zen ont la même saveur" (茶禅一味) : l'éveil par la concentration et l'amertume du thé.</div>
+            </div>
+            <div class="card">
+                <h3>以水克火的中和之美 <span class="fr">La beauté de la modération (Zhonghe)</span></h3>
+                <p>茶的冲泡过程，也是五行中“水与火”的平衡。相比于酒的狂热（酒神精神/Dionysien），茶代表着克制、清醒与理性（日神精神/Apollinien）。这也是中国传统士大夫（文人）最崇尚的生命底色。</p>
+                <div class="fr-text">La préparation du thé est l'équilibre "Eau - Feu" des Cinq Éléments. </div>
+                <div class="fr-text">Contrairement à l'extase de l'alcool (dionysiaque), le thé représente la retenue, la lucidité et la rationalité absolue : l'idéal des lettrés chinois.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 7: Med & Food 1 -->
+    <div class="slide bg-dark" id="slide7">
+        <div class="slide-header">
+            <div class="slide-title">
+                <h2>药食同源（上）：阴阳与中医视角</h2>
+                <div class="fr">Homologie Aliments-Médicaments (1) : Yin-Yang et MTC</div>
+            </div>
+            
+        </div>
+        <div class="content-grid">
+            <div class="card">
+                <h3>食物的“四气” <span class="fr">Les "Quatre propriétés" (Qi) des aliments</span></h3>
+                <p>中医理论认为“药食同源”（Les aliments et les médicaments ont la même origine）。食物不仅有营养，更具有独特的偏性：“寒、凉、温、热”。</p>
+                <p>西方营养学计算卡路里和维生素，而中国饮食体系计算<span class="highlight">能量的阴阳属性</span>。</p>
+                <div class="fr-text">La médecine traditionnelle (MTC) postule l'homologie des aliments et des herbes thérapeutiques. Les aliments ont 4 natures : Froid, Frais, Tiède, Chaud.</div>
+                <div class="fr-text">La nutrition occidentale compte les calories ; la diététique chinoise calcule la polarité énergétique Yin ou Yang de chaque aliment.</div>
+            </div>
+            <div class="card">
+                <h3>“治未病”与日常食疗 <span class="fr">"Guérir avant la maladie" et Diététique quotidienne</span></h3>
+                <p>“上医治未病”（最好的医生在病发前就将其治愈）。日常饮食就是最基础的医疗。比如：冬日吃羊肉生姜以补阳驱寒（补气），夏日吃绿豆西瓜以清热解毒（降火）。</p>
+                <div class="fr-text">"Le médecin supérieur guérit la maladie avant qu'elle n'apparaisse." Le repas quotidien est le premier traitement prophylactique.</div>
+                <div class="fr-text">Ex: En hiver, on mange de l'agneau et du gingembre pour tonifier le Yang ; en été, du haricot mungo et de la pastèque pour dissiper le Feu (Yin).</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 8: Med & Food 2 -->
+    <div class="slide bg-empire" id="slide8">
+        <div class="slide-header">
+            <div class="slide-title">
+                <h2>药食同源（下）：五行与五味</h2>
+                <div class="fr">Homologie Aliments-Médicaments (2) : Cinq Éléments / Cinq Saveurs</div>
+            </div>
+            
+        </div>
+        <div class="content-three-col" style="grid-template-columns: 1fr 1fr;">
+            <div class="card">
+                <h3>五味入五脏 <span class="fr">Les 5 saveurs nourrissent les 5 organes</span></h3>
+                <p>基于《黄帝内经》的宇宙观，人是一个微观宇宙，五脏与五行、五味严密对应：<br>
+                • 酸入肝（木）<br>
+                • 苦入心（火）<br>
+                • 甜/甘入脾（土）<br>
+                • 辛/辣入肺（金）<br>
+                • 咸入肾（水）</p>
+                <div class="fr-text">Basé sur la vision cosmologique du Huangdi Neijing, les organes sont liés aux 5 éléments et saveurs : Acide (Foie/Bois), Amer (Cœur/Feu), Doux (Rate/Terre), Piquant (Poumons/Métal), Salé (Reins/Eau).</div>
+            </div>
+            <div class="card">
+                <h3>和谐（和）的烹饪法 <span class="fr">L'Art de l'Harmonie dans la Cuisson</span></h3>
+                <p>中国顶级厨师（如《吕氏春秋》中的伊尹）如同治国的宰相（“治大国若烹小鲜”）。烹调的本质不是突出某单一味道，而是让五味调和（平衡相生与相克）。这种思维深刻影响了中国的<span class="highlight">中庸哲学</span>。</p>
+                <div class="fr-text">Le grand chef cuisine comme le ministre gouverne l'État : "Gouverner un grand État, c'est comme cuire un petit poisson."</div>
+                <div class="fr-text">L'essence de la cuisson n'est pas d'isoler une saveur, mais de les harmoniser toutes. C'est le fondement pratique de la doctrine du Juste Milieu (Zhongyong).</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 9: Chopsticks vs Knife/Fork -->
+    <div class="slide bg-culture" id="slide9">
+        <div class="slide-header">
+            <div class="slide-title">
+                <h2>餐具的哲学：筷子 vs 刀叉</h2>
+                <div class="fr">Philosophie des Couverts : Baguettes vs Couteau et Fourchette</div>
+            </div>
+            
+        </div>
+        <div class="content-grid">
+            <div class="card">
+                <h3>筷子：“仁”与手指的延伸 <span class="fr">Baguettes : "Ren" (Humanité) et l'extension des doigts</span></h3>
+                <p>儒家提出“君子远庖厨”，餐桌上不应出现刀剑等带有暴力、切割意味的工具。筷子（双木）依靠杠杆原理，以挑、拨、夹的柔和动作取食，是以“心智”而非“蛮力”控制物质的象征。</p>
+                <div class="fr-text">Confucius disait : "Le gentilhomme se tient éloigné des abattoirs." Les armes et outils de coupe violents sont proscrits à table. </div>
+                <div class="fr-text">Les baguettes utilisent l'effet de levier pour pincer ou cueillir en douceur. C'est le contrôle de la matière par "l'intelligence" plutôt que par la force brutale (M. Granet).</div>
+            </div>
+            <div class="card">
+                <h3>刀叉：笛卡尔式的分析与征服 <span class="fr">Couteau/Fourchette : Analyse et Conquête Cartésiennes</span></h3>
+                <p>西方的刀叉意味着在进餐时继续进行切割、分解的动作，是对大自然的直接干预和征服。这也是一种外向型的、具有分析性（剖析切割）的笛卡尔式思维在餐桌上的体现。</p>
+                <div class="fr-text">Le couteau et la fourchette occidentaux impliquent une action continue de couper et de diviser pendant le repas.</div>
+                <div class="fr-text">Cela reflète une intervention directe et une "conquête" de la nature, une pensée presque analytique et "cartésienne" (diviser le problème en parties) à la table à manger.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 10: Mirror -->
+    <div class="slide bg-jade" id="slide10">
+        <div class="slide-header">
+            <div class="slide-title">
+                <h2>汉法文化镜像：筵席与分餐制</h2>
+                <div class="fr">Miroir Franco-Chinois : Le Banquet (Partage) vs Le Repas Séquentiel</div>
+            </div>
+            
+        </div>
+        <div class="content-grid">
+            <div class="card">
+                <h3>法国美食：序列性与个人主义 <span class="fr">La Gastronomie Française : Séquentialité et Individualisme</span></h3>
+                <p>入选联合国非遗的“法国美食大餐”有着严格的<span class="highlight">线性时间序列</span>（前菜、主菜、奶酪、甜点）。而且分餐制（每人拥有独立摆盘的菜肴）体现了西方强烈的<span class="highlight">个人主义</span>和对私人边界的尊重。</p>
+                <div class="fr-text">Le repas gastronomique français (UNESCO) suit une séquence temporelle linéaire stricte (Entrée - Plat - Fromage - Dessert).</div>
+                <div class="fr-text">Le service à l'assiette (chaque personne a sa propre portion) reflète le fort individualisme occidental et le respect des frontières personnelles.</div>
+            </div>
+            <div class="card">
+                <h3>中国筵席：共时性与集体主义 <span class="fr">Le Banquet Chinois : Synchronicité et Collectivisme</span></h3>
+                <p>中式圆桌筵席所有的菜肴几乎同时上桌（共时性）。用筷子在同一个盘子中取食（“共食制”），是打破个体边界、确认血缘或社会契约关系的公共仪式。</p>
+                <p>饭桌即天下，共享一盘菜即代表“四海之内皆兄弟也”（集体主义）。</p>
+                <div class="fr-text">Dans le banquet chinois (table ronde), les plats sont présentés presque simultanément (Synchronicité). </div>
+                <div class="fr-text">Piocher dans un même plat commun avec ses baguettes est un rituel public brisant les frontières individuelles pour confirmer des liens de parenté ou sociaux. "Tous les hommes sont frères" (Collectivisme).</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slide 11: Summary & End -->
+    <div class="slide bg-oracle" id="slide11">
+        <div class="slide-header">
+            <div class="slide-title">
+                <h2>全课程总结与参考文献</h2>
+                <div class="fr">Conclusion du Cours & Bibliographie</div>
+            </div>
+            
+        </div>
+        <div class="content-grid">
+            <div class="card">
+                <h3>寄语：通过汉字懂中国 <span class="fr">Épilogue : Comprendre la Chine par ses Caractères</span></h3>
+                <p>历经12课，我们从宇宙观（天、道）、伦理学（仁、家、国）、美学（琴棋书画），最终落脚于生活（饮食）。</p>
+                <p>中国文化不是高高在上的神谕，而是浸透在农历、建筑、饮食与一笔一画中的“常识理性”与“此世的温情”。</p>
+                <div class="fr-text">En 12 leçons, nous avons voyagé de la cosmologie (Ciel, Dao), à l'éthique (Famille, État), à l'esthétique (Arts), pour atterrir sur la vie quotidienne (Nourriture).</div>
+                <div class="fr-text">La culture chinoise n'est pas une révélation divine abstraite, mais une "rationalité de bon sens" et une "chaleur de ce monde" imprégnant le calendrier, l'architecture et chaque coup de pinceau.</div>
+            </div>
+            <div class="card">
+                <h3>参考文献 <span class="fr">Références bibliographiques</span></h3>
+                <ul style="list-style-position: inside; font-size: 1rem; line-height: 1.8;">
+                    <li>葛兆光 (Ge Zhaoguang), 《中国思想史》(<em>Histoire de la pensée chinoise</em>), 复旦大学出版社.</li>
+                    <li>陆羽 (Lu Yu), 《茶经》(<em>Le Classique du Thé</em>), 唐代.</li>
+                    <li>Granet, Marcel. <em>La Pensée chinoise</em>. Albin Michel, 1934.</li>
+                    <li>Lin Yutang, <em>My Country and My People</em> (La Chine et les Chinois), 1935.</li>
+                    <li>Sabban, Françoise. <em>Un savoir-faire oublié : le travail des cuisiniers d'autrefois</em>. (Recherches sur l'histoire de l'alimentation chinoise).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+<div id="nav">
+  <div class="nb" id="pb">◀</div>
+  <div id="sc">1 / X</div>
+  <div class="dots" id="dots"></div>
+  <div class="nb" id="nb2">▶</div>
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const dc = document.getElementById('dots');
+const sc = document.getElementById('sc');
+let cur = 0; const tot = slides.length;
+slides.forEach((_, i) => {
+  const d = document.createElement('div');
+  d.className = 'dot' + (i === 0 ? ' active' : '');
+  d.onclick = () => go(i);
+  dc.appendChild(d);
+});
+function go(n) {
+  if(n < 0 || n >= tot) return;
+  slides[cur].classList.remove('active');
+  dc.children[cur].classList.remove('active');
+  cur = n;
+  slides[cur].classList.add('active');
+  dc.children[cur].classList.add('active');
+  if(sc) sc.innerText = (cur + 1) + ' / ' + tot;
+}
+if(sc) sc.innerText = '1 / ' + tot;
+document.getElementById('pb').onclick = () => go(cur - 1);
+document.getElementById('nb2').onclick = () => go(cur + 1);
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') go(cur + 1);
+  if (e.key === 'ArrowLeft') go(cur - 1);
+});
+</script>
+</body>
+
+</html>

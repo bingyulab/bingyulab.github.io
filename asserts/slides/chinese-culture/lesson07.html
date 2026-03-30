@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第七课 · 地理：地形、气候与文化取向</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:#0a0807; --paper:#f5f0e8;
+  --red:#c0392b; --red2:#e05040;
+  --gold:#b89040; --gold2:#d4ad60;
+  --jade:#2e7d5a; --jade2:#5ecfa0;
+  --blue:#2a5a8a; --blue2:#80b4e0;
+  --purple:#6a3a8a; --purple2:#b070e0;
+  --bronze:#8a5a3a; --bronze2:#c08a50;
+  --mist:rgba(245,240,232,0.06);
+  --border:rgba(255,255,255,0.10);
+  --earth:#8c7355; --earth2:#caa77b;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0a0807;font-family:'Cormorant Garamond','Noto Serif SC',Georgia,serif;overflow:hidden;width:100vw;height:100vh;user-select:none;}
+#deck{width:100vw;height:100vh;position:relative;}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;padding:44px 64px 32px;opacity:0;pointer-events:none;transition:opacity 0.4s ease;overflow:hidden;}
+.slide.active{opacity:1;pointer-events:all;}
+
+.bg-void{background:radial-gradient(ellipse at 30% 40%,rgba(140,115,85,0.15) 0%,transparent 60%),radial-gradient(ellipse at 70% 60%,rgba(42,90,138,0.12) 0%,transparent 60%),#060408;}
+.bg-dark{background:#0e0c0a;}
+.bg-oracle{background:linear-gradient(135deg,#060810 0%,#0a0c18 100%);}
+.bg-empire{background:linear-gradient(135deg,#150603 0%,#200808 100%);}
+.bg-culture{background:linear-gradient(135deg,#0a0904 0%,#130f06 100%);}
+.bg-earth{background:linear-gradient(135deg,#0f0a05 0%,#1a1008 100%);}
+.bg-sea{background:linear-gradient(135deg,#050a10 0%,#0a101a 100%);}
+
+.slide-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;border-bottom:1px solid var(--border);padding-bottom:12px;}
+.lesson-tag{font-size:10px;letter-spacing:0.4em;text-transform:uppercase;color:var(--earth2);opacity:0.85;}
+.slide-num{font-size:11px;color:rgba(255,255,255,0.22);letter-spacing:0.15em;}
+
+h1{font-family:'Noto Serif SC',serif;font-size:clamp(40px,6.5vw,74px);font-weight:600;color:var(--paper);line-height:1.15;letter-spacing:0.06em;}
+h2{font-family:'Noto Serif SC',serif;font-size:clamp(17px,2.5vw,30px);font-weight:400;color:var(--paper);letter-spacing:0.06em;margin-bottom:6px;}
+h3{font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--earth2);opacity:0.85;margin-bottom:8px;font-weight:400;}
+p{font-size:clamp(12px,1.4vw,15px);line-height:1.8;color:rgba(245,240,232,0.75);}
+em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:30px;flex:1;align-items:start;}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;flex:1;align-items:start;}
+
+.card{background:var(--mist);border:1px solid var(--border);padding:14px 16px;position:relative;border-radius:2px;}
+.card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;}
+.card.red::before{background:var(--red);} .card.gold::before{background:var(--gold);}
+.card.jade::before{background:var(--jade);} .card.blue::before{background:var(--blue);}
+.card.purple::before{background:var(--purple);} .card.earth::before{background:var(--earth);}
+
+.picto{background:rgba(0,0,0,0.5);border:1px solid rgba(140,115,85,0.2);display:flex;align-items:center;justify-content:center;padding:8px;border-radius:2px;}
+.badge-ok{display:inline-flex;align-items:center;gap:5px;background:rgba(140,115,85,0.15);border:1px solid rgba(140,115,85,0.3);padding:3px 9px;border-radius:10px;font-size:10px;color:var(--earth2);letter-spacing:0.1em;}
+
+#nav{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;z-index:100;}
+.nb{width:34px;height:34px;border:1px solid rgba(255,255,255,0.14);background:rgba(0,0,0,0.55);color:rgba(255,255,255,0.55);border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+.nb:hover{border-color:var(--earth2);color:var(--earth2);}
+#sc{font-size:11px;color:rgba(255,255,255,0.28);letter-spacing:0.12em;min-width:44px;text-align:center;}
+.dots{display:flex;gap:4px;}
+.dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.18);cursor:pointer;transition:all 0.2s;}
+.dot.active{background:var(--earth2);width:14px;border-radius:3px;}
+
+.quote { border-left: 3px solid var(--earth); padding-left: 16px; margin: 10px 0; }
+.quote .zh { font-family: 'Noto Serif SC', serif; font-size: 16px; color: var(--paper); margin-bottom: 4px; }
+.quote .src { font-style: italic; font-size: 11px; color: rgba(245,240,232,0.5); }
+.mirror { border-left:3px solid var(--blue); padding-left:14px; background:var(--mist); padding-top:10px; padding-bottom:10px; padding-right:10px; }
+.mirror .mt { font-weight:bold; color:var(--blue2); font-size:14px; margin-bottom:4px; }
+
+ul.styled { padding-left:16px; font-size:13px; color:rgba(255,255,255,0.7); line-height:1.6; }
+ul.styled li { margin-bottom: 8px; }
+ul.styled b { color:var(--paper); }
+</style>
+</head>
+<body>
+<div id="deck">
+
+<!-- S1: COVER -->
+<div class="slide bg-void active" id="s1">
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:16px;position:relative;">
+    <div style="position:absolute;font-family:'Noto Serif SC',serif;font-size:340px;color:rgba(140,115,85,0.06);pointer-events:none;line-height:1;top:50%;left:50%;transform:translate(-50%,-50%);">地</div>
+    <div style="font-size:12px;letter-spacing:0.5em;color:var(--earth2);opacity:0.8;text-transform:uppercase;z-index:1;">第七课 · Leçon VII · Lesson 7</div>
+    <h1 style="font-size:clamp(36px,5vw,66px);z-index:1;">地理：地形、气候与文化取向</h1>
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(16px,2vw,24px);color:rgba(245,240,232,0.6);z-index:1;max-width:800px;">Géographie — Relief, Climat, Ressources et Orientation Culturelle</div>
+    <div style="display:flex;gap:28px;margin-top:20px;z-index:1;">
+      <div style="text-align:center;"><div style="font-size:10px;letter-spacing:0.2em;color:rgba(255,255,255,0.3);text-transform:uppercase;margin-bottom:3px;">核心文字 · Caractères</div><div style="font-size:13px;color:rgba(245,240,232,0.7);">山 · 水 · 田</div></div>
+      <div style="width:1px;background:rgba(255,255,255,0.15);"></div>
+      <div style="text-align:center;"><div style="font-size:10px;letter-spacing:0.2em;color:rgba(255,255,255,0.3);text-transform:uppercase;margin-bottom:3px;">主线 · Fil directeur</div><div style="font-size:13px;color:rgba(245,240,232,0.7);">地理环境的宿命论与文明底色</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- S2: ROADMAP -->
+<div class="slide bg-dark" id="s2">
+  <div class="slide-header"><span class="lesson-tag">第七课 · Leçon VII</span><span class="slide-num">导览 · Plan</span></div>
+  <h2 style="margin-bottom:18px;">本课路线图 · Plan du cours<br><span style="font-size:14px;opacity:0.7;">La géographie comme destin culturel</span></h2>
+  <div class="three-col" style="gap:20px;">
+    <div class="card earth">
+      <div class="tag" style="font-size:10px;color:var(--earth2);margin-bottom:4px;">第一部分 · Partie 1</div>
+      <h3 style="color:var(--paper);font-size:16px;text-transform:none;">地形与植被的两种命运</h3>
+      <p style="font-size:12px;margin-bottom:4px;">中原的封闭与地中海的开放；阔叶林的农耕与硬叶林的商业征服。</p>
+      <em class="fr" style="font-size:11px;">Continent fermé vs Mer ouverte. Forêts décidues vs Sclérophylles.</em>
+    </div>
+    <div class="card blue">
+      <div class="tag" style="font-size:10px;color:var(--blue2);margin-bottom:4px;">第二部分 · Partie 2</div>
+      <h3 style="color:var(--paper);font-size:16px;text-transform:none;">降雨、游牧与农业的防守</h3>
+      <p style="font-size:12px;margin-bottom:4px;">秦岭淮河降水线如何决定中国北疆的游牧冲突与农业社会的保守主义。</p>
+      <em class="fr" style="font-size:11px;">Isohyète des précipitations (400mm), invasions nomades et conservatisme agraire.</em>
+    </div>
+    <div class="card gold">
+      <div class="tag" style="font-size:10px;color:var(--gold2);margin-bottom:4px;">第三部分 · Partie 3</div>
+      <h3 style="color:var(--paper);font-size:16px;text-transform:none;">气候、社会学与哲学心态</h3>
+      <p style="font-size:12px;margin-bottom:4px;">从“天人合一”到韦伯比较社会学，对比中法/中西在空间上的哲学镜像。</p>
+      <em class="fr" style="font-size:11px;">Harmonie avec la nature vs Conquête. La sociologie de Max Weber appliquée à l'espace.</em>
+    </div>
+  </div>
+</div>
+
+<!-- S3: 核心甲骨文 -->
+<div class="slide bg-earth" id="s3">
+  <div class="slide-header"><span class="lesson-tag">大地之纹 · Trace de la Terre</span><span class="slide-num">1</span></div>
+  <h2 style="margin-bottom:16px;">自然地理的甲骨印记<br><span style="font-size:16px;opacity:0.7;">Les éléments sculptés dans l'os</span></h2>
+  
+  <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:20px;">
+    <!-- 山 -->
+    <div class="card earth" style="padding:16px; height:100%; display:flex; flex-direction:column; gap:12px;">
+      <div class="picto" style="width:80px;height:80px;align-self:center;"><svg viewBox="0 0 100 100" stroke="var(--earth2)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M20,80 L20,40 M50,80 L50,15 M80,80 L80,30 M15,80 L85,80" /></svg></div>
+      <div style="text-align:center;">
+        <h3 style="font-size:18px;color:var(--paper);margin:0;text-transform:none;">山 (Shān) - <i>La Montagne</i></h3>
+        <p style="font-size:12px;line-height:1.4;margin-top:6px;text-align:left;">象形：三峰并立的形状。中间最高，两侧较低。象征着大地的隆起与屏障。<br><br><em class="fr">Pictogramme de trois pics montagneux. Représente l'élévation terrestre et les barrières naturelles de la Chine.</em></p>
+      </div>
+    </div>
+    
+    <!-- 水 -->
+    <div class="card blue" style="padding:16px; height:100%; display:flex; flex-direction:column; gap:12px;">
+      <div class="picto" style="width:80px;height:80px;align-self:center;"><svg viewBox="0 0 100 100" stroke="var(--blue2)" stroke-width="5" stroke-linecap="round" fill="none"><path d="M50,10 Q60,30 40,50 Q60,70 50,90 M30,30 Q20,40 30,50 M70,30 Q80,40 70,50 M30,70 Q20,60 30,50 M70,70 Q80,60 70,50" /></svg></div>
+      <div style="text-align:center;">
+        <h3 style="font-size:18px;color:var(--paper);margin:0;text-transform:none;">水 (Shuǐ) - <i>L'Eau</i></h3>
+        <p style="font-size:12px;line-height:1.4;margin-top:6px;text-align:left;">象形：中间是弯曲的主流，两侧是散落的水滴或波纹。文明逐水而居。<br><br><em class="fr">Un courant d'eau sinueux au centre entouré de remous. L'eau est la matrice de l'agriculture.</em></p>
+      </div>
+    </div>
+    
+    <!-- 田 -->
+    <div class="card jade" style="padding:16px; height:100%; display:flex; flex-direction:column; gap:12px;">
+      <div class="picto" style="width:80px;height:80px;align-self:center;"><svg viewBox="0 0 100 100" stroke="var(--jade2)" stroke-width="5" stroke-linecap="round" fill="none"><rect x="20" y="20" width="60" height="60" /><path d="M20,50 L80,50 M50,20 L50,80" /></svg></div>
+      <div style="text-align:center;">
+        <h3 style="font-size:18px;color:var(--paper);margin:0;text-transform:none;">田 (Tián) - <i>Le Champ</i></h3>
+        <p style="font-size:12px;line-height:1.4;margin-top:6px;text-align:left;">象形：规整的方形土地，中间被纵横交错的沟渠（井字）划分为小块。<br><br><em class="fr">Un carré divisé par des canaux d'irrigation. Le fondement de l'ordre sédentaire chinois (système puits-champ).</em></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S4: 封闭与开放地形 -->
+<div class="slide bg-dark" id="s4">
+  <div class="slide-header"><span class="lesson-tag">地形对峙 · Clôture vs Ouverture</span><span class="slide-num">2</span></div>
+  <h2 style="margin-bottom:12px;">大地的囚笼与海洋的广场<br><span style="font-size:16px;opacity:0.7;">Le continent enclavé s'opposant à la mer connectrice</span></h2>
+  
+  <div class="two-col" style="gap:26px;">
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <p style="margin-bottom:4px;">中西文明的根本差异，首先源自于它们所处的<b>宏观地形结构</b>。<br><em class="fr">La première graine de divergence civilisationnelle est topographique.</em></p>
+      
+      <div class="card earth" style="padding:16px;">
+        <h3 style="color:var(--earth2);font-size:15px;margin-bottom:8px;">🇨🇳 中原封闭地形 (L'enclave chinoise)</h3>
+        <ul class="styled">
+          <li><b>西南部：</b>世界屋脊青藏高原（Himalaya）。</li>
+          <li><b>西北部：</b>浩瀚的戈壁与沙漠（Gobi/Taklamakan）。</li>
+          <li><b>东/南部：</b>浩瀚无垠的太平洋（Pacifique）。</li>
+        </ul>
+        <p style="font-size:12px;margin-top:8px;line-height:1.6;">巨大的天然地理屏障使中国成为一个<b>半封闭的大陆国家</b>。这带来了一种“天下即世界”的自足感，内向且稳定。<br><em class="fr">Entourée de déserts, de l'Himalaya et de l'océan, la Chine ancienne perçoit son territoire comme la totalité du monde (Tianxia). Culture introvertie et autosuffisante.</em></p>
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;justify-content:flex-end;">
+      <div class="card blue" style="padding:16px;">
+        <h3 style="color:var(--blue2);font-size:15px;margin-bottom:8px;">🇬🇷/🇮🇹 地中海开放地形 (La Méditerranée)</h3>
+        <ul class="styled">
+          <li><b>内海网络：</b>地中海是欧、亚、非三大洲的交通枢纽。</li>
+          <li><b>破碎的岛屿：</b>希腊等地多山缺土，海岸线曲折。</li>
+        </ul>
+        <p style="font-size:12px;margin-top:8px;line-height:1.6;">陆地纵深极小，迫使居民向海洋拓展。海洋提供了四通八达的航线，造就了<b>开放、商业、多文明交汇</b>的海洋文明特征。<br><em class="fr">Une mer intérieure reliant 3 continents. Terres pauvres et côtes dentelées poussent vers un réseau maritime ouvert, commercial et cosmopolite.</em></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S5: 阔叶林 vs 硬叶林 -->
+<div class="slide bg-culture" id="s5">
+  <div class="slide-header"><span class="lesson-tag">植被与生活方式 · Écologie & Société</span><span class="slide-num">3</span></div>
+  <div class="two-col" style="gap:30px;">
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <h2 style="font-size:24px;margin-bottom:0;">树叶的命运：不同植被下的文明<br><span style="font-size:14px;opacity:0.7;">Forêts décidues vs Forêts sclérophylles</span></h2>
+      <p style="font-size:13px;">生存环境（气候与植被）直接决定了人类最初是种田还是经商。<em class="fr">L'écologie pré-détermine les modes de survie.</em></p>
+      
+      <div class="card jade" style="background:rgba(46,125,90,0.1); border:none; padding:16px;">
+        <h3 style="color:var(--jade2);font-size:15px;">🇨🇳 阔叶林文化：农耕·循环·稳定</h3>
+        <p style="font-size:12px;line-height:1.6;">黄河流域和长江流域属于温带/亚热带阔叶林。四季分明，雨热同期（春种秋收）。<br>
+        土地肥沃，先民可以通过精耕细作养活庞大人口。形成了<b>安土重迁、日出而作、循环往复的保守型农耕文明</b>。<br>
+        <em class="fr">Forêts de feuillus à grandes feuilles. Saisons nettes et pluies estivales idéales pour l'agriculture intensive. Engendre une sédentarité profonde, la routine des saisons et le respect de la terre.</em></p>
+      </div>
+    </div>
+    
+    <div style="display:flex;flex-direction:column;justify-content:flex-end;">
+      <div class="card gold" style="background:rgba(184,144,64,0.1); border:none; padding:16px;">
+        <h3 style="color:var(--gold2);font-size:15px;">🇬🇷/🇫🇷 硬叶林文化：商贸·征服·流动</h3>
+        <p style="font-size:12px;line-height:1.6;">地中海式气候夏季炎热干燥，冬季温和多雨。典型植被是常绿硬叶林（如橄榄树、葡萄藤）。<br>
+        这种环境不利于谷物大面积连片种植，但适合种植经济作物（榨油、酿酒）。这迫使西方先民出海<b>进行商品交换和殖民夺取粮食</b>（斯巴达、雅典），造就了流动与征服的基因。<br>
+        <em class="fr">Climat méditerranéen (étés secs) favorable aux sclérophylles (olivier, vigne) impropres aux grands empires céréaliers. Pousse à exporter du vin/huile pour importer du blé : genèse du commerce, de la navigation et de la conquête.</em></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S6: 农业与保守主义 -->
+<div class="slide bg-earth" id="s6">
+  <div class="slide-header"><span class="lesson-tag">社会底色 · Conservatisme agraire</span><span class="slide-num">4</span></div>
+  <h2 style="margin-bottom:12px;">守望黄土：为什么产生保守主义<br><span style="font-size:16px;opacity:0.7;">Pourquoi l'agriculture engendre-t-elle le conservatisme ?</span></h2>
+  
+  <p style="margin-bottom:18px;">以农为本的生存方式，深刻塑造了中国人的政治伦理与社会心理。<em class="fr">Vivre de la terre a forgé une mentalité où la stabilité est la valeur suprême.</em></p>
+
+  <div class="three-col" style="gap:20px;">
+    <div class="card earth">
+      <h3 style="color:var(--earth2);font-size:14px;margin-bottom:6px;">1. 土地不可移动 (Immobilité)</h3>
+      <p style="font-size:12px;line-height:1.6;">财富就是土地。农民被紧紧绑定在土地上不可轻易迁徙（<b>安土重迁</b>）。因此形成了极强的乡土观念和对故乡的眷恋。<br><em class="fr">La terre est fixe. Le paysan ne fuit pas. Naissent l'attachement viscéral aux racines et la peur du déracinement.</em></p>
+    </div>
+    
+    <div class="card red">
+      <h3 style="color:var(--red2);font-size:14px;margin-bottom:6px;">2. 经验的权威 (Autorité de l'expérience)</h3>
+      <p style="font-size:12px;line-height:1.6;">农业生产极度依赖气象规律和祖辈经验。老年人因为积累了最多经验，拥有绝对的权威。知识代表着“回溯过去”而非“创新”。<br><em class="fr">L'agriculture dépend des cycles climatiques connus. Les anciens détiennent le savoir vital. L'innovation est risquée, la tradition sauve.</em></p>
+    </div>
+
+    <div class="card purple">
+      <h3 style="color:var(--purple2);font-size:14px;margin-bottom:6px;">3. 宗族秩序 (Réseau clanique)</h3>
+      <p style="font-size:12px;line-height:1.6;">兴修水利、抗旱防灾、大家庭耕作需要极其严密的集体协作。这种需求催生了中国以血缘为纽带的宗族社会，压抑了个人主义。<br><em class="fr">Irriguer et récolter exige une main d'œuvre massive. L'individu s'efface au profit du clan (système patriarcal) essentiel à la survie collective.</em></p>
+    </div>
+  </div>
+</div>
+
+<!-- S7: 降水线与游牧入侵 -->
+<div class="slide bg-dark" id="s7">
+  <div class="slide-header"><span class="lesson-tag">气候与历史 · Les Isohyètes et l'Histoire</span><span class="slide-num">5</span></div>
+  <div class="two-col" style="gap:30px;">
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <h2 style="font-size:26px;margin-bottom:0;">雨水的政治：400毫米生命线<br><span style="font-size:14px;opacity:0.7;">La ligne des 400 mm de précipitations</span></h2>
+      <p style="font-size:13px;line-height:1.7;">中国历史的宏大史诗，本质上是一部关于<b>气候与降水</b>的历史。<em class="fr">L'histoire chinoise est dictée par la mousson.</em></p>
+      
+      <ul class="styled">
+        <li><b>生态限界：</b>年降水量 400mm 等值线，是中国农业与游牧业的天然分界线。<em class="fr">Sépare naturellement les terres arables de la steppe nomade.</em></li>
+        <li><b>长城（La Grande Muraille）：</b>长城的走势几乎与这条降水线完美重合！这是农耕文明对抗游牧铁骑的防御堡垒。</li>
+      </ul>
+    </div>
+    
+    <div class="card red" style="background:rgba(192,57,43,0.1); border:none; padding:20px; display:flex; flex-direction:column; gap:12px;">
+      <h3 style="color:var(--red2);font-size:15px;margin-bottom:4px;text-transform:none;">气候冷却与游牧南侵 (Le froid et les invasions)</h3>
+      <p style="font-size:13px;line-height:1.6;color:rgba(255,255,255,0.85);">
+      历史上，每当全球气温下降，降雨带向南推移：<br>
+      北方的草原枯竭（牛羊饿死）。迫于生存压力，游牧民族（匈奴、突厥、蒙古、满清）必然疯狂南下，掠夺中原农业区的粮食。<br><br>
+      <b>中国历史上的数次大乱与王朝周期（如五胡乱华），背后往往是气候变冷在驱动。</b>
+      </p>
+      <p style="font-size:11px;color:rgba(255,255,255,0.5);font-style:italic;line-height:1.4;">
+      Quand le climat mondial refroidit, la steppe au Nord s'assèche. Les nomades (Xiongnu, Mongols) affamés, sont forcés d'envahir le Sud agraire riche en grain. Les cycles d'invasions historiques correspondent souvent à des "petits âges glaciaires".
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- S8: 气候影响心态 -->
+<div class="slide bg-sea" id="s8">
+  <div class="slide-header"><span class="lesson-tag">思想溯源 · Philosophie et Nature</span><span class="slide-num">6</span></div>
+  <h2 style="margin-bottom:12px;">天意难测：气候与文化心态<br><span style="font-size:16px;opacity:0.7;">Harmonie avec le Ciel vs Conquête de l'Océan</span></h2>
+  
+  <div class="two-col" style="gap:26px; margin-top:16px;">
+    <!-- 天人合一 -->
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <h3 style="color:var(--earth2);font-size:18px;text-transform:none;">🇨🇳 靠天吃饭与“天人合一”</h3>
+      <p style="font-size:13px;line-height:1.7;">农业文明极度依赖气候（暴雨、旱灾、蝗灾瞬间摧毁一切），人类在庞大的季风系统前显得渺小无力。<br>
+      因此，中国思想史发展出<b>“敬畏自然、顺应天时”</b>的“天人合一”哲学。人不是自然的主宰，而是环境的一部分，寻求内在的和谐与修心。<br>
+      <em class="fr">L'agriculteur soumis aux caprices dévastateurs de la mousson développe une terreur sacrée. D'où l'harmonie philosophique ("Tianren Heyi") : l'homme est une fraction de la nature (Cosmos), il doit s'y fondre et non la dompter.</em></p>
+    </div>
+    
+    <!-- 征服自然 -->
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <h3 style="color:var(--blue2);font-size:18px;text-transform:none;">🇬🇷 主客二分与“征服自然”</h3>
+      <p style="font-size:13px;line-height:1.7;">海洋文明面对的是可以通过造船术、罗盘和航海知识克服的波浪。商业竞争需要探索未知、打破界限。<br>
+      这催生了西方的<b>“主客二分”</b>视角。自然被视为人类（主体）可以客观研究、解剖并最终<b>去征服与利用</b>的客体（对象），孕育了科学实验冒险精神。<br>
+      <em class="fr">L'Océan se navigue grâce à la technique et l'audace. L'Occident développe la dichotomie "Sujet/Objet". La Nature est conçue comme un Object scientifique et matériel à comprendre, maîtriser, exploiter et vaincre.</em></p>
+    </div>
+  </div>
+</div>
+
+<!-- S9: 韦伯比较社会学 -->
+<div class="slide bg-empire" id="s9">
+  <div class="slide-header"><span class="lesson-tag">社会学视野 · Perspective Sociologique</span><span class="slide-num">7</span></div>
+  <div class="two-col" style="gap:30px;">
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <h2 style="font-size:26px;margin-bottom:0;">马克思·韦伯的断言<br><span style="font-size:14px;opacity:0.7;">Max Weber et La Religion de la Chine (1915)</span></h2>
+      <p style="font-size:13px;margin-top:8px;">德国社会学家马克斯·韦伯 (Max Weber) 在比较社会学中认为，地理与生态塑造了两种完全不同的理性结构 (Rationalités)。<br><em class="fr">Pour Max Weber, l'espace écologique forge deux types de bureaucraties et de rationalités.</em></p>
+      
+      <div class="quote" style="border-left-color:var(--gold);">
+         <div class="zh" style="font-size:14px;">“西方的资本主义动力来自于新教伦理与对外部世界的理性改造；而中国的传统理性，则是致力于和平维持庞大的农业帝国运转，形成内卷的官僚体制。”</div>
+      </div>
+    </div>
+    
+    <div class="card purple" style="padding:16px; display:flex; flex-direction:column; gap:12px; justify-content:center;">
+      <h3 style="color:var(--purple2);font-size:14px;text-transform:none;border-bottom:1px solid rgba(255,255,255,0.2);padding-bottom:8px;">农业官府 vs 航海私产</h3>
+      <ul class="styled">
+        <li><b>治水官僚 (Hydraulic Bureaucracy):</b> 在中国修筑黄河大坝，必须建立一个高度中央集权的大政府。权力压倒资本。<em class="fr">Maîtriser les fleuves géants exige un empire centralisé et un fonctionnariat ultra-puissant (Despotisme hydraulique).</em></li>
+        <li><b>海商产权 (Maritime Capitalism):</b> 航运贸易需要保护私人财产和契约法，这是欧洲资本主义萌芽的地缘基础。<em class="fr">Le commerce maritime réclame des contrats (Loi) et la protection de la propriété privée (Bourgeoisie).</em></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- S10: 镜像铺垫：黄土与六边形 -->
+<div class="slide bg-dark" id="s10">
+  <div class="slide-header"><span class="lesson-tag">镜像引言 · Préambule visuel</span><span class="slide-num">8</span></div>
+  <h2 style="margin-bottom:16px;">空间图盘：法兰西六边形 vs 中国黄土<br><span style="font-size:16px;opacity:0.7;">L'Hexagone parfumé vs La Vaste Terre Jaune</span></h2>
+  
+  <div class="two-col" style="gap:30px; margin-top:10px;">
+    <!-- France -->
+    <div style="text-align:center; padding:16px; background:var(--mist); border:1px solid var(--border);">
+      <h3 style="color:var(--blue2); font-size:16px; margin-bottom:12px;">🇫🇷 L'Hexagone (法兰西六边形)</h3>
+      <p style="font-size:13px; line-height:1.7; text-align:left;">
+      法国的地形完美融合了<b>海与陆</b>的双重性格。<br>
+      西临大西洋（开放贸易、探索界限 Finistère），南接温润的地中海，东靠阿尔卑斯山。它的面积适中，拥有异常丰富的气候微生态和丰饶的土壤。<br><br>
+      这孕育了法国人对小块优质土地（<b>Terroir</b>）的极致追求（孕育了丰富的红酒和奶酪文化），以及既骄傲独立又崇尚普遍人权的海洋开放底色。
+      </p>
+    </div>
+    
+    <!-- China -->
+    <div style="text-align:center; padding:16px; background:var(--mist); border:1px solid var(--border);">
+      <h3 style="color:var(--earth2); font-size:16px; margin-bottom:12px;">🇨🇳 神州大地 (Le Vaste Continent)</h3>
+      <p style="font-size:13px; line-height:1.7; text-align:left;">
+      中国的地形是无比庞大的<b>大陆性图景</b>。<br>
+      纵深极其辽阔，气象系统统一而刚烈。这并非细碎精美的马赛克，而是一块必须用天下一统的逻辑来统御的巨大版图。<br><br>
+      它孕育了超大型的农业叙事、长城防御心理、以及极度追求集体稳定性和天人感应（<b>风水 Fengshui</b>）的大陆思维。小而美的浪漫必须让位于大范围的生存存续。
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- S11: 汉法文化镜像 & SUMMARY -->
+<div class="slide bg-culture" id="s11">
+  <div class="slide-header"><span class="lesson-tag">总镜像 · Le Grand Miroir</span><span class="slide-num">9</span></div>
+  <div class="two-col" style="gap:26px;align-items:start;">
+    
+    <!-- Mirror -->
+    <div class="mirror" style="display:flex;flex-direction:column;gap:12px;">
+      <div class="mt">土地价值观镜像 · Miroir du Sol</div>
+      
+      <div style="margin-bottom:10px;">
+        <div style="font-size:13px;color:var(--paper);font-weight:600;margin-bottom:2px;">🇫🇷 风土 (Le Terroir - Art de Vivre)</div>
+        <p style="font-size:12px;margin:0;line-height:1.5;">法国人将土地视为个性和感官享受的来源。同一山坡两边的葡萄园，因光照微差就能酿出迥异的红酒。地理是浪漫和享受（Gastronomie）。<br>
+        <em class="fr">Le sol est une identité gustative et esthétique. Célébration des micro-climats et de la jouissance de la Terre.</em></p>
+      </div>
+
+      <div>
+        <div style="font-size:13px;color:var(--paper);font-weight:600;margin-bottom:2px;">🇨🇳 风水 (Le Fengshui - Survie et Destin)</div>
+        <p style="font-size:12px;margin:0;line-height:1.5;">中国人将地理视为气运和兴衰的密码。讲究背山面水（藏风聚气）。与其说是在享受土地，不如说是怀着敬畏之心在地脉中寻找安全的庇护所。<br>
+        <em class="fr">Le sol est une géométrie vitale et cosmique (Énergies Qi). On ne cherche pas la saveur du sol, mais son asile protecteur face au chaos.</em></p>
+      </div>
+    </div>
+    
+    <!-- Summary -->
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <h3 style="color:var(--gold);font-size:14px;margin-bottom:4px;">第七课 总结 · Résumé</h3>
+      <ul style="color:var(--paper);font-size:13px;line-height:1.6;padding-left:16px;opacity:0.8;display:flex;flex-direction:column;gap:12px;">
+        <li><b>山水铸命 :</b> 亚洲大陆的封闭地形与季风阔叶林，决定了中国早熟的农业文明。</li>
+        <li><b>降雨边界 :</b> 400毫米降水线是长城的基石，气候变冷刻画了游牧与农耕的千年战争。</li>
+        <li><b>稳定与保守 :</b> 深植于泥土，催生了宗室家族、经验权威以及“安土重迁”的保守防御心态。<em class="fr">(L'agriculture a engendré stabilité, clan patriarcal et prudence).</em></li>
+        <li><b>顺应 vs 征服 :</b> 中华文明在“天人合一”中寻求和谐，而西方在海洋中学会了征服自然。</li>
+      </ul>
+    </div>
+    
+  </div>
+</div>
+
+</div><!-- /deck -->
+
+<div id="nav">
+  <button class="nb" id="pb">←</button>
+  <div class="dots" id="dots"></div>
+  <span id="sc">1 / 11</span>
+  <button class="nb" id="nb2">→</button>
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const dc = document.getElementById('dots');
+const sc = document.getElementById('sc');
+let cur = 0; const tot = slides.length;
+slides.forEach((_, i) => {
+  const d = document.createElement('div');
+  d.className = 'dot' + (i === 0 ? ' active' : '');
+  d.onclick = () => go(i);
+  dc.appendChild(d);
+});
+function go(n) {
+  slides[cur].classList.remove('active');
+  dc.children[cur].classList.remove('active');
+  cur = (n + tot) % tot;
+  slides[cur].classList.add('active');
+  dc.children[cur].classList.add('active');
+  sc.textContent = (cur + 1) + ' / ' + tot;
+}
+document.getElementById('pb').onclick = () => go(cur - 1);
+document.getElementById('nb2').onclick = () => go(cur + 1);
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') go(cur + 1);
+  if (e.key === 'ArrowLeft') go(cur - 1);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第六课 · 礼仪与社会秩序</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:#0a0807; --paper:#f5f0e8;
+  --red:#c0392b; --red2:#e05040;
+  --gold:#b89040; --gold2:#d4ad60;
+  --jade:#2e7d5a; --jade2:#5ecfa0;
+  --blue:#2a5a8a; --blue2:#80b4e0;
+  --purple:#6a3a8a; --purple2:#b070e0;
+  --bronze:#8a5a3a; --bronze2:#c08a50;
+  --mist:rgba(245,240,232,0.06);
+  --border:rgba(255,255,255,0.10);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0a0807;font-family:'Cormorant Garamond','Noto Serif SC',Georgia,serif;overflow:hidden;width:100vw;height:100vh;user-select:none;}
+#deck{width:100vw;height:100vh;position:relative;}
+.slide{position:absolute;inset:0;display:flex;flex-direction:column;padding:44px 64px 32px;opacity:0;pointer-events:none;transition:opacity 0.4s ease;overflow:hidden;}
+.slide.active{opacity:1;pointer-events:all;}
+
+.bg-void{background:radial-gradient(ellipse at 30% 40%,rgba(192,57,43,0.15) 0%,transparent 60%),radial-gradient(ellipse at 70% 60%,rgba(184,144,64,0.12) 0%,transparent 60%),#060408;}
+.bg-dark{background:#0e0c0a;}
+.bg-oracle{background:linear-gradient(135deg,#060810 0%,#0a0c18 100%);}
+.bg-empire{background:linear-gradient(135deg,#150603 0%,#200808 100%);}
+.bg-culture{background:linear-gradient(135deg,#0a0904 0%,#130f06 100%);}
+.bg-ceremony{background:linear-gradient(135deg,#0f0813 0%,#180c10 100%);}
+
+.slide-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;border-bottom:1px solid var(--border);padding-bottom:12px;}
+.lesson-tag{font-size:10px;letter-spacing:0.4em;text-transform:uppercase;color:var(--red2);opacity:0.85;}
+.slide-num{font-size:11px;color:rgba(255,255,255,0.22);letter-spacing:0.15em;}
+
+h1{font-family:'Noto Serif SC',serif;font-size:clamp(40px,6.5vw,74px);font-weight:600;color:var(--paper);line-height:1.15;letter-spacing:0.06em;}
+h2{font-family:'Noto Serif SC',serif;font-size:clamp(17px,2.5vw,30px);font-weight:400;color:var(--paper);letter-spacing:0.06em;margin-bottom:6px;}
+h3{font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--red2);opacity:0.85;margin-bottom:8px;font-weight:400;}
+p{font-size:clamp(12px,1.4vw,15px);line-height:1.8;color:rgba(245,240,232,0.75);}
+em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:30px;flex:1;align-items:start;}
+.three-col{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;flex:1;align-items:start;}
+
+.card{background:var(--mist);border:1px solid var(--border);padding:14px 16px;position:relative;border-radius:2px;}
+.card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;}
+.card.red::before{background:var(--red);} .card.gold::before{background:var(--gold);}
+.card.jade::before{background:var(--jade);} .card.blue::before{background:var(--blue);}
+.card.purple::before{background:var(--purple);} .card.bronze::before{background:var(--bronze);}
+
+.picto{background:rgba(0,0,0,0.5);border:1px solid rgba(192,57,43,0.2);display:flex;align-items:center;justify-content:center;padding:8px;border-radius:2px;}
+.badge-ok{display:inline-flex;align-items:center;gap:5px;background:rgba(192,57,43,0.15);border:1px solid rgba(192,57,43,0.3);padding:3px 9px;border-radius:10px;font-size:10px;color:var(--red2);letter-spacing:0.1em;}
+
+#nav{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;z-index:100;}
+.nb{width:34px;height:34px;border:1px solid rgba(255,255,255,0.14);background:rgba(0,0,0,0.55);color:rgba(255,255,255,0.55);border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+.nb:hover{border-color:var(--red2);color:var(--red2);}
+#sc{font-size:11px;color:rgba(255,255,255,0.28);letter-spacing:0.12em;min-width:44px;text-align:center;}
+.dots{display:flex;gap:4px;}
+.dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.18);cursor:pointer;transition:all 0.2s;}
+.dot.active{background:var(--red2);width:14px;border-radius:3px;}
+
+.quote { border-left: 3px solid var(--red); padding-left: 16px; margin: 10px 0; }
+.quote .zh { font-family: 'Noto Serif SC', serif; font-size: 16px; color: var(--paper); margin-bottom: 4px; }
+.quote .src { font-style: italic; font-size: 11px; color: rgba(245,240,232,0.5); }
+.mirror { border-left:3px solid var(--gold); padding-left:14px; background:var(--mist); padding-top:10px; padding-bottom:10px; padding-right:10px; }
+.mirror .mt { font-weight:bold; color:var(--gold2); font-size:14px; margin-bottom:4px; }
+
+ul.styled { padding-left:16px; font-size:13px; color:rgba(255,255,255,0.7); line-height:1.6; }
+ul.styled li { margin-bottom: 8px; }
+ul.styled b { color:var(--paper); }
+</style>
+</head>
+<body>
+<div id="deck">
+
+<!-- S1: COVER -->
+<div class="slide bg-void active" id="s1">
+  <div style="flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:16px;position:relative;">
+    <div style="position:absolute;font-family:'Noto Serif SC',serif;font-size:340px;color:rgba(192,57,43,0.06);pointer-events:none;line-height:1;top:50%;left:50%;transform:translate(-50%,-50%);">礼</div>
+    <div style="font-size:12px;letter-spacing:0.5em;color:var(--red2);opacity:0.8;text-transform:uppercase;z-index:1;">第六课 · Leçon VI · Lesson 6</div>
+    <h1 style="font-size:clamp(38px,5.5vw,66px);z-index:1;">礼仪与社会秩序</h1>
+    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,2.2vw,28px);color:rgba(245,240,232,0.6);z-index:1;">Étiquette, Rites et Ordre Social</div>
+    <div style="display:flex;gap:28px;margin-top:20px;z-index:1;">
+      <div style="text-align:center;"><div style="font-size:10px;letter-spacing:0.2em;color:rgba(255,255,255,0.3);text-transform:uppercase;margin-bottom:3px;">核心文字 · Caractères</div><div style="font-size:13px;color:rgba(245,240,232,0.7);">礼 · 仁 · 义 · 敬 · 拜</div></div>
+      <div style="width:1px;background:rgba(255,255,255,0.15);"></div>
+      <div style="text-align:center;"><div style="font-size:10px;letter-spacing:0.2em;color:rgba(255,255,255,0.3);text-transform:uppercase;margin-bottom:3px;">主线 · Fil directeur</div><div style="font-size:13px;color:rgba(245,240,232,0.7);">祭祀起源 → 儒家规范 → 人生礼仪</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- S2: ROADMAP -->
+<div class="slide bg-dark" id="s2">
+  <div class="slide-header"><span class="lesson-tag">第六课 · Leçon VI</span><span class="slide-num">导览 · Plan</span></div>
+  <h2 style="margin-bottom:18px;">本课路线图 · Plan du cours<br><span style="font-size:14px;opacity:0.7;">Le "Li" comme tissu de la civilisation chinoise</span></h2>
+  <div class="three-col" style="gap:20px;">
+    <div class="card red">
+      <div class="tag" style="font-size:10px;color:var(--red2);margin-bottom:4px;">第一部分 · Partie 1</div>
+      <h3 style="color:var(--paper);font-size:16px;text-transform:none;">“礼”的抽象与五礼体系</h3>
+      <p style="font-size:12px;margin-bottom:4px;">从神灵崇拜到儒家的道德规范，五礼体系构建了中国古代的宏大秩序。</p>
+      <em class="fr" style="font-size:11px;">Des sacrifices religieux à l'éthique confucéenne : le système des Cinq Rites.</em>
+    </div>
+    <div class="card gold">
+      <div class="tag" style="font-size:10px;color:var(--gold2);margin-bottom:4px;">第二部分 · Partie 2</div>
+      <h3 style="color:var(--paper);font-size:16px;text-transform:none;">日常规矩：见面与饮食</h3>
+      <p style="font-size:12px;margin-bottom:4px;">拱手礼、揖让、尊卑秩序与餐桌上的“让”的哲学（八分满与公筷）。</p>
+      <em class="fr" style="font-size:11px;">L'étiquette du quotidien : Salutations, prosternations et arts de la table.</em>
+    </div>
+    <div class="card blue">
+      <div class="tag" style="font-size:10px;color:var(--blue2);margin-bottom:4px;">第三部分 · Partie 3</div>
+      <h3 style="color:var(--paper);font-size:16px;text-transform:none;">生命的仪轨：婚丧与成年</h3>
+      <p style="font-size:12px;margin-bottom:4px;">及笄与加冠，家族婚嫁观念，以及对“个人真爱 vs 家族责任”的反思。</p>
+      <em class="fr" style="font-size:11px;">Les rites de passage : Majorité, mariage et culte des ancêtres. Miroir avec la France.</em>
+    </div>
+  </div>
+</div>
+
+<!-- S3: 核心甲骨文 -->
+<div class="slide bg-ceremony" id="s3">
+  <div class="slide-header"><span class="lesson-tag">文字之源 · Étymologie religieuse</span><span class="slide-num">1</span></div>
+  
+  <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:16px; margin-bottom:16px;">
+    <!-- 礼 -->
+    <div class="card red" style="padding:12px;">
+      <div style="display:flex;gap:12px;align-items:center;">
+        <div class="picto" style="width:60px;height:60px;"><svg viewBox="0 0 100 100" stroke="var(--red2)" stroke-width="4" stroke-linecap="round" fill="none"><path d="M20,60 L80,60 M30,60 L30,90 M70,60 L70,90 M25,40 L75,40 M40,20 L40,40 M60,20 L60,40 M30,30 L70,30" /><circle cx="40" cy="15" r="5"/><circle cx="60" cy="15" r="5"/></svg></div>
+        <div>
+          <h3 style="font-size:16px;color:var(--paper);margin:0;text-transform:none;">礼 (Lǐ) - <i>Le Rite</i></h3>
+          <p style="font-size:11px;line-height:1.3;margin-top:4px;">象形：在“豆”（容器）中装满两串玉祭祀神明。<br><em class="fr">Offrande de jade dans un vase pour les dieux.</em></p>
+        </div>
+      </div>
+    </div>
+    <!-- 仁 -->
+    <div class="card gold" style="padding:12px;">
+      <div style="display:flex;gap:12px;align-items:center;">
+        <div class="picto" style="width:60px;height:60px;"><svg viewBox="0 0 100 100" stroke="var(--gold2)" stroke-width="4" stroke-linecap="round" fill="none"><path d="M30,20 L30,40 L15,60 M30,40 L45,80 M65,40 L90,40 M65,60 L90,60" /></svg></div>
+        <div>
+          <h3 style="font-size:16px;color:var(--paper);margin:0;text-transform:none;">仁 (Rén) - <i>L'Humanité</i></h3>
+          <p style="font-size:11px;line-height:1.3;margin-top:4px;">“人”加上“二”，代表两人之间理想的关系。<br><em class="fr">Une personne (人) + deux (二) : La relation harmonieuse entre deux êtres.</em></p>
+        </div>
+      </div>
+    </div>
+    <!-- 义 -->
+    <div class="card bronze" style="padding:12px;">
+      <div style="display:flex;gap:12px;align-items:center;">
+        <div class="picto" style="width:60px;height:60px;"><svg viewBox="0 0 100 100" stroke="var(--bronze2)" stroke-width="4" stroke-linecap="round" fill="none"><path d="M50,15 L50,45 M30,10 L50,25 M70,10 L50,25 M20,35 L80,35 M25,45 L75,45 M50,45 L50,90 M30,65 L50,55 M70,65 L50,55 L80,90" /></svg></div>
+        <div>
+          <h3 style="font-size:16px;color:var(--paper);margin:0;text-transform:none;">义 (Yì) - <i>La Justice</i></h3>
+          <p style="font-size:11px;line-height:1.3;margin-top:4px;">上“羊”（美善），下“我”（带齿兵器）。捍卫良善的威仪。<br><em class="fr">Le Mouton (bonté) soutenu par la hallebarde (force morale).</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div style="display:grid; grid-template-columns: repeat(2, 1fr); gap:16px;">
+    <!-- 敬 -->
+    <div class="card blue" style="padding:12px;">
+      <div style="display:flex;gap:12px;align-items:center;">
+        <div class="picto" style="width:60px;height:60px;"><svg viewBox="0 0 100 100" stroke="var(--blue2)" stroke-width="4" stroke-linecap="round" fill="none"><path d="M30,20 L30,50 L15,80 M30,50 L45,80 M20,10 L30,20 M40,10 L30,20 M70,30 L60,80 M90,55 L75,60" /></svg></div>
+        <div>
+          <h3 style="font-size:16px;color:var(--paper);margin:0;text-transform:none;">敬 (Jìng) - <i>Le Respect</i></h3>
+          <p style="font-size:11px;line-height:1.3;margin-top:4px;">左侧是“苟”（警惕的狗），右侧是手拿棍棒保持戒备。<br><em class="fr">Un chien vigilant et une main : l'attitude de précaution et de respect profond.</em></p>
+        </div>
+      </div>
+    </div>
+    <!-- 拜 -->
+    <div class="card jade" style="padding:12px;">
+      <div style="display:flex;gap:12px;align-items:center;">
+        <div class="picto" style="width:60px;height:60px;"><svg viewBox="0 0 100 100" stroke="var(--jade2)" stroke-width="4" stroke-linecap="round" fill="none"><path d="M40,20 L50,40 M50,40 L40,80 M50,40 L30,60 M60,20 L50,40 M60,80 L70,60" /></svg></div>
+        <div>
+          <h3 style="font-size:16px;color:var(--paper);margin:0;text-transform:none;">拜 (Bài) - <i>La Prosternation</i></h3>
+          <p style="font-size:11px;line-height:1.3;margin-top:4px;">两手下垂并拢低头之形，表达极度恭敬的姿态。<br><em class="fr">Deux mains s'abaissant vers le sol, un salut solennel.</em></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S4: 礼的起源与哲学抽象 -->
+<div class="slide bg-dark" id="s4">
+  <div class="slide-header"><span class="lesson-tag">思想史核心 · Philosophie de l'Ordre</span><span class="slide-num">2</span></div>
+  <div class="two-col">
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <h2 style="margin-bottom:0;">从“祀神”到“做人”<br><span style="font-size:16px;opacity:0.7;">Du culte des esprits à l'art d'être humain</span></h2>
+      <p>在中国古代，“礼”最初是先民向天地鬼神求福的<b>宗教祭祀仪式</b>。随着周朝建立，周公“制礼作乐”，将神圣的祭祀规范转化为人间的<b>政治与社会规范</b>。<br>
+      <em class="fr">À l'origine chamanique (offrandes aux dieux), le "Li" est laïcisé sous les Zhou en un immense système de normes sociales et politiques.</em></p>
+      
+      <div class="quote">
+        <div class="zh">“克己复礼为仁...非礼勿视，非礼勿听，非礼勿言，非礼勿动。”</div>
+        <div class="src">——《论语》 (Les Entretiens de Confucius)</div>
+      </div>
+      <p style="font-size:13px;opacity:0.8;">孔子认为，“仁”（内心之爱）必须通过“礼”（外在规范）来表达和约束。<b>礼是文明与野蛮的分界线。</b><em class="fr"><br>Le "Li" (Rites extérieurs) canalise le "Ren" (Bienveillance intérieure). La politesse n'est pas superficielle, elle est ce qui nous sauve de la barbarie.</em></p>
+    </div>
+    <div class="card red" style="background:rgba(192,57,43,0.1); border:none; padding:24px;">
+       <h3 style="color:var(--red2); font-size:16px; text-transform:none; margin-bottom:12px;">中西对比：礼 (Li) vs Lois (Law)</h3>
+       <p style="font-size:13px; color:rgba(255,255,255,0.8); line-height:1.7;">
+       在西方思想史中，社会的最高秩序往往由<b>神法或契约法律 (Contrat social)</b> 来维系。而中国古代维持社会运转的核心是<b>“礼”</b>。<br><br>
+       法律是事后的惩罚 (Punition a posteriori)，而礼是事前的防范与心理规训 (Prévention et discipline intérieure)。<br>
+       <em class="fr">L'Occident structure la société par la Loi (Rome) et le Contrat. La Chine ancienne se structure par le Rite. La loi punit, le rite prévient en façonnant l'âme.</em>
+       </p>
+    </div>
+  </div>
+</div>
+
+<!-- S5: 五礼体系 -->
+<div class="slide bg-empire" id="s5">
+  <div class="slide-header"><span class="lesson-tag">大清百科 · Les Cinq Rites (Wu Li)</span><span class="slide-num">3</span></div>
+  <h2 style="margin-bottom:16px;">《周礼》：包裹世间万物的分类学<br><span style="font-size:16px;opacity:0.7;">Le système universel des Cinq Rites Maternels</span></h2>
+  <p style="margin-bottom:16px; max-width:800px;">中国古人将人类生活的一切重要活动，精准地划分为系统化的“五礼”。<br><em class="fr">La vie humaine entière, du culte impérial aux repas, est catégorisée en 5 familles rituelles.</em></p>
+  
+  <div style="display:flex; flex-direction:column; gap:12px;">
+    <!-- 1 -->
+    <div style="display:flex; gap:16px; align-items:flex-start; border-bottom:1px solid var(--border); padding-bottom:10px;">
+      <div style="width:40px; height:40px; background:var(--red); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Noto Serif SC',serif; font-size:20px; font-weight:bold; flex-shrink:0;">吉</div>
+      <div>
+        <h3 style="margin:0; color:var(--red2); font-size:14px;">吉礼 (Auspicious Rites / Sacrifices)</h3>
+        <p style="font-size:13px; margin-top:2px;">等级最高的礼仪。祭祀天神、地祗、人鬼（祖先）。<em class="fr">Rites sacrificiels (Ciel, Terre, Ancêtres).</em></p>
+      </div>
+    </div>
+    <!-- 2 -->
+    <div style="display:flex; gap:16px; align-items:flex-start; border-bottom:1px solid var(--border); padding-bottom:10px;">
+      <div style="width:40px; height:40px; background:var(--ink); border:1px solid var(--border); color:#ccc; display:flex; align-items:center; justify-content:center; font-family:'Noto Serif SC',serif; font-size:20px; font-weight:bold; flex-shrink:0;">凶</div>
+      <div>
+        <h3 style="margin:0; color:#aaa; font-size:14px;">凶礼 (Inauspicious Rites / Mourning)</h3>
+        <p style="font-size:13px; margin-top:2px; color:rgba(255,255,255,0.6);">哀悼死亡与灾祸。丧葬、恤荒（赈灾）。<em class="fr">Rites funéraires et de deuil. Gestes lors de famines.</em></p>
+      </div>
+    </div>
+    <!-- 3 -->
+    <div style="display:flex; gap:16px; align-items:flex-start; border-bottom:1px solid var(--border); padding-bottom:10px;">
+      <div style="width:40px; height:40px; background:var(--blue); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Noto Serif SC',serif; font-size:20px; font-weight:bold; flex-shrink:0;">宾</div>
+      <div>
+        <h3 style="margin:0; color:var(--blue2); font-size:14px;">宾礼 (Guest Rites / Diplomacy)</h3>
+        <p style="font-size:13px; margin-top:2px;">诸侯朝见天子，以及国与国之间的外交礼节。<em class="fr">Diplomatie, réception d'ambassadeurs et d'hôtes étrangers.</em></p>
+      </div>
+    </div>
+    <!-- 4 -->
+    <div style="display:flex; gap:16px; align-items:flex-start; border-bottom:1px solid var(--border); padding-bottom:10px;">
+      <div style="width:40px; height:40px; background:var(--bronze); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Noto Serif SC',serif; font-size:20px; font-weight:bold; flex-shrink:0;">军</div>
+      <div>
+        <h3 style="margin:0; color:var(--bronze2); font-size:14px;">军礼 (Military Rites)</h3>
+        <p style="font-size:13px; margin-top:2px;">军队出征、凯旋、阅兵、田猎之礼。<em class="fr">Rites martiaux : Départs en guerre, triomphes, parades.</em></p>
+      </div>
+    </div>
+    <!-- 5 -->
+    <div style="display:flex; gap:16px; align-items:flex-start;">
+      <div style="width:40px; height:40px; background:var(--gold); color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Noto Serif SC',serif; font-size:20px; font-weight:bold; flex-shrink:0;">嘉</div>
+      <div>
+        <h3 style="margin:0; color:var(--gold2); font-size:14px;">嘉礼 (Festive Rites)</h3>
+        <p style="font-size:13px; margin-top:2px;">亲善和谐。涵盖饮食、婚冠（成年礼）、宾射及节庆。<em class="fr">Rites de réjouissance : Mariages, majorité, banquets rituels.</em></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S6: 见面与姿态 -->
+<div class="slide bg-dark" id="s6">
+  <div class="slide-header"><span class="lesson-tag">日常礼仪 I · Salut et Posture</span><span class="slide-num">4</span></div>
+  <h2 style="margin-bottom:16px;">君子的物理空间：见面与跪拜<br><span style="font-size:16px;opacity:0.7;">Gestion de la distance corporelle : Saluer sans toucher</span></h2>
+  <div class="two-col" style="gap:40px;">
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <p>古代中国人见面<b>避免肢体接触</b>，以维持尊重和界限感（与西方握手、亲吻截然不同）。<br>
+      <em class="fr">Historiquement, la Chine évite le contact physique (poignée de main/bise) pour marquer la sacralité de l'espace personnel.</em></p>
+      
+      <div class="card jade">
+        <h3 style="color:var(--jade2);margin-bottom:4px;">拱手礼 (Gongshou) - Salutation poings joints</h3>
+        <ul class="styled">
+          <li><b>男子：</b>右手握拳在内，左手舒展包在外。因左为阳，代表吉善；右为阴，拿武器代表杀气。<br><em class="fr">Hommes : Main gauche (vie) couvre le poing droit (arme).</em></li>
+          <li><b>女子：</b>与男子相反，右手压左手。<br><em class="fr">Femmes : Main droite couvre la gauche.</em></li>
+          <li><b>凶服 (Deuil) :</b> 参加丧礼时，手势恰好反转。<em class="fr">Gestes inversés pour les funérailles.</em></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div class="card bronze">
+        <h3 style="color:var(--bronze2);margin-bottom:4px;">揖让礼 (Yi/Rang) - Le salut silencieux</h3>
+        <p style="font-size:12px;margin-bottom:4px;">推手为揖，古代宾主相见的高级礼仪。手随腰向下弯然后再抬起，姿态优雅舒缓。<em class="fr"><br>S'incliner en poussant les mains jointes en avant.</em></p>
+      </div>
+      
+      <div class="card red">
+        <h3 style="color:var(--red2);margin-bottom:4px;">跪拜礼 (Guibai) - La Prosternation</h3>
+        <p style="font-size:12px;margin-bottom:4px;">最隆重的礼节。体现极其严格的尊卑分明：天子受臣下之拜，父母受晚辈之拜。在古代神权社会，下跪意味着完全的臣服与感激。<br>
+        <em class="fr">Acte solennel réservé à l'Empereur, aux Cieux et aux Parents. Marquait l'humilité absolue dans la hiérarchie verticale confucéenne.</em></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S7: 饮食礼仪 -->
+<div class="slide bg-culture" id="s7">
+  <div class="slide-header"><span class="lesson-tag">日常礼仪 II · Arts de la Table</span><span class="slide-num">5</span></div>
+  <div class="two-col" style="gap:26px;">
+    <div style="display:flex;flex-direction:column;gap:14px;">
+      <h2 style="font-size:26px;margin-bottom:0;">舌尖上的尊卑与“让”<br><span style="font-size:14px;opacity:0.7;">Hiérarchie et Philosophie de la Modération à table</span></h2>
+      <p>中国的饮食礼仪本质是“社会权力”缩影。<br><em class="fr">La table chinoise est une miniature de la société politique et familiale.</em></p>
+      
+      <ul class="styled">
+        <li><b>尊长优先 (Aînés d'abord) :</b> 长辈未动筷，晚辈绝不能先食。<em class="fr">Les jeunes ne mangent qu'après l'aîné ou l'invité d'honneur.</em></li>
+        <li><b>坐次讲究 (Plan de table royal) :</b> 正对大门或朝东的位置为主座 (尊座)。<em class="fr">La place d'honneur fait face à la porte (ou face au sud/est).</em></li>
+        <li><b>用公筷 (Baguettes communes) :</b> 合餐制中的卫生与礼貌，为客人夹菜表达热情 (劝膳)。<em class="fr">Utilisation de baguettes de service pour l'hygiène et l'hospitalité (servir l'autre).</em></li>
+      </ul>
+    </div>
+    
+    <div style="background:var(--mist);padding:24px;border:1px solid var(--border);border-radius:2px;display:flex;flex-direction:column;gap:16px;">
+      <h3 style="color:var(--gold2);font-size:15px;text-transform:none;">“茶七酒八” 的适度哲学</h3>
+      <p style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.7;">
+      <b>斟茶七分，斟酒八分。</b><br>
+      倒茶太满容易烫手，被视为“赶客”。<br>
+      倒酒太满则容易溢出。这背后是中国哲学中<b>“满招损，谦受益” (Le trop plein attire la ruine)</b> 的中庸思想。绝不追求极致的盈满，必须留有余地（留白）。<br><br>
+      <em class="fr">"Thé rempli à 70%, Vin à 80%".<br>Le thé bouillant versé à ras bord brûle et signale qu'on veut chasser l'invité. Sur le plan philosophique, rechercher le 100% (la plénitude absolue) annonce le déclin. La politesse, c'est laisser de la marge (la Voie du Milieu).</em>
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- S8: 人生礼仪 I: 成年礼 -->
+<div class="slide bg-dark" id="s8">
+  <div class="slide-header"><span class="lesson-tag">人生仪轨 I · Rites de Passage</span><span class="slide-num">6</span></div>
+  <h2 style="margin-bottom:12px;">成人之美：告别童年<br><span style="font-size:16px;opacity:0.7;">Acquérir sa liberté en endossant ses devoirs</span></h2>
+  
+  <div class="two-col" style="gap:26px;">
+    <div class="card blue">
+      <h3 style="color:var(--blue2);font-size:16px;">男子：加冠礼 (Jiā Guān)</h3>
+      <p style="font-size:13px;line-height:1.6;margin-bottom:8px;">古代男子满 20岁（“弱冠”）时举行。宗族长辈会在太庙前，三次为他加盖不同级别、更为庄重的帽子，象征他获得了参军、祭祀、治人的政治权利与道德责任。</p>
+      <div style="display:flex;gap:10px;margin-bottom:8px;">
+        <span class="badge-ok" style="background:var(--ink);color:var(--blue2);border-color:var(--blue);">20 岁</span>
+        <span class="badge-ok" style="background:var(--ink);color:var(--blue2);border-color:var(--blue);">宗族继承</span>
+      </div>
+      <em class="fr" style="font-size:12px;">Cérémonie de "Prise du Chapeau". À 20 ans, le jeune noble passe 3 coiffes successives marquant son entrée dans la vie civique, militaire et spirituelle.</em>
+    </div>
+
+    <div class="card purple">
+      <h3 style="color:var(--purple2);font-size:16px;">女子：及笄礼 (Jí Jī)</h3>
+      <p style="font-size:13px;line-height:1.6;margin-bottom:8px;">古代女子满 15岁时举行。将头发盘成发髻，插上簪子（笄）。这标志着她已经成年，可以许配人家、出嫁为人妻子与母亲。</p>
+      <div style="display:flex;gap:10px;margin-bottom:8px;">
+        <span class="badge-ok" style="background:var(--ink);color:var(--purple2);border-color:var(--purple);">15 岁</span>
+        <span class="badge-ok" style="background:var(--ink);color:var(--purple2);border-color:var(--purple);">适婚年龄</span>
+      </div>
+      <em class="fr" style="font-size:12px;">Cérémonie de l'"Épingle à cheveux". À 15 ans, la jeune fille noue ses cheveux en chignon. Elle est déclarée publiquement nubile (prête au mariage et aux responsabilités maternelles).</em>
+    </div>
+  </div>
+</div>
+
+<!-- S9: 婚嫁与家祭 (Love vs Duty) -->
+<div class="slide bg-ceremony" id="s9">
+  <div class="slide-header"><span class="lesson-tag">人生仪轨 II · Mariage & Ancêtres</span><span class="slide-num">7</span></div>
+  <div class="two-col" style="gap:26px;">
+    <!-- 婚嫁 -->
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <h2 style="font-size:24px;margin-bottom:0;">婚嫁：两姓之好<br><span style="font-size:14px;opacity:0.7;">Mariage : Alliance sacrée de deux familles</span></h2>
+      <p style="font-size:13px;">传统婚姻的核心不是个人的浪漫爱情，而是家族利益与延续。程序繁峻（六礼），极其看重<b>“父母之命、媒妁之言”</b>。<em class="fr"> (Les ordres des parents et les paroles de l'entremetteuse priment).</em></p>
+      
+      <div class="card red" style="padding:16px; margin-top:4px;">
+        <h3 style="color:var(--paper);font-size:14px;text-transform:none;">Q: 中国古人有真爱吗？(Y a-t-il un "vrai amour" dans la tradition ?)</h3>
+        <p style="font-size:12px;margin:0;line-height:1.6;">古代认为，炽烈的激情（Passion）容易失控毁灭秩序。因此推崇<b>先婚后爱</b>，将“恩”与“义”置于前。<br><br>
+        最理想的异性关系是<b>“相敬如宾”</b>（伴侣互相尊重如同贵客）。在责任和长久的陪伴中培育出的温和深情 (Qing/affection)，才是真爱。<br>
+        <em class="fr">L'amour passionnel précède le mariage en Occident; en Chine, l'affection (Qing/恩) se cultive à l'intérieur du devoir. Le couple idéal se respecte avec l'élégance due à des invités solennels.</em></p>
+      </div>
+    </div>
+    
+    <!-- 家祭 -->
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <h2 style="font-size:24px;margin-bottom:0;">家祭：跨越生死的连接<br><span style="font-size:14px;opacity:0.7;">Culte familial et Temple Ancestral</span></h2>
+      <p style="font-size:13px;">通过祭祀，死亡不是终结而是祖先神格化的开始。子孙在宗庙中供奉牌位，共享祭肉（胙）。<br>
+      <em class="fr">La mort n'est pas une rupture. Le défunt entre au Temple Ancestral où ses descendants le nourrissent et où il les protège.</em></p>
+      
+      <div class="quote" style="border-left-color:var(--gold);">
+        <div class="zh">“事死如事生，事亡如事存，孝之至也。”</div>
+        <div class="src">——《中庸》</div>
+      </div>
+      <p style="font-size:12px; opacity:0.8;">“Servir les morts et les disparus avec autant de respect que s'ils étaient vivants et présents, voilà la Piété Filiale suprême.”</p>
+    </div>
+  </div>
+</div>
+
+<!-- S10: 镜像铺垫：距离与礼让的哲学 -->
+<div class="slide bg-dark" id="s10">
+  <div class="slide-header"><span class="lesson-tag">文化比较引言 · Préambule comparatif</span><span class="slide-num">8</span></div>
+  <h2 style="margin-bottom:12px;">中西文明的“空间与接触”法则<br><span style="font-size:16px;opacity:0.7;">Distance vs Contact dans la géométrie de la courtoisie</span></h2>
+  
+  <div class="two-col" style="gap:30px; margin-top:20px;">
+    <!-- West -->
+    <div style="text-align:center; padding-top:10px;">
+      <h3 style="color:var(--blue2); font-size:18px;">🇫🇷 物理接触与平等信赖</h3>
+      <p style="font-size:13px; line-height:1.7; text-align:left; margin-top:12px;">
+      西方礼仪（如握手、法式贴面礼 La Bise、拥抱）本质上是通过<b>“打破物理边界”</b>来展示和平与信赖（“我手中没有武器”，我们可以亲密接触）。<br><br>
+      骑士精神 (Chevalerie) 与后来的宫廷礼仪 (Galanterie) 强调对弱者/女性的殷勤侍奉，其表现方式具有高度的表演性、个体性与外放张力。
+      </p>
+      <p style="font-size:12px; text-align:left; color:rgba(255,255,255,0.5); font-style:italic;">
+      L'Occident pacifie en brisant l'espace personnel (ex: tendre sa main vide de lame, La Bise). La Galanterie met en scène l'individu dans un jeu social extraverti et d'attention séductionnelle.
+      </p>
+    </div>
+    
+    <!-- East -->
+    <div style="text-align:center; border-left:1px solid var(--border); padding-left:30px; padding-top:10px;">
+      <h3 style="color:var(--jade2); font-size:18px;">🇨🇳 保持距离的敬意之美</h3>
+      <p style="font-size:13px; line-height:1.7; text-align:left; margin-top:12px;">
+      中国礼仪（如拱手、作揖）本质上是通过<b>“克制与保持庄严距离”</b>来展示敬畏与秩序。君子的交往是淡如水的。<br><br>
+      儒家礼仪并不为了浪漫或表演而存在，而是为了约束个体的欲望，把人安放在家庭/社会的正确网络坐标里（非礼勿动）。在情感表达上尤为内敛（含蓄）。
+      </p>
+      <p style="font-size:12px; text-align:left; color:rgba(255,255,255,0.5); font-style:italic;">
+      La Chine pacifie en maintenant une sainte distance (Gongshou). L'eau est la métaphore de l'amitié des nobles : pure et sans passion violente. Le Rite contient l'ego.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- S11: 汉法文化镜像 & SUMMARY -->
+<div class="slide bg-culture" id="s11">
+  <div class="slide-header"><span class="lesson-tag">文化镜像 · Miroir franco-chinois</span><span class="slide-num">9</span></div>
+  <div class="two-col" style="gap:26px;align-items:start;">
+    
+    <!-- Mirror -->
+    <div class="mirror" style="display:flex;flex-direction:column;gap:12px;">
+      <div class="mt">汉法餐桌镜像 · Miroir de la Table</div>
+      
+      <div style="margin-bottom:10px;">
+        <div style="font-size:13px;color:var(--paper);font-weight:600;margin-bottom:2px;">🇫🇷 法式分餐 (L'individualisme au repas)</div>
+        <p style="font-size:12px;margin:0;line-height:1.5;">法式大餐 (Repas gastronomique) 使用精确复杂的刀叉工具，强调按阶段的个体享受。每个人拥有自己的餐盘，彼此互不侵犯边界。<br>
+        <em class="fr">Service à l'assiette, précision chirurgicale des couverts. L'individualité est sacrée : "mon assiette, ma portion".</em></p>
+      </div>
+
+      <div>
+        <div style="font-size:13px;color:var(--paper);font-weight:600;margin-bottom:2px;">🇨🇳 中式合餐 (Le partage collectiviste)</div>
+        <p style="font-size:12px;margin:0;line-height:1.5;">中国的大圆桌和共享菜肴，强调家庭或集体的凝聚力（团圆）。使用公筷夹菜（谦让/奉献），弱化个体的占有界限。<br>
+        <em class="fr">Table ronde, plats partagés. Les baguettes abolissent la frontière individuelle pour faire triompher l'Harmonie collective et la générosité mutuelle.</em></p>
+      </div>
+    </div>
+    
+    <!-- Summary -->
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <h3 style="color:var(--gold);font-size:14px;margin-bottom:4px;">第六课 总结 · Résumé</h3>
+      <ul style="color:var(--paper);font-size:13px;line-height:1.6;padding-left:16px;opacity:0.8;display:flex;flex-direction:column;gap:12px;">
+        <li><b>人神之约 :</b> “礼”脱胎于甲骨卜辞中的祭祀，被周孔确立为人伦纲常的法则。</li>
+        <li><b>分寸如水 :</b> 拱手礼、茶七分满，皆是对“中庸”、“不越界”哲学的实践。<em class="fr">(Pratique de la retenue corporelle et de la modération).</em></li>
+        <li><b>大局至上 :</b> 婚姻并非始于激情（Désir），而是终于深刻的家庭道义（Devoir et piété filiale）。</li>
+        <li><b>天下一理 :</b> 法国有浪漫规矩，中国有严谨纲常；两者殊途同归，都在通过仪式抵抗丛林法则，构筑文明大厦。</li>
+      </ul>
+    </div>
+    
+  </div>
+</div>
+
+</div><!-- /deck -->
+
+<div id="nav">
+  <button class="nb" id="pb">←</button>
+  <div class="dots" id="dots"></div>
+  <span id="sc">1 / 11</span>
+  <button class="nb" id="nb2">→</button>
+</div>
+
+<script>
+const slides = document.querySelectorAll('.slide');
+const dc = document.getElementById('dots');
+const sc = document.getElementById('sc');
+let cur = 0; const tot = slides.length;
+slides.forEach((_, i) => {
+  const d = document.createElement('div');
+  d.className = 'dot' + (i === 0 ? ' active' : '');
+  d.onclick = () => go(i);
+  dc.appendChild(d);
+});
+function go(n) {
+  slides[cur].classList.remove('active');
+  dc.children[cur].classList.remove('active');
+  cur = (n + tot) % tot;
+  slides[cur].classList.add('active');
+  dc.children[cur].classList.add('active');
+  sc.textContent = (cur + 1) + ' / ' + tot;
+}
+document.getElementById('pb').onclick = () => go(cur - 1);
+document.getElementById('nb2').onclick = () => go(cur + 1);
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ') go(cur + 1);
+  if (e.key === 'ArrowLeft') go(cur - 1);
+});
+</script>
+</body>
+</html>
