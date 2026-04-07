@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
 <title>第九课：建筑 · L'Architecture</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
 :root {
   --ink:#0a0807; --paper:#f5f0e8;
-  --red:#c0392b; --red2:#e05040;
+  --red:#e85d4f; --red2:#ff8575;
   --gold:#b89040; --gold2:#d4ad60;
   --jade:#2e7d5a; --jade2:#5ecfa0;
   --blue:#2a5a8a; --blue2:#80b4e0;
@@ -77,6 +78,12 @@ h2.red, h2.gold, h2.brown, h2.blue, h2.bamboo, h2.leaf-grn { margin-top:0; margi
 .dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.18);cursor:pointer;transition:all 0.2s;}
 .dot.active{background:var(--gold);width:14px;border-radius:3px;}
 
+.en-note{color:rgba(245,240,232,0.42);font-size:10.5px;line-height:1.65;margin-top:5px;display:block;}
+.bg-close{background:linear-gradient(135deg,#080a0e 0%,#0e1018 100%);}
+.timeline{border-left:2px solid var(--border);padding-left:18px;position:relative;}
+.tl-item{position:relative;margin-bottom:14px;}
+.tl-dot{position:absolute;left:-23px;top:4px;width:8px;height:8px;border-radius:50%;background:var(--gold);}
+.tl-date{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold2);margin-bottom:2px;}
 /* Hide 11/12 specific controls completely as we add our own */
 .controls { display: none !important; }
 .cover h1 { text-align: center; width: 100%; display: block; margin-top:20px; }
@@ -94,8 +101,10 @@ h2.red, h2.gold, h2.brown, h2.blue, h2.bamboo, h2.leaf-grn { margin-top:0; margi
     <div class="seal">建</div>
     <h1>第九课：建筑 —— 木石之间与礼制空间</h1>
     <h3 class="brown" style="margin-top:20px; font-family: var(--font-fr);">Leçon IX : L'Architecture — Bois, Pierre et Ordre Spatial</h3>
-    <div style="width: 80px; height: 1px; background: var(--ink); margin: 40px auto;"></div>
-    <p style="font-size:18px; color:#666; letter-spacing:4px; text-transform:uppercase;">Université du Luxembourg · 文化对比系列</p>
+    <p style="font-size:16px;color:rgba(245,240,232,0.32);margin-top:10px;letter-spacing:.06em;">Lesson 9: Architecture — Wood, Stone, and Spatial Order</p>
+    <p style="font-size:13px;color:rgba(245,240,232,0.25);margin-top:6px;letter-spacing:.04em;">The structural manifestation of Confucian hierarchy and Daoist freedom.</p>
+    <div style="width: 80px; height: 1px; background: var(--paper); margin: 40px auto; opacity: 0.3;"></div>
+    <p style="font-size:18px; color:rgba(255,255,255,0.6); letter-spacing:4px; text-transform:uppercase;">Université du Luxembourg · 文化对比系列</p>
   </div>
 
   <!-- ================= PAGE 2: CORE SVGs ================= -->
@@ -107,140 +116,219 @@ h2.red, h2.gold, h2.brown, h2.blue, h2.bamboo, h2.leaf-grn { margin-top:0; margi
       <div class="card" style="align-items:center; text-align:center; padding:20px 10px;">
         <div class="picto">
           <!-- 宫: Roof with two connected rooms under -->
-          <svg viewBox="0 0 100 100">
-            <path d="M50 15 L15 35 L85 35 Z" fill="rgba(107, 68, 35, 0.1)"/>
-            <path d="M25 35 L25 85 L75 85 L75 35 M25 60 L75 60" />
-            <circle cx="50" cy="48" r="4" fill="var(--ink)" />
-            <circle cx="50" cy="72" r="4" fill="var(--ink)" />
-          </svg>
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/swjz/5280.svg" style="height:100%; width:100%; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(30deg);" />
         </div>
         <p style="font-size:28px; font-weight:600; margin:10px 0;">宫</p>
-        <em class="fr" style="font-size:16px;">Palais (Pièces multiples sous le toit)</em>
+        <em class="fr" style="font-size:16px;">Palais (Pièces multiples sous le toit)</em><span class="en-note">Palace: Multiple rooms connected under a single massive roof. Symbolizes centralized power and shelter.</span>
       </div>
 
       <div class="card" style="align-items:center; text-align:center; padding:20px 10px;">
-        <div class="picto">
+        <div class="picto" style="display:flex; justify-content:center; align-items:center; gap:8px;">
           <!-- 门: Double door -->
-          <svg viewBox="0 0 100 100">
-            <path d="M20 20 L45 20 L45 80 L20 80 Z M55 20 L80 20 L80 80 L55 80 Z" />
-            <path d="M20 40 L45 40 M20 60 L45 60 M55 40 L80 40 M55 60 L80 60" />
-          </svg>
+          <img src="https://bs.chinese-linguipedia.org/upload/word_sources/1/A04370i001.png" style="height:100%; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(30deg);" />
         </div>
         <p style="font-size:28px; font-weight:600; margin:10px 0;">门 (門)</p>
-        <em class="fr" style="font-size:16px;">Portes (Deux battants symétriques)</em>
+        <em class="fr" style="font-size:16px;">Portes (Deux battants symétriques)</em><span class="en-note">Gates: Symmetrical double doors. The threshold between inner (private/sacred) and outer (public/profane).</span>
       </div>
 
       <div class="card" style="align-items:center; text-align:center; padding:20px 10px;">
         <div class="picto">
           <!-- 堂: High earth platform with building -->
-          <svg viewBox="0 0 100 100">
-            <path d="M30 20 L70 20 L70 50 L30 50 Z" />
-            <path d="M10 60 L90 60 M20 80 L80 80 M40 60 L40 80 M60 60 L60 80" />
-          </svg>
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/swjz/10154.svg" style="height:100%; width:100%; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(30deg);" />
         </div>
         <p style="font-size:28px; font-weight:600; margin:10px 0;">堂</p>
-        <em class="fr" style="font-size:16px;">Salle (Bâtiment sur haute fondation)</em>
+        <em class="fr" style="font-size:16px;">Salle (Bâtiment sur haute fondation)</em><span class="en-note">Hall: Built on a raised earth platform. Reflects status; the higher the platform, the greater the authority.</span>
       </div>
 
       <div class="card" style="align-items:center; text-align:center; padding:20px 10px;">
         <div class="picto">
           <!-- 院: Enclosure -->
-          <svg viewBox="0 0 100 100">
-            <path d="M15 20 L85 20 L85 80 L15 80 Z" />
-            <path d="M40 40 L60 40 L60 60 L40 60 Z" />
-          </svg>
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/swjz/10876.svg" style="height:100%; width:100%; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(30deg);" />
         </div>
         <p style="font-size:28px; font-weight:600; margin:10px 0;">院</p>
-        <em class="fr" style="font-size:16px;">Cour (Mur encerclant l'espace)</em>
+        <em class="fr" style="font-size:16px;">Cour (Mur encerclant l'espace)</em><span class="en-note">Courtyard: Space enclosed by walls. The core module of Chinese architecture, focusing inward rather than outward.</span>
       </div>
 
       <div class="card" style="align-items:center; text-align:center; padding:20px 10px;">
-        <div class="picto">
-          <!-- 城: Weapon and wall -->
-          <svg viewBox="0 0 100 100">
-            <path d="M60 20 L20 20 L20 80 L60 80 Z" />
-            <path d="M80 15 L80 85 M65 40 L95 40 M70 60 L90 60 M80 30 L95 15" />
-          </svg>
+        <div class="picto" style="display:flex; flex-direction:column; gap:4px;">
+          <!-- 城: Weapon and wall / 京 added -->
+          <div style="display:flex; justify-content:center; align-items:center; gap:8px; height:100%;">
+            <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/swjz/10187.svg" style="height:100%; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(30deg);" />
+            <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/swjz/3824.svg" style="height:100%; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(30deg);" />
+          </div>
         </div>
-        <p style="font-size:28px; font-weight:600; margin:10px 0;">城</p>
-        <em class="fr" style="font-size:16px;">Cité (Mur défendu par des armes)</em>
+        <p style="font-size:28px; font-weight:600; margin:10px 0;">城/京</p>
+        <em class="fr" style="font-size:16px;">Cité (Mur défendu par des armes) / Capitale</em><span class="en-note">City/Capital: A walled enclosure defended by weapons. In China, a city implies a wall; the psychological need for boundaries.</span>
       </div>
     </div>
   </div>
 
   <!-- ================= PAGE 3: Wood vs Stone ================= -->
   <div class="slide bg-empire" id="slide-3">
-    <div class="two-col">
-      <div style="padding-right:40px; border-right:1px solid var(--shadow);">
-        <h2 class="brown">木构体系 vs 石构体系</h2>
-        <h3>Système de Bois vs Système de Pierre</h3>
-        <p>这是中西建筑哲学最根本的差异。<b>西方选择石头 (Pierre)</b>，追求不朽（Éternité）、征服重力与几何的永恒。巨石被用来对抗时间的侵蚀，保留神圣的记忆（如古希腊神庙、哥特式大教堂）。</p>
-        <p><em class="fr">L'Occident construit en pierre pour défier le temps et la gravité, cherchant la monumentalité et l'éternité géométrique pour glorifier le Divin ou l'État.</em></p>
+    <div class="slide-header">
+      <div class="slide-title"><h2 style="font-size:22px;color:var(--gold);">木构体系 vs 石构体系</h2><div class="fr">Système de Bois vs Système de Pierre — La Divergence Fondamentale</div></div>
+      <span class="page-num">03</span>
+    </div>
+    <div class="two-col" style="margin-top:8px;">
+      <div style="display:flex;flex-direction:column;gap:11px;">
+        <div class="card" style="border-left-color:var(--blue2);">
+          <h3 style="color:var(--blue2);">🏛️ 西方石构 · Pierre (Occident)</h3>
+          <p><b>征服重力，对抗时间。</b> 从古埃及金字塔到古希腊神庙，再到哥特式大教堂，西方选择石头追求<b>物质的永恒不朽</b>（Éternité matérielle）。石头是对神的献礼，是权力的凝固，是征服自然的宣言。</p>
+          <p><em class="fr">De la Pyramide au Parthénon, des arènes romaines aux cathédrales gothiques : l'Occident bâtit en pierre pour défier le temps et la gravité. La pierre est une offrande à Dieu, un monument au pouvoir, et une déclaration de domination sur la nature.</em></p>
+          <span class="en-note">Stone architecture says: "We defy time." The Pantheon in Rome has stood 2,000 years with no maintenance. Notre-Dame's walls will survive millennia. The message is permanence — the State, the Church, and God are eternal, and their buildings must prove it.</span>
+        </div>
+        <div class="quote-box">
+          <span class="gold">「石可以为山，土可以为地」</span><br>
+          <em class="fr">La pierre peut devenir une montagne, la terre peut devenir la Terre elle-même.</em><br>
+          <span class="en-note">Chinese gardens imitate nature by stacking Taihu stones into fake mountains — but the philosophical intent is the opposite of Western stone buildings. In China, stone mimics nature; in the West, stone conquers it.</span>
+        </div>
       </div>
-      <div>
-        <p><b>中国选择木头 (Bois)</b>。《中国思想史》认为，中国人追求的不是物质的不朽，而是<b>精神与家族血脉的延续</b>。木材是有生命的，会腐朽，但也符合儒道两家对生命轮回（Cycle de la vie）和生生不息的理解。</p>
-        <p><em class="fr">La Chine choisit le bois. Le bois est périssable, mais il symbolise la vie, le renouveau cyclique, et l'harmonie avec la nature (Dao). L'éternité n'est pas dans le matériau, mais dans la transmission de l'esprit et du lignage clanique.</em></p>
+      <div style="display:flex;flex-direction:column;gap:11px;">
+        <div class="card" style="border-left-color:var(--gold);">
+          <h3 style="color:var(--gold);">🌲 中国木构 · Bois (Chine)</h3>
+          <p><b>顺应生命，随时而化。</b> 中国人选择木头，不是因为无法建造石头建筑，而是因为木头<b>有生命、可更新</b>。木材会腐朽，但它符合儒道两家对<b>生命轮回</b>（Cycle perpétuel）和<b>生生不息</b>的宇宙观。</p>
+          <p><em class="fr">La Chine choisit délibérément le bois — non par manque de savoir-faire en pierre, mais parce que le bois <i>vit</i>. Il pourrit, il se renouvelle : c'est le cycle de la vie (Dao). L'éternité chinoise ne réside pas dans le matériau, mais dans la transmission du lignage, du texte et de l'esprit.</em></p>
+          <span class="en-note">China had stone technology — the Great Wall uses stone. But palaces, temples, and homes were deliberately built in wood. The Yingzao Fashi (营造法式, the Song-dynasty architectural manual) codifies a complete timber-frame system that was replicated and renewed for 1,500 years.</span>
+        </div>
+        <div class="card" style="border-left-color:var(--jade2);">
+          <h3 style="color:var(--jade2);">深层哲学对比 · Philosophie Comparée</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px;color:var(--paper);">
+            <div style="background:rgba(0,0,0,0.3);padding:8px;">
+              <div style="color:var(--blue2);margin-bottom:4px;font-size:11px;">WEST / OCCIDENT</div>
+              永恒的石头 / Pierre éternelle<br>
+              征服自然 / Dominer la nature<br>
+              神圣的纪念碑 / Monument divin<br>
+              <span style="color:rgba(255,255,255,0.35);font-size:10px;">Matter = Memory</span>
+            </div>
+            <div style="background:rgba(0,0,0,0.3);padding:8px;">
+              <div style="color:var(--gold);margin-bottom:4px;font-size:11px;">CHINA / CHINE</div>
+              有机的木头 / Bois organique<br>
+              融入自然 / Harmonie naturelle<br>
+              文脉的传承 / Transmission textuelle<br>
+              <span style="color:rgba(255,255,255,0.35);font-size:10px;">Spirit = Eternity</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- ================= PAGE 4: Mortise and Tenon ================= -->
-  <div class="slide bg-culture" id="slide-4">
-    <h2 class="brown">榫卯：阴阳的物理投射</h2>
-    <h3>Tenon et Mortaise : L'incarnation du Yin et du Yang</h3>
-    
-    <div class="two-col" style="margin-top:20px;">
-      <div>
-        <p>中国木构建筑极为罕见地不使用铁钉，而是依靠<b>“榫卯” (Sun Mao)</b>凹凸结合，让木材之间互相咬合。这不仅是力学奇迹（抗震性能极强，如应县木塔），更是<b>阴阳哲学</b>在建筑上的物理呈现。</p>
-        <p><em class="fr">L'architecture en bois chinoise n'utilise pas de clous. Elle repose sur des systèmes d'assemblage (tenon-mortaise) qui s'emboîtent parfaitement. Cette flexibilité absorbe les séismes et reflète la complémentarité du Yin (creux) et du Yang (plein).</em></p>
-        <div class="quote-box">
-          "不用一钉一铆，却能坚固千年" <br>L'intégration sans violence : L'harmonie structurelle naît de la soumission mutuelle, non de la contrainte par le fer.
+    <!-- ================= PAGE 4: Mortise and Tenon ================= -->
+  <div class="slide bg-culture" id="slide-4" style="overflow-y:auto; padding-bottom:80px;">
+    <div class="slide-header">
+      <div class="slide-title"><h2 style="font-size:22px;color:var(--gold);">榫卯：阴阳的物理投射</h2><div class="fr">Tenon et Mortaise (Sun Mao) — L'Incarnation du Yin et du Yang dans le Bois</div></div>
+      <span class="page-num">04</span>
+    </div>
+    <div class="two-col" style="margin-top:8px; transform: scale(0.85); transform-origin: top center; height: 110%;">
+      <div style="display:flex;flex-direction:column;gap:11px;">
+        <div class="card" style="border-left-color:var(--gold);">
+          <h3>榫卯原理 · Le Principe du Sun Mao</h3>
+          <p>中国木构建筑极为罕见地<b>不使用一根铁钉</b>，而是依靠凸出的"榫"（Yang，公）嵌入凹陷的"卯"（Yin，母）完成咬合。两段木材通过彼此的凹凸形态互相锁定，无需外力强制约束。</p>
+          <p><em class="fr">L'architecture en bois chinoise n'utilise aucun clou. Le <b>Sun</b> (tenon convexe, Yang) s'insere dans le <b>Mao</b> (mortaise concave, Yin). Deux pieces de bois se verrouillent mutuellement par leurs formes complementaires — sans contrainte metallique externe.</em></p>
+          <span class="en-note">The Mortise-and-Tenon system (Sun Mao) has over 6,000 recorded joint variations in ancient Chinese carpentry manuals. Each joint is tailored to the specific structural stress it must carry: compression, tension, shear, or torsion. No two joints are identical.</span>
+        </div>
+        <div class="card" style="border-left-color:var(--jade2);">
+          <h3 style="color:var(--jade2);">应县木塔 · La Pagode de Yingxian — Miracle Antisismique</h3>
+          <p><b>应县木塔（1056 CE）</b>：高67米，无钉无铆，历经近千年地震与战争巍然不倒。秘密正在于榫卯关节的<b>弹性耗能</b>——地震来临时，接点微微松动转动，吸收振动能量，而非强硬对抗。这正是道家"柔弱胜刚强"的建筑实践。</p>
+          <p><em class="fr">La <b>Pagode en bois de Yingxian</b> (67m, 1056 CE) — la plus haute structure en bois du monde — a survecu mille ans de seismes. Secret : les joints Sun Mao <i>s'articulent legerement</i> pendant un tremblement de terre, absorbant l'energie par flexibilite plutot que resistance rigide.</em></p>
+          <span class="en-note">Modern earthquake engineers have confirmed the Yingxian Pagoda's timber joints act as passive energy-dissipation devices — exactly like modern seismic isolation systems, invented 1,000 years earlier. This is the Daoist principle "the soft overcomes the hard" (柔弱胜刚强) encoded in structural engineering.</span>
         </div>
       </div>
-      <div class="card" style="background:var(--wood-brwn); color:var(--paper); justify-content:center; align-items:center;">
-        <!-- Simple Sun Mao SVG Diagram -->
-        <svg viewBox="0 0 200 150" style="width:70%; height:auto; stroke:var(--paper); stroke-width:3; fill:none;">
-          <path d="M20 50 L80 50 L80 30 L120 30 L120 50 L180 50 L180 140 L20 140 Z" />
-          <path d="M80 0 L120 0 L120 30 L80 30 Z" fill="rgba(255,255,255,0.2)"/>
-          <text x="100" y="80" fill="var(--paper)" stroke="none" font-family="var(--font-zh)" font-size="20" text-anchor="middle">卯 (Yin)</text>
-          <text x="100" y="20" fill="var(--paper)" stroke="none" font-family="var(--font-zh)" font-size="20" text-anchor="middle">榫 (Yang)</text>
-        </svg>
+      <div style="display:flex;flex-direction:column;gap:11px;">
+        <div style="background:rgba(0,0,0,0.5);border:1px solid var(--border);padding:16px;display:flex;flex-direction:column;align-items:center;gap:10px;">
+          <h3 style="text-align:center;color:var(--gold);margin-bottom:4px;">榫 (Yang) ⟷ 卯 (Yin)</h3>
+          <svg viewBox="0 0 220 165" style="width:85%;height:auto;stroke:var(--gold);stroke-width:2.5;fill:none;">
+            <rect x="10" y="75" width="200" height="75" rx="2" fill="rgba(184,144,64,0.12)" stroke="var(--gold)"/>
+            <rect x="80" y="10" width="60" height="65" rx="2" fill="rgba(184,144,64,0.25)" stroke="var(--gold2)"/>
+            <rect x="80" y="75" width="60" height="22" rx="0" fill="rgba(184,144,64,0.4)" stroke="var(--gold2)" stroke-width="1"/>
+            <text x="110" y="50" fill="var(--gold2)" stroke="none" font-size="13" text-anchor="middle" font-family="serif">榫 (Yang)</text>
+            <text x="110" y="63" fill="rgba(255,255,255,0.45)" stroke="none" font-size="9" text-anchor="middle">凸 · Plein · Convex</text>
+            <text x="34" y="118" fill="var(--gold)" stroke="none" font-size="13" text-anchor="middle" font-family="serif">卯 (Yin)</text>
+            <text x="34" y="130" fill="rgba(255,255,255,0.45)" stroke="none" font-size="9" text-anchor="middle">凹 · Creux · Concave</text>
+            <line x1="80" y1="95" x2="58" y2="112" stroke="rgba(255,255,255,0.2)" stroke-width="1" stroke-dasharray="3,3"/>
+          </svg>
+          <p style="font-size:11px;color:rgba(245,240,232,0.45);text-align:center;margin:0;line-height:1.5;">凸为榫（Yang），凹为卯（Yin）<br><em>Le tenon (plein, Yang) s'imbrique dans la mortaise (creux, Yin)</em></p>
+        </div>
+        <div class="quote-box">
+          <span class="gold">「天下之至柔，驰骋天下之至坚」</span> — 老子《道德经》第78章<br>
+          <em class="fr">«La chose la plus souple au monde vainc la plus dure.» — Laozi, Tao Te Ching, Ch. 78</em><br>
+          <span class="en-note">This Daoist principle is literally engineered into Chinese architecture. The flexible wood joint survives earthquakes by yielding; the rigid stone monument survives by brute force. Both work — but they encode entirely different philosophies of power, time, and what it means to endure.</span>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- ================= PAGE 5: Central Axis & Rituals ================= -->
-  <div class="slide bg-jade" id="slide-5">
-    <h2 class="red">中轴线与礼制</h2>
-    <h3>Axe Central et Système Rituel (Lǐzhì)</h3>
-    
-    <p>儒家将社会秩序（尊卑、长幼、内外）直接转化为空间秩序。<b>中轴线 (Axe Central)</b>是政治权力的具象化脊梁。</p>
-    
-    <div class="two-col" style="margin-top:20px;">
-      <div>
-        <p><em class="fr">Le Confucianisme transforme l'ordre politique et moral en ordre spatial. L'axe central (Sud-Nord) des villes et des palais symbolise la colonne vertébrale du pouvoir impérial et l'équilibre de l'univers terrestre.</em></p>
-        <p>所有最重要的政治建筑必然坐北朝南（面向阳光，背靠寒风，象征君临天下），并排列在这条绝对对称的中心线上。</p>
+  <div class="slide bg-jade" id="slide-5" style="overflow-y:auto; padding-bottom:80px;">
+    <div class="slide-header">
+      <div class="slide-title"><h2 style="font-size:22px;color:var(--red);">中轴线与礼制空间</h2><div class="fr">L'Axe Central et le Système Rituel (Lǐzhì) — L'Ordre Confucéen dans l'Espace</div></div>
+      <span class="page-num">05</span>
+    </div>
+    <div class="two-col" style="margin-top:8px; transform: scale(0.85); transform-origin: top center; height: 110%;">
+      <div style="display:flex;flex-direction:column;gap:11px;">
+        <div class="card" style="border-left-color:var(--red);">
+          <h3 style="color:var(--red2);">礼制转化为空间 · Rites → Espace</h3>
+          <p>儒家将社会秩序（尊卑、长幼、内外）直接转化为空间秩序。<b>中轴线</b>（南北向绝对中心线）是政治权力的脊梁：皇帝居中，百官居侧；主殿居中，偏殿居侧。空间位置即政治地位。</p>
+          <p><em class="fr">Le Confucianisme traduit l'ordre social (supérieur/inférieur, intérieur/extérieur) en ordre spatial absolu. L'<b>Axe Central</b> Sud-Nord est la colonne vertébrale du pouvoir : l'Empereur au centre, les ministres sur les côtés. La position dans l'espace <i>est</i> le rang politique.</em></p>
+          <span class="en-note">The central axis of Beijing stretches 7.8km from Yongding Gate in the south to the Drum Tower in the north — the longest urban central axis in the world. Every imperial building of importance sits exactly on this line. To build off-axis was architecturally and politically impossible.</span>
+        </div>
+        <div class="card" style="border-left-color:var(--gold);">
+          <h3>坐北朝南 · Orientation Sud-Nord</h3>
+          <p>所有重要政治建筑必然<b>坐北朝南</b>：背靠寒冷的北风（山），面朝温暖的阳光（南），象征君临天下、光明普照。这既是气候科学（背山挡风，向阳纳暖），也是宇宙政治学（天子面南而坐）。</p>
+          <p><em class="fr">Toute architecture impériale est <b>orientée Sud</b> : le dos protégé par la montagne froide du Nord, le visage tourné vers le soleil du Sud. C'est à la fois logique climatique (vents sibériens bloqués) et symbolique cosmologique (le Fils du Ciel regarde vers le Sud).</em></p>
+          <span class="en-note">The Emperor sits on his throne facing South — the Yang direction of light and warmth. Subjects kneel facing North, backs to the sun. Even today in China, a south-facing apartment commands a price premium. The Confucian spatial hierarchy persists in the real estate market.</span>
+        </div>
       </div>
-      <div class="card" style="border-left: 4px solid var(--seal-red);">
-        <h3 style="color:var(--seal-red); margin-bottom:15px;">La Symétrie Confucianiste</h3>
-        <p>在礼制文化中，偏离中轴线意味着地位下降。西方城市（如古罗马或中世纪欧洲）往往以教堂或公共广场（Agora）为辐射中心；而中国城市是基于网格和中轴线的<b>权力坐标系</b>。</p>
+      <div style="display:flex;flex-direction:column;gap:11px;">
+        <div class="card" style="border-left-color:var(--blue2);">
+          <h3 style="color:var(--blue2);">西方城市 vs 中国城市 · Comparaison Urbaine</h3>
+          <p><b>西方</b>（古罗马、中世纪欧洲）：城市往往以<b>教堂或广场（Agora/Forum）</b>为辐射中心，有机扩展，形态不规则，公共空间开放外向。</p>
+          <p><b>中国</b>（长安、北京）：城市是严格的<b>棋盘式网格</b>，宫殿居中，市井居外，礼制等级决定建筑位置，权力从中心向外扩散，内向封闭。</p>
+          <p><em class="fr"><b>Occident</b> : villes à rayonnement organique depuis une église ou une agora — ouvertes, publiques, chaotiques. <b>Chine</b> : grille parfaite, palais au centre — un système de coordonnées du pouvoir hiérarchique absolu.</em></p>
+          <span class="en-note">Chang'an (唐代长安, pop. ~1 million in 700 CE) was the world's largest planned city: a perfect rectangle, 84 sq km, with 108 walled wards (坊) arranged in a grid, the Imperial Palace in the north-center. Urban design as political theology.</span>
+        </div>
+        <div class="quote-box">
+          <span class="gold">「择中立国，择中立宫」</span><br>
+          <em class="fr">«Choisir le centre pour établir le pays, choisir le centre pour bâtir le palais.» — Zhou Li (周礼)</em><br>
+          <span class="en-note">This principle from the Zhou Rites (周礼) — one of the oldest Chinese administrative texts — became the foundational law of Chinese urban planning for 3,000 years. The center is sacred, political, and cosmic simultaneously.</span>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- ================= PAGE 6: Forbidden City Logic ================= -->
-  <div class="slide bg-oracle" id="slide-6">
-    <div class="two-col">
-      <div>
-        <h2 class="gold">故宫的空间逻辑：院与墙</h2>
-        <h3>Cité Interdite : La Logique des Cours et Murs</h3>
-        <p>北京故宫并非一栋孤立的巨型建筑，而是由无数个<b>“院落” (Courtyards) </b>嵌套组成的超级矩阵。院落是由高度封闭的墙包围的留白空间。</p>
-        <p><em class="fr">La Cité Interdite n'est pas un monument monolithique (comme le Louvre), mais une matrice de cours fermées imbriquées. Les murs séparent l'extérieur profane de l'intérieur sacré.</em></p>
+    <!-- ================= PAGE 6: Forbidden City Logic ================= -->
+  <div class="slide bg-oracle" id="slide-6" style="overflow-y:auto; padding-bottom:80px;">
+    <div class="slide-header">
+      <div class="slide-title"><h2 style="font-size:22px;color:var(--gold);">故宫的空间逻辑：院与墙</h2><div class="fr">La Cite Interdite — Logique des Cours Imbriquees et des Murs du Pouvoir</div></div>
+      <span class="page-num">06</span>
+    </div>
+    <div class="two-col" style="margin-top:8px; transform: scale(0.85); transform-origin: top center; height: 110%;">
+      <div style="display:flex;flex-direction:column;gap:11px;">
+        <div class="card" style="border-left-color:var(--gold);">
+          <h3>院落矩阵 · La Matrice de Cours (Siheyuan)</h3>
+          <p>北京故宫并非一栋孤立巨型建筑（如卢浮宫），而是由<b>9,999间房间</b>与无数院落嵌套组成的超级矩阵。院落（四合院）是中国建筑的核心模块：高墙围合的内向空间，将神圣的内部与世俗的外部截然分开。</p>
+          <p><em class="fr">La Cite Interdite n'est pas un bloc monolithique comme le Louvre, mais une <b>matrice imbriquee de cours fermees</b> — 9 999 pieces, 980 batiments. Le <b>Siheyuan</b> (cour interieure a quatre facades) est le module de base de toute l'architecture chinoise : il tourne le dos au monde exterieur.</em></p>
+          <span class="en-note">9,999 rooms — not 10,000. The number 10,000 (万 wan) belonged to Heaven alone. The Emperor humbly stopped one short. This is cosmological humility encoded in architecture. The Forbidden City was built 1406–1420, employing over 1 million workers over 14 years.</span>
+        </div>
+        <div class="quote-box">
+          <span class="gold">「侯门深似海」</span> — 崔郊《赠去婢》<br>
+          <em class="fr">«La porte du seigneur est profonde comme la mer.» — Cui Jiao (Tang Dynasty)</em><br>
+          <span class="en-note">Chinese spatial depth is social depth. The deeper the courtyard, the higher the status — and the more inaccessible. The Emperor in the innermost court: the ultimate expression of untouchable, hidden power.</span>
+        </div>
       </div>
-      <div class="card">
-        <h3 class="brown" style="margin-bottom:15px;">内外之别 (Intérieur vs Extérieur)</h3>
-        <p>每一道门（门、午门、太和门）都是社会阶层的生境过滤网。空间越往后（内庭），政治权力越集中，隐私度越高。</p>
-        <p><em class="fr">L'architecture de cour (Siheyuan, Palais) reflète la structure familiale patriarcale et le mystère du despote. La profondeur spatiale mesure l'intimité et le pouvoir absolutiste.</em></p>
+      <div style="display:flex;flex-direction:column;gap:11px;">
+        <div class="card" style="border-left-color:var(--red);">
+          <h3 style="color:var(--red2);">门的政治学 · La Politique des Portes</h3>
+          <p>故宫的每一道门都是<b>社会阶层的过滤器</b>。从天安门（官员入内）→ 午门（高级官员）→ 太和门（皇家活动）→ 乾清门（皇帝内廷）：空间越深，资格越严，政治权力越绝对。没有资格的人绝对无法越门一步。</p>
+          <p><em class="fr">Chaque porte est un filtre social strict. De la <b>Porte Tiananmen</b> (fonctionnaires) a la <b>Porte Meridienne Wumen</b> (hauts dignitaires) jusqu'a la <b>Porte Qianqing</b> (famille imperiale) : plus on penetre, plus le rang requis est eleve. L'architecture enforece le contrat social physiquement.</em></p>
+          <span class="en-note">The nested gate system perfectly encodes Confucian "gradation" (差等 cha deng): everyone has a precise relationship to the center, and no one may enter beyond their designated depth. To cross an unauthorized threshold was a capital crime. Architecture as law.</span>
+        </div>
+        <div class="card" style="border-left-color:var(--blue2);">
+          <h3 style="color:var(--blue2);">故宫 vs 凡尔赛 · Deux Philosophies du Pouvoir</h3>
+          <p><b>凡尔赛宫</b>是<b>展示性的</b>：镜廊向所有人敞开，花园公开壮观——路易十四的权力需要被看见。<b>故宫</b>是<b>隐蔽性的</b>：高墙深院，皇帝隐于不见——中国皇权的神秘需要被隐藏。前者说"看我"，后者说"你看不到我"。</p>
+          <p><em class="fr"><b>Versailles</b> est <i>exhibitionniste</i> : galerie des Glaces publique, jardins spectaculaires — le pouvoir de Louis XIV <i>se montre</i>. <b>La Cite Interdite</b> est <i>hermetique</i> : hauts murs, cours profondes — le pouvoir imperial chinois <i>se cache</i>. L'un dit «Admirez-moi», l'autre dit «Vous ne pouvez pas me voir».</em></p>
+          <span class="en-note">Louis XIV deliberately opened Versailles to courtiers to surveil and control them — visibility was governance. The Chinese Emperor deliberately hid behind layers of walls — invisibility was divinity. Two completely opposite theories of royal power, perfectly expressed through architecture.</span>
+        </div>
       </div>
     </div>
   </div>
@@ -254,89 +342,325 @@ h2.red, h2.gold, h2.brown, h2.blue, h2.bamboo, h2.leaf-grn { margin-top:0; margi
       <div class="card" style="background:#2e4026; color:var(--paper);">
         <h3 style="color:var(--roof-gold);">呼应第七课地理与气候</h3>
         <p>中国建筑并非突兀地插入大地，而是必须顺应地形与气脉。“背山面水”（Adossé à la montagne, face à l'eau）是最理想的风水格局。山用来阻挡西北西伯利亚的冷风，水用来保证农业灌溉与微气候。</p>
-        <p><em class="fr">Lié aux contraintes géographiques (Leçon 7), le Fengshui cherche le site optimal. La montagne protège du vent froid du nord, l'eau au sud offre vitalité et irrigation.</em></p>
+        <p><em class="fr">Lié aux contraintes géographiques (Leçon 7), le Fengshui cherche le site optimal. La montagne protège du vent froid du nord, l'eau au sud offre vitalité et irrigation.</em><br><span class="en-note">"Back to the mountain, facing the water." Fengshui (Wind and Water) is practical: mountains block Siberia's freezing north winds, while southern rivers supply irrigation and vital energy.</span></p>
       </div>
       <div>
         <p>风水学实际上是早期的<b>环境科学、地质学与心理学</b>的结合。它认为人与自然并不是征服与被征服的关系，而是居住者必须寻找与其生命气场“共振”的空间。</p>
-        <p><em class="fr">Plus qu'une superstition, le Fengshui est la protoscience environnementale chinoise. Contrairement aux bâtisseurs occidentaux domptant le paysage, le constructeur chinois insère le bâti dans les flux d'énergie (Qi) de la Terre.</em></p>
+        <p><em class="fr">Plus qu'une superstition, le Fengshui est la protoscience environnementale chinoise. Contrairement aux bâtisseurs occidentaux domptant le paysage, le constructeur chinois insère le bâti dans les flux d'énergie (Qi) de la Terre.</em><br><span class="en-note">Far from mere superstition, Fengshui is proto-environmental science and psychology. Rather than violently conquering the landscape, architects seek to resonate with the Earth's natural energy flow (Qi).</span></p>
       </div>
     </div>
   </div>
 
-  <!-- ================= PAGE 8: Garden Philosophy ================= -->
-  <div class="slide bg-empire" id="slide-8">
-    <h2 class="brown">园林哲学："虽由人作，宛自天开"</h2>
-    <h3>Philosophie des Jardins : Fait par l'homme, tel que créé par le Ciel</h3>
-
-    <p>如果说中国宫殿和四合院代表了严格对称的<b>儒家礼教</b>，那么中国园林则代表了自由与逃避的<b>道家思想</b>。这是中国文人精神分裂与平衡的建筑载体。</p>
-
-    <div class="two-col">
-      <div>
-        <h3 style="font-size:20px; font-weight:600; margin-bottom:10px;">曲径通幽 <br><em class="fr">L'Harmonie Ondulante</em></h3>
-        <p>园林绝对拒绝直线和对称。必须是弯曲的走廊、太湖石的奇峰、柳暗花明的视觉掩映。“步移景异”。</p>
-        <p><em class="fr">Le jardin Lettré (ex: Suzhou) rejette la ligne droite. Il privilégie la courbe, le trompe-l'œil et les rochers de Taihu, permettant à l'homme de se retrouver dans une nature recréée microscopiquement.</em></p>
+    <!-- ================= PAGE 8: Garden Philosophy ================= -->
+  <div class="slide bg-empire" id="slide-8" style="overflow-y:auto; padding-bottom:80px;">
+    <div class="slide-header">
+      <div class="slide-title"><h2 style="font-size:22px;color:var(--gold);">园林哲学：「虽由人作，宛自天开」</h2><div class="fr">Philosophie des Jardins — Fait par l'Homme, tel que Cree par le Ciel</div></div>
+      <span class="page-num">08</span>
+    </div>
+    <p style="margin-bottom:5px;font-size:13px;">宫殿是<b>儒家礼制</b>（秩序·对称·权力）的建筑化身，园林则是<b>道家逍遥</b>（自由·弯曲·自然）的精神庇护所。二者构成中国文人精神世界的双重结构。</p>
+    <div class="two-col" style="margin-top:4px; transform: scale(0.85); transform-origin: top center; height: 110%;">
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="card" style="border-left-color:var(--jade2);">
+          <h3 style="color:var(--jade2);">曲径通幽 · L'Harmonie Ondulante</h3>
+          <p>园林<b>绝对拒绝直线与对称</b>。弯曲的回廊、太湖石的奇峰怪石、柳暗花明的视觉掩映——<b>「步移景异」</b>（A chaque pas, un nouveau paysage）。每一个转折都是一次"发现"，营造出比实际面积大无数倍的精神空间。</p>
+          <p><em class="fr">Le jardin lettré (Suzhou, Shanghai) <b>rejette absolument la ligne droite</b>. Corridors sinueux, rochers de Taihu aux formes tortueuses, revelations visuelles successives. Chaque tournant est une surprise, creant un espace interieur bien plus vaste que sa surface reelle.</em></p>
+          <span class="en-note">The Humble Administrator's Garden (拙政园, Suzhou, 1510) covers only 5.2 hectares but feels infinite. It was designed by Wang Xianchen after he was demoted from court — a Daoist refuge literally built by a failed Confucian official. The garden's winding paths are his philosophical revenge on the straight corridors of power.</span>
+        </div>
+        <div class="card" style="border-left-color:var(--gold);">
+          <h3>借景 Jiejing · L'Emprunt du Paysage</h3>
+          <p>通过<b>漏窗（空窗框）</b>作为画框，将园外的远山、近处的竹影"借"入视野，打破空间物理边界，无限延伸意境。墙外的山峰成为构图的一部分——无需拥有，只需"借用"，因为美是无法被拥有的。</p>
+          <p><em class="fr"><b>Emprunter le Paysage</b> : des fenetres decoratives sans vitre encadrent les montagnes lointaines ou les bambous voisins, les integrant visuellement a la composition du jardin. On n'a pas besoin de <i>posseder</i> la montagne — il suffit de l'<i>encadrer</i>. La beaute ne s'appartient pas.</em></p>
+          <span class="en-note">Jiejing (借景) comes from the Yuanye (园冶, 1634) — the world's first systematic garden design manual, by Ji Cheng. Philosophical statement: beauty cannot be owned, only perceived. The frame creates meaning; the view belongs to whoever looks. This is Daoist non-possession (无为) made into landscape design.</span>
+        </div>
       </div>
-      <div class="card" style="border-right:4px solid #3e5933;">
-        <h3 style="font-size:20px; font-weight:600; margin-bottom:10px;">借景手法 <br><em class="fr">L'Emprunt du Paysage (Jiejing)</em></h3>
-        <p>通过窗框洞门作为画框，将远处的山、近处的竹“借”入自己的视线中，打破了空间的物理局限，无限延伸了意境。</p>
-        <p><em class="fr">Encadrement visuel via des fenêtres sans vitre, intégrant la montagne lointaine ou la lune dans la composition du jardin privé.</em></p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="card" style="border-left-color:var(--red);">
+          <h3 style="color:var(--red2);">儒家宫殿 vs 道家园林 · Dualite Spatiale</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:12px;margin-top:6px;color:var(--paper);">
+            <div style="background:rgba(0,0,0,0.3);padding:8px;">
+              <div style="color:var(--red2);margin-bottom:4px;">🏯 宫殿 · Palais</div>
+              严格中轴线 / Axe rigide<br>
+              高墙封闭 / Murs fermes<br>
+              绝对对称 / Symetrie absolue<br>
+              政治等级 / Hierarchie<br>
+              <span style="color:rgba(255,255,255,0.35);font-size:10px;">Confucian Order · 儒家</span>
+            </div>
+            <div style="background:rgba(0,0,0,0.3);padding:8px;">
+              <div style="color:var(--jade2);margin-bottom:4px;">🌿 园林 · Jardin</div>
+              曲径蜿蜒 / Chemins sinueux<br>
+              借景开放 / Vues empruntees<br>
+              不对称自然 / Asymetrie<br>
+              精神逃离 / Evasion<br>
+              <span style="color:rgba(255,255,255,0.35);font-size:10px;">Daoist Freedom · 道家</span>
+            </div>
+          </div>
+        </div>
+        <div class="quote-box">
+          <span class="gold">「虽由人作，宛自天开」</span> — 计成《园冶》(1634)<br>
+          <em class="fr">«Bien que fait par l'homme, il semble cree par le Ciel.» — Ji Cheng, Yuanye (L'Art des Jardins, 1634)</em><br>
+          <span class="en-note">The supreme compliment to a Chinese garden designer: making human artifice invisible. The garden should feel as if Nature herself placed every rock and planted every tree. This is the highest application of Daoist wu-wei (无为 — acting without forcing) in architecture. Versailles is the exact opposite: every plant screams "a human did this."</span>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- ================= PAGE 9: Pavilions & Poetry ================= -->
-  <div class="slide bg-culture" id="slide-9">
-    <div class="two-col">
-      <div>
-        <h2 class="red">亭台楼阁的诗学意象</h2>
-        <h3>Kiosques et Pavillons : La Poétique de l'Espace</h3>
-        
-        <p>中国的建筑（如黄鹤楼、岳阳楼、滕王阁）不仅仅是物理存在，由于木材易毁，它们往往在物理上被焚毁，却在《登鹤雀楼》、《岳阳楼记》等<b>诗词文本中获得了真正的永生</b>。</p>
-        <p><em class="fr">Les pavillons et les tours en bois brûlaient souvent et étaient reconstruits. Mais leur véritable éternité ne réside pas dans le bois, mais dans la Littérature et la Poésie classiques (ex: Le Pavillon du Prince Teng). L'édifice devient une Entité Littéraire.</em></p>
-        
+    <!-- ================= PAGE 9: Pavilions & Poetry ================= -->
+  <div class="slide bg-culture" id="slide-9" style="overflow-y:auto; padding-bottom:80px;">
+    <div class="slide-header">
+      <div class="slide-title"><h2 style="font-size:22px;color:var(--red);">亭台楼阁的诗学意象</h2><div class="fr">Kiosques et Pavillons — La Poetique de l'Espace et l'Immortalite Litteraire</div></div>
+      <span class="page-num">09</span>
+    </div>
+    <div class="two-col" style="margin-top:8px; transform: scale(0.85); transform-origin: top center; height: 110%;">
+      <div style="display:flex;flex-direction:column;gap:11px;">
+        <div class="card" style="border-left-color:var(--red);">
+          <h3 style="color:var(--red2);">建筑的文学永生 · Immortalite par la Litterature</h3>
+          <p>黄鹤楼（湖北）、岳阳楼（湖南）、滕王阁（江西）并称"<b>江南三大名楼</b>"。它们都是木构建筑，历史上多次被焚毁重建。然而真正的永生，不在于木材与砖石，而在于附着其上的<b>不朽诗文</b>：崔颢《黄鹤楼》、范仲淹《岳阳楼记》、王勃《滕王阁序》。建筑成为了文学的容器。</p>
+          <p><em class="fr">Les Trois Grands Pavillons ont brule et ete reconstruits de nombreuses fois. Leur vraie immortalite ne reside pas dans le bois — elle est dans les <b>poemes et essais classiques</b> qui les immortalisent. L'edifice devient un <i>recipient litteraire</i> : l'architecture vit dans le texte.</em></p>
+          <span class="en-note">Fan Zhongyan's "Yueyang Lou Ji" (岳阳楼记, 1046) is among the most memorized texts in Chinese education — yet Fan Zhongyan never visited the actual tower. He wrote the essay from a painting. The literary building supersedes the physical one: the text IS the architecture. This is uniquely Chinese.</span>
+        </div>
+        <div class="quote-box">
+          <span class="gold">「念天地之悠悠，独怆然而涕下」</span> — 陈子昂《登幽州台歌》<br>
+          <em class="fr">«Songeant a l'immensite du ciel et de la terre, je reste seul, les larmes aux yeux.» — Chen Ziang, en haut d'une tour</em><br>
+          <span class="en-note">"Contemplating the vastness of Heaven and Earth, I stand alone, tears falling." The tower-top experience: cosmic loneliness — the universe's immensity versus human brevity. This melancholy (登高必赋 "ascending high must produce poetry") has no Western architectural equivalent.</span>
+        </div>
       </div>
-      <div class="card" style="justify-content:center;">
-        <h3 class="gold" style="margin-bottom:10px;">高楼与哲思 <br><em class="fr">Ascension et Réflexion</em></h3>
-        <p>登高不仅是为了军事防御，更是文人感叹宇宙浩瀚、历史兴衰（“念天地之悠悠，独怆然而涕下”）的哲学仪式场所。</p>
-        <p><em class="fr">Monter dans une tour est un acte philosophique pour observer l'immensité de l'univers et méditer sur la fugacité de l'histoire humaine.</em></p>
+      <div style="display:flex;flex-direction:column;gap:11px;">
+        <div class="card" style="border-left-color:var(--gold);">
+          <h3>登高哲学 · L'Ascension Philosophique (Denggao)</h3>
+          <p><b>登高</b>（Monter en hauteur）是中国文人最重要的哲学仪式。站在高处俯瞰江河流逝、山川变幻，文人感受到宇宙的浩瀚（天地悠悠）与个人生命的短暂。这种独特的"登高忧思"催生了中国最伟大的诗篇。对于遭贬谪的文官而言，高楼是将政治失落升华为宇宙哲思的仪式场所。</p>
+          <p><em class="fr"><b>Monter en hauteur</b> est un rituel philosophique fondamental : du sommet d'une tour, contempler les rivieres qui coulent et les dynasties qui s'effondrent fait naitre une melancolie cosmique (登高忧思). Pour les fonctionnaires en exil, la tour transforme la douleur politique en contemplation universelle.</em></p>
+          <span class="en-note">The Chinese poetic genre of "ascending a tower" (登楼 denglou) or "ascending to high places" (登高 denggao) is as codified as a Greek ode. The formula: physical ascent → panoramic view → historical reflection → cosmic melancholy → poetic expression. Architecture triggers philosophy.</span>
+        </div>
+        <div class="card" style="border-left-color:var(--blue2);">
+          <h3 style="color:var(--blue2);">江南三大名楼 · Les Trois Grands Pavillons</h3>
+          <p style="font-size:12px;line-height:1.8;">
+            🏯 <b>黄鹤楼</b>（武汉）· Tour de la Grue Jaune<br>
+            <em class="fr" style="font-size:11px;">Cui Hao (崔颢, 8e s.) : «Les nuages blancs flottent librement depuis mille ans»</em><br><br>
+            🏯 <b>岳阳楼</b>（岳阳）· Pavillon de Yueyang<br>
+            <em class="fr" style="font-size:11px;">Fan Zhongyan (范仲淹, 1046) : «S'inquieter avant tout le monde, se rejouir apres tout le monde»</em><br><br>
+            🏯 <b>滕王阁</b>（南昌）· Pavillon du Prince Teng<br>
+            <em class="fr" style="font-size:11px;">Wang Bo (王勃, c.675) — ecrit a 26 ans, avant sa mort en mer</em>
+          </p>
+          <span class="en-note">All three were immortalized by officials who had been demoted or exiled. Tower-top melancholy is inseparable from political frustration: Confucian ambition thwarted becomes Daoist cosmic resignation, enacted on a high wooden platform overlooking a great river. The buildings outlive their authors by becoming their autobiography.</span>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- ================= PAGE 10: MIRROR ================= -->
+  <!-- ================= PAGE 9b: 楼阁塔亭（一） ================= -->
+  <div class="slide bg-dark" id="slide-9b" style="padding:16px 64px 32px;overflow-y:auto;pointer-events:all;">
+    <div class="slide-header" style="margin-bottom:12px; width:100%;">
+      <span class="lesson-tag" style="font-size:10px;color:var(--gold);">建筑图鉴 · Types d'Architecture (I)</span>
+    </div>
+    <h2 style="margin-bottom:12px; color:var(--paper);">殿堂与高层建筑<br><span style="font-size:16px;opacity:0.7;">Salles et Pavillons élevés</span></h2>
+    
+    <div class="four-col" style="gap:15px; margin-top:20px; align-items: stretch; height: 100%;">
+      <div style="display:flex;flex-direction:column;gap:8px;background:var(--mist);padding:10px;border:1px solid var(--border);">
+        <h3 style="text-align:center; color:var(--gold); margin-bottom:5px; font-size:15px;">堂<br><span style="font-size:11px; opacity:0.6; text-transform:none;">Salle Principale (Tang)</span></h3>
+        <div style="flex:1; background:url('https://pic3.zhimg.com/v2-876ed72a06a6046b9ed6fce3fd7a8f92_1440w.jpg') center/cover no-repeat; border:1px solid rgba(255,255,255,0.1);"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;background:var(--mist);padding:10px;border:1px solid var(--border);">
+        <h3 style="text-align:center; color:var(--gold); margin-bottom:5px; font-size:15px;">楼<br><span style="font-size:11px; opacity:0.6; text-transform:none;">Bâtiment à étages (Lou)</span></h3>
+        <div style="flex:1; background:url('https://upload.wikimedia.org/wikipedia/commons/b/ba/%E5%A4%9C%E3%81%AE%E9%BB%84%E9%B6%B4%E6%A5%BC.jpg') center/cover no-repeat; border:1px solid rgba(255,255,255,0.1);"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;background:var(--mist);padding:10px;border:1px solid var(--border);">
+        <h3 style="text-align:center; color:var(--gold); margin-bottom:5px; font-size:15px;">阁<br><span style="font-size:11px; opacity:0.6; text-transform:none;">Pavillon de stockage/Belvédère (Ge)</span></h3>
+        <div style="flex:1; background:url('https://img.dpm.org.cn/Uploads/Picture/dc/2604[1024].jpg') center/cover no-repeat; border:1px solid rgba(255,255,255,0.1);"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;background:var(--mist);padding:10px;border:1px solid var(--border);">
+        <h3 style="text-align:center; color:var(--gold); margin-bottom:5px; font-size:15px;">塔<br><span style="font-size:11px; opacity:0.6; text-transform:none;">Pagode (Ta, origine bouddhiste)</span></h3>
+        <div style="flex:1; background:url('https://www.ourchinastory.com/images/cover/snapshot/2021/07/normal/%E7%95%B6%E4%BB%A3%E4%B8%AD%E5%9C%8B-%E4%B8%AD%E5%9C%8B%E6%97%85%E9%81%8A-%E4%B8%AD%E5%9C%8B%E6%96%87%E5%8C%96-%E4%B8%AD%E5%9C%8B%E5%9B%9B%E5%A4%A7%E5%90%8D%E5%A1%94-%E4%B8%AD%E5%BC%8F%E5%A1%94-1_x1.jpg') center/cover no-repeat; border:1px solid rgba(255,255,255,0.1);"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 9c: 建筑部件与空间形态（二） ================= -->
+  <div class="slide bg-jade" id="slide-9c" style="padding:16px 64px 32px;overflow-y:auto;pointer-events:all;">
+    <div class="slide-header" style="margin-bottom:12px; width:100%;">
+      <span class="lesson-tag" style="font-size:10px;color:var(--gold);">建筑图鉴 · Types d'Architecture (II)</span>
+    </div>
+    <h2 style="margin-bottom:12px; color:var(--paper);">园舍空间与坛台<br><span style="font-size:16px;opacity:0.7;">Éléments de Jardins et Autels</span></h2>
+    
+    <div class="five-col" style="gap:10px; margin-top:20px; align-items: stretch; height: 100%;">
+      <div style="display:flex;flex-direction:column;gap:8px;background:var(--mist);padding:10px;border:1px solid var(--border);">
+        <h3 style="text-align:center; color:var(--gold); margin-bottom:5px; font-size:14px;">亭<br><span style="font-size:10px; opacity:0.6; text-transform:none;">Kiosque ouvert (Ting)</span></h3>
+        <div style="flex:1; background:url('https://pic3.zhimg.com/v2-83c02edfb4547e8f373c93c83cd71a0e_1440w.jpg') center/cover no-repeat; border:1px solid rgba(255,255,255,0.1);"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;background:var(--mist);padding:10px;border:1px solid var(--border);">
+        <h3 style="text-align:center; color:var(--gold); margin-bottom:5px; font-size:14px;">廊<br><span style="font-size:10px; opacity:0.6; text-transform:none;">Corridor couvert (Lang)</span></h3>
+        <div style="flex:1; background:url('https://pic1.zhimg.com/v2-7f14e740395b767ea712c7a83a6cde18_1440w.jpg') center/cover no-repeat; border:1px solid rgba(255,255,255,0.1);"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;background:var(--mist);padding:10px;border:1px solid var(--border);">
+        <h3 style="text-align:center; color:var(--gold); margin-bottom:5px; font-size:14px;">台榭<br><span style="font-size:10px; opacity:0.6; text-transform:none;">Terrasse et pavillon surélevé (Taixie)</span></h3>
+        <div style="flex:1; background:url('https://pic3.zhimg.com/v2-5fd4164cb71bc86121b7cb6e44f27f32_1440w.jpg') center/cover no-repeat; border:1px solid rgba(255,255,255,0.1);"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;background:var(--mist);padding:10px;border:1px solid var(--border);">
+        <h3 style="text-align:center; color:var(--gold); margin-bottom:5px; font-size:14px;">坛<br><span style="font-size:10px; opacity:0.6; text-transform:none;">Autel de sacrifice (Tan)</span></h3>
+        <div style="flex:1; background:url('https://p1.itc.cn/q_70/images03/20220220/5997bfec80a04eeaa2fde8504029e582.jpeg') center/cover no-repeat; border:1px solid rgba(255,255,255,0.1);"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;background:var(--mist);padding:10px;border:1px solid var(--border);">
+        <h3 style="text-align:center; color:var(--gold); margin-bottom:5px; font-size:14px;">影壁<br><span style="font-size:10px; opacity:0.6; text-transform:none;">Mur-écran (Yingbi)</span></h3>
+        <div style="flex:1; background:url('https://p2.itc.cn/images01/20230510/eecb9037ad78487eb852f50c5735b90a.jpeg') center/cover no-repeat; border:1px solid rgba(255,255,255,0.1);"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 9d: 宏观与界限（三） ================= -->
+  <div class="slide bg-empire" id="slide-9d" style="padding:16px 64px 32px;overflow-y:auto;pointer-events:all;">
+    <div class="slide-header" style="margin-bottom:12px; width:100%;">
+      <span class="lesson-tag" style="font-size:10px;color:var(--gold);">建筑图鉴 · Types d'Architecture (III)</span>
+    </div>
+    <h2 style="margin-bottom:12px; color:var(--paper);">宏观规制与界限<br><span style="font-size:16px;opacity:0.7;">Limites et Structures Monumentales</span></h2>
+    
+    <div class="four-col" style="gap:15px; margin-top:20px; align-items: stretch; height: 100%;">
+      <div style="display:flex;flex-direction:column;gap:8px;background:var(--mist);padding:10px;border:1px solid var(--border);">
+        <h3 style="text-align:center; color:var(--gold); margin-bottom:5px; font-size:15px;">牌坊<br><span style="font-size:11px; opacity:0.6; text-transform:none;">Portique monumental (Paifang)</span></h3>
+        <div style="flex:1; background:url('https://pic1.zhimg.com/v2-9d879e49d96b8612ea21c26cfdfe47a4_1440w.jpg') center/cover no-repeat; border:1px solid rgba(255,255,255,0.1);"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;background:var(--mist);padding:10px;border:1px solid var(--border);">
+        <h3 style="text-align:center; color:var(--gold); margin-bottom:5px; font-size:15px;">门<br><span style="font-size:11px; opacity:0.6; text-transform:none;">Portes et entrées (Men)</span></h3>
+        <div style="flex:1; background:url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Colorful_hutong_gate_in_Beijing.jpg/500px-Colorful_hutong_gate_in_Beijing.jpg') center/cover no-repeat; border:1px solid rgba(255,255,255,0.1);"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;background:var(--mist);padding:10px;border:1px solid var(--border);">
+        <h3 style="text-align:center; color:var(--gold); margin-bottom:5px; font-size:15px;">城<br><span style="font-size:11px; opacity:0.6; text-transform:none;">Murailles de cité (Cheng)</span></h3>
+        <div style="flex:1; background:url('https://img.dpm.org.cn/Uploads/image/2025/07/11/%E5%9B%BE%E7%89%872-xhgozdlea218986.jpg') center/cover no-repeat; border:1px solid rgba(255,255,255,0.1);"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;background:var(--mist);padding:10px;border:1px solid var(--border);">
+        <h3 style="text-align:center; color:var(--gold); margin-bottom:5px; font-size:15px;">宫<br><span style="font-size:11px; opacity:0.6; text-transform:none;">Palais Imperial (Gong)</span></h3>
+        <div style="flex:1; background:url('https://p9.itc.cn/images01/20211222/cadcbead229946e19a55c17508330746.jpeg') center/cover no-repeat; border:1px solid rgba(255,255,255,0.1);"></div>
+      </div>
+    </div>
+  </div>
+
+    <!-- ================= PAGE 10: MIRROR ================= -->
   <div class="slide bg-jade" id="slide-10">
-    <div style="background-color: var(--ink); color: var(--paper); padding:40px; border-radius:8px; height:100%;">
-      <h2 style="color:var(--paper); margin-bottom:10px;">汉法文化镜像</h2>
-      <h3 style="color:var(--roof-gold);">Miroir Franco-Chinois: Versailles vs Jardins de Suzhou</h3>
-      
-      <div class="two-col" style="margin-top:40px;">
-        <div style="border-right: 1px inset var(--shadow); padding-right: 30px;">
-          <h3 style="color:#dce8f3; font-size:22px;">📍 凡尔赛宫 (Versailles / Occident)</h3>
-          <p><b>征服自然与理性几何：</b><br>法国几何式皇家园林是笛卡尔理性主义的产物。将植物修剪成精确的方锥体，引水入几何喷泉。通过绝对的轴线与视觉控制，展示人对自然法则和空间的绝对统治与王权的荣光。</p>
+    <div class="slide-header">
+      <div class="slide-title"><h2 style="font-size:22px;color:var(--paper);">汉法文化镜像 · Miroir Culturel</h2><div class="fr">Versailles (France) vs Jardins de Suzhou (Chine) — Deux Philosophies de l'Espace</div></div>
+      <span class="page-num">10</span>
+    </div>
+    <div class="two-col" style="margin-top:8px; transform: scale(0.85); transform-origin: top center; height: 110%;">
+      <div style="display:flex;flex-direction:column;gap:11px;color:var(--paper);">
+        <div class="card" style="border-left-color:var(--blue2);background:rgba(10,20,40,0.5);">
+          <h3 style="color:var(--blue2);">📍 凡尔赛 · Versailles (France / Occident)</h3>
+          <p><b>征服自然，理性几何。</b> 勒·诺特尔（Le Notre）设计的凡尔赛花园是笛卡尔理性主义的空间宣言：植物被修剪成精确的几何形状，水被强迫进入完美的喷泉轴线，自然被全面<b>驯服与展示</b>。这是路易十四绝对王权的视觉宣言：人的理性统治一切。</p>
+          <p><em class="fr">Le jardin de Versailles (Le Notre, 1661) est la declaration spatiale du rationalisme cartesien : plantes taillees en cones parfaits, eaux forcees dans des fontaines geometriques. La nature est entierement <b>soumise et mise en scene</b> pour glorifier le pouvoir absolu de Louis XIV. Descartes («Je pense, donc je suis») realise en paysage.</em></p>
+          <span class="en-note">Le Notre's master principle: the garden must be fully legible from above (God's-eye view), with total visual control from the chateau's central axis. Every plant is arranged as pure geometry. The message: human reason dominates the natural world completely. The garden is a political manifesto.</span>
         </div>
-        <div>
-          <h3 style="color:#eac496; font-size:22px;">📍 苏州园林 (Suzhou / Chine)</h3>
-          <p><b>融入自然与虚实相生：</b><br>中国私家园林则是老庄哲学的物质化。顺应自然生长的本性，通过造山理水、长廊曲折，人为制造“隐蔽”与“发现”的过程。不求征服，而是追求人与自然的有机融合。</p>
+        <div class="card" style="border-left-color:var(--gold);">
+          <h3 style="color:var(--gold);">核心对比词汇 · Vocabulaire Comparatif</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;font-size:11px;margin-top:6px;">
+            <div style="background:rgba(0,0,0,0.3);padding:7px;text-align:center;">
+              <div style="color:var(--blue2);margin-bottom:3px;font-size:10px;">VERSAILLES</div>
+              Axe central<br>Perspective forcee<br>Nature soumise<br>Symetrie parfaite<br>Controle total
+            </div>
+            <div style="background:rgba(0,0,0,0.3);padding:7px;text-align:center;">
+              <div style="color:var(--gold);margin-bottom:3px;font-size:10px;">中文关键词</div>
+              中轴强制<br>透视控制<br>自然驯服<br>绝对对称<br>全面展示
+            </div>
+            <div style="background:rgba(0,0,0,0.3);padding:7px;text-align:center;">
+              <div style="color:var(--jade2);margin-bottom:3px;font-size:10px;">苏州 SUZHOU</div>
+              Chemins sinueux<br>Vue empruntee<br>Nature integree<br>Asymetrie organique<br>Decouverte
+            </div>
+          </div>
         </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:11px;">
+        <div class="card" style="border-left-color:var(--jade2);background:rgba(5,20,10,0.5);">
+          <h3 style="color:var(--jade2);">📍 苏州园林 · Jardins de Suzhou (Chine)</h3>
+          <p><b>融入自然，虚实相生。</b> 苏州私家园林（拙政园、留园）是老庄哲学的物质化：尊重植物的自然形态，以太湖石模拟山峦，以曲折回廊制造无尽的发现之旅。目标不是控制自然，而是<b>消融于自然之中</b>（无为而为 — wuwei）。</p>
+          <p><em class="fr">Les jardins prives de Suzhou materialisent la philosophie taoiste : respecter la forme naturelle des plantes, simuler des montagnes avec les rochers de Taihu, creer des surprises infinies par des corridors sinueux. Le but : <b>se fondre dans la nature</b> (wuwei — agir sans forcer).</em></p>
+          <span class="en-note">Suzhou's classical gardens (UNESCO World Heritage, 1997) are designed to be experienced on foot, slowly, over hours — constantly surprising, never revealing their full layout. You cannot understand a Chinese garden from above: unlike Versailles, there is no master plan visible from any single vantage point. The experience IS the garden.</span>
+        </div>
+        <div class="quote-box">
+          <span class="gold">「人是自然的一部分，而非自然的主人」</span><br>
+          <em class="fr">«L'Homme fait partie de la Nature — il n'en est pas le maitre.» — Philosophie taoiste fondamentale</em><br>
+          <span class="en-note">This single philosophical difference between Versailles and Suzhou has become urgently relevant in the age of climate change. The Western garden model (master nature) contributed to a civilization that treats the natural world as a resource to exploit. The Chinese model (integrate with nature) prefigures modern ecological thinking.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 10b: Vocabulary/Glossary ================= -->
+  <div class="slide bg-close" id="slide-10b">
+    <div class="slide-header">
+      <div class="slide-title"><h2 style="font-size:22px;color:var(--gold);">核心概念 · Concepts Clés · Key Concepts</h2><div class="fr">Trilingual Glossary — 三语词汇表 — Glossaire Trilingue</div></div>
+      <span class="page-num">11</span>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-top:8px; flex:1;">
+      <div style="background:rgba(0,0,0,0.4); border:1px solid var(--border); padding:14px;">
+        <h4 style="color:var(--gold); margin:0 0 5px 0; font-size:16px;">榫卯 Sǔn Mǎo</h4>
+        <p style="font-size:12px;color:rgba(245,240,232,0.9);margin:0 0 4px;line-height:1.5;">字面：凸榫（Yang）嵌入凹卯（Yin）。无钉无铆的木构咬合体系，兼具抗震性与阴阳哲学意涵。</p>
+        <em class="fr" style="font-size:11px;">Tenon et Mortaise — assemblage en bois sans clous ; flexibilité anti-sismique ; incarnation du Yin (creux) et Yang (plein).</em>
+        <span class="en-note">Mortise-and-Tenon joint system. 6,000+ documented variations. The Yingxian Pagoda (1056) uses it to survive earthquakes for 1,000 years by yielding, not resisting.</span>
+      </div>
+      <div style="background:rgba(0,0,0,0.4); border:1px solid var(--border); padding:14px;">
+        <h4 style="color:var(--gold); margin:0 0 5px 0; font-size:16px;">四合院 Sìhéyuàn</h4>
+        <p style="font-size:12px;color:rgba(245,240,232,0.9);margin:0 0 4px;line-height:1.5;">字面：四面合围的院落。内向型空间单元，以墙为界，将神圣的内部与世俗的外部严格分隔。</p>
+        <em class="fr" style="font-size:11px;">Cour intérieure à quatre façades — l'unité modulaire de base de toute l'architecture chinoise ; tourne le dos au monde extérieur.</em>
+        <span class="en-note">The Courtyard House: Chinese architecture grows outward not by building higher, but by nesting more courtyards. The deeper the courtyard, the higher the status and intimacy.</span>
+      </div>
+      <div style="background:rgba(0,0,0,0.4); border:1px solid var(--border); padding:14px;">
+        <h4 style="color:var(--gold); margin:0 0 5px 0; font-size:16px;">风水 Fēngshuǐ</h4>
+        <p style="font-size:12px;color:rgba(245,240,232,0.9);margin:0 0 4px;line-height:1.5;">字面：风与水。古代建筑选址科学：背山（挡北风）、面水（纳阳气），寻找与地气共振的最佳位置。</p>
+        <em class="fr" style="font-size:11px;">«Vent et Eau» — protoscience de l'implantation : montagne au nord, eau au sud. Résonance avec les flux de Qi de la Terre.</em>
+        <span class="en-note">"Wind and Water." Not superstition — proto-environmental science. The ideal site: back to mountain (blocks Siberian winds), face to water (irrigation, microclimate). Modern engineers confirm its ecological rationality.</span>
+      </div>
+      <div style="background:rgba(0,0,0,0.4); border:1px solid var(--border); padding:14px;">
+        <h4 style="color:var(--gold); margin:0 0 5px 0; font-size:16px;">借景 Jièjǐng</h4>
+        <p style="font-size:12px;color:rgba(245,240,232,0.9);margin:0 0 4px;line-height:1.5;">字面：借用景致。园林设计手法：用空窗框将园外之山、竹、月纳入构图，无需拥有，只需"框取"。</p>
+        <em class="fr" style="font-size:11px;">«Emprunter le paysage» — encadrer visuellement une montagne lointaine via une fenêtre vide pour l'intégrer à la composition du jardin.</em>
+        <span class="en-note">"Borrowing Scenery." The frame creates meaning; the view belongs to whoever looks. Beauty cannot be owned — only perceived. From the Yuanye (园冶, 1634), the world's first garden design manual.</span>
+      </div>
+      <div style="background:rgba(0,0,0,0.4); border:1px solid var(--border); padding:14px;">
+        <h4 style="color:var(--gold); margin:0 0 5px 0; font-size:16px;">中轴线 Zhōngzhóuxiàn</h4>
+        <p style="font-size:12px;color:rgba(245,240,232,0.9);margin:0 0 4px;line-height:1.5;">字面：中央轴线。南北向绝对对称的城市权力脊梁，儒家礼制空间的核心原则。北京中轴线长7.8公里。</p>
+        <em class="fr" style="font-size:11px;">L'Axe Central Sud-Nord — la colonne vertébrale du pouvoir impérial ; l'ordre confucéen traduit en géométrie urbaine absolue.</em>
+        <span class="en-note">The Central Axis. Beijing's axis stretches 7.8km, the longest urban central axis in the world. Every major imperial building sits on this line. Deviation from center = loss of political status.</span>
+      </div>
+      <div style="background:rgba(0,0,0,0.4); border:1px solid var(--border); padding:14px;">
+        <h4 style="color:var(--gold); margin:0 0 5px 0; font-size:16px;">步移景异 Bù Yí Jǐng Yì</h4>
+        <p style="font-size:12px;color:rgba(245,240,232,0.9);margin:0 0 4px;line-height:1.5;">字面：步移则景异。园林设计原则：每走一步，视觉构图随之改变，创造无穷的惊喜与发现之感。</p>
+        <em class="fr" style="font-size:11px;">«À chaque pas, un nouveau paysage» — principe du jardin chinois : chaque déplacement révèle une composition visuelle différente. Le jardin ne peut jamais être vu en entier depuis un seul point.</em>
+        <span class="en-note">"Scenery changes with every step." The garden's total plan is never revealed from any single viewpoint — the opposite of Versailles, which is designed to be understood from the château's central axis. Discovery, not control, is the governing principle.</span>
       </div>
     </div>
   </div>
 
   <!-- ================= PAGE 11: SUMMARY ================= -->
-  <div class="slide bg-oracle" id="slide-11">
-    <h2 class="red">第九课总结 · Conclusion</h2>
-    <h3>从木土之身看文化灵魂</h3>
-    
-    <div style="max-width: 900px; margin: 40px auto 0; text-align: left;">
-      <p>1. <b>不朽的转变：</b> 西方以坚硬的石头（石构）对抗时间，追求物质与神的永恒；中国以柔韧的木头（木构）顺应时间，追求精神、家族与文脉的生生不息。</p>
-      <p><em class="fr">1. Concept d'Éternité : La pierre occidentale défie le temps, le bois oriental l'accompagne dans un cycle organique perpétuel. L'éternité chinoise est textuelle et spirituelle.</em></p>
-      
-      <p>2. <b>儒道的双重空间：</b> 中轴线上的宫殿院落（如故宫）是儒家严密政治礼制的化身；而曲径通幽的园林则是道家冲破束缚、回归自然的极乐净土。二者构成了中国人完整的精神建筑体系。</p>
-      <p><em class="fr">2. L'Espace Bipolaire : L'axe central des palais impose l'ordre confucéen rigide, tandis que la sinuosité des jardins offre l'évasion taoïste vers la liberté naturelle.</em></p>
+  <div class="slide bg-oracle" id="slide-11" style="overflow-y:auto; padding-bottom:80px;">
+    <div class="slide-header">
+      <div class="slide-title"><h2 style="font-size:22px;color:var(--red);">第九课总结 · Conclusion de la Leçon IX</h2><div class="fr">From Wood and Stone — Reading a Civilization's Soul in its Architecture</div></div>
+      <span class="page-num">12</span>
     </div>
-    
-    <div class="cover" style="margin-top:60px; background: transparent;">
-      <div class="seal" style="width:60px; height:60px; font-size:28px;">完</div>
+    <div class="two-col" style="margin-top:8px;">
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="card" style="border-left-color:var(--gold);">
+          <h3>① 不朽观的根本差异 · Deux Concepts d'Éternité</h3>
+          <p>西方以<b>坚硬的石头</b>对抗时间，追求物质与神圣的永恒（金字塔、大教堂）；中国以<b>柔韧的木头</b>顺应时间，追求精神、家族与文脉的生生不息。不朽不在材料，而在传承。</p>
+          <p><em class="fr">La pierre occidentale <b>défie</b> le temps. Le bois chinois <b>accompagne</b> le temps dans un cycle perpétuel. L'éternité occidentale est matérielle et monumentale. L'éternité chinoise est textuelle, spirituelle, et familiale.</em></p>
+          <span class="en-note">The Yellow Crane Tower has burned down and been rebuilt over a dozen times. Each reconstruction is considered the authentic tower. In China, authenticity resides in the idea and the text — not in the original physical material. This is the exact opposite of Western heritage conservation.</span>
+        </div>
+        <div class="card" style="border-left-color:var(--jade2);">
+          <h3 style="color:var(--jade2);">③ 风水 = 生态理性 · Fengshui = Raison Écologique</h3>
+          <p>风水并非单纯迷信，而是中国文明对<b>人与自然关系</b>的系统性思考：不征服地形，而与地气共振；不强行轴线，而顺势而建。这与现代建筑的"可持续设计"（Design Durable）理念高度契合。</p>
+          <p><em class="fr">Le Fengshui n'est pas une superstition — c'est une <b>écologie architecturale</b> : ne pas soumettre le paysage, mais résonner avec lui. Cette philosophie préfigure étonnamment le <i>design durable</i> contemporain et la bioclimatique.</em></p>
+          <span class="en-note">The Fengshui principle of "back to mountain, face to water" is now studied in passive solar design, wind microclimate analysis, and sustainable site selection. Chinese traditional architecture was unknowingly practicing what we now call bioclimatic design for 3,000 years.</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="card" style="border-left-color:var(--red);">
+          <h3 style="color:var(--red2);">② 儒道的双重建筑空间 · L'Espace Bipolaire</h3>
+          <p>中轴对称的<b>宫殿院落</b>（故宫）是儒家政治礼制的化身：秩序、等级、封闭、权威；曲径通幽的<b>私家园林</b>（苏州）是道家逍遥的精神庇护所：自由、自然、开放、无为。二者共同构成了中国人精神世界的完整建筑体系。</p>
+          <p><em class="fr">L'axe des palais (Cité Interdite) incarne l'ordre confucéen rigide. La sinuosité des jardins (Suzhou) offre l'évasion taoïste. Ensemble, ils forment la <b>double structure spirituelle</b> de la civilisation chinoise : l'obligation sociale et la liberté intérieure.</em></p>
+          <span class="en-note">Every Chinese literatus lived this duality: by day, a Confucian official observing ritual and hierarchy in his symmetric official hall; by evening, a Daoist free spirit wandering the winding paths of his private garden. The architecture reflected both halves of the same soul.</span>
+        </div>
+        <div class="card" style="border-left-color:var(--purple2);">
+          <h3 style="color:var(--purple2);">④ 建筑作为文化文本 · L'Architecture comme Texte</h3>
+          <p>中国建筑是可以被<b>"阅读"</b>的文化文本：屋顶的坡度说明等级，院落的深度说明权力，园林的弯度说明哲学。一座建筑物同时是政治宣言、哲学论文和诗歌意象。这是中国建筑最独特的文化属性。</p>
+          <p><em class="fr">L'architecture chinoise est un <b>texte culturel lisible</b> : la pente du toit indique le rang, la profondeur de la cour mesure le pouvoir, la courbe du jardin révèle la philosophie. Un bâtiment est simultanément déclaration politique, traité philosophique, et image poétique.</em></p>
+          <span class="en-note">The roof of the Taihe Dian (太和殿, Hall of Supreme Harmony) has 10 animal figurines on its ridge — more than any other building in China. The number of ridge animals is strictly regulated by rank: 9 for the highest ministers, 7 for lower officials. Architecture as bureaucratic code.</span>
+        </div>
+      </div>
     </div>
   </div>
 

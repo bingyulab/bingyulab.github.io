@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
 <title>第八课：艺术：琴棋书画 · Les Quatre Arts de Lettré</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
 <style>
 :root {
   --ink:#0a0807; --paper:#f5f0e8;
@@ -77,6 +78,12 @@ h2.red, h2.gold, h2.brown, h2.blue, h2.bamboo, h2.leaf-grn { margin-top:0; margi
 .dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,0.18);cursor:pointer;transition:all 0.2s;}
 .dot.active{background:var(--gold);width:14px;border-radius:3px;}
 
+.en-note{color:rgba(245,240,232,0.42);font-size:10.5px;line-height:1.65;margin-top:5px;display:block;}
+.bg-close{background:linear-gradient(135deg,#080a0e 0%,#0e1018 100%);}
+.timeline{border-left:2px solid var(--border);padding-left:18px;position:relative;}
+.tl-item{position:relative;margin-bottom:14px;}
+.tl-dot{position:absolute;left:-23px;top:4px;width:8px;height:8px;border-radius:50%;background:var(--gold);}
+.tl-date{font-family:'DM Mono',monospace;font-size:11px;color:var(--gold2);margin-bottom:2px;}
 /* Hide 11/12 specific controls completely as we add our own */
 .controls { display: none !important; }
 .cover h1 { text-align: center; width: 100%; display: block; margin-top:20px; }
@@ -94,6 +101,8 @@ h2.red, h2.gold, h2.brown, h2.blue, h2.bamboo, h2.leaf-grn { margin-top:0; margi
     <div class="seal">艺</div>
     <h1>第八课：艺术 —— 琴棋书画</h1>
     <h3 class="gold" style="margin-top:20px; font-family: var(--font-fr);">Leçon VIII : Les Arts — Guqin, Go, Calligraphie, Peinture</h3>
+    <p style="font-size:16px;color:rgba(245,240,232,0.32);margin-top:10px;letter-spacing:.06em;">Lesson 8: The Arts — Music, Go, Calligraphy, Painting</p>
+    <p style="font-size:13px;color:rgba(245,240,232,0.25);margin-top:6px;letter-spacing:.04em;">The Four Accomplishments as a philosophy of moral cultivation — not performance but <em>becoming</em></p>
     <div style="width: 60px; height: 1px; background: var(--ink); margin: 40px auto;"></div>
     <p style="font-size:18px; color:#666; letter-spacing:4px; text-transform:uppercase;">Université du Luxembourg · 文化对比系列</p>
   </div>
@@ -103,58 +112,48 @@ h2.red, h2.gold, h2.brown, h2.blue, h2.bamboo, h2.leaf-grn { margin-top:0; margi
     <h2 class="red">核心甲骨文 · Les Caractères Originels</h2>
     <h3>琴棋书画的象形溯源</h3>
     
-    <div class="three-col" style="grid-template-columns: 1fr 1fr 1fr 1fr; margin-top:40px;">
+    <div class="three-col" style="grid-template-columns: 1fr 1fr 1fr 1fr 1fr; margin-top:40px;">
       <div class="card" style="align-items:center; text-align:center;">
-        <div class="picto">
-          <!-- 乐: Silk threads on wood -->
-          <svg viewBox="0 0 100 100">
-            <path d="M50 20 L50 80 M25 80 L75 80 M30 30 C20 40 40 60 30 70 M70 30 C80 40 60 60 70 70 M25 20 L75 20 M15 50 L85 50" />
-            <path d="M40 30 C35 50 35 60 40 70 M60 30 C65 50 65 60 60 70" />
-          </svg>
+        <div class="picto" style="display:flex; justify-content:center; align-items:center; gap:8px;">
+          <!-- 琴 (乐): Silk threads on wood -->
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/swjz/9406.svg" style="height:100%; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(30deg);" />
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/swjz/4314.svg" style="height:100%; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(30deg);" />
         </div>
-        <p style="font-size:32px; font-weight:600; margin:10px 0;">乐 (琴)</p>
+        <p style="font-size:32px; font-weight:600; margin:10px 0;">琴 (乐)</p>
         <em class="fr">Musique/Instrument</em>
-        <p style="font-size:14px; margin-top:10px;">木上架丝之形 <br>Fils de soie sur bois.</p>
-      </div>
-
-      <div class="card" style="align-items:center; text-align:center;">
-        <div class="picto">
-          <!-- 画: Hand holding brush -->
-          <svg viewBox="0 0 100 100">
-            <path d="M40 80 L80 80 L80 60 L40 60 Z M50 20 L50 60 M40 50 L60 50 M20 20 C30 20 40 40 50 40" stroke-width="3"/>
-          </svg>
-        </div>
-        <p style="font-size:32px; font-weight:600; margin:10px 0;">画 (畵)</p>
-        <em class="fr">Peinture/Tracer</em>
-        <p style="font-size:14px; margin-top:10px;">手执笔画出疆界形 <br>Main traçant avec pinceau.</p>
-      </div>
-
-      <div class="card" style="align-items:center; text-align:center;">
-        <div class="picto">
-          <!-- 书: Brush pointing at vessel -->
-          <svg viewBox="0 0 100 100">
-            <path d="M30 15 L70 15 L50 90 M20 40 L80 40 M40 60 L60 60" />
-            <circle cx="50" cy="80" r="10" />
-          </svg>
-        </div>
-        <p style="font-size:32px; font-weight:600; margin:10px 0;">书</p>
-        <em class="fr">Calligraphie/Écrit</em>
-        <p style="font-size:14px; margin-top:10px;">手拿笔着墨于竹筒 <br>Pinceau encré sur bambou.</p>
+        <p style="font-size:14px; margin-top:10px;">木上架丝之形 <br>Fils de soie sur bois.<br><span class="en-note" style="font-size:11px;">Wood frame + silk strings. 乐 <em>yuè/lè</em>: originally a stringed instrument; extended meanings: music, joy, happiness. The character itself is the instrument — the physical act of making music encoded in the written word.</span></p>
       </div>
 
       <div class="card" style="align-items:center; text-align:center;">
         <div class="picto">
           <!-- 棋: Game board representation (stones on intersections) -->
-          <svg viewBox="0 0 100 100">
-            <path d="M20 20 L80 20 M20 50 L80 50 M20 80 L80 80 M20 20 L20 80 M50 20 L50 80 M80 20 L80 80" />
-            <circle cx="50" cy="50" r="8" fill="var(--ink)" />
-            <circle cx="20" cy="80" r="8" fill="var(--ink)" />
-            <circle cx="80" cy="20" r="8" fill="none" />
-          </svg>
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/swjz/4305.svg" style="height:100%; width:100%; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(30deg);" />
         </div>
         <p style="font-size:32px; font-weight:600; margin:10px 0;">棋 (碁)</p>
         <em class="fr">Jeu de Go</em>
-        <p style="font-size:14px; margin-top:10px;">石木之奕局 <br>Pierres sur une grille/Stratégie.</p>
+        <p style="font-size:14px; margin-top:10px;">石木之奕局 <br>Pierres sur une grille/Stratégie.<br><span class="en-note" style="font-size:11px;">棋 <em>qí</em>: from 木 (wood, the board) + 其 (phonetic). 围棋 <em>wéiqí</em> = "surrounding game." The oldest board game still played at the highest level — over 2,500 years old, with more possible board configurations than atoms in the observable universe.</span></p>
+      </div>
+
+      <div class="card" style="align-items:center; text-align:center;">
+        <div class="picto" style="display:flex; justify-content:center; align-items:center; gap:8px;">
+          <!-- 书: Brush pointing at vessel -->
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/icon_svg/%E6%9B%B8.svg" style="height:100%; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(30deg);" />
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/swjz/2209.svg" style="height:100%; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(30deg);" />
+        </div>
+        <p style="font-size:32px; font-weight:600; margin:10px 0;">书</p>
+        <em class="fr">Calligraphie/Écrit</em>
+        <p style="font-size:14px; margin-top:10px;">手拿笔着墨于竹筒 <br>Pinceau encré sur bambou.<br><span class="en-note" style="font-size:11px;">书 <em>shū</em>: a hand holding a brush over a vessel — writing as a physical act of control and discipline. "字如其人" (the character reveals the person): in China, handwriting was character analysis, personality assessment, and moral biography all at once.</span></p>
+      </div>
+
+      <div class="card" style="align-items:center; text-align:center;">
+        <div class="picto" style="display:flex; justify-content:center; align-items:center; gap:8px;">
+          <!-- 画: Hand holding brush -->
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/icon_svg/%E7%95%AB.svg" style="height:100%; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(30deg);" />
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/swjz/2210.svg" style="height:100%; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(30deg);" />
+        </div>
+        <p style="font-size:32px; font-weight:600; margin:10px 0;">画 (畵)</p>
+        <em class="fr">Peinture/Tracer</em>
+        <p style="font-size:14px; margin-top:10px;">手执笔画出疆界形 <br>Main traçant avec pinceau.<br><span class="en-note" style="font-size:11px;">画 <em>huà</em>: a hand drawing a boundary line with a brush inside a frame. The act of painting is literally the act of demarcating space — defining what is inside (subject) and outside (background). Chinese ink painting's philosophy of emptiness (留白) starts with this character: the painter decides what <em>not</em> to fill.</span></p>
       </div>
     </div>
   </div>
@@ -180,55 +179,107 @@ h2.red, h2.gold, h2.brown, h2.blue, h2.bamboo, h2.leaf-grn { margin-top:0; margi
 
   <!-- ================= PAGE 4: Art Essence ================= -->
   <div class="slide bg-culture" id="slide-4">
-    <h2 class="red">中国艺术的本质：自然与“意”</h2>
-    <h3>La Nature et l'Intention (Yi)</h3>
-    
-    <div class="two-col" style="margin-top:20px;">
-      <div>
-        <p>中国艺术本质上是由儒释道（儒家、佛教、道教）思想延伸而来的载体。最高境界在于传达<b>“意”</b>（l'Intention, ou l'esprit profond）而非其表象（形）。</p>
-        <p><em class="fr">L'essence de l'art chinois n'est pas la représentation photographique (mimesis). Porté par le Bouddhisme, le Taoïsme et le Confucianisme, il vise à exprimer le "Yi", c'est-à-dire l'intention et l'esprit de l'objet, tout en maintenant l'harmonie avec la nature.</em></p>
-        <p>苏轼提出“论画以形似，见与儿童邻”（To judge a painting by mere likeness is childish）。因此，西方绘画着迷于透视法与解剖学；而中国绘画追寻的则是“气韵生动”（Le souffle vital）。</p>
+    <div class="slide-header">
+      <div class="slide-title"><h2 style="font-size:22px;color:var(--red);">中国艺术的本质：自然与"意"</h2><div class="fr">L'Essence de l'Art Chinois : La Nature et l'Intention (Yi)</div></div>
+      <span class="page-num">04</span>
+    </div>
+    <div class="two-col" style="margin-top:10px;">
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <p>中国艺术本质上是儒释道（儒家、佛教、道教）思想的延伸。最高境界在于传达<b>"意"</b>（l'Intention / l'esprit profond）而非其表象（形）。苏轼名言：<span class="gold">「论画以形似，见与儿童邻」</span> — 以形似论画者，不过如小儿之见。</p>
+        <p><em class="fr">L'essence de l'art chinois n'est pas la représentation photographique (mimesis). Il vise à exprimer le «Yi» (意) — l'intention spirituelle profonde de l'objet — tout en maintenant l'harmonie avec la nature. Su Shi (Dongpo) le dit : «Juger un tableau par sa ressemblance, c'est l'œil d'un enfant.»</em></p>
+        <span class="en-note">Su Shi (蘇軾, 1037–1101): "To judge painting by likeness is the vision of a child." — The goal is not photographic accuracy but spiritual resonance (气韵生动 qìyùn shēngdòng): the vital breath and rhythm of the subject must live in the brushstroke.</span>
+        <div class="quote-box">
+          <span class="gold">「气韵生动」</span> — Xie He's First Law of Painting (谢赫六法, c. 500 CE)<br>
+          <em class="fr">«La résonance vitale et le mouvement du Qi» — Le premier et plus important des Six Principes de la Peinture.</em><br>
+          <span class="en-note">The painting must breathe. Before composition, color, or brushwork — the vital energy (Qi 气) must be present and living. This is why Chinese masters could spend decades painting bamboo: not to copy bamboo, but to <i>become</i> bamboo.</span>
+        </div>
       </div>
-      <div class="card" style="background:#5e6e58; color:white;">
-        <h3 style="color:#d1cbbe;">Comparaison:</h3>
-        <p><b>Ouest (Classique) :</b> Mathématiques, rationalité, imitation de la création divine, perspective géométrique.</p>
-        <p><b>Chine :</b> Impression, subjectivité spirituelle de l'auteur, fluidité, espace, et résonance énergétique (Qi).</p>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div class="card" style="border-left-color:var(--blue2);">
+          <h3 style="color:var(--blue2);">东西方绘画哲学对比 · Comparaison Philosophique</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px;">
+            <div style="background:rgba(0,0,0,0.3);padding:10px;border-radius:2px;">
+              <p style="color:var(--gold);font-size:12px;margin-bottom:6px;">🏛️ OCCIDENT / WEST</p>
+              <p style="font-size:12px;margin:0;line-height:1.6;">数学透视法 / Perspective géométrique<br>解剖学精准 / Précision anatomique<br>再现物质世界 / Imiter la réalité<br>光影与立体 / Clair-obscur<br><span style="color:rgba(255,255,255,0.4);font-size:11px;">Goal: rational truth of the visible world</span></p>
+            </div>
+            <div style="background:rgba(0,0,0,0.3);padding:10px;border-radius:2px;">
+              <p style="color:var(--jade2);font-size:12px;margin-bottom:6px;">🖌️ CHINE / CHINA</p>
+              <p style="font-size:12px;margin:0;line-height:1.6;">气韵生动 / Qi vital<br>留白哲学 / Le Vide (Liubai)<br>意境传达 / Esprit (Yi)<br>散点透视 / Perspective flottante<br><span style="color:rgba(255,255,255,0.4);font-size:11px;">Goal: spiritual truth beyond the visible</span></p>
+            </div>
+          </div>
+        </div>
+        <div class="card" style="border-left-color:var(--purple2);">
+          <h3 style="color:var(--purple2);">三教合一的艺术观 · Les Trois Voies</h3>
+          <p><b>儒家</b>：艺术是修身工具，服务于道德人格。<br><b>道家</b>：艺术应顺应自然，超越人工雕琢。<br><b>佛家</b>：艺术是观照内心、领悟空性的途径。</p>
+          <p><em class="fr"><b>Confucianisme</b> : l'art cultive la vertu. <b>Taoïsme</b> : l'art suit la nature spontanée. <b>Bouddhisme</b> : l'art révèle le vide (空 kōng) et la conscience intérieure.</em></p>
+          <span class="en-note">These three philosophies were not in conflict — Chinese literati drew from all three simultaneously. A calligrapher's brush discipline was Confucian; his spontaneous strokes were Daoist; his meditative focus was Buddhist.</span>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- ================= PAGE 5: Music (Le) ================= -->
+    <!-- ================= PAGE 5: Music (Le) ================= -->
   <div class="slide bg-jade" id="slide-5">
-    <h2 class="gold">乐：礼乐制度与演变</h2>
-    <h3>La Musique comme instrument de l'État</h3>
-    
-    <p>殷商时代，“乐”本质上是为了祭祀神灵。西周之后，周公制定“礼乐制度”（Rites et Musique），将乐作为统治和等级制度的核心工具。不同阶层只能欣赏规模不同的雅乐。</p>
-    
-    <div class="two-col" style="margin-top:20px;">
-      <div>
-        <p><em class="fr">À l'origine, la musique (Yuè) servait aux rituels sacrificiels. Elle devint un outil de gouvernance confucéen (système des rites) pour réguler la société et les émotions.</em></p>
-        <p>然而，由于“礼乐”对治国理政的实际作用式微，古乐的政治地位逐渐下降甚至消失。民间俗乐兴起，古曲失传。</p>
+    <div class="slide-header">
+      <div class="slide-title"><h2 style="font-size:22px;color:var(--gold);">乐：礼乐制度与演变</h2><div class="fr">La Musique comme Instrument de l'État et de l'Âme</div></div>
+      <span class="page-num">05</span>
+    </div>
+    <div class="two-col" style="margin-top:8px;">
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div class="card" style="border-left-color:var(--gold);">
+          <h3>礼乐制度 · Le Système des Rites et de la Musique</h3>
+          <p>殷商时代，"乐"（yuè）本质上是为祭祀神灵。西周之后，<b>周公旦</b>制定"礼乐制度"（Rites et Musique），将乐作为统治和等级秩序的核心工具。不同阶层只能欣赏不同规模的雅乐。</p>
+          <p><em class="fr">À l'origine, la musique servait aux rituels sacrificiels (Shang). Sous les Zhou occidentaux, le duc de Zhou codifie le «Système des Rites et de la Musique» : la musique devient un outil de gouvernance pour réguler la société, les émotions, et affirmer la hiérarchie sociale.</em></p>
+          <span class="en-note">The Rites of Zhou (周礼) strictly regulated which music each social rank could hear and perform. Emperors could have 8 rows of 8 dancers; lords had 6 rows; officials 4. To exceed your rank in music was a political crime — hence Confucius's outrage: "If this can be tolerated, what cannot be tolerated?"</span>
+        </div>
+        <div class="quote-box">
+          <span class="gold">「是可忍，孰不可忍？」</span> — 孔子《论语·八佾》<br>
+          <em class="fr">«Si cela peut être toléré, que ne peut-on pas tolérer ?» — Confucius, face à un seigneur usurpant la musique impériale.</em><br>
+          <span class="en-note">Confucius used this phrase when a lesser lord performed the Emperor's 8-row dance. Using the wrong music was not aesthetic offense — it was political treason against cosmic order.</span>
+        </div>
       </div>
-      <div class="card" style="border-left: 4px solid var(--seal-red);">
-        <p><em class="fr">Max Weber a noté que la musique occidentale s'est rationalisée et mathématisée (tempérament, polyphonie), tandis que la musique chinoise a longtemps stagné d'un point de vue structurel parce qu'elle était fixée par son utilité politique et rituelle ancienne.</em></p>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div class="card" style="border-left-color:var(--red);">
+          <h3 style="color:var(--red2);">古乐的衰亡 · Le Déclin de la Musique Classique</h3>
+          <p>由于"礼乐"对治国的实际效用逐渐式微，古乐的政治地位大幅下降。民间俗乐（戏曲、民歌）兴起，宫廷雅乐规范失传。大量古代乐谱和演奏法因此永久消失。</p>
+          <p><em class="fr">Avec le déclin de son utilité politique, la musique classique de cour (雅乐 yǎyuè) perdit son statut. La musique populaire — opéra, chansons folkloriques — prit le dessus. Une grande partie de la musique savante antique est perdue à jamais.</em></p>
+          <span class="en-note">This is one of China's greatest cultural losses: because ancient music's purpose was political-ritual (not artistic), when the system collapsed, no one preserved it for aesthetic reasons. The guqin repertoire that survives represents only a fragment of what once existed.</span>
+        </div>
+        <div class="card" style="border-left-color:var(--blue2);">
+          <h3 style="color:var(--blue2);">马克斯·韦伯的观察 · Max Weber</h3>
+          <p>社会学家马克斯·韦伯（Max Weber）指出：西方音乐走向了理性化与数学化（平均律、复调、和声体系）；而中国音乐由于长期固化于政治礼仪功能，在结构上相对停滞。</p>
+          <p><em class="fr">Max Weber observa que la musique occidentale s'est «rationalisée» — tempérament égal, polyphonie, harmonie fonctionnelle — tandis que la musique chinoise, figée dans son rôle rituel et politique, a connu une stagnation structurelle relative.</em></p>
+          <span class="en-note">Weber's thesis (from "The Rational and Social Foundations of Music"): Western music's rationalization (12-tone equal temperament, harmonic progression, written notation) paralleled the rationalization of Western capitalism and law. Chinese music's conservatism reflected its conservative social function.</span>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- ================= PAGE 6: Guqin vs Piano ================= -->
+    <!-- ================= PAGE 6: Guqin vs Piano ================= -->
   <div class="slide bg-oracle" id="slide-6">
     <div class="two-col">
       <div>
         <h2 class="red">琴：古琴 vs 钢琴</h2>
         <h3>Philosophie du Timbre vs Harmonie</h3>
         <p>古琴（Guqin）是中国乐器中最具文人色彩的乐器。其哲学在于<b>音色（Timbre）</b>与余音的控制。琴有七弦，散音、泛音、按音，意在孤芳自赏或遇知音（如伯牙子期）。</p>
-        <p><em class="fr">Le Guqin (Cithare chinoise) incarne la philosophie du timbre. L'attention est focalisée sur les nuances infinitésimales de chaque note, le silence entre elles, et la résonance. Il est joué pour l'introspection ou pour un seul ami (Zhiyin).</em></p>
+        <p><em class="fr">Le Guqin (Cithare chinoise) incarne la philosophie du timbre. L'attention est focalisée sur les nuances infinitésimales de chaque note, le silence entre elles, et la résonance. Il est joué pour l'introspection ou pour un seul ami (Zhiyin).</em><br><span class="en-note">The Guqin is historically the instrument of the literati. It is played not for performance, but for self-cultivation (修身). The ideal audience is oneself, or a "Zhiyin" (Knower of the Tone) — a soulmate who truly understands one's mind through the music. The strings represent elements of nature, and playing is an act of communion with the Dao.</span></p>
       </div>
       <div class="card">
         <h3 class="gold" style="margin-bottom:15px;">Le Piano Occidental</h3>
         <p>钢琴则代表了西方音乐的<b>和声学（Harmonie）</b>架构与建筑般的宏大叙事。钢琴是为公开演奏（Concert）、和弦架构以及表达强烈冲突和力量而生。</p>
         <p><em class="fr">Le piano est architectural : il repose sur l'harmonie multivoix, développé pour les salles de concert publiques, visant à maîtriser un espace acoustique riche et complexe.</em></p>
       </div>
+    </div>
+  </div>
+
+  <!-- ================= PAGE 6b: Instruments ================= -->
+  <div class="slide bg-dark" id="slide-6b" style="padding:16px 64px 32px;overflow-y:auto;pointer-events:all;">
+    <div class="slide-header" style="margin-bottom:12px; width:100%;">
+      <span class="lesson-tag" style="font-size:10px;color:var(--gold);">乐器图鉴 · Instruments Traditionnels</span>
+    </div>
+    <h2 style="margin-bottom:12px; color:var(--red);">民族乐器概览<br><span style="font-size:16px;opacity:0.7;">Aperçu des instruments chinois</span></h2>
+    <div style="flex:1; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.4); border:1px solid var(--border); padding:8px; overflow:hidden;">
+      <img src="https://img.redocn.com/sheji/20170626/minzuleqizhanbansheji_8358975.jpg.400.jpg" style="height:100%; width:100%; object-fit:contain;" />
     </div>
   </div>
 
@@ -251,6 +302,33 @@ h2.red, h2.gold, h2.brown, h2.blue, h2.bamboo, h2.leaf-grn { margin-top:0; margi
     </div>
   </div>
 
+  <!-- ================= PAGE 7b: Calligraphy Styles ================= -->
+  <div class="slide bg-jade" id="slide-7b" style="padding:16px 64px 32px;overflow-y:auto;pointer-events:all;">
+    <div class="slide-header" style="margin-bottom:12px; width:100%;">
+      <span class="lesson-tag" style="font-size:10px;color:var(--gold);">书体图鉴 · Styles de Calligraphie</span>
+    </div>
+    <h2 style="margin-bottom:12px; color:var(--paper);">汉字书体演变与分类<br><span style="font-size:16px;opacity:0.7;">Les différents styles d'écriture chinoise</span></h2>
+    
+    <div class="four-col" style="gap:15px; margin-top:20px; align-items: stretch; height: 100%;">
+      <div style="display:flex;flex-direction:column;gap:8px;background:var(--mist);padding:10px;border:1px solid var(--border);">
+        <h3 style="text-align:center; color:var(--gold); margin-bottom:5px; font-size:15px;">隶书<br><span style="font-size:11px; opacity:0.6; text-transform:none;">Style des scribes (Clérical)</span></h3>
+        <div style="flex:1; background:url('https://i.epochtimes.com/assets/uploads/2016/07/1607281404411456-600x400.jpg') center/cover no-repeat; border:1px solid rgba(255,255,255,0.1);"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;background:var(--mist);padding:10px;border:1px solid var(--border);">
+        <h3 style="text-align:center; color:var(--gold); margin-bottom:5px; font-size:15px;">楷书<br><span style="font-size:11px; opacity:0.6; text-transform:none;">Style régulier (Standard)</span><br><span class="en-note" style="font-size:10px;margin-top:2px;">Regular script: The foundation. Law, structure, moral rectitude.</span></h3>
+        <div style="flex:1; background:url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/KaishuOuyangxun.jpg/500px-KaishuOuyangxun.jpg') center/cover no-repeat; border:1px solid rgba(255,255,255,0.1);"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;background:var(--mist);padding:10px;border:1px solid var(--border);">
+        <h3 style="text-align:center; color:var(--gold); margin-bottom:5px; font-size:15px;">行书<br><span style="font-size:11px; opacity:0.6; text-transform:none;">Style semi-cursif (Courant)</span><br><span class="en-note" style="font-size:10px;margin-top:2px;">Running script: Everyday expression. Fluid, connected, personal.</span></h3>
+        <div style="flex:1; background:url('https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/LantingXu_Shenglongben.jpg/500px-LantingXu_Shenglongben.jpg') center/cover no-repeat; border:1px solid rgba(255,255,255,0.1);"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;background:var(--mist);padding:10px;border:1px solid var(--border);">
+        <h3 style="text-align:center; color:var(--gold); margin-bottom:5px; font-size:15px;">草书<br><span style="font-size:11px; opacity:0.6; text-transform:none;">Style cursif (Herbe)</span><br><span class="en-note" style="font-size:10px;margin-top:2px;">Grass script: Pure abstraction and emotion. Read as music.</span></h3>
+        <div style="flex:1; background:url('https://p1.img.cctvpic.com/photoworkspace/contentimg/2016/09/23/2016092313522490743.jpg') center/cover no-repeat; border:1px solid rgba(255,255,255,0.1);"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- ================= PAGE 8: Painting (Hua) ================= -->
   <div class="slide bg-empire" id="slide-8">
     <h2 class="gold">水墨画：留白与山水哲学</h2>
@@ -262,7 +340,7 @@ h2.red, h2.gold, h2.brown, h2.blue, h2.bamboo, h2.leaf-grn { margin-top:0; margi
       <div>
         <h3 style="font-size:20px; font-weight:600; margin-bottom:10px;">留白的张力 <br><em class="fr">Le Vide (Liubai)</em></h3>
         <p>西方绘画用颜料铺满整张画布；中国水墨画刻意在大面积的纸上“无墨”，留出空白。这片空白是水，是云，是道，是无限的想象空间。</p>
-        <p><em class="fr">En Occident, la toile entière est couverte de peinture. La peinture chinoise crée une tension métaphysique en laissant de vastes zones blanches (le Vide). Ce vide est respiration, nuages, ou l'infini spirituel.</em></p>
+        <p><em class="fr">En Occident, la toile entière est couverte de peinture. La peinture chinoise crée une tension métaphysique en laissant de vastes zones blanches (le Vide). Ce vide est respiration, nuages, ou l'infini spirituel.</em><br><span class="en-note">Liubai ("leaving white"): The most crucial concept. The unpainted silk/paper is not empty space; it <em>is</em> space. It represents water, mist, or the infinite scale. You cannot have the solid without the empty.</span></p>
       </div>
       <div class="card" style="border-right:4px solid var(--bamboo);">
         <h3 style="font-size:20px; font-weight:600; margin-bottom:10px;">借山水解脱 <br><em class="fr">Libération par le Paysage</em></h3>
@@ -272,19 +350,38 @@ h2.red, h2.gold, h2.brown, h2.blue, h2.bamboo, h2.leaf-grn { margin-top:0; margi
     </div>
   </div>
 
+  <!-- ================= PAGE 8b: Painting Styles ================= -->
+  <div class="slide bg-dark" id="slide-8b" style="padding:16px 64px 32px;overflow-y:auto;pointer-events:all;">
+    <div class="slide-header" style="margin-bottom:12px; width:100%;">
+      <span class="lesson-tag" style="font-size:10px;color:var(--gold);">画法图鉴 · Styles de Peinture</span>
+    </div>
+    <h2 style="margin-bottom:12px; color:var(--paper);">两大基本画法：工笔与写意<br><span style="font-size:16px;opacity:0.7;">Gongbi (Méticuleux) & Xieyi (Libre / Expressionniste)</span></h2>
+    
+    <div class="two-col" style="gap:25px; margin-top:15px; align-items: stretch; height: 100%;">
+      <div style="display:flex;flex-direction:column;gap:10px;background:var(--mist);padding:15px;border:1px solid var(--border);">
+        <h3 style="text-align:center; color:var(--gold); margin-bottom:5px;">工笔 (Gongbi)<br><span style="font-size:12px; opacity:0.6; text-transform:none;">Style méticuleux et réaliste</span><br><span class="en-note" style="font-size:10px;margin-top:2px;">Gongbi ("meticulous brush"): Highly detailed, precise. Used for court portraits.</span></h3>
+        <div style="flex:1; background:url('https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Songhuizong4.jpg/500px-Songhuizong4.jpg') center/cover no-repeat; border:1px solid rgba(255,255,255,0.1);"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;background:var(--mist);padding:15px;border:1px solid var(--border);">
+        <h3 style="text-align:center; color:var(--gold); margin-bottom:5px;">写意 (Xieyi)<br><span style="font-size:12px; opacity:0.6; text-transform:none;">Style libre, capture de l'esprit (Yi)</span><br><span class="en-note" style="font-size:10px;margin-top:2px;">Xieyi ("writing intention"): Freehand. Goal isn't realism but spirit (Qi).</span></h3>
+        <div style="flex:1; background:url('https://p3.itc.cn/images01/20210320/cf89074f9aa0475c9c4a84fbde2255d9.jpeg') center/cover no-repeat; border:1px solid rgba(255,255,255,0.1);"></div>
+      </div>
+    </div>
+  </div>
+
   <!-- ================= PAGE 9: Go (Qi) ================= -->
   <div class="slide bg-culture" id="slide-9">
     <div class="two-col">
       <div>
-        <h2 class="red">围棋：道与天下</h2>
+        <h2 class="red" style="color: var(--gold2);">围棋：道与天下</h2>
         <h3>Le Jeu de Go : Stratégie de l'Univers</h3>
         
         <p>围棋（Go）代表了古代中国人的宇宙观：“天圆地方”。棋盘由纵横直线构成网格，黑白两子代表阴阳运转。</p>
         <p><em class="fr">Le jeu de Go représente la cosmologie chinoise : le plateau carré est la terre, les pierres circulaires sont le ciel. Le noir et le blanc symbolisent l'interaction dynamique du Yin et du Yang.</em></p>
         
-        <ul style="font-size:20px; line-height:1.8; margin-top:20px; padding-left:20px;">
-          <li><b>无阶级之分：</b> 所有棋子地位平等，依靠位置（位势）而非固有兵种价值发挥作用。</li>
-          <li><b>包围哲学：</b> 意图在于获得生存空间（气) 和围地（包围圈），而非单点击杀。</li>
+        <ul style="color: var(--paper); font-size:20px; line-height:1.8; margin-top:20px; padding-left:20px;">
+          <li><b>无阶级之分 / Équilibre：</b> 所有棋子地位平等，依靠位置（位势）发挥作用。<br><span class="en-note">Every stone is identical in value until placed. Its power comes entirely from its context and connection. A profound metaphor for Confucian relations.</span></li>
+          <li><b>包围哲学 / Le Combat：</b> 意图在于围地，而非单点击杀。<br><span class="en-note">Unlike Chess which is a war of attrition ending in death, Go is a game of market share and co-existence. You win by controlling slightly more territory.</span></li>
         </ul>
       </div>
       <div class="card" style="justify-content:center;">
@@ -295,47 +392,198 @@ h2.red, h2.gold, h2.brown, h2.blue, h2.bamboo, h2.leaf-grn { margin-top:0; margi
     </div>
   </div>
 
+  <!-- ================= PAGE 9b: Board Games ================= -->
+  <div class="slide bg-jade" id="slide-9b" style="padding:16px 64px 32px;overflow-y:auto;pointer-events:all;">
+    <div class="slide-header" style="margin-bottom:12px; width:100%;">
+      <span class="lesson-tag" style="font-size:10px;color:var(--gold);">棋类图鉴 · Les Jeux de Plateau</span>
+    </div>
+    <h2 style="margin-bottom:12px; color:var(--paper);">围棋与象棋<br><span style="font-size:16px;opacity:0.7;">Le Go et le Xiangqi (Échecs chinois)</span></h2>
+    
+    <div class="two-col" style="gap:25px; margin-top:20px; align-items: stretch; height: 100%;">
+      <div style="display:flex;flex-direction:column;gap:10px;background:var(--mist);padding:15px;border:1px solid var(--border);">
+        <h3 style="text-align:center; color:var(--gold); margin-bottom:5px;">围棋 (Weiqi / Go)<br><span style="font-size:12px; opacity:0.6; text-transform:none;">Stratégie d'influence et de territoire. Égalité des pierres.</span></h3>
+        <div style="flex:1; background:url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/China_go2.JPG/500px-China_go2.JPG') center/cover no-repeat; border:1px solid rgba(255,255,255,0.1);"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;background:var(--mist);padding:15px;border:1px solid var(--border);">
+        <h3 style="text-align:center; color:var(--gold); margin-bottom:5px;">象棋 (Xiangqi)<br><span style="font-size:12px; opacity:0.6; text-transform:none;">Bataille hiérarchique : éliminer le Général adverse (Le Roi).</span></h3>
+        <div style="flex:1; background:url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Xiangqiboard.png/500px-Xiangqiboard.png') center/cover no-repeat; border:1px solid rgba(255,255,255,0.1);"></div>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- ================= PAGE 9c: AlphaGo Deep Dive ================= -->
+  <div class="slide bg-oracle" id="slide-9c">
+    <h2 class="gold">AlphaGo与围棋悖论</h2>
+    <h3>AlphaGo et le paradoxe du Go</h3>
+    <div class="line" style="margin-bottom:15px;"></div>
+    
+    <div class="two-col" style="gap:20px; align-items:flex-start;">
+        <div class="col" style="flex: 1.2;">
+            <div class="timeline">
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-date">1997 : Deep Blue</div>
+                    <p style="font-size:12px;color:rgba(245,240,232,0.8);margin:0;">L'IA bat Kasparov aux Échecs. Le Go reste intouchable en raison de sa complexité.</p>
+                    <span class="en-note">Chess solved via brute-force calculation. Go remained impossible due to its branching factor (10^170 states).</span>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-date">2016 : Le Match</div>
+                    <p style="font-size:12px;color:rgba(245,240,232,0.8);margin:0;">AlphaGo bat Lee Sedol par l'intuition (réseaux de neurones).</p>
+                    <span class="en-note">AlphaGo beats Lee Sedol by mimicking human "intuition" via deep learning.</span>
+                </div>
+                <div class="tl-item">
+                    <div class="tl-dot"></div>
+                    <div class="tl-date">Coup 37 (Partie 2)</div>
+                    <p style="font-size:12px;color:rgba(245,240,232,0.8);margin:0;">Un coup calculé à 1 sur 10 000 chances d'être joué par un humain. Rédéfinit la théorie millénaire du Go.</p>
+                    <span class="en-note">Move 37 changed Go history. It was so far outside human tradition commentators thought it was a mechanical error.</span>
+                </div>
+            </div>
+        </div>
+        <div class="col" style="flex: 0.8; background:rgba(0,0,0,0.3); border:1px solid rgba(212,175,55,0.2); padding:12px; border-radius:4px;">
+            <p style="font-size:14px;color:var(--gold2);line-height:1.6;margin-top:0;"><strong>Leçon Philosophique :</strong></p>
+            <p style="font-size:13px;color:rgba(245,240,232,0.8);line-height:1.6;">Pendant 2500 ans, les humains pensaient jouer au Go de manière optimale. L'IA a prouvé que notre "sagesse" était entachée de dogmes.</p>
+            <span class="en-note">For 2500 years, humans thought they were approaching the "truth" of Go. AlphaGo proved we were stuck in local aesthetic optima. In a profound Daoist turn, the machine taught humans to discard rigid dogmas and return to a "beginner's mind" (初心).</span>
+        </div>
+    </div>
+  </div>
+
   <!-- ================= PAGE 10: MIRROR ================= -->
   <div class="slide bg-jade" id="slide-10">
-    <div style="background-color: var(--ink); color: var(--paper); padding:40px; border-radius:8px; height:100%;">
-      <h2 style="color:var(--paper); margin-bottom:10px;">汉法文化镜像</h2>
-      <h3 style="color:var(--gold);">Miroir Culturel Franco-Chinois: Beaux-Arts vs Art Lettré</h3>
-      
-      <div class="two-col" style="margin-top:40px;">
-        <div style="border-right: 1px inset var(--shadow); padding-right: 30px;">
-          <h3 style="color:#dce8f3; font-size:22px;">📍 法国 / 西方（France / Occident）</h3>
-          <p><b>理性的再现 (Représentation rationnelle)</b><br>从古希腊到文艺复兴，再到巴黎法国美术学院（Beaux-Arts）。艺术追求解剖学、几何透视，追求再现物质世界的真实与神圣的完美。艺术是对物理世界的科学分析与感官再造。</p>
+    <div class="slide-header">
+      <div class="slide-title"><h2 style="font-size:22px;color:var(--paper);">汉法文化镜像 · Miroir Culturel</h2><div class="fr">Beaux-Arts (France) vs Art Lettré (Chine) — A Cultural Comparison</div></div>
+      <span class="page-num">10</span>
+    </div>
+    <div class="two-col" style="margin-top:8px;">
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div class="card" style="border-left-color:var(--blue2); background:rgba(10,20,40,0.5);">
+          <h3 style="color:var(--blue2);">📍 法国 / 西方（France / Occident）</h3>
+          <p><b>理性的再现 · Représentation Rationnelle</b></p>
+          <p>从古希腊"模仿论"（Mimesis）到文艺复兴，再到巴黎法国美术学院（École des Beaux-Arts）。西方艺术追求<b>解剖学精确、几何透视、光影塑形</b>，认为艺术的最高使命是再现物质世界的真实，进而彰显神圣的完美秩序。</p>
+          <p><em class="fr">De la mimesis grecque à la Renaissance, puis à l'École des Beaux-Arts de Paris : l'art occidental est fondé sur la raison — perspective géométrique (Alberti), anatomie (Léonard de Vinci), clair-obscur (Caravage). L'art sert à représenter le monde visible avec exactitude scientifique.</em></p>
+          <span class="en-note">Key figures: Leonardo da Vinci studied anatomy to paint muscles; Alberti invented mathematical perspective; the Beaux-Arts system in Paris (founded 1648) systematized these principles as universal laws of "good art" — exported globally through colonialism.</span>
         </div>
-        <div>
-          <h3 style="color:#eac496; font-size:22px;">📍 中国（Chine）</h3>
-          <p><b>精神的投射 (Projection spirituelle)</b><br>“琴棋书画”的终极目标不是艺术本体，而是造就一个拥有至高道德人格的“圣人/君子”。艺术仅仅是内心情感、哲学体悟（对佛家虚无、道家自然的领悟）的外在排气口，意在忘形。</p>
+        <div class="card" style="border-left-color:var(--gold);">
+          <h3 style="color:var(--gold);">艺术观差异·核心词汇</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;font-size:11px;color:var(--paper);">
+            <div style="background:rgba(0,0,0,0.3);padding:8px;text-align:center;">
+              <div style="color:var(--white);margin-bottom:3px;">WEST</div>
+              Mimesis<br>Perspective<br>Anatomy<br>Harmony<br>Chiaroscuro
+            </div>
+            <div style="background:rgba(0,0,0,0.3);padding:8px;text-align:center;">
+              <div style="color:var(--red2);margin-bottom:3px;">中文</div>
+              模仿论<br>透视法<br>解剖学<br>和声<br>明暗法
+            </div>
+            <div style="background:rgba(0,0,0,0.3);padding:8px;text-align:center;">
+              <div style="color:var(--purple2);margin-bottom:3px;">CHINA</div>
+              气韵生动<br>散点透视<br>骨法用笔<br>意境<br>留白
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div class="card" style="border-left-color:var(--jade2); background:rgba(5,20,10,0.5);">
+          <h3 style="color:var(--jade2);">📍 中国（Chine）</h3>
+          <p><b>精神的投射 · Projection Spirituelle</b></p>
+          <p>"琴棋书画"的终极目标不是艺术本体，而是造就拥有至高道德人格的<b>"君子/圣人"</b>。艺术是内心情感与哲学体悟（佛家虚空、道家自然）的外在出口。"忘形得意"——超越物质形态，直达精神本质。</p>
+          <p><em class="fr">Le but ultime des Quatre Arts n'est pas l'objet artistique lui-même, mais la formation d'un «Junzi» (homme noble) d'une vertu suprême. L'art est une soupape d'expression de la vie intérieure — philosophie bouddhiste du vide, spontanéité taoïste. «Oublier la forme pour saisir l'esprit» (忘形得意).</em></p>
+          <span class="en-note">"Forget the form, capture the spirit" (忘形得意 wàng xíng dé yì): The ultimate Chinese aesthetic principle. A painting of bamboo that looks exactly like bamboo but has no spiritual energy is worthless. A painting that barely suggests bamboo but vibrates with the artist's inner state is priceless.</span>
+        </div>
+        <div class="quote-box">
+          <span class="gold">「书画同源」</span> — Calligraphy and Painting Share One Origin<br>
+          <em class="fr">«La calligraphie et la peinture ont la même source.» — Zhao Mengfu (趙孟頫), maître des Yuan.</em><br>
+          <span class="en-note">In China, painting and writing use the same brush, the same ink, the same energy. A calligrapher painting a mountain is simultaneously writing a character. This unity is alien to Western art, where writing and image are entirely separate systems.</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ================= PAGE 11: SUMMARY ================= -->
+    <!-- ================= PAGE 11: SUMMARY ================= -->
   <div class="slide bg-oracle" id="slide-11">
-    <h2 class="red">第八课总结 · Conclusion</h2>
-    <h3>从“四艺”到天人合一</h3>
-    
-    <div style="max-width: 900px; margin: 40px auto 0; text-align: left;">
-      <p>1. <b>修心优于技艺：</b> 在中国思想史框架下，文人借由<span class="gold">“琴棋书画”</span>逃离现实的黑暗政治，追求个人的道德乌托邦与人格纯粹。艺术是修行的工具。</p>
-      <p><em class="fr">1. Le perfectionnement intérieur : Outils de cultivation morale, ces arts aidaient les lettrés à fuir les ténèbres politiques pour construire une utopie intérieure.</em></p>
-      
-      <p>2. <b>尚意弃形：</b> 不论是古琴独抚，书法挥洒，水墨留白，还是棋局纵横，其核心原则皆遵循老庄“道法自然”，寻求摆脱物理束缚，抵达精神的高度自由。</p>
-      <p><em class="fr">2. Saisir l'Esprit au-delà de la Forme : De la cithare à l'encre, l'objectif est d'atteindre la liberté spirituelle suprême (Ziran), loin de l'imitation rigide du monde matériel.</em></p>
+    <div class="slide-header">
+      <div class="slide-title"><h2 style="font-size:22px;color:var(--red);">第八课总结 · Conclusion de la Leçon VIII</h2><div class="fr">From the Four Arts to the Unity of Heaven and Humanity (天人合一)</div></div>
+      <span class="page-num">11</span>
     </div>
-    
-    <div class="cover" style="margin-top:60px; background: transparent;">
-      <div class="seal" style="width:60px; height:60px; font-size:28px;">完</div>
+    <div class="two-col" style="margin-top:8px;">
+      <div style="display:flex;flex-direction:column;gap:11px;">
+        <div class="card" style="border-left-color:var(--gold);">
+          <h3>① 修心优于技艺 · Cultiver l'Âme avant le Geste</h3>
+          <p>在中国思想史框架下，文人借由<span class="gold">「琴棋书画」</span>逃离政治黑暗，追求个人道德乌托邦与人格纯粹。艺术是修行（修身）的工具，而非展示才艺的舞台。</p>
+          <p><em class="fr">Dans la tradition chinoise, les Quatre Arts sont avant tout des outils de cultivation morale. Les lettrés, frustrés par la politique, s'en servaient pour construire une utopie intérieure et purifier leur caractère. L'art est une discipline, non une performance.</em></p>
+          <span class="en-note">A master calligrapher would spend hours in seated meditation before lifting the brush — not to warm up physically, but to empty the mind of ego. The art begins before the art begins.</span>
+        </div>
+        <div class="card" style="border-left-color:var(--jade2);">
+          <h3 style="color:var(--jade2);">③ 东西方的深层分歧 · La Divergence Fondamentale</h3>
+          <p>西方艺术（法国、意大利）最终走向了"为艺术而艺术"（L'Art pour l'Art），追求审美的自律；中国艺术始终坚持"为人格而艺术"——艺术服从于伦理，形式服从于精神。</p>
+          <p><em class="fr">L'art occidental évolua vers «l'Art pour l'Art» (autonomie esthétique pure). L'art chinois maintint toujours sa subordination à l'éthique — la forme reste au service de l'esprit et de la vertu. Ce n'est pas une infériorité, c'est une philosophie différente.</em></p>
+          <span class="en-note">Neither tradition is superior. The West built Beethoven, Michelangelo, and cinema. China built the guqin, ink landscape, and calligraphy as biography. They are parallel answers to the same question: "What is art for?"</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:11px;">
+        <div class="card" style="border-left-color:var(--purple2);">
+          <h3 style="color:var(--purple2);">② 尚意弃形 · L'Esprit au-delà de la Forme</h3>
+          <p>不论是古琴独抚，书法挥洒，水墨留白，还是棋局纵横，核心原则皆遵循老庄"道法自然"——寻求摆脱物理束缚，抵达精神的高度自由（逍遥游）。</p>
+          <p><em class="fr">Qu'il s'agisse du guqin, de la calligraphie, de la peinture à l'encre ou du Go, le principe central suit la voie taoïste : transcender la forme physique pour atteindre la liberté spirituelle absolue (逍遙遊 — Libre Errance de Zhuangzi).</em></p>
+          <span class="en-note">Zhuangzi's "Free and Easy Wandering" (逍遥游 Xiāoyáo Yóu) is the philosophical ideal: the artist moves through the art form without being constrained by it — like a master chef whose knife never dulls because he finds the natural spaces in the ox.</span>
+        </div>
+        <div class="card" style="border-left-color:var(--red); background:rgba(20,5,5,0.5);">
+          <h3 style="color:var(--red2);">④ 天人合一 · L'Unité du Ciel et de l'Homme</h3>
+          <p>四艺的终极目标是实现<b>"天人合一"</b>——人与宇宙的和谐共鸣。弹琴时，琴弦振动与宇宙之气共振；挥毫时，笔墨流动与大化同频。这是中国哲学对"艺术意义"的终极回答。</p>
+          <p><em class="fr">L'objectif ultime des Quatre Arts : réaliser «l'Unité du Ciel et de l'Homme» (天人合一). Jouer du guqin, c'est vibrer avec le cosmos. Peindre une montagne, c'est <i>être</i> la montagne. L'art est communion, pas représentation.</em></p>
+          <span class="en-note">"The unity of Heaven and Humanity" (天人合一 Tiān Rén Hé Yī): The practitioner does not observe nature to paint it. They become nature. The boundary between self and cosmos dissolves in the act of art. This is the Four Arts' deepest purpose.</span>
+        </div>
+      </div>
     </div>
   </div>
 
-  
-  
-  
-  
+    <!-- ================= PAGE 11b: Vocabulary/Glossary ================= -->
+  <div class="slide bg-close" id="slide-11b">
+    <div class="slide-header">
+      <div class="slide-title"><h2 style="font-size:22px;color:var(--gold);">核心概念 · Concepts Clés · Key Concepts</h2><div class="fr">Trilingual Glossary — 三语词汇表 — Glossaire Trilingue</div></div>
+      <span class="page-num">12</span>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-top:8px; flex:1;">
+      <div style="background:rgba(0,0,0,0.4); border:1px solid var(--border); padding:14px;">
+        <h4 style="color:var(--gold); margin:0 0 5px 0; font-size:16px;">知音 Zhīyīn</h4>
+        <p style="font-size:13px;color:rgba(245,240,232,0.9);margin:0 0 5px 0;line-height:1.5;">字面：了解你音乐的人。引申：真正理解你内心的灵魂挚友。</p>
+        <em class="fr" style="font-size:12px;">«Celui qui connaît ta musique» — l'ami de l'âme qui comprend ton cœur à travers l'art.</em>
+        <span class="en-note">"Knower of the Tone" — a soulmate who understands your soul through music. Origin: Bo Ya smashed his guqin after Zhong Ziqi died — no one left to truly hear him.</span>
+      </div>
+      <div style="background:rgba(0,0,0,0.4); border:1px solid var(--border); padding:14px;">
+        <h4 style="color:var(--gold); margin:0 0 5px 0; font-size:16px;">留白 Liúbái</h4>
+        <p style="font-size:13px;color:rgba(245,240,232,0.9);margin:0 0 5px 0;line-height:1.5;">字面：留出空白。绘画中有意保留的未着墨区域，代表水、雾或无限。</p>
+        <em class="fr" style="font-size:12px;">«Laisser le blanc» — l'espace vide intentionnel dans la peinture : eau, brume, ou l'infini spirituel.</em>
+        <span class="en-note">"Leaving white." The intentional empty space in painting, silence in music, uncontested territory in Go. The void is not absence — it is the most powerful presence.</span>
+      </div>
+      <div style="background:rgba(0,0,0,0.4); border:1px solid var(--border); padding:14px;">
+        <h4 style="color:var(--gold); margin:0 0 5px 0; font-size:16px;">气韵 Qìyùn</h4>
+        <p style="font-size:13px;color:rgba(245,240,232,0.9);margin:0 0 5px 0;line-height:1.5;">字面：气息与韵律。中国绘画第一法则，指作品中流动的生命能量与节奏感。</p>
+        <em class="fr" style="font-size:12px;">«Résonance vitale du Qi» — le premier des Six Principes de la Peinture (谢赫六法) : l'énergie vivante qui doit animer toute œuvre.</em>
+        <span class="en-note">Vital breath and rhythm. The first of Xie He's Six Laws of Painting. A work without Qi is technically perfect but spiritually dead. The brush must carry the artist's living energy.</span>
+      </div>
+      <div style="background:rgba(0,0,0,0.4); border:1px solid var(--border); padding:14px;">
+        <h4 style="color:var(--gold); margin:0 0 5px 0; font-size:16px;">意境 Yìjìng</h4>
+        <p style="font-size:13px;color:rgba(245,240,232,0.9);margin:0 0 5px 0;line-height:1.5;">字面：意图与境界。作品唤起的那种只可意会、无法言传的氛围与情感空间。</p>
+        <em class="fr" style="font-size:12px;">«L'espace de l'intention» — l'atmosphère émotionnelle et spirituelle évoquée par une œuvre, au-delà des mots.</em>
+        <span class="en-note">"Atmosphere of intention" — the emotional-spiritual dimension an artwork evokes that cannot be fully described in words. A great shanshui painting creates an yijing you want to inhabit.</span>
+      </div>
+      <div style="background:rgba(0,0,0,0.4); border:1px solid var(--border); padding:14px;">
+        <h4 style="color:var(--gold); margin:0 0 5px 0; font-size:16px;">写意 Xiěyì</h4>
+        <p style="font-size:13px;color:rgba(245,240,232,0.9);margin:0 0 5px 0;line-height:1.5;">字面：书写意图。自由挥洒的绘画风格，捕捉对象精髓而非精确外形。对立面：工笔（Gōngbǐ）。</p>
+        <em class="fr" style="font-size:12px;">«Écrire l'intention» — style pictural libre visant l'esprit plutôt que la forme précise. Contraire de Gongbi (méticuleux).</em>
+        <span class="en-note">"Writing the Intention" — freehand style. The goal isn't to copy nature but to transmit its essence. A xieyi bamboo may have three brushstrokes — and contain more life than a photorealistic one.</span>
+      </div>
+      <div style="background:rgba(0,0,0,0.4); border:1px solid var(--border); padding:14px;">
+        <h4 style="color:var(--gold); margin:0 0 5px 0; font-size:16px;">天人合一 Tiān Rén Hé Yī</h4>
+        <p style="font-size:13px;color:rgba(245,240,232,0.9);margin:0 0 5px 0;line-height:1.5;">字面：天与人的合一。中国哲学最高理念：人与宇宙相互融合，艺术是实现此境的途径。</p>
+        <em class="fr" style="font-size:12px;">«L'Unité du Ciel et de l'Homme» — l'idéal philosophique suprême : la fusion de l'être humain avec le cosmos à travers la pratique artistique.</em>
+        <span class="en-note">"The Unity of Heaven and Humanity" — the ultimate goal of the Four Arts. The practitioner does not observe nature to depict it. They dissolve into nature. Art is the vehicle of cosmic communion.</span>
+      </div>
+    </div>
+  </div>
+
+
 </div>
 
 

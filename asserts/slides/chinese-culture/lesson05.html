@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
 <title>第五课 · 首饰与玉文化</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IM+Fell+English:ital@0;1&family=DM+Mono:wght@400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
   --ink:#0a0807; --paper:#f5f0e8;
@@ -28,6 +29,12 @@ body{background:#0a0807;font-family:'Cormorant Garamond','Noto Serif SC',Georgia
 .bg-empire{background:linear-gradient(135deg,#150603 0%,#200808 100%);}
 .bg-culture{background:linear-gradient(135deg,#0a0904 0%,#130f06 100%);}
 .bg-jade{background:linear-gradient(135deg,#050e09 0%,#091508 100%);}
+.bg-close{background:linear-gradient(135deg,#080a0e 0%,#0e1018 100%);}
+.en-note{color:rgba(245,240,232,0.42);font-size:10.5px;line-height:1.65;margin-top:5px;display:block;}
+.trilingual{display:flex;flex-direction:column;gap:3px;}
+.trilingual .zh-line{color:rgba(245,240,232,0.85);font-size:12px;line-height:1.6;}
+.trilingual .fr-line{color:rgba(245,240,232,0.48);font-size:11px;font-style:italic;line-height:1.5;}
+.trilingual .en-line{color:rgba(245,240,232,0.38);font-size:10.5px;line-height:1.5;}
 
 .slide-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;border-bottom:1px solid var(--border);padding-bottom:12px;}
 .lesson-tag{font-size:10px;letter-spacing:0.4em;text-transform:uppercase;color:var(--jade);opacity:0.85;}
@@ -80,6 +87,7 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
     <div style="font-size:12px;letter-spacing:0.5em;color:var(--jade);opacity:0.8;text-transform:uppercase;z-index:1;">第五课 · Leçon V · Lesson 5</div>
     <h1 style="font-size:clamp(38px,5.5vw,66px);z-index:1;">首饰与玉文化</h1>
     <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(18px,2.2vw,28px);color:rgba(245,240,232,0.6);z-index:1;">Bijoux, Parures et Culture du Jade</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(13px,1.5vw,18px);color:rgba(245,240,232,0.32);z-index:1;letter-spacing:.05em;">Jewellery, Adornment &amp; the Philosophy of Jade</div>
     <div style="display:flex;gap:28px;margin-top:20px;z-index:1;">
       <div style="text-align:center;"><div style="font-size:10px;letter-spacing:0.2em;color:rgba(255,255,255,0.3);text-transform:uppercase;margin-bottom:3px;">核心文字 · Caractères</div><div style="font-size:13px;color:rgba(245,240,232,0.7);">玉 · 珠 · 环 · 璧</div></div>
       <div style="width:1px;background:rgba(255,255,255,0.15);"></div>
@@ -97,19 +105,19 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
       <div class="tag" style="font-size:10px;color:var(--jade2);margin-bottom:4px;">第一部分 · Partie 1</div>
       <h3 style="color:var(--paper);font-size:16px;text-transform:none;">文字与玉的哲学</h3>
       <p style="font-size:12px;margin-bottom:4px;">甲骨文中的玉石文字，儒家“君子比德于玉”的思想起源与宇宙观。</p>
-      <em class="fr" style="font-size:11px;">Caractères, philosophie du jade et vertu confucéenne.</em>
+      <em class="fr" style="font-size:11px;">Caractères, philosophie du jade et vertu confucéenne.</em><br><span class="en-note">How did oracle-bone script encode the unique Chinese conception of jade? Why does a philosopher compare a gentleman to a stone?</span>
     </div>
     <div class="card gold">
       <div class="tag" style="font-size:10px;color:var(--gold2);margin-bottom:4px;">第二部分 · Partie 2</div>
       <h3 style="color:var(--paper);font-size:16px;text-transform:none;">首饰的形制与演变</h3>
       <p style="font-size:12px;margin-bottom:4px;">从红山文化的玉器到唐代的金银交辉，男女首饰的种类、头部与身体装饰的功能。</p>
-      <em class="fr" style="font-size:11px;">Évolution historique et typologie des parures féminines et masculines.</em>
+      <em class="fr" style="font-size:11px;">Évolution historique et typologie des parures féminines et masculines.</em><br><span class="en-note">From Neolithic ritual objects to Tang cosmopolitan gold — six stages tracing jade's evolving role across 8,000 years.</span>
     </div>
     <div class="card red">
       <div class="tag" style="font-size:10px;color:var(--red2);margin-bottom:4px;">第三部分 · Partie 3</div>
       <h3 style="color:var(--paper);font-size:16px;text-transform:none;">社会功能与跨文化对比</h3>
       <p style="font-size:12px;margin-bottom:4px;">首饰的祈福与等级功能，中法珠宝文明镜像对比（象征性 vs 物质性）。</p>
-      <em class="fr" style="font-size:11px;">Fonctions sociales, lois somptuaires et miroir culturel sino-français.</em>
+      <em class="fr" style="font-size:11px;">Fonctions sociales, lois somptuaires et miroir culturel sino-français.</em><br><span class="en-note">Why did Chinese jewellery regulate posture and morality? Diamond vs jade: two radically different philosophies of beauty and value.</span>
     </div>
   </div>
 </div>
@@ -122,27 +130,22 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
       <div class="card jade">
         <div style="display:flex;gap:16px;align-items:center;">
           <div class="picto" style="width:70px;height:70px;">
-            <svg viewBox="0 0 100 100" stroke="var(--jade2)" stroke-width="4" stroke-linecap="round" fill="none">
-              <path d="M20,30 L80,30 M30,50 L70,50 M20,70 L80,70 M50,20 L50,80" />
-            </svg>
+            <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/icon_svg/%E7%8E%89.svg" style="height:100%; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(90deg);" alt="玉">
           </div>
           <div>
             <h3 style="font-size:18px;color:var(--paper);text-transform:none;letter-spacing:2px;margin:0;">玉 (Yù) - <i>Le Jade</i></h3>
-            <p style="font-size:12px;line-height:1.4;">像三块平行的玉石被一根线串联。后加一点以区别于“王”。<br><em class="fr">Trois morceaux de jade enfilés sur un cordon.</em></p>
+            <p style="font-size:12px;line-height:1.4;">像三块平行的玉石被一根线串联。后加一点以区别于“王”。<br><em class="fr">Trois morceaux de jade enfilés sur un cordon.</em><br><span class="en-note">Three jade discs strung on a cord. Nearly identical to 王 (king) — the single dot that distinguishes jade from royalty encodes a profound relation: the king is the one who <em>holds</em> the jade. 玉 is the semantic root of over 200 characters: 珠 (pearl), 环 (ring), 璧 (disc), 璞 (uncut jade), 琢 (carve), 玩 (play/appreciate)...</span></p>
           </div>
         </div>
       </div>
       <div class="card jade">
         <div style="display:flex;gap:16px;align-items:center;">
           <div class="picto" style="width:70px;height:70px;">
-            <svg viewBox="0 0 100 100" stroke="var(--jade2)" stroke-width="3" stroke-linecap="round" fill="none">
-              <path d="M30,50 L70,50 M50,30 L50,70 M25,40 L75,40 M40,25 L40,75" />
-              <circle cx="20" cy="50" r="8"/><circle cx="80" cy="50" r="8"/>
-            </svg>
+            <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/swjz/223.svg" style="height:100%; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(90deg);" alt="珠">
           </div>
           <div>
             <h3 style="font-size:18px;color:var(--paper);text-transform:none;letter-spacing:2px;margin:0;">珠 (Zhū) - <i>La Perle</i></h3>
-            <p style="font-size:12px;line-height:1.4;">从“玉”，“朱”声。指蚌壳内的珍珠或圆形的玉石。<br><em class="fr">Perle; composé de l'élément "jade" (matière précieuse).</em></p>
+            <p style="font-size:12px;line-height:1.4;">从“玉”，“朱”声。指蚌壳内的珍珠或圆形的玉石。<br><em class="fr">Perle; composé de l'élément "jade" (matière précieuse).</em><br><span class="en-note">珠 <em>zhū</em>: jade radical (玉) + phonetic 朱 (red). Originally referred to both pearls and round jade beads. Pearl-diving in ancient China was a state monopoly; pearls were tribute items symbolising the purity of distant seas.</span></p>
           </div>
         </div>
       </div>
@@ -151,32 +154,156 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
       <div class="card jade">
         <div style="display:flex;gap:16px;align-items:center;">
           <div class="picto" style="width:70px;height:70px;">
-            <svg viewBox="0 0 100 100" stroke="var(--jade2)" stroke-width="3" stroke-linecap="round" fill="none">
-              <circle cx="50" cy="50" r="25" />
-              <circle cx="50" cy="50" r="10" />
-            </svg>
+            <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/swjz/136.svg" style="height:100%; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(90deg);" alt="环">
           </div>
           <div>
             <h3 style="font-size:18px;color:var(--paper);text-transform:none;letter-spacing:2px;margin:0;">环 (Huán) - <i>L'Anneau</i></h3>
-            <p style="font-size:12px;line-height:1.4;">肉（玉质部分）与好（中间的孔）相等的圆玉。<br><em class="fr">Anneau de jade où l'épaisseur de la pierre égale le trou central.</em></p>
+            <p style="font-size:12px;line-height:1.4;">肉（玉质部分）与好（中间的孔）相等的圆玉。<br><em class="fr">Anneau de jade où l'épaisseur de la pierre égale le trou central.</em><br><span class="en-note">环 <em>huán</em>: the ring where the jade body (肉) equals the central hole (好). The proportions were precise and ritual. A gift of 环 signalled an invitation to return — the circular form implied continuity and reunion.</span></p>
           </div>
         </div>
       </div>
       <div class="card jade">
         <div style="display:flex;gap:16px;align-items:center;">
           <div class="picto" style="width:70px;height:70px;">
-             <svg viewBox="0 0 100 100" stroke="var(--jade2)" stroke-width="4" stroke-linecap="round" fill="none">
-              <circle cx="50" cy="50" r="35" />
-              <circle cx="50" cy="50" r="12" />
-            </svg>
+             <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/swjz/10148.svg" style="height:100%; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(90deg);" alt="璧">
           </div>
           <div>
             <h3 style="font-size:18px;color:var(--paper);text-transform:none;letter-spacing:2px;margin:0;">璧 (Bì) - <i>Le Disque Bi</i></h3>
-            <p style="font-size:12px;line-height:1.4;">肉边大，孔洞小的扁平圆玉。常用于祭天。<br><em class="fr">Disque plat de jade à petit trou, utilisé pour le culte du Ciel.</em></p>
+            <p style="font-size:12px;line-height:1.4;">肉边大，孔洞小的扁平圆玉。常用于祭天。<br><em class="fr">Disque plat de jade à petit trou, utilisé pour le culte du Ciel.</em><br><span class="en-note">璧 <em>bì</em>: flat disc with a small central hole. Used in Heaven-worship ceremonies. The expression 价值连城 ("worth a chain of cities") comes from the story of the 和氏璧 (He's Disc) — the most precious jade in Chinese history, fought over by kings and eventually becoming the imperial seal.</span></p>
           </div>
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+
+<!-- S3b: 玉字家族 — Character Family Deep-Dive -->
+<div class="slide bg-jade" id="s3b">
+  <div class="slide-header"><span class="lesson-tag">玉字家族 · Famille 玉 · The Jade Family</span><span class="slide-num">1b</span></div>
+  <h2 style="margin-bottom:12px;">玉字族与贝币字族<br><span style="font-size:14px;opacity:0.65;">Les grandes familles sémantiques · The Two Great Semantic Families</span></h2>
+  <div class="two-col" style="gap:24px;flex:1;align-items:start;">
+
+    <!-- Jade family -->
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div style="border-bottom:1px solid var(--border);padding-bottom:6px;">
+        <span style="font-family:'Noto Serif SC',serif;font-size:22px;color:var(--jade2);">玉族</span>
+        <span style="font-size:10px;letter-spacing:.1em;color:var(--jade2);margin-left:8px;text-transform:uppercase;">Famille du Jade · Jade Radical Family</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+        <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(46,125,90,0.3);padding:8px;text-align:center;border-radius:2px;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:24px;color:var(--jade2);">珉</div>
+          <div style="font-size:10px;color:var(--jade2);margin-top:2px;">yù · Jade</div>
+          <div style="font-size:9px;color:rgba(245,240,232,0.4);margin-top:1px;line-height:1.4;">3 discs on cord<br>pierre précieuse</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(46,125,90,0.3);padding:8px;text-align:center;border-radius:2px;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:24px;color:var(--jade2);">珠</div>
+          <div style="font-size:10px;color:var(--jade2);margin-top:2px;">zhū · Perle</div>
+          <div style="font-size:9px;color:rgba(245,240,232,0.4);margin-top:1px;line-height:1.4;">jade+朱 (red)<br>pearl, bead</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(46,125,90,0.3);padding:8px;text-align:center;border-radius:2px;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:24px;color:var(--jade2);">璧</div>
+          <div style="font-size:10px;color:var(--jade2);margin-top:2px;">bì · Disque</div>
+          <div style="font-size:9px;color:rgba(245,240,232,0.4);margin-top:1px;line-height:1.4;">flat disc, Heaven<br>ciel, précieux</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(46,125,90,0.3);padding:8px;text-align:center;border-radius:2px;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:24px;color:var(--jade2);">珏</div>
+          <div style="font-size:10px;color:var(--jade2);margin-top:2px;">huán · Anneau</div>
+          <div style="font-size:9px;color:rgba(245,240,232,0.4);margin-top:1px;line-height:1.4;">ring, return<br>cycle, continuité</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(46,125,90,0.3);padding:8px;text-align:center;border-radius:2px;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:24px;color:var(--jade2);">琊</div>
+          <div style="font-size:10px;color:var(--jade2);margin-top:2px;">wán · Apprécier</div>
+          <div style="font-size:9px;color:rgba(245,240,232,0.4);margin-top:1px;line-height:1.4;">play with jade<br>contempler</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(46,125,90,0.3);padding:8px;text-align:center;border-radius:2px;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:24px;color:var(--jade2);">琼</div>
+          <div style="font-size:10px;color:var(--jade2);margin-top:2px;">qióng · Fin</div>
+          <div style="font-size:9px;color:rgba(245,240,232,0.4);margin-top:1px;line-height:1.4;">finest jade<br>céleste, magnifique</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(46,125,90,0.3);padding:8px;text-align:center;border-radius:2px;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:24px;color:var(--jade2);">琺</div>
+          <div style="font-size:10px;color:var(--jade2);margin-top:2px;">zhóu · Sculpter</div>
+          <div style="font-size:9px;color:rgba(245,240,232,0.4);margin-top:1px;line-height:1.4;">carve jade<br>ciseler, perfectionner</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(46,125,90,0.3);padding:8px;text-align:center;border-radius:2px;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:24px;color:var(--jade2);">玆</div>
+          <div style="font-size:10px;color:var(--jade2);margin-top:2px;">lì · Jade brut</div>
+          <div style="font-size:9px;color:rgba(245,240,232,0.4);margin-top:1px;line-height:1.4;">uncut jade<br>brut, potentiel</div>
+        </div>
+      </div>
+      <div style="background:rgba(46,125,90,0.1);border-left:3px solid var(--jade2);padding:8px 12px;font-size:10.5px;color:rgba(245,240,232,0.55);line-height:1.6;margin-top:4px;">
+        <span style="color:var(--jade2);font-weight:bold;">玉族关键思想 · Insight:</span> The jade radical (珩) generates 200+ characters in Chinese — beauty, play, appreciation, carving, purity, transcendence. Civilisation itself was conceptually structured through jade. Compare the silk radical (糸) and the water radical (氵) for similar civilisational reach.
+        <br><em class="fr" style="font-size:10px;">Le radical jade (珩) génère plus de 200 caractères : beauté, jeu, appréciation, sculpture, pureté… toute une cosmologie encodée dans la pierre.</em>
+      </div>
+    </div>
+
+    <!-- Shell/currency family -->
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div style="border-bottom:1px solid var(--border);padding-bottom:6px;">
+        <span style="font-family:'Noto Serif SC',serif;font-size:22px;color:var(--gold2);">贝族</span>
+        <span style="font-size:10px;letter-spacing:.1em;color:var(--gold2);margin-left:8px;text-transform:uppercase;">Famille du Cauris · Shell/Wealth Radical Family</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
+        <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(184,144,64,0.3);padding:8px;text-align:center;border-radius:2px;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:24px;color:var(--gold2);">贝</div>
+          <div style="font-size:10px;color:var(--gold2);margin-top:2px;">bèi · Cauris</div>
+          <div style="font-size:9px;color:rgba(245,240,232,0.4);margin-top:1px;line-height:1.4;">cowrie shell<br>monnaie ancienne</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(184,144,64,0.3);padding:8px;text-align:center;border-radius:2px;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:24px;color:var(--gold2);">财</div>
+          <div style="font-size:10px;color:var(--gold2);margin-top:2px;">cái · Richesse</div>
+          <div style="font-size:9px;color:rgba(245,240,232,0.4);margin-top:1px;line-height:1.4;">wealth, money<br>fortune, talent</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(184,144,64,0.3);padding:8px;text-align:center;border-radius:2px;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:24px;color:var(--gold2);">贵</div>
+          <div style="font-size:10px;color:var(--gold2);margin-top:2px;">guì · Précieux</div>
+          <div style="font-size:9px;color:rgba(245,240,232,0.4);margin-top:1px;line-height:1.4;">precious, noble<br>cher, aristocrate</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(184,144,64,0.3);padding:8px;text-align:center;border-radius:2px;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:24px;color:var(--gold2);">贫</div>
+          <div style="font-size:10px;color:var(--gold2);margin-top:2px;">pón · Pauvre</div>
+          <div style="font-size:9px;color:rgba(245,240,232,0.4);margin-top:1px;line-height:1.4;">poor, lacking shells<br>pauvreté</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(184,144,64,0.3);padding:8px;text-align:center;border-radius:2px;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:24px;color:var(--gold2);">赠</div>
+          <div style="font-size:10px;color:var(--gold2);margin-top:2px;">zèng · Offrir</div>
+          <div style="font-size:9px;color:rgba(245,240,232,0.4);margin-top:1px;line-height:1.4;">give as gift<br>donner, présenter</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(184,144,64,0.3);padding:8px;text-align:center;border-radius:2px;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:24px;color:var(--gold2);">资</div>
+          <div style="font-size:10px;color:var(--gold2);margin-top:2px;">zī · Ressources</div>
+          <div style="font-size:9px;color:rgba(245,240,232,0.4);margin-top:1px;line-height:1.4;">capital, resources<br>fonds, qualification</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(184,144,64,0.3);padding:8px;text-align:center;border-radius:2px;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:24px;color:var(--gold2);">赂</div>
+          <div style="font-size:10px;color:var(--gold2);margin-top:2px;">dài · Prêter</div>
+          <div style="font-size:9px;color:rgba(245,240,232,0.4);margin-top:1px;line-height:1.4;">loan, credit<br>prêt, emprunt</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(184,144,64,0.3);padding:8px;text-align:center;border-radius:2px;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:24px;color:var(--gold2);">购</div>
+          <div style="font-size:10px;color:var(--gold2);margin-top:2px;">gòu · Acheter</div>
+          <div style="font-size:9px;color:rgba(245,240,232,0.4);margin-top:1px;line-height:1.4;">purchase, buy<br>acheter, acquérir</div>
+        </div>
+      </div>
+      <div style="background:rgba(184,144,64,0.1);border-left:3px solid var(--gold2);padding:8px 12px;font-size:10.5px;color:rgba(245,240,232,0.55);line-height:1.6;margin-top:4px;">
+        <span style="color:var(--gold2);font-weight:bold;">贝族关键思想 · Insight:</span> The cowrie shell (贝) was China's earliest currency. Its radical now generates <em>every</em> economic concept in Chinese: wealth (财), precious (贵), poor (贫), buy (购), trade (贸), gift (赠), loan (贷), capital (资). The entire vocabulary of economic life is permanently stamped with the image of a shell.
+        <br><em class="fr" style="font-size:10px;">Le cauris (贝), première monnaie de Chine, engendre tout le vocabulaire économique : richesse, pauvreté, achat, prêt, cadeau… L'économie entire porte la marque du coquillage.</em>
+      </div>
+    </div>
+
+
+  <!-- Comparative summary bar -->
+  <div style="background:rgba(0,0,0,0.3);border-top:1px solid var(--border);padding:10px 0 0;margin-top:10px;display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+    <div style="background:rgba(46,125,90,0.1);padding:8px 12px;border-radius:2px;border:1px solid rgba(46,125,90,0.2);">
+      <div style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--jade2);margin-bottom:4px;">珉族 — Cosmologie &amp; Morale</div>
+      <p style="font-size:11px;line-height:1.5;color:rgba(245,240,232,0.65);">玉族 200+字：美、淡皂、洗涁、纹理、更多……<br><em class="fr" style="font-size:10px;">200+ caractères : beauté, jeu, sculpture, céleste… toute une cosmologie morale.</em><br><span class="en-note" style="font-size:10px;">Over 200 characters carry the jade radical — encoding beauty, play, contemplation, and purity into China's written civilisation.</span></p>
+    </div>
+    <div style="background:rgba(184,144,64,0.1);padding:8px 12px;border-radius:2px;border:1px solid rgba(184,144,64,0.2);">
+      <div style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold2);margin-bottom:4px;">贝族 — Économie &amp; Échange</div>
+      <p style="font-size:11px;line-height:1.5;color:rgba(245,240,232,0.65);">贝族 50+字：财贵贫赂购贸赠资……<br><em class="fr" style="font-size:10px;">50+ caractères économiques : richesse, pauvreté, achat, dette… toute l'économie pensée avec une coquille.</em><br><span class="en-note" style="font-size:10px;">50+ economic characters carry the cowrie radical — every concept of wealth, trade, and exchange permanently marked with an Indian Ocean mollusc.</span></p>
+    </div>
+  </div>
   </div>
 </div>
 
@@ -188,69 +315,181 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
   <div class="two-col">
     <div style="display:flex;flex-direction:column;gap:14px;">
       <p>在中国思想史中，玉不仅是装饰品，更是<b>儒家道德体系</b>的物化表现。西方珍视宝石的切面（折射光芒，张扬外露），而中国珍视玉石的温润（内敛含蓄）。<br>
-      <em class="fr">Le jade matérialise la morale confucéenne : on ne loue pas l'éclat, mais la douceur et la profondeur.</em></p>
+      <em class="fr">Le jade matérialise la morale confucéenne : on ne loue pas l'éclat, mais la douceur et la profondeur.</em><br><span class="en-note">This is the fundamental contrast between East and West in the philosophy of precious materials: Western jewellery tradition prizes <em>light</em> (cut stones maximise refraction — diamonds, rubies, sapphires sparkle outwardly). Chinese tradition prizes <em>depth</em> — jade's translucent warmth rewards slow, contemplative looking. One is extrovert; the other, introvert.</span></p>
       
       <div class="quote">
         <div class="zh">“夫昔者君子比德于玉焉：温润而泽，仁也；缜密以栗，知也；廉而不刿，义也。”</div>
-        <div class="src">——《礼记·聘义》 (Liji / Le Livre des Rites)</div>
+        <div class="src">——《礼记·聘义》 (Liji / Le Livre des Rites)</div><br><span class="en-note" style="font-style:normal;">Translation: "The gentleman of ancient times compared his virtue to jade: warm and lustrous — benevolence (仁); dense and fine-grained — wisdom (智); sharp-edged but not wounding — righteousness (义)." Confucius listed eleven virtues embodied in jade. To wear jade was to aspire to become jade.</span>
       </div>
       
-      <p style="font-size:13px;opacity:0.8;">仁 (Ren - Bienveillance) : 温润 (doux et brillant).<br>
+      <p style="font-size:13px;opacity:0.8;">仁 (Ren - Bienveillance) : 温润 (doux et brillant).<br><br><span class="en-note">Five of the eleven virtues: 仁 Benevolence (warm lustre), 智 Wisdom (dense, refined texture), 义 Righteousness (sharp but not harmful), 礼 Propriety (its sound carries far when struck), 洁 Purity (its flaws never hide — transparency = integrity).</span>
       智 (Zhi - Sagesse) : 缜密 (texture dense).<br>
       义 (Yi - Justice) : 廉而不刿 (arêtes vives mais qui ne blessent pas).</p>
     </div>
 
-    <div class="card jade">
+    <div class="card jade" style="zoom: 0.8; gap: 20px;">
       <h3>玉与宇宙观 (Cosmologie)</h3>
       <p>在新石器时代与商周，玉被认为是“天地之精”，是沟通神明与人的媒介（巫觋文化）。<br>
-      <em class="fr">Essence du Ciel et de la Terre, outil chamanique pour communiquer avec les dieux.</em></p>
-      <ul style="color:var(--paper);font-size:13px;line-height:1.7;margin-top:10px;padding-left:16px;opacity:0.8;">
-        <li><b>璧 (Bi)</b> : 圆形，祭天。 <em class="fr">(Disque rond pour le Ciel)</em></li>
-        <li><b>琮 (Cong)</b> : 外方内圆，祭地。 <em class="fr">(Tube carré pour la Terre)</em></li>
-        <li><b>圭 (Gui)</b> : 锐首长条形，代表东方或权力。 <em class="fr">(Tablette du pouvoir)</em></li>
+      <em class="fr">Essence du Ciel et de la Terre, outil chamanique pour communiquer avec les dieux.</em><br><span class="en-note">Before Confucius, jade was a shamanic medium: the Six Ritual Jades connected the human world to the cosmos. The round 璧 disc = Heaven (the sky's roundness); the square-outer-round-inner 琮 cylinder = Earth (square = earth, circle = heaven meeting). These proportions encoded the entire Chinese cosmological model.</span></p>
+      
+      <div style="display:flex; flex-wrap:wrap; gap:12px; margin-top:14px; margin-bottom:12px;">
+        <div style="display:flex; flex-direction:column; align-items:center; background:rgba(0,0,0,0.3); padding:8px; border:1px solid var(--border); border-radius:4px; flex:1; min-width:80px;">
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/swjz/10148.svg" style="height:40px; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(90deg);" alt="璧">
+          <span style="font-size:12px; color:var(--jade2); margin-top:4px;">璧 (Ciel)</span>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center; background:rgba(0,0,0,0.3); padding:8px; border:1px solid var(--border); border-radius:4px; flex:1; min-width:80px;">
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/swjz/138.svg" style="height:40px; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(90deg);" alt="琮">
+          <span style="font-size:12px; color:var(--jade2); margin-top:4px;">琮 (Terre)</span>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center; background:rgba(0,0,0,0.3); padding:8px; border:1px solid var(--border); border-radius:4px; flex:1; min-width:80px;">
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/icon_svg/%E5%9C%AD.svg" style="height:40px; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(90deg);" alt="圭">
+          <span style="font-size:12px; color:var(--jade2); margin-top:4px;">圭 (Pouvoir)</span>
+        </div>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; gap:12px; margin-bottom:12px;">
+        <div style="display:flex; flex-direction:column; align-items:center; background:rgba(0,0,0,0.3); padding:8px; border:1px solid var(--border); border-radius:4px; flex:1; min-width:80px;">
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/swjz/142.svg" style="height:40px; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(90deg);" alt="璋">
+          <span style="font-size:12px; color:var(--jade2); margin-top:4px;">璋 (Sud)</span>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center; background:rgba(0,0,0,0.3); padding:8px; border:1px solid var(--border); border-radius:4px; flex:1; min-width:80px;">
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/swjz/139.svg" style="height:40px; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(90deg);" alt="琥">
+          <span style="font-size:12px; color:var(--jade2); margin-top:4px;">琥 (Ouest)</span>
+        </div>
+        <div style="display:flex; flex-direction:column; align-items:center; background:rgba(0,0,0,0.3); padding:8px; border:1px solid var(--border); border-radius:4px; flex:1; min-width:80px;">
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/swjz/137.svg" style="height:40px; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(90deg);" alt="璜">
+          <span style="font-size:12px; color:var(--jade2); margin-top:4px;">璜 (Nord)</span>
+        </div>
+      </div>
+      
+      <ul style="color:var(--paper);font-size:13px;line-height:1.7;padding-left:16px;opacity:0.8;">
+        <li style="margin-bottom:6px;"><b>璧 (Bì)</b> : 圆形，祭天。 <em class="fr">Disque rond pour le Ciel — jade vert-bleu.</em> <span class="en-note" style="font-size:11px;display:inline;">Round disc = Heaven (the sky is round). Colour: blue-green (青). The most sacred jade; also the diplomatic treasure "worth a chain of cities" — the He's Disc (和氏璧) legend.</span></li>
+        <li style="margin-bottom:6px;"><b>琉 (Cóng)</b> : 外方内圆，祭地。 <em class="fr">Tube carré-arrondi pour la Terre — jade jaune.</em> <span class="en-note" style="font-size:11px;display:inline;">Square exterior + round interior = Earth meeting Heaven encoded in geometry. Colour: yellow (黄). The most philosophically concentrated jade form: holding one was holding the cosmos.</span></li>
+        <li style="margin-bottom:6px;"><b>圭 (Guī)</b> : 锐首长条形，代表权力。 <em class="fr">Tablette de pouvoir conférée par les souverains.</em> <span class="en-note" style="font-size:11px;display:inline;">Pointed tablet = political investiture. The Zhou king granted 圭 to vassal lords; returning it meant surrendering the fief. Colour: blue-green (青) for the East.</span></li>
+        <li style="margin-bottom:6px;"><b>璇 (Zhāng)</b> : 半圭形，代表南方。 <em class="fr">Demi-tablette pour le Sud — jade rouge.</em> <span class="en-note" style="font-size:11px;display:inline;">Half-圭 = South, fire, summer. Colour: red (赤). The asymmetric form suggests dynamic, incomplete energy.</span></li>
+        <li style="margin-bottom:6px;"><b>琮 (Hǔ)</b> : 虎形，代表西方。 <em class="fr">Jade-tigre pour l'Ouest — jade blanc.</em> <span class="en-note" style="font-size:11px;display:inline;">Tiger-shaped = West (the white tiger guards the West in Chinese cosmology). Colour: white (白), metal, autumn.</span></li>
+        <li style="margin-bottom:6px;"><b>璇 (Huáng)</b> : 半璃形，代表北方。 <em class="fr">Demi-anneau pour le Nord — jade noir.</em> <span class="en-note" style="font-size:11px;display:inline;">Half-ring = North, water, winter. Colour: black (玄). Together the Six Ritual Jades form a complete cosmological map: disc+tube+four directional jades = the entire Chinese cosmos, held in the palm of a king.</span></li>
       </ul>
     </div>
   </div>
 </div>
 
-<!-- S5: 玉器的历史演变 -->
+<!-- S5: 玉文化发展的六个阶段 (上) -->
 <div class="slide bg-empire" id="s5">
-  <div class="slide-header"><span class="lesson-tag">历史钩沉 · Évolution Historique</span><span class="slide-num">3</span></div>
-  <div class="two-col" style="gap:40px;">
+  <div class="slide-header"><span class="lesson-tag">玉文化演变 I · Évolution du Jade I</span><span class="slide-num">3</span></div>
+  <h2 style="margin-bottom:12px;">玉文化发展的六个阶段 (上)<br><span style="font-size:16px;opacity:0.7;">Les six étapes de la culture du jade (I)</span></h2>
+  <div class="two-col" style="gap:24px;flex:1;">
+    
+    <!-- Stage 1 & 2 -->
     <div style="display:flex;flex-direction:column;gap:16px;">
-      <h2 style="margin-bottom:4px;">从神坛走向人间<br><span style="font-size:16px;opacity:0.7;">Du divin au monde des mortels</span></h2>
-      <p>中国拥有近万年的玉文化史，玉器见证了从神权、王权到世俗社会的生活方式变迁。<br>
-      <em class="fr">Plusieurs millénaires d'histoire où le jade passe du culte religieux aux parures de la noblesse.</em></p>
+      <div class="card jade" style="padding:12px;">
+        <h3 style="color:var(--jade2);margin-bottom:4px;">第一阶段：美玉阶段</h3>
+        <p style="font-size:11px;color:#bbb;margin-bottom:4px;">约8000年前—约5500年前</p>
+        <p style="font-size:12px;margin-bottom:8px;">玉只是比较好看的石头。<em class="fr">Le jade n'était qu'une belle pierre.</em><br><span class="en-note">8000–5500 BCE: jade was simply an attractive stone — valued for its hardness and colour. Archaeological sites in Liaoning and Inner Mongolia show early humans grinding jade into beads and pendants with no apparent ritual meaning yet.</span></p>
+        <div style="display:flex;gap:10px;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <div style="width:100px;height:80px;background:url('https://pic4.zhimg.com/v2-46a906c92aa4b0f4b4ee39dea5af687f_1440w.jpg') center/cover no-repeat;border-radius:2px;border:1px solid rgba(255,255,255,0.1);"></div>
+            <span style="font-size:10px;color:#aaa;">玉饰</span>
+          </div>
+        </div>
+      </div>
       
-      <div class="timeline" style="margin-top:10px;border-color:var(--jade);">
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-date">Neolithic (红山/良渚)</div>
-          <p style="font-size:13px;margin:0;"><b>神玉时代：</b> 制作玉龙、玉琮，作为祭祀天地鬼神的法器。<br><em class="fr">Âge du jade divin (Dragons, amulettes rituelles).</em></p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-date">Shang/Zhou (商周)</div>
-          <p style="font-size:13px;margin:0;"><b>王玉时代：</b> 玉成为礼制权力的象征，严格规定各阶级佩玉规格。<br><em class="fr">Jade royal et lois somptuaires.</em></p>
-        </div>
-        <div class="tl-item">
-          <div class="tl-dot"></div>
-          <div class="tl-date">Han Dynasty (汉代)</div>
-          <p style="font-size:13px;margin:0;"><b>葬玉盛行：</b> 相信玉能保持尸体不朽（如：金缕玉衣）。<br><em class="fr">Costumes funéraires de jade cousus d'or (immortalité).</em></p>
+      <div class="card gold" style="padding:12px;">
+        <h3 style="color:var(--gold2);margin-bottom:4px;">第二阶段：礼玉阶段</h3>
+        <p style="font-size:11px;color:#bbb;margin-bottom:4px;">约5500年前—商末 (前1046年)</p>
+        <p style="font-size:12px;margin-bottom:8px;">玉已经被神化，被做成卜筮、祭祀、陪葬的礼器。<em class="fr">Le jade est déifié, servant d'outil rituel et divinatoire.</em><br><span class="en-note">5500 BCE–1046 BCE: jade becomes divine. The Hongshan culture (红山文化, c. 4500 BCE) produced the iconic C-shaped jade dragon (C形龙) — the earliest known dragon image in Chinese culture, preceding the Shang dynasty by 2,000 years. Jade was now a medium between the living and the ancestors.</span></p>
+        <div style="display:flex;gap:10px;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <div style="width:100px;height:80px;background:url('https://pic2.zhimg.com/v2-c4ac589b2f63aabb89418b45a3675b29_1440w.jpg') center/cover no-repeat;border-radius:2px;border:1px solid rgba(255,255,255,0.1);"></div>
+            <span style="font-size:10px;color:#aaa;">C形龙</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <div style="width:100px;height:80px;background:url('https://pic1.zhimg.com/v2-9cb3b0cec97124a6006231f23ea8beb4_1440w.jpg') center/cover no-repeat;border-radius:2px;border:1px solid rgba(255,255,255,0.1);"></div>
+            <span style="font-size:10px;color:#aaa;">琮</span>
+          </div>
         </div>
       </div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:16px;padding-top:20px;">
-       <div class="card jade" style="background:rgba(46,125,90,0.15);border:none;">
-         <h3 style="color:var(--jade2);margin-bottom:8px;">金缕玉衣 (Linceul de Jade)</h3>
-         <p style="font-size:13px;margin-bottom:8px;">汉代皇帝和高级贵族死后穿用的殓服。古人受“天人感应”与道家求生观念影响，认为玉具有封存精气的作用。<br>
-         <em class="fr">Inspiré par la pensée taoïste, le jade devait préserver le corps et l'âme (Qi) de la décomposition.</em></p>
+    
+    <!-- Stage 3 -->
+    <div style="display:flex;flex-direction:column;gap:16px;">
+      <div class="card purple" style="padding:12px;">
+        <h3 style="color:var(--purple2);margin-bottom:4px;">第三阶段：德玉阶段</h3>
+        <p style="font-size:11px;color:#bbb;margin-bottom:4px;">公元前1046年—公元前202年 (商末-西汉初)</p>
+        <p style="font-size:12px;margin-bottom:8px;line-height:1.6;">以玉做六器，以礼天地四方：以苍璧礼天，以黄琮礼地，以青圭礼东方，以赤璋礼南方，以白琥礼西方，以玄璜礼北方。<em class="fr">Les Six Jades Rituels pour honorer le Ciel, la Terre et les Quatre points cardinaux.</em><br><span class="en-note">1046–202 BCE: The Zhou dynasty codified jade into a complete cosmological system. The Six Ritual Jades (六器) assigned a specific jade form to each cosmic direction: 苍璧 (Heaven, blue-green), 黄琮 (Earth, yellow), 青圭 (East), 赤璋 (South), 白琥 (West), 玄璜 (North). Wearing or offering the correct jade was itself an act of cosmic governance.</span></p>
+        
+        <div style="display:grid;grid-template-columns:repeat(3, 1fr);gap:10px;">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <div style="width:100%;height:60px;background:url('https://pica.zhimg.com/v2-051aa5e58924cf30135de1e7749f8950_1440w.jpg') center/cover no-repeat;border-radius:2px;border:1px solid rgba(255,255,255,0.1);"></div>
+            <span style="font-size:10px;color:#aaa;">苍璧 (天)</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <div style="width:100%;height:60px;background:url('https://image.digitalarchives.tw/ImageCache/00/03/a0/10.jpg') center/cover no-repeat;border-radius:2px;border:1px solid rgba(255,255,255,0.1);"></div>
+            <span style="font-size:10px;color:#aaa;">青圭 (东方)</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <div style="width:100%;height:60px;background:url('http://5b0988e595225.cdn.sohucs.com/images/20180910/b968cd9cc2fe420cb37ae500bd056a2b.jpeg') center/cover no-repeat;border-radius:2px;border:1px solid rgba(255,255,255,0.1);"></div>
+            <span style="font-size:10px;color:#aaa;">赤璋 (南方)</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <div style="width:100%;height:60px;background:url('http://5b0988e595225.cdn.sohucs.com/images/20180611/9b4bfbe3dd2c481a8df71e611fb1d631.jpeg') center/cover no-repeat;border-radius:2px;border:1px solid rgba(255,255,255,0.1);"></div>
+            <span style="font-size:10px;color:#aaa;">白琥 (西方)</span>
+          </div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+            <div style="width:100%;height:60px;background:url('https://pica.zhimg.com/v2-801e35d0c71a33892d4bc7ddac9db448_1440w.jpg') center/cover no-repeat;border-radius:2px;border:1px solid rgba(255,255,255,0.1);"></div>
+            <span style="font-size:10px;color:#aaa;">玄璜 (北方)</span>
+          </div>
+        </div>
+      </div>
+      <div class="card jade" style="background:rgba(46,125,90,0.15);border:none;padding:12px;">
+         <h3 style="color:var(--jade2);margin-bottom:6px;">金缕玉衣 (Linceul de Jade/Han)</h3>
+         <p style="font-size:11px;margin-bottom:6px;">汉代皇帝和高级贵族死后穿用殓服。认为玉具封存精气的作用。<em class="fr">Préserver le corps et l'âme (Qi) de la décomposition.</em><br><span class="en-note">The 金缕玉衣 (jade burial suit) was sewn from thousands of jade plaques linked by gold, silver, or bronze wire depending on rank. Emperor Liu Sheng's suit (Han dynasty, discovered 1968) used 2,498 jade pieces and 1,100 grams of gold wire. The belief: jade's incorruptibility would preserve the wearer's body and soul after death.</span></p>
          <div style="display:flex;gap:10px;">
-           <span class="badge-ok" style="background:var(--ink);color:var(--jade2);border-color:var(--jade);">葬俗 Rites funéraires</span>
-           <span class="badge-ok" style="background:var(--ink);color:var(--jade2);border-color:var(--jade);">黄老之学 Taoïsme antique</span>
+           <span class="badge-ok" style="background:var(--ink);color:var(--jade2);border-color:var(--jade);font-size:9px;">葬俗 神仙方术</span>
          </div>
-       </div>
+      </div>
     </div>
+  </div>
+</div>
+
+<!-- S5b: 玉文化发展的六个阶段 (下) -->
+<div class="slide bg-dark" id="s5b">
+  <div class="slide-header"><span class="lesson-tag">玉文化演变 II · Évolution du Jade II</span><span class="slide-num">3b</span></div>
+  <h2 style="margin-bottom:12px;">玉文化发展的六个阶段 (下)<br><span style="font-size:16px;opacity:0.7;">Les six étapes de la culture du jade (II)</span></h2>
+  <div class="three-col" style="gap:20px;flex:1;">
+    
+    <!-- Stage 4 -->
+    <div class="card blue" style="padding:14px;display:flex;flex-direction:column;">
+      <h3 style="color:var(--blue2);margin-bottom:4px;">第四阶段：吉玉阶段</h3>
+      <p style="font-size:11px;color:#bbb;margin-bottom:6px;">公元前202年—公元589年 (西汉至南北朝)</p>
+      <p style="font-size:12px;margin-bottom:12px;line-height:1.6;flex:1;">受黄老方术文化和厚葬制度影响，人们相信玉能辟邪、保持尸体不灭，吉玉盛行。<em class="fr">Lié à l'alchimie taoïste et aux sépultures somptueuses, le jade devient amulette.</em><br><span class="en-note">202 BCE–589 CE: Taoist alchemy promoted jade as a life-extending substance. Crushed jade was consumed in elixirs; jade-sealed tombs were believed to prevent decomposition. The iconic 司南佩 (compass pendant) combined jade's protective power with the directional magic of the lodestone.</span></p>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+        <div style="width:100%;height:140px;background:url('https://pic2.zhimg.com/v2-99d6f3a7665b030990d48cc0ea5000c1_1440w.jpg') center/contain no-repeat;border-radius:2px;border:1px solid rgba(255,255,255,0.1);background-color:rgba(255,255,255,0.02);"></div>
+        <span style="font-size:11px;color:#aaa;">司南佩</span>
+      </div>
+    </div>
+    
+    <!-- Stage 5 -->
+    <div class="card jade" style="padding:14px;display:flex;flex-direction:column;">
+      <h3 style="color:var(--jade2);margin-bottom:4px;">第五阶段：民玉阶段</h3>
+      <p style="font-size:11px;color:#bbb;margin-bottom:6px;">公元581年—1368年 (隋唐宋元)</p>
+      <p style="font-size:12px;margin-bottom:12px;line-height:1.6;flex:1;">玉器从之前只有世家大族官员才可以使用，变成有钱即可拥有，走向民间，可以买卖。<em class="fr">Le jade se démocratise et entre sur le marché marchand.</em><br><span class="en-note">581–1368 CE: Jade enters the open market for the first time. Under the Tang and Song, prosperous merchant families could buy jade — ending its exclusive aristocratic monopoly. Jade carving became a refined art form appreciated for aesthetics as much as ritual. Song jade motifs favoured natural scenes: birds, flowers, fish.</span></p>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+        <div style="width:100%;height:140px;background:url('https://pic3.zhimg.com/v2-3e980b6222a88ec6adf61889ba760482_1440w.jpg') center/cover no-repeat;border-radius:2px;border:1px solid rgba(255,255,255,0.1);"></div>
+        <span style="font-size:11px;color:#aaa;">宋朝 · 藤蔓花</span>
+      </div>
+    </div>
+    
+    <!-- Stage 6 -->
+    <div class="card red" style="padding:14px;display:flex;flex-direction:column;">
+      <h3 style="color:var(--red2);margin-bottom:4px;">第六阶段：福玉阶段</h3>
+      <p style="font-size:11px;color:#bbb;margin-bottom:6px;">1368年—1912年 (明清)</p>
+      <p style="font-size:12px;margin-bottom:12px;line-height:1.6;flex:1;">祈福、祝福主题（如福禄寿喜）成为玉雕的主流，并流传至今，深受大众喜爱。<em class="fr">Les thèmes de bénédiction et de chance (bonheur, longévité) deviennent dominants.</em><br><span class="en-note">1368–1912: Ming-Qing jade carving was dominated by auspicious iconography: bats (蝙蝠 = 福 happiness), peaches (桃 = longevity), fish (鱼 = abundance 余), paired mandarin ducks (爱情). The principle: 图必有意，意必吉祥 — "every image must carry meaning, every meaning must bring good fortune." This visual vocabulary remains central to Chinese design today.</span></p>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+        <div style="width:100%;height:140px;background:url('https://pic1.zhimg.com/v2-0c7c1d1c42946a8f4915c27cfb9fe214_1440w.jpg') center/cover no-repeat;border-radius:2px;border:1px solid rgba(255,255,255,0.1);"></div>
+        <span style="font-size:11px;color:#aaa;">明清 · 青玉双螭盏托杯</span>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -261,22 +500,112 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
   <div class="two-col">
     <div style="display:flex;flex-direction:column;gap:14px;">
       <p>在唐代以前，中国以玉为贵；而唐代随着丝绸之路的繁荣，大量西域和中亚游牧民族的金银加工技术（如炸珠、掐丝、錾刻）传入中原，迎来了金银首饰的巅峰。<br>
-      <em class="fr">L'ouverture de la Route de la Soie sous les Tang a introduit les techniques d'orfèvrerie d'Asie centrale (granulation, filigrane).</em></p>
+      <em class="fr">L'ouverture de la Route de la Soie sous les Tang a introduit les techniques d'orfèvrerie d'Asie centrale (granulation, filigrane).</em><br><span class="en-note">Before the Tang, Chinese jewellery was almost exclusively jade-based. The Silk Road brought Central Asian and Persian metalworking techniques that revolutionised Chinese goldsmithing: <em>granulation</em> (微小金珠 焊接), <em>filigree</em> (掐丝/累丝), and <em>chasing</em> (錾刻). These techniques arrived via Sogdian merchants, Byzantine craftsmen, and Sassanid Persian refugees — Tang Chang'an was the most cosmopolitan city on earth.</span></p>
       <ul style="color:var(--paper);font-size:13px;line-height:1.7;margin-top:5px;padding-left:16px;opacity:0.8;">
-        <li><b>掐丝 (Filigrane) :</b> 用极细的金银丝编织花纹。</li>
-        <li><b>炸珠 (Granulation) :</b> 将金液滴入冷水形成微小金珠，焊接于器物表面。</li>
-        <li><b>累丝 (Technique d'entrelacement) :</b> 用金银丝累结成立体造型。</li>
+        <li><b>掐丝 (Filigrane) :</b> 用极细的金银丝编织花纹。: threading ultra-fine gold/silver wire into intricate lattice patterns — a Persian-origin technique that reached China via the Silk Road.</li>
+        <li><b>炸珠 (Granulation) :</b> 将金液滴入冷水形成微小金珠，焊接于器物表面。: dripping molten gold into cold water to form micro-beads, then soldering them onto surfaces as raised texture — a technique also found in ancient Etruscan jewellery, revealing shared craft traditions across Eurasia.</li>
+        <li><b>累丝 (Technique d'entrelacement) :</b> 用金银丝累结成立体造型。: twisting and coiling gold/silver wire into three-dimensional sculptural forms — technically demanding and visually spectacular, reaching its peak in Ming imperial workshops.</li>
       </ul>
     </div>
     <div class="card gold">
       <h3>开放与包容 (Ouverture d'esprit)</h3>
       <p style="font-size:13px;margin-bottom:10px;">唐代的首饰风格极度华丽、厚重。从发饰到步摇，展现了极具国际视野的大唐盛世风貌。当时长安妇女的头饰重量和复杂程度达到了前所未有的高度。<br>
-      <em class="fr">Le cosmopolitisme s'exprime par des parures volumineuses, exubérantes et d'une richesse ostentatoire inégalée.</em></p>
+      <em class="fr">Le cosmopolitisme s'exprime par des parures volumineuses, exubérantes et d'une richesse ostentatoire inégalée.</em><br><span class="en-note">Tang women's headpieces could weigh hundreds of grams and rise 15–20 cm above the head. The poet Du Fu described court ladies' jewellery as "towers of gold and jade." This extravagance reflected the Tang dynasty's unique position: militarily powerful, diplomatically central, and ideologically confident enough to absorb foreign aesthetics without feeling threatened.</span></p>
       <div style="display:flex;gap:10px;margin-top:10px;">
         <span class="badge-ok">丝绸之路 Route de la Soie</span>
         <span class="badge-ok">中西合璧 Synthèse culturelle</span>
       </div>
     </div>
+  </div>
+</div>
+
+
+<!-- S6b: 贝币历史与货币文化 -->
+<div class="slide bg-oracle" id="s6b">
+  <div class="slide-header"><span class="lesson-tag">贝币历史 · Histoire monétaire · Shell Currency</span><span class="slide-num">4b</span></div>
+  <h2 style="margin-bottom:14px;">贝币：世界最早的货币之一<br><span style="font-size:14px;opacity:0.65;">Le cauris : l'une des premières monnaies du monde · Cowrie: One of the World's First Currencies</span></h2>
+  
+  <div class="two-col" style="zoom: 0.85; gap: 20px;">
+    
+    <!-- Left: history + characters -->
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <p style="text-align:justify;">贝币（海贝壳）是中国上古的通用货币之一。商代安阳就出土过大量贝币，证明山东瞿御的贝币流通范围。贝币穷尽后，逃代用骨贝、陶贝、青铜贝等仿制品代替。<br>
+      <em class="fr">Le cauris (Cypraea moneta), importé des mers du Sud, était la monnaie standard de la Chine des Shang. Les sites d'Anyang ont livré des milliers de cauris dans les tombeaux royaux.</em><br>
+      <span class="en-note">The cowrie shell (贝, Cypraea moneta) came from southern seas — the Maldives and Indian Ocean — and circulated as China's standard currency from at least 1600 BCE. When cowries became scarce, bronze imitations, bone copies, and clay replicas were made, showing how monetarily essential the shell had become.</span></p>
+      
+      <div class="quote" style="border-left-color:var(--jade2);">
+        <div class="zh" style="font-size:14px;">贝者，财之所居也。</div>
+        <div class="src">——《说文解字》 (Xu Shen, 121 CE) : Le cauris est la demeure de la richesse.</div>
+      </div>
+      <span class="en-note" style="font-style:normal;margin-top:2px;">Xu Shen's <em>Shuowen Jiezi</em> (121 CE), the first systematic Chinese dictionary, defines 贝 as "where wealth resides." The shell-as-wealth equation was already so ancient by then that it seemed natural rather than arbitrary.</span>
+      
+      <div style="background:rgba(46,125,90,0.12);border-left:3px solid var(--jade2);padding:10px 14px;margin-top:4px;">
+        <h4 style="font-size:13px;color:var(--jade2);margin-bottom:6px;">贝币的历史地位来源 · Geographical Origins</h4>
+        <p style="font-size:11px;line-height:1.6;">贝币产于南方海域（马尔代夫群岛、印度洋）。运输路线进入中原，这本身就证明商代有远程南方贸易网络。<br>
+        <em class="fr">Originaire des îles Maldives et de l'Océan Indien, leur présence à Anyang prouve l'existence d'un réseau commercial à longue distance dès la Dynasty Shang.</em><br>
+        <span class="en-note" style="font-size:10px;">Cowries found at Shang dynasty Anyang (1600–1046 BCE) originated 3,000+ km away in the Maldives — proving long-distance southern trade networks existed more than 3,000 years ago, long before the Silk Road.</span></p>
+      </div>
+    </div>
+    
+    <!-- Right: character family deep-dive -->
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <h3 style="color:var(--gold2);">贝字族：经济词汇全在此 · The Wealth Radical Family</h3>
+      <p style="font-size:12px;line-height:1.6;">贝字族包含了中文中几乎所有的经济概念。这意味着：山东文明就是用贝壳来思考和计算经济的。<br>
+      <em class="fr">Presque tout le vocabulaire économique chinois porte le radical cauris : richesse, achat, vente, dette, pauvreté... La pensée économique est littéralement incrustée dans la coquille.</em></p>
+      
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+        <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(184,144,64,0.25);padding:10px 12px;border-radius:2px;">
+          <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:4px;">
+            <span style="font-family:'Noto Serif SC',serif;font-size:22px;color:var(--gold2);">财</span>
+            <span style="font-size:11px;color:rgba(245,240,232,0.5);">cái · wealth</span>
+          </div>
+          <p style="font-size:10px;line-height:1.5;">贝+才→财富。<br><em class="fr" style="font-size:9px;">Cauris + talent = richesse.</em><br><span class="en-note" style="font-size:9px;">Shell + talent = wealth. The character encodes the ancient insight that value comes from both material (shell) and human skill (才).</span></p>
+        </div>
+        <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(184,144,64,0.25);padding:10px 12px;border-radius:2px;">
+          <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:4px;">
+            <span style="font-family:'Noto Serif SC',serif;font-size:22px;color:var(--gold2);">贵</span>
+            <span style="font-size:11px;color:rgba(245,240,232,0.5);">guì · precious</span>
+          </div>
+          <p style="font-size:10px;line-height:1.5;">贝+中→贵重。<br><em class="fr" style="font-size:9px;">Cauris central = le plus précieux.</em><br><span class="en-note" style="font-size:9px;">Shell at the centre = the most precious. 贵 also means aristocratic/noble — wealth and status were inseparable concepts.</span></p>
+        </div>
+        <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(184,144,64,0.25);padding:10px 12px;border-radius:2px;">
+          <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:4px;">
+            <span style="font-family:'Noto Serif SC',serif;font-size:22px;color:var(--gold2);">贫</span>
+            <span style="font-size:11px;color:rgba(245,240,232,0.5);">pón · poor</span>
+          </div>
+          <p style="font-size:10px;line-height:1.5;">分贝→贫穷（贝被分掉）。<br><em class="fr" style="font-size:9px;">Partage le cauris = pauvreté.</em><br><span class="en-note" style="font-size:9px;">Shell divided = poverty. The character literally shows a cowrie being split in two — losing your shells meant destitution.</span></p>
+        </div>
+        <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(184,144,64,0.25);padding:10px 12px;border-radius:2px;">
+          <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:4px;">
+            <span style="font-family:'Noto Serif SC',serif;font-size:22px;color:var(--gold2);">赂</span>
+            <span style="font-size:11px;color:rgba(245,240,232,0.5);">dài · loan</span>
+          </div>
+          <p style="font-size:10px;line-height:1.5;">代贝→借贷。<br><em class="fr" style="font-size:9px;">Substituer le cauris = prêter.</em><br><span class="en-note" style="font-size:9px;">Substitute shell = to lend/borrow. Credit was conceptualised as "replacing" someone's shells temporarily.</span></p>
+        </div>
+        <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(184,144,64,0.25);padding:10px 12px;border-radius:2px;">
+          <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:4px;">
+            <span style="font-family:'Noto Serif SC',serif;font-size:22px;color:var(--gold2);">贸</span>
+            <span style="font-size:11px;color:rgba(245,240,232,0.5);">mào · trade</span>
+          </div>
+          <p style="font-size:10px;line-height:1.5;">买贝与卖贝→交易。<br><em class="fr" style="font-size:9px;">Acheter et vendre des cauris = commerce.</em><br><span class="en-note" style="font-size:9px;">Exchanging shells = trade. 贸易 still means commerce in modern Chinese, the shell fossil permanently embedded in the word for international trade.</span></p>
+        </div>
+        <div style="background:rgba(0,0,0,0.4);border:1px solid rgba(184,144,64,0.25);padding:10px 12px;border-radius:2px;">
+          <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:4px;">
+            <span style="font-family:'Noto Serif SC',serif;font-size:22px;color:var(--gold2);">资</span>
+            <span style="font-size:11px;color:rgba(245,240,232,0.5);">zī · capital</span>
+          </div>
+          <p style="font-size:10px;line-height:1.5;">次贝→资本、资格。<br><em class="fr" style="font-size:9px;">Cauris rangé = capital, qualification.</em><br><span class="en-note" style="font-size:9px;">Ranked shells = capital/qualification. 资格 (qualification), 资本 (capital), 资产 (assets) — all derive from this shell concept of accumulated, ordered wealth.</span></p>
+        </div>
+      </div>
+      
+      <div style="background:rgba(46,125,90,0.1);border-left:3px solid var(--jade2);padding:8px 12px;font-size:10.5px;line-height:1.6;color:rgba(245,240,232,0.6);margin-top:4px;">
+        <strong style="color:var(--jade2);">关键思考 · Point clé · Key Insight:</strong>
+        中文中几乎所有的经济概念都带有贝标。这意味着：华夏与升天尖大契沙的赛事进行の，是用贝壳来思考和计算经济的。
+        <br><em class="fr" style="font-size:10px;">Presque tout le vocabulaire économique chinois porte le radical cauris : la pensée économique chinoise est littéralement incrustée dans une coquille vieille de 3 000 ans.</em>
+        <br><span class="en-note" style="font-size:10px;">Almost every economic concept in Chinese bears the cowrie radical. China's entire intellectual framework for thinking about money, trade, wealth, poverty, and credit was permanently shaped — and literally written in — a shell from the Indian Ocean.</span>
+      </div>
+    </div>
+    
   </div>
 </div>
 
@@ -293,7 +622,7 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
         <li><b>岁寒三友簪:</b> 松竹梅，象征文人耐寒的高洁品格</li>
         <li><b>花瓣簪/朵云簪:</b> 祥云与百花造型</li>
       </ul>
-      <em class="fr" style="font-size:10px;">Fixait le chignon. Les motifs végétaux exprimaient une valeur morale (ex: pin, bambou, prunier).</em>
+      <em class="fr" style="font-size:10px;">Fixait le chignon. Les motifs végétaux exprimaient une valeur morale (ex: pin, bambou, prunier).</em><br><span class="en-note">The 簪 (zān) was the universal hairpin for both men and women in pre-Qing China. Removing one's hairpin in public was an act of extreme shame or mourning. The "Three Friends of Winter" motif (岁寒三友: pine, bamboo, plum) encoded Confucian values: endurance of cold, flexibility, and integrity — moral philosophy worn on the head.</span>
     </div>
     <div class="card gold">
       <h3>钗 (Chāi) - Épingle double</h3>
@@ -303,7 +632,7 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
         <li><b>连喜金钗:</b> 用于婚礼与喜庆场合</li>
         <li><b>万事如意簪:</b> 带有“如意”云纹造型</li>
       </ul>
-      <em class="fr" style="font-size:10px;">Épingle à deux broches, souvent un gage d'amour. (Ex : Symbole des deux dragons).</em>
+      <em class="fr" style="font-size:10px;">Épingle à deux broches, souvent un gage d'amour. (Ex : Symbole des deux dragons).</em><br><span class="en-note">The double-pronged 钗 (chāi) was more secure than the 簪 and became the quintessential love token. The Tang poet Bai Juyi's poem "Song of Eternal Sorrow" describes Emperor Xuanzong breaking a golden hairpin in two, keeping one half and giving Yang Guifei the other — a symbol of reunion across death. "钗头凤" (Phoenix-head hairpin) became a literary metaphor for tragic love.</span>
     </div>
     <div class="card red">
       <h3 style="color:var(--red2);">步摇 (Bùyáo) - Pendant oscillant</h3>
@@ -311,7 +640,7 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
       <div class="quote" style="border-left-color:var(--red);margin-top:8px;">
         <div class="zh" style="font-size:13px;">“步摇，上有垂珠，步则摇动也。”</div>
       </div>
-      <em class="fr" style="font-size:10px;">Ornement à pendeloques qui tintent et oscillent au rythme des pas. Exigeait une démarche gracieuse.</em>
+      <em class="fr" style="font-size:10px;">Ornement à pendeloques qui tintent et oscillent au rythme des pas. Exigeait une démarche gracieuse.</em><br><span class="en-note">The 步摇 (bùyáo, literally "sway with each step") was the most theatrical of Chinese hairpieces: gold branches hung with dangling jade beads, pearls, or kingfisher feathers that trembled as the wearer moved. Tang examples in the Shoso-in treasury in Japan show lotus flowers, phoenix birds, and butterflies in granulated gold. The piece demanded — and rewarded — a slow, measured walk.</span>
     </div>
   </div>
 </div>
@@ -324,22 +653,33 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
     <div style="display:flex;flex-direction:column;gap:12px;">
       <h3 style="font-size:14px;text-transform:none;color:var(--paper);margin:0;">其他头部饰品 (Autres ornements de tête)</h3>
       <ul style="color:var(--paper);font-size:13px;line-height:1.6;padding-left:16px;opacity:0.8;">
-        <li><b>花钿 (Huātián) / 金翠花钿:</b> 贴在额头眉心间的花形金箔或翠鸟羽毛饰品。<em class="fr"> (Ornements frontaux/bijoux collés sur le front).</em></li>
-        <li><b>华胜 (Huáshèng):</b> 华丽的头饰，类似于花冠，常饰以花鸟草虫。<em class="fr"> (Couronne florale).</em></li>
-        <li><b>梳篦 (Shūbì):</b> 梳子除了理发，也被精美镶嵌作为头饰插在发髻上。<em class="fr"> (Peignes ornementaux).</em></li>
-        <li><b>扁方 (Biǎnfāng):</b> 清代满族女性特有的长扁形大簪（如“大拉翅”的骨架）。<em class="fr"> (Barrette mandchoue).</em></li>
+        <li><b>花钿 (Huātián) / 金翠花钿:</b> 贴在额头眉心间的花形金箔或翠鸟羽毛饰品。<em class="fr"> (Ornements frontaux/bijoux collés sur le front).</em><br><span class="en-note">The 花钿 (huādiàn) was a fashionable Tang invention: a coloured foil or kingfisher-feather flower shape glued to the forehead between the eyebrows. The fashion originated from a legend: a palace concubine fell asleep under a plum tree; a petal fell on her forehead and she was found so beautiful that the emperor fell in love. The court immediately adopted the style.</span></li>
+        <li><b>华胜 (Huáshèng):</b> 华丽的头饰，类似于花冠，常饰以花鸟草虫。<em class="fr"> (Couronne florale).</em><br><span class="en-note">The 华胜 (huáshèng) was a flower-and-bird crown worn on special occasions. Associated with the Queen Mother of the West (西王母) in mythology, who was depicted wearing a 华胜. Tang court paintings show elaborate examples with peacock feathers, gold wire flowers, and semi-precious stones.</span></li>
+        <li><b>梳篦 (Shūbì):</b> 梳子除了理发，也被精美镶嵌作为头饰插在发髻上。<em class="fr"> (Peignes ornementaux).</em><br><span class="en-note">The 梳篦 (shūbì) served double duty: practical tool and visible ornament. Inserting a decorated comb into the hair at a specific angle was a fashion signal. Tang women sometimes wore five or six combs simultaneously in different positions, each angle and material conveying a different social message.</span></li>
+        <li><b>扁方 (Biǎnfāng):</b> 清代满族女性特有的长扁形大簪（如“大拉翅”的骨架）。<em class="fr"> (Barrette mandchoue).</em><br><span class="en-note">The 扁方 (biǎnfāng) was the structural spine of the Manchu "大拉翅" (high-platform hairdo) — a horizontal bar up to 30cm long that supported the elaborate wing-shaped hairstyle of Qing imperial women. It was made from gilt silver, jade, or ivory and served as the architectural framework for the entire headpiece.</span></li>
       </ul>
     </div>
     
     <!-- 身体首饰 -->
-    <div class="card blue" style="background:rgba(42,90,138,0.15);border:none;">
+      <div class="card blue" style="background:rgba(42,90,138,0.15);border:none;">
       <h3 style="color:var(--blue2);">身体首饰 (Parures corporelles)</h3>
+      <div style="display:flex;gap:12px;margin:8px 0;">
+        <div style="background:rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.1);padding:6px;border-radius:4px;text-align:center;">
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/icon_svg/%E7%8F%8F.svg" style="height:35px;object-fit:contain;filter:invert(0.8) sepia(1) saturate(3) hue-rotate(180deg);" alt="珏">
+          <div style="font-size:11px;color:rgba(255,255,255,0.7);margin-top:4px;">珏 (Jué)</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.1);padding:6px;border-radius:4px;text-align:center;display:flex;gap:4px;">
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/icon_svg/%E8%B2%9D.svg" style="height:35px;object-fit:contain;filter:invert(0.8) sepia(1) saturate(3) hue-rotate(180deg);" alt="贝">
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/swjz/4505.svg" style="height:35px;object-fit:contain;filter:invert(0.8) sepia(1) saturate(3) hue-rotate(180deg);" alt="贝">
+          <div style="font-size:11px;color:rgba(255,255,255,0.7);margin-top:4px;">贝 (Bèi)</div>
+        </div>
+      </div>
       <ul style="font-size:13px;color:rgba(255,255,255,0.8);line-height:1.7;padding-left:16px;">
         <li><b>耳饰 (Boucles d'oreilles):</b> 玦 (Jué, 玉环缺口)、耳珰 (Èrdāng, 琉璃耳钉)、坠子 (Pendants).</li>
-        <li><b>项圈与璎珞 (Colliers):</b> 璎珞 (Yīngluò) 受佛教影响，由珠玉串连而成，极其华贵。<em class="fr"> (Colliers de perles, influence bouddhique).</em></li>
+        <li><b>项圈与璎珞 (Colliers):</b> 璎珞 (Yīngluò) 受佛教影响，由珠玉串连而成，极其华贵。<em class="fr"> (Colliers de perles, influence bouddhique).</em><br><span class="en-note">The 璎珞 (yīngluò) was introduced to China via Buddhist iconography: divine figures in Indian Buddhist art were depicted wearing elaborate layered necklaces. Chinese artisans adopted the form and filled it with jade, pearls, coral, amber, and turquoise. The Empress Wu Zetian is famously depicted wearing an extravagant 璎珞 in surviving portraits.</span></li>
         <li><b>手镯与臂钏 (Bracelets):</b> 玉镯代表圆满；“臂钏”则是戴在手臂上的多个金属环。</li>
         <li><b>禁步 (Jìnbù - Pendentif de ceinture):</b> 系在腰间的组玉佩。行走时玉石相击发出清脆声音。声音的节奏用于规范女子的步态礼仪，不可快跑。<br>
-        <em class="fr">Pendentif de ceinture rituel. Le tintement harmonieux du jade réglait la décence de la marche.</em></li>
+        <em class="fr">Pendentif de ceinture rituel. Le tintement harmonieux du jade réglait la décence de la marche.</em><br><span class="en-note">The 禁步 (jìnbù — literally "step-prohibitor") was a waist pendant of strung jade pieces. When walking at the correct ceremonial pace, the jade produced a regular, melodious tinkling. If the wearer rushed, the jade clashed discordantly — announcing to everyone present that she had lost her composure. The piece was literally a biometric monitor of ritual propriety.</span></li>
       </ul>
     </div>
   </div>
@@ -353,11 +693,11 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
   <div class="two-col" style="gap:30px;">
     <div style="display:flex;flex-direction:column;gap:12px;">
       <p>在中国古代，男性的首饰更强调政治地位、礼教秩序与文人品格。“冠”与“玉佩”是核心所在。<br>
-      <em class="fr">Pour les hommes, la parure est moins esthétique que strictement statutaire et politique.</em></p>
+      <em class="fr">Pour les hommes, la parure est moins esthétique que strictement statutaire et politique.</em><br><span class="en-note">Male jewellery in imperial China was not about aesthetic pleasure but about three things: political rank (belt plaques), moral signalling (jade pendants), and ritual participation (hairpins for the chignon). The contrast with Western masculine jewellery (which increasingly moved toward rings and watches as status symbols) reveals different conceptions of how men display authority.</span></p>
       
       <div class="card gold">
         <h3 style="color:var(--gold2);margin-bottom:6px;">头部首饰 (Coiffes et Épingles)</h3>
-        <p style="font-size:12px;margin-bottom:4px;"><b>冠 (Guān) :</b> 代表成年与地位的帽子（弱冠之年，20岁）。摘掉冠帽是严重失礼的。<em class="fr"> (Couronne de la majorité).</em></p>
+        <p style="font-size:12px;margin-bottom:4px;"><b>冠 (Guān) :</b> 代表成年与地位的帽子（弱冠之年，20岁）。摘掉冠帽是严重失礼的。<em class="fr"> (Couronne de la majorité).</em><br><span class="en-note">弱冠之年 (ruòguān zhī nián) — "the year of the first cap" — was the classical expression for age 20, when a young man received his 冠 in the Capping Ceremony and his courtesy name (字 zì). The character 冠 (oracle bone: a hand placing a cap on a head) encoded the entire ceremony in its form. A man without a hat was considered as undressed as a man without a garment.</span></p>
         <p style="font-size:12px;"><b>簪 (Zān) :</b> 男子同样留长发盘髻，必须用簪固定（多为玉或骨，清代由于剃发易服，男簪消失）。</p>
       </div>
     </div>
@@ -366,11 +706,11 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
       <div class="card jade">
         <h3 style="color:var(--jade2);margin-bottom:6px;">腰部首饰 (Ceintures et Jade)</h3>
         <p style="font-size:12px;margin-bottom:4px;"><b>玉佩 (Yùpèi) :</b> 佩玉是君子必备。“古之君子必佩玉”、“君子无故，玉不去身”。<em class="fr"> (Pendentif en jade porté obligatoirement par l'homme noble).</em></p>
-        <p style="font-size:12px;"><b>带銙/革带 (Ceinture à plaquettes) :</b> 唐宋时期，官员腰带上的玉饰数量和白玉/犀角材料代表品级高低。</p>
+        <p style="font-size:12px;"><b>带銙/革带 (Ceinture à plaquettes) :</b> 唐宋时期，官员腰带上的玉饰数量和白玉/犀角材料代表品级高低。<br><span class="en-note">Tang dynasty belt-rank system: 1st–3rd rank officials wore jade plaques (玉銙); 4th–5th rank wore gold (金銙); 6th–7th silver (银銙); 8th–9th stone (石銙). The belt was a complete identity document — reading a man's belt told you his exact position in the imperial bureaucracy.</span></p>
       </div>
       <div class="card red">
         <h3 style="color:var(--red2);margin-bottom:6px;">手部首饰 (Mains)</h3>
-        <p style="font-size:12px;margin-bottom:4px;"><b>扳指 (Bānzhi - Anneau d'archer) :</b> Originellement un protecteur de pouce en os ou jade pour tirer à l'arc. 清代满族尚武，将其演变为象征王公贵族的高级玉质戒指。<em class="fr"> (Devenu sous les Qing un luxueux anneau de pouvoir).</em></p>
+        <p style="font-size:12px;margin-bottom:4px;"><b>扳指 (Bānzhi - Anneau d'archer) :</b> Originellement un protecteur de pouce en os ou jade pour tirer à l'arc. 清代满族尚武，将其演变为象征王公贵族的高级玉质戒指。<em class="fr"> (Devenu sous les Qing un luxueux anneau de pouvoir).</em><br><span class="en-note">The 扳指 (bānzhǐ, archer's thumb ring) was originally a practical tool: a jade, bone, or horn ring protecting the thumb when drawing a bowstring. Under the Qing, Manchu martial culture elevated it into the ultimate status symbol. Qing imperial family members wore thick white hetian-jade 扳指 engraved with imperial poems. Non-warriors wearing them were displaying lineage, not skill.</span></p>
       </div>
     </div>
   </div>
@@ -383,24 +723,191 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
     <div style="display:flex;flex-direction:column;gap:14px;">
       <h2 style="font-size:26px;">逾制与祈福<br><span style="font-size:14px;opacity:0.7;">Lois somptuaires et Talismans</span></h2>
       <p><b>社会等级的法律 (Lois somptuaires) :</b> 历代王朝有严格的“服饰违制”律法。平民百姓不许佩戴金银珠玉，仅能使用铜、骨、木质首饰。凤纹、龙纹属于皇家专属。<br>
-      <em class="fr">Interdiction stricte pour le peuple de porter de l'or, de l'argent ou du jade. Punition sévère pour usurpation des symboles royaux.</em></p>
+      <em class="fr">Interdiction stricte pour le peuple de porter de l'or, de l'argent ou du jade. Punition sévère pour usurpation des symboles royaux.</em><br><span class="en-note">Sumptuary laws (服饰违制律) were rigorously enforced: commoners were restricted to copper, bone, and wood ornaments. The penalties for wearing imperial symbols (dragon/phoenix patterns, yellow, certain jade) could include death. These laws were not merely aesthetic — they were the legal infrastructure of the caste system, worn on the body.</span></p>
       
       <p><b>祈福避邪 (Talisman) :</b> 许多首饰具有迷信与护身符功能，图案讲究“图必有意，意必吉祥”。例如长命锁（锁住生命）、玉观音（保平安）、蝙蝠纹（福）。<br>
-      <em class="fr">Les bijoux sont pensés comme des amulettes protectrices avec un langage symbolique très codifié ("chauve-souris" = bonheur).</em></p>
+      <em class="fr">Les bijoux sont pensés comme des amulettes protectrices avec un langage symbolique très codifié ("chauve-souris" = bonheur).</em><br><span class="en-note">The principle 图必有意，意必吉祥 ("every motif must carry meaning; every meaning must promise good fortune") generated a complete visual language. Bats (蝙蝠, fú) = fortune (homophone). Fish (鱼, yú) = abundance (余). Peaches = longevity. Paired ducks = marriage. The 长命锁 (longevity lock) given to newborns "locked" them to life — a talismanic object functioning as a wearable prayer.</span></p>
     </div>
     
     <div style="background:var(--mist);padding:24px;border:1px solid var(--border);border-radius:2px;display:flex;flex-direction:column;gap:16px;">
       <h3 style="color:var(--jade2);font-size:14px;text-transform:none;">“步步生莲”与礼仪约束 (Contrainte rituelle)</h3>
       <p style="font-size:13px;color:rgba(255,255,255,0.7);line-height:1.7;">女子的“步摇”和男子的“组玉佩”不仅是为了美丽，更是<b>儒家礼教对人身体行为的外在约束 (Technologie du corps)</b>。<br><br>
       如果走路过快、举止轻浮，步摇就会疯狂摇晃，组珮就会发出刺耳的撞击声（“锵鸣失度”）。必须节奏舒缓、内心平静，首饰发出的声音才会如水滴般悦耳。<br><br>
-      <em class="fr">Le bijou chinois est un "modérateur de rythme". Si les pas sont agités, le jade s'entrechoque et dénonce le manque de vertu. La beauté réside dans la retenue (modestie confucéenne).</em></p>
+      <em class="fr">Le bijou chinois est un "modérateur de rythme". Si les pas sont agités, le jade s'entrechoque et dénonce le manque de vertu. La beauté réside dans la retenue (modestie confucéenne).</em><br><span class="en-note">This is one of the most striking concepts in Chinese jewellery philosophy: the ornament as a body-discipline technology. The French sociologist Marcel Mauss coined the term "techniques du corps" for culturally-learned ways of using the body. Chinese 组玉佩 and 步摇 are exactly this: wearable instruments that trained the body into the slow, measured, self-controlled comportment that Confucian ritual demanded.</span></p>
     </div>
   </div>
 </div>
 
-<!-- S11: 汉法文化镜像 & SUMMARY -->
-<div class="slide bg-culture" id="s11">
-  <div class="slide-header"><span class="lesson-tag">文化镜像 · Miroir franco-chinois</span><span class="slide-num">9</span></div>
+
+<!-- S10b: 核心概念词汇表 Key Concepts Glossary -->
+<div class="slide bg-dark" id="s10b">
+  <div class="slide-header"><span class="lesson-tag">核心概念 · Glossaire trilingue · Key Concepts</span><span class="slide-num">8b</span></div>
+  <h2 style="margin-bottom:12px;">本课关键词汇 · Mots-clés · Glossary<br><span style="font-size:13px;opacity:0.6;">Chinese · Français · English</span></h2>
+  <div class="three-col" style="gap:14px;flex:1;align-items:start;">
+
+    <!-- Col 1: Jade philosophy -->
+    <div style="display:flex;flex-direction:column;gap:7px;">
+      <div style="border-bottom:1px solid var(--border);padding-bottom:5px;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--jade2);">哲学与文化 · Philosophie</div>
+
+      <div class="card jade" style="padding:9px 11px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:17px;color:var(--jade2);">君子比德于玉</div>
+        <div style="font-size:9px;color:var(--jade2);margin-bottom:4px;">jūnzǐ bǐ dé yú yù</div>
+        <p style="font-size:10px;line-height:1.5;">君子以玉之德性自比。2500年前山东孔子语。<br><em class="fr" style="font-size:9px;">L'homme de bien compare sa vertu au jade. (Confucius)</em><br><span class="en-note" style="font-size:9px;">The gentleman compares his virtue to jade. The standard against which moral character is measured.</span></p>
+      </div>
+      <div class="card jade" style="padding:9px 11px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:17px;color:var(--jade2);">温润而泽，仁也</div>
+        <div style="font-size:9px;color:var(--jade2);margin-bottom:4px;">wēnrùn érzé, rén yě</div>
+        <p style="font-size:10px;line-height:1.5;">玉的温润光泽=仁爱。玉德与五常的对应。<br><em class="fr" style="font-size:9px;">Douceur et lustre = bienveillance. Le jade incarne les cinq vertus confucéennes.</em><br><span class="en-note" style="font-size:9px;">Jade's warm lustre = benevolence (仁). Its density = wisdom (智). Its sharp but non-wounding edges = righteousness (义).</span></p>
+      </div>
+      <div class="card gold" style="padding:9px 11px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:17px;color:var(--gold2);">图必有意，意必吉祥</div>
+        <div style="font-size:9px;color:var(--gold2);margin-bottom:4px;">tú bì yǒu yì, yì bì jíxiáng</div>
+        <p style="font-size:10px;line-height:1.5;">每个图案必有寻意，寻意必带吉祥。明清宝玉建样的设计原则。<br><em class="fr" style="font-size:9px;">Chaque motif doit porter un sens, chaque sens doit porter bonheur.</em><br><span class="en-note" style="font-size:9px;">Every design motif must carry meaning; every meaning must promise good fortune — the guiding principle of Ming-Qing jewellery design.</span></p>
+      </div>
+    </div>
+
+    <!-- Col 2: Forms and rituals -->
+    <div style="display:flex;flex-direction:column;gap:7px;">
+      <div style="border-bottom:1px solid var(--border);padding-bottom:5px;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold2);">形制与礼仪 · Formes &amp; Rites</div>
+
+      <div class="card jade" style="padding:9px 11px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:17px;color:var(--jade2);">六器</div>
+        <div style="font-size:9px;color:var(--jade2);margin-bottom:4px;">liù qì · Six Ritual Jades</div>
+        <p style="font-size:10px;line-height:1.5;">璧琉圭璟琮璇——天地四方的宇宙地图。<br><em class="fr" style="font-size:9px;">璧(Ciel) 琮(Terre) 圭(E) 璋(S) 琥(O) 璜(N) — carte cosmologique en jade.</em><br><span class="en-note" style="font-size:9px;">The Six Ritual Jades mapped the cosmos: disc=Heaven, tube=Earth, plus four directional jades. Performing ritual with the correct jade was an act of cosmic governance.</span></p>
+      </div>
+      <div class="card red" style="padding:9px 11px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:17px;color:var(--red2);">禁步</div>
+        <div style="font-size:9px;color:var(--red2);margin-bottom:4px;">jìnbù · Step-Prohibitor</div>
+        <p style="font-size:10px;line-height:1.5;">系腰维玉佩，调节步态的礼仪工具。<br><em class="fr" style="font-size:9px;">Pendentif de jade qui règle la démarche par son tintement.</em><br><span class="en-note" style="font-size:9px;">Waist pendant that produced harmonious sound at the correct walking pace — and discordant clashing if the wearer rushed. Ritual compliance enforced through acoustics.</span></p>
+      </div>
+      <div class="card gold" style="padding:9px 11px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:17px;color:var(--gold2);">冠礼</div>
+        <div style="font-size:9px;color:var(--gold2);margin-bottom:4px;">guānlǐ · Capping Ceremony</div>
+        <p style="font-size:10px;line-height:1.5;">男子20岁成年礼，授字，得宽善之名。<br><em class="fr" style="font-size:9px;">Rite de coiffure et de majorité masculin : trois coiffes successives, attribution du nom de courtesy.</em><br><span class="en-note" style="font-size:9px;">At age 20, a man received three caps in succession and his courtesy name (字) — the jewellery ritual that marked his entry into adult civic life.</span></p>
+      </div>
+    </div>
+
+    <!-- Col 3: Social and cross-cultural -->
+    <div style="display:flex;flex-direction:column;gap:7px;">
+      <div style="border-bottom:1px solid var(--border);padding-bottom:5px;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--red2);">社会与跨文化 · Social &amp; Interculturel</div>
+
+      <div class="card red" style="padding:9px 11px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:17px;color:var(--red2);">服饰违制</div>
+        <div style="font-size:9px;color:var(--red2);margin-bottom:4px;">fúshì wéizhì · Lois somptuaires</div>
+        <p style="font-size:10px;line-height:1.5;">平民不得佩戴金銀珠玉。层级公开穿在身上。<br><em class="fr" style="font-size:9px;">Interdiction aux roturiers de porter or, argent ou jade. La hiérarchie portée sur le corps.</em><br><span class="en-note" style="font-size:9px;">Sumptuary laws made the hierarchy legally visible: commoners wore copper/bone/wood; nobility jade; emperors the finest white hetian jade. Breaking the law = threatening the cosmic order.</span></p>
+      </div>
+      <div class="card blue" style="padding:9px 11px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:17px;color:var(--blue2);">扪指 vs 戒指</div>
+        <div style="font-size:9px;color:var(--blue2);margin-bottom:4px;">bānzhǐ vs jièzhǐ</div>
+        <p style="font-size:10px;line-height:1.5;">拇指护场（弓射玄居天箱）vs已充当个权力手指环。中法订婚指环对比。<br><em class="fr" style="font-size:9px;">Anneau d'archer (power ring, Qing) vs bague de fiançailles (Occident).</em><br><span class="en-note" style="font-size:9px;">Chinese 扳指 (archer's ring = martial power/status) vs Western engagement ring (romantic love/contract). Same object type, completely different cultural grammar.</span></p>
+      </div>
+      <div class="card gold" style="padding:9px 11px;">
+        <div style="font-family:'Noto Serif SC',serif;font-size:17px;color:var(--gold2);">和氏璧</div>
+        <div style="font-size:9px;color:var(--gold2);margin-bottom:4px;">Hé shì bì · He's Disc</div>
+        <p style="font-size:10px;line-height:1.5;">中国史上最著名的玉，“价値连城”，后成为古玉传国珺。<br><em class="fr" style="font-size:9px;">Le jade le plus célèbre de l'Histoire, équivalant une chaîne de villes. Devenu le Sceau Impérial.</em><br><span class="en-note" style="font-size:9px;">The He's Disc (和氏璧): discovered by Bian He, worth "a chain of cities" according to King Zhao of Qin. Eventually carved into the first Imperial Seal — the most politically charged object in Chinese history.</span></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- S11: 首饰图鉴 (头部与躯干) -->
+<div class="slide bg-dark" id="s11" style="padding:16px 64px 32px;overflow-y:auto;pointer-events:all;">
+  <div class="slide-header" style="margin-bottom:12px;"><span class="lesson-tag">首饰图鉴 · Bijoux et Parures (I)</span><span class="slide-num">9</span></div>
+  <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:8px;flex-wrap:wrap;">
+    <h2>头部与配饰图鉴</h2>
+    <span style="font-size:13px;opacity:0.6;font-style:italic;">Ornements de tête et du corps · Head &amp; Body Ornaments</span>
+  </div>
+  <div style="background:rgba(46,125,90,0.12);border-left:3px solid var(--jade);padding:7px 13px;margin-bottom:9px;font-size:11px;line-height:1.6;color:rgba(245,240,232,0.65);">
+    <strong style="color:var(--jade2);">阅读提示 · Guide de lecture:</strong>
+    发饰：笄(简)→钗→步摇，复杂度递增。额饰（花钓）及颈饰（鞅珑、项链）是唐代特有，展示丝绸之路开放怀抱。<br>
+    <em class="fr" style="font-size:10px;">De l’épingle simple (簪) à la parure oscillante (步摇) : complexité croissante. Les bijoux frontaux (花钿) et les colliers (璎珞) sont caractéristiques des Tang — influence bouddhique et perse.</em>
+    <span class="en-note">Follow the progression: simple hairpin (笄/簪) → double-pin (钗) → swaying pendant (步摇). Tang innovations: the forehead jewel (花钿, from a palace legend), the layered necklace (璎珞, from Buddhist iconography). Each tells a story of cultural contact.</span>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(5, 1fr);gap:12px;padding-bottom:10px;">
+    <!-- 头部发饰 -->
+    <div style="display:flex;flex-direction:column;gap:4px;border:1px solid rgba(255,255,255,0.1);padding:4px;background:rgba(0,0,0,0.3);">
+      <div style="height:150px;background:url('https://pica.zhimg.com/v2-b63b79a7841706d825731a786dee4856_1440w.jpg') center/cover no-repeat;border-radius:2px;"></div>
+      <div style="text-align:center;font-size:11px;color:var(--paper);">笄 (簪)<br><span style="font-size:9px;color:#888;">Épingle · Hairpin</span></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:4px;border:1px solid rgba(255,255,255,0.1);padding:4px;background:rgba(0,0,0,0.3);">
+      <div style="height:150px;background:url('https://pic3.zhimg.com/v2-f6993663f92a6405d922a3e4d6d5cce4_1440w.jpg') center/cover no-repeat;border-radius:2px;"></div>
+      <div style="text-align:center;font-size:11px;color:var(--paper);">钗</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:4px;border:1px solid rgba(255,255,255,0.1);padding:4px;background:rgba(0,0,0,0.3);">
+      <div style="height:150px;background:url('https://picx.zhimg.com/v2-b09ae4058eae39a9ed4f3bed5f39f0a1_1440w.jpg') center/cover no-repeat;border-radius:2px;"></div>
+      <div style="text-align:center;font-size:11px;color:var(--paper);">梳篦<br><span style="font-size:9px;color:#888;">Peigne ornemental · Ornamental comb</span></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:4px;border:1px solid rgba(255,255,255,0.1);padding:4px;background:rgba(0,0,0,0.3);">
+      <div style="height:150px;background:url('https://pic2.zhimg.com/v2-034275391fd6be8db31c17b494bb9b75_1440w.jpg') center/cover no-repeat;border-radius:2px;"></div>
+      <div style="text-align:center;font-size:11px;color:var(--paper);">金钿<br><span style="font-size:9px;color:#888;">Bijou frontal · Forehead ornament</span></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:4px;border:1px solid rgba(255,255,255,0.1);padding:4px;background:rgba(0,0,0,0.3);">
+      <div style="height:150px;background:url('https://pic4.zhimg.com/v2-38e1c8bcf84f9b48777fc740b6a4037d_1440w.jpg') center/cover no-repeat;border-radius:2px;"></div>
+      <div style="text-align:center;font-size:11px;color:var(--paper);">步摇<br><span style="font-size:9px;color:#888;">Pendentif oscillant · Swaying pendant</span></div>
+    </div>
+    
+    <!-- 颈部与佩饰 -->
+    <div style="display:flex;flex-direction:column;gap:4px;border:1px solid rgba(255,255,255,0.1);padding:4px;background:rgba(0,0,0,0.3);">
+      <div style="height:150px;background:url('https://picx.zhimg.com/v2-e2b8102c771e2917fb45e201a3d10853_1440w.jpg') center/cover no-repeat;border-radius:2px;"></div>
+      <div style="text-align:center;font-size:11px;color:var(--paper);">项链<br><span style="font-size:9px;color:#888;">Collier · Necklace</span></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:4px;border:1px solid rgba(255,255,255,0.1);padding:4px;background:rgba(0,0,0,0.3);">
+      <div style="height:150px;background:url('https://pic4.zhimg.com/v2-101e4b71a5629a0ca7e3fdbb1f525425_1440w.jpg') center/cover no-repeat;border-radius:2px;"></div>
+      <div style="text-align:center;font-size:11px;color:var(--paper);">璎珞<br><span style="font-size:9px;color:#888;">Collier bouddhique · Buddhist necklace</span></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:4px;border:1px solid rgba(255,255,255,0.1);padding:4px;background:rgba(0,0,0,0.3);">
+      <div style="height:150px;background:url('https://pic3.zhimg.com/v2-83ac883905eacffd8463710aa0236a4c_1440w.jpg') center/cover no-repeat;border-radius:2px;"></div>
+      <div style="text-align:center;font-size:11px;color:var(--paper);">念珠<br><span style="font-size:9px;color:#888;">Chapelet · Prayer beads</span></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:4px;border:1px solid rgba(255,255,255,0.1);padding:4px;background:rgba(0,0,0,0.3);">
+      <div style="height:150px;background:url('https://pica.zhimg.com/v2-e5c1a99a6be2660da9820ab8499d6cea_1440w.jpg') center/cover no-repeat;border-radius:2px;"></div>
+      <div style="text-align:center;font-size:11px;color:var(--paper);">长命锁<br><span style="font-size:9px;color:#888;">Verrou de longévité · Longevity lock</span></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:4px;border:1px solid rgba(255,255,255,0.1);padding:4px;background:rgba(0,0,0,0.3);">
+      <div style="height:150px;background:url('https://pica.zhimg.com/v2-91a685c6b6679ed13287035c278b218c_1440w.jpg') center/cover no-repeat;border-radius:2px;"></div>
+      <div style="text-align:center;font-size:11px;color:var(--paper);">环</div>
+    </div>
+  </div>
+</div>
+
+<!-- S12: 首饰图鉴 (随身与手部) -->
+<div class="slide bg-jade" id="s12" style="padding:16px 64px 32px;overflow-y:auto;pointer-events:all;">
+  <div class="slide-header" style="margin-bottom:12px;"><span class="lesson-tag">首饰图鉴 · Bijoux et Parures (II)</span><span class="slide-num">10</span></div>
+  <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:8px;flex-wrap:wrap;">
+    <h2>随身与手部饰品</h2>
+    <span style="font-size:13px;opacity:0.6;font-style:italic;">Ornements des mains et pendentifs · Hand &amp; Pendant Jewellery</span>
+  </div>
+  <div style="background:rgba(42,90,138,0.12);border-left:3px solid var(--blue);padding:7px 13px;margin-bottom:9px;font-size:11px;line-height:1.6;color:rgba(245,240,232,0.65);">
+    <strong style="color:var(--blue2);">阅读提示 · Guide de lecture:</strong>
+    手部饰品中，扪指（弓射指环）是满族武功文化的居严项目；护指（指甲套）是妇女发指甚长后的实用与装饰。手靴则象征圆满幸福。<br>
+    <em class="fr" style="font-size:10px;">L’anneau d’archer (扳指) — symbole du pouvoir mandchou. Le protège-doigt (护指) — accessoire des ongles longs, signe de noblesse oisive. Le bracelet de jade (钏) — symbole d’union et de plénitude.</em>
+    <span class="en-note">The 扳指 archer's ring: originally functional (bowstring protection), became the ultimate Qing status symbol in white hetian jade. The 护指 finger guard: a literal display of leisure — only those who never did manual labour could afford long fingernails. Jade bracelets (钏/玉镯): gifted at marriage as a symbol of unbreakable wholeness.</span>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(5, 1fr);gap:12px;padding-bottom:10px;">
+    <!-- 其他躯干部位 -->
+    <div style="display:flex;flex-direction:column;gap:4px;border:1px solid rgba(255,255,255,0.1);padding:4px;background:rgba(0,0,0,0.3);">
+      <div style="height:150px;background:url('https://pic1.zhimg.com/v2-5643738f0dcac72986fa5a0d5a2e0d18_1440w.jpg') center/cover no-repeat;border-radius:2px;"></div>
+      <div style="text-align:center;font-size:11px;color:var(--paper);">坠</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:4px;border:1px solid rgba(255,255,255,0.1);padding:4px;background:rgba(0,0,0,0.3);">
+      <div style="height:150px;background:url('https://pic1.zhimg.com/v2-ca8176ceb12977e24f65c784a80733e0_1440w.jpg') center/cover no-repeat;border-radius:2px;"></div>
+      <div style="text-align:center;font-size:11px;color:var(--paper);">钏 (手镯)<br><span style="font-size:9px;color:#888;">Bracelet · Bracelet</span></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:4px;border:1px solid rgba(255,255,255,0.1);padding:4px;background:rgba(0,0,0,0.3);">
+      <div style="height:150px;background:url('https://pic2.zhimg.com/v2-fff6679b8884e3c9ffae29d67bda7437_1440w.jpg') center/cover no-repeat;border-radius:2px;"></div>
+      <div style="text-align:center;font-size:11px;color:var(--paper);">戒指<br><span style="font-size:9px;color:#888;">Bague · Ring</span></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:4px;border:1px solid rgba(255,255,255,0.1);padding:4px;background:rgba(0,0,0,0.3);">
+      <div style="height:150px;background:url('https://pic2.zhimg.com/v2-d0efe6cdcfad40e20b222114ea5d51ed_1440w.jpg') center/cover no-repeat;border-radius:2px;"></div>
+      <div style="text-align:center;font-size:11px;color:var(--paper);">护指<br><span style="font-size:9px;color:#888;">Protège-doigt · Finger guard</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- S13: 汉法文化镜像 & SUMMARY -->
+<div class="slide bg-culture" id="s13">
+  <div class="slide-header"><span class="lesson-tag">文化镜像 · Miroir franco-chinois</span><span class="slide-num">11</span></div>
   <div class="two-col" style="gap:26px;align-items:start;">
     
     <!-- Mirror -->
@@ -410,25 +917,37 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
       <div style="margin-bottom:10px;">
         <div style="font-size:13px;color:var(--paper);font-weight:600;margin-bottom:2px;">🇫🇷 法国：钻石与切面 (Le Diamant et la Taille)</div>
         <p style="font-size:12px;margin:0;line-height:1.5;">西方珠宝传统崇尚<b>光芒与折射</b>（如凡尔赛宫时期的璀璨钻石）。宝石切割技术旨在最大化光线的闪耀，展现权力与财富的外放。<br>
-        <em class="fr">La tradition française valorise la taille de la pierre pour maximiser la brillance, reflet extraverti du soleil (Louis XIV) et de la richesse.</em></p>
+        <em class="fr">La tradition française valorise la taille de la pierre pour maximiser la brillance, reflet extraverti du soleil (Louis XIV) et de la richesse.</em><br><span class="en-note">The diamond-cutting tradition (culminating in Tavernier's Rose, the Regent Diamond, and Louis XIV's legendary jewels) optimised stones for maximum light refraction — an outward-projecting, flamboyant aesthetic perfectly suited to Versailles's politics of display. The cut gem announces: <em>I command the light</em>.</span></p>
       </div>
 
       <div>
         <div style="font-size:13px;color:var(--paper);font-weight:600;margin-bottom:2px;">🇨🇳 中国：玉石与质地 (Le Jade et la Texture)</div>
         <p style="font-size:12px;margin:0;line-height:1.5;">中国传统崇尚玉石的<b>温润坚韧 (内敛)</b>，玉器重“雕工”而非“切面”，重其寓意。珠宝首饰本身是道德秩序与心性修养的隐喻。<br>
-        <em class="fr">La Chine valorise la surface polie (sculpture) et mate du jade, symbole intraverti de vertu. Le bijou sert l'élévation morale, non l'hyper-visibilité.</em></p>
+        <em class="fr">La Chine valorise la surface polie (sculpture) et mate du jade, symbole intraverti de vertu. Le bijou sert l'élévation morale, non l'hyper-visibilité.</em><br><span class="en-note">Chinese jade tradition rewarded patient, intimate looking: jade reveals its beauty slowly, in subdued light, through touch. The Confucian gentleman's jade pendant was not meant to catch the eye across a room — it was a private conversation between its wearer and the stone's inner qualities. The beauty was <em>inward</em>. This difference in the physics of appreciation reflects a deep civilisational contrast between extroversion and introversion as values.</span></p>
       </div>
     </div>
     
     <!-- Summary -->
     <div style="display:flex;flex-direction:column;gap:12px;">
       <h3 style="color:var(--gold);font-size:14px;margin-bottom:4px;">第五课 总结 · Résumé</h3>
-      <ul style="color:var(--paper);font-size:13px;line-height:1.6;padding-left:16px;opacity:0.8;display:flex;flex-direction:column;gap:12px;">
-        <li><b>文字印记 :</b> 甲骨文“玉”、“珠”、“璞” 奠定了中国特有的宝石观念。<em class="fr">(Le système d'écriture ancre l'importance unique du Jade).</em></li>
-        <li><b>思想绑定 :</b> 玉石与儒家的仁智义信完全绑定，“君子比德于玉”。<em class="fr">(L'homme de bien s'identifie à la vertu du jade).</em></li>
-        <li><b>形制多元 :</b> 从祭天的璧琮，到唐代胡汉融合的繁复金银（步摇、花钿），首饰种类达到巅峰。</li>
-        <li><b>礼与法 :</b> 首饰是阶级秩序的界线，也是规训身体动作（如组珮）的儒教工具。<em class="fr">(Le bijou est à la fois loi sociale et outil de contrôle corporel).</em></li>
-      </ul>
+      <div style="display:flex;flex-direction:column;gap:9px;">
+        <div style="background:rgba(0,0,0,0.3);border-left:3px solid var(--jade);padding:9px 13px;">
+          <div style="font-size:11px;font-weight:bold;color:var(--jade2);margin-bottom:3px;">文字印记 · Oracle Script</div>
+          <p style="font-size:11px;line-height:1.5;">甲骨文“玉”、“珠”、“璎”奠定了中国特有的宝石观念。<br><em class="fr" style="font-size:10px;">L’écriture ancre l'importance unique du jade dans la cosmologie.</em><br><span class="en-note" style="font-size:9.5px;">Three jade discs on a cord = 珉. A single dot separates it from 王 (king) — the deepest relation in Chinese political philosophy encoded in brushstroke.</span></p>
+        </div>
+        <div style="background:rgba(0,0,0,0.3);border-left:3px solid var(--jade2);padding:9px 13px;">
+          <div style="font-size:11px;font-weight:bold;color:var(--jade2);margin-bottom:3px;">思想绑定 · Moral Philosophy</div>
+          <p style="font-size:11px;line-height:1.5;">玉石与儒家仁智义信完全绑定，“君子比德于玉”。2500年前孔子语。<br><em class="fr" style="font-size:10px;">L'homme de bien compare sa vertu au jade — 11 vertus dans une seule pierre.</em><br><span class="en-note" style="font-size:9.5px;">Jade valued for the <em>character</em> it modelled — unlike diamonds (brilliance) or gold (scarcity). Wearing jade = aspiring to be like jade.</span></p>
+        </div>
+        <div style="background:rgba(0,0,0,0.3);border-left:3px solid var(--gold);padding:9px 13px;">
+          <div style="font-size:11px;font-weight:bold;color:var(--gold2);margin-bottom:3px;">形制多元 · Forms &amp; Eras</div>
+          <p style="font-size:11px;line-height:1.5;">从祭天璧琉到唐代金銀（步摇、花钓）到明清祸福寻意，每个朝代有其特征。<br><em class="fr" style="font-size:10px;">Du jade rituel néolithique aux bijoux Tang cosmopolites, aux motifs auspicieux Ming-Qing.</em><br><span class="en-note" style="font-size:9.5px;">Six evolutionary stages: ornament → ritual vessel → moral symbol → amulet → commodity → blessing-carrier. Each mirrors a civilisational transformation.</span></p>
+        </div>
+        <div style="background:rgba(0,0,0,0.3);border-left:3px solid var(--red);padding:9px 13px;">
+          <div style="font-size:11px;font-weight:bold;color:var(--red2);margin-bottom:3px;">礼与法 · Body &amp; Law</div>
+          <p style="font-size:11px;line-height:1.5;">首饰是阶级界线，也是规训身体动作的儒教工具。禁步是听觉监控体系。<br><em class="fr" style="font-size:10px;">Loi sociale portée sur le corps + instrument de discipline morale acoustique.</em><br><span class="en-note" style="font-size:9.5px;">The 禁步 and 组玉佩 created an auditory compliance system: correct pace = harmonious jade music; rushing = discordant clashing = public shame. No equivalent in Western jewellery tradition.</span></p>
+        </div>
+      </div>
     </div>
     
   </div>
@@ -439,7 +958,7 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
 <div id="nav">
   <button class="nb" id="pb">←</button>
   <div class="dots" id="dots"></div>
-  <span id="sc">1 / 11</span>
+  <span id="sc">1 / 17</span>
   <button class="nb" id="nb2">→</button>
 </div>
 

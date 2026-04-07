@@ -326,18 +326,20 @@
     }
     .featured-actions {
       display: flex;
-      gap: 16px;
+      flex-wrap: wrap;
+      gap: 10px;
     }
     .btn-course {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 10px 24px;
+      padding: 6px 14px;
       border-radius: 6px;
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       font-weight: 500;
       transition: all 0.2s;
       text-decoration: none;
+      white-space: nowrap;
     }
     .btn-course-primary {
       background: var(--accent);
@@ -431,7 +433,8 @@
         font-size: 2rem;
       }
       .featured-actions {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
       }
     }
   </style>
@@ -475,9 +478,19 @@
           <span class="featured-tag">Weber · Comparative Civilisation</span>
         </div>
         <div class="featured-actions">
-          <a href="../asserts/slides/chinese-culture/index.html" class="btn-course btn-course-primary">View Course Outline →</a>
-          <a href="../asserts/slides/chinese-culture/lesson01.html" class="btn-course btn-course-outline">Lesson 1 · 天地人</a>
-          <a href="../asserts/slides/chinese-culture/lesson02.html" class="btn-course btn-course-outline">Lesson 2 · 神话与鬼仙佛</a>
+          <a href="../asserts/slides/chinese-culture/index.html" class="btn-course btn-course-primary">Outline →</a>
+          <a href="../asserts/slides/chinese-culture/lesson01.html" class="btn-course btn-course-outline">I Universe</a>
+          <a href="../asserts/slides/chinese-culture/lesson02.html" class="btn-course btn-course-outline">II Mythology</a>
+          <a href="../asserts/slides/chinese-culture/lesson03.html" class="btn-course btn-course-outline">III History</a>
+          <a href="../asserts/slides/chinese-culture/lesson04.html" class="btn-course btn-course-outline">IV Clothing</a>
+          <a href="../asserts/slides/chinese-culture/lesson05.html" class="btn-course btn-course-outline">V Jewelry</a>
+          <a href="../asserts/slides/chinese-culture/lesson06.html" class="btn-course btn-course-outline">VI Etiquette</a>
+          <a href="../asserts/slides/chinese-culture/lesson07.html" class="btn-course btn-course-outline">VII Geography</a>
+          <a href="../asserts/slides/chinese-culture/lesson08.html" class="btn-course btn-course-outline">VIII Art</a>
+          <a href="../asserts/slides/chinese-culture/lesson09.html" class="btn-course btn-course-outline">IX Architecture</a>
+          <a href="../asserts/slides/chinese-culture/lesson10.html" class="btn-course btn-course-outline">X Poetry</a>
+          <a href="../asserts/slides/chinese-culture/lesson11.html" class="btn-course btn-course-outline">XI Festivals</a>
+          <a href="../asserts/slides/chinese-culture/lesson12.html" class="btn-course btn-course-outline">XII Dietary</a>
         </div>
       </div>
       <div class="featured-panel">
@@ -505,19 +518,19 @@
           </div>
           <div class="panel-lesson-row">
             <div class="panel-lesson-dot"></div>
-            <span>III · 王帝皇</span>
+            <a href="../asserts/slides/chinese-culture/lesson03.html" class="panel-lesson-link">III · 王帝皇</a>
           </div>
           <div class="panel-lesson-row">
             <div class="panel-lesson-dot"></div>
-            <span>IV · 服饰文化</span>
+            <a href="../asserts/slides/chinese-culture/lesson04.html" class="panel-lesson-link">IV · 服饰文化</a>
           </div>
           <div class="panel-lesson-row">
             <div class="panel-lesson-dot"></div>
-            <span>V · 首饰与玉</span>
+            <a href="../asserts/slides/chinese-culture/lesson05.html" class="panel-lesson-link">V · 首饰与玉</a>
           </div>
           <div class="panel-lesson-row">
             <div class="panel-lesson-dot"></div>
-            <span>VI–XII · More coming…</span>
+            <a href="../asserts/slides/chinese-culture/index.html" class="panel-lesson-link">VI–XII · More coming…</a>
           </div>
         </div>
       </div>

@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
 <title>第三课 · 历史与权力结构</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IM+Fell+English:ital@0;1&family=DM+Mono:wght@400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
   --ink:#0a0807; --paper:#f5f0e8;
@@ -28,6 +29,9 @@ body{background:#0a0807;font-family:'Cormorant Garamond','Noto Serif SC',Georgia
 .bg-empire{background:linear-gradient(135deg,#150603 0%,#200808 100%);}
 .bg-culture{background:linear-gradient(135deg,#0a0904 0%,#130f06 100%);}
 .bg-jade{background:linear-gradient(135deg,#050e09 0%,#091508 100%);}
+.bg-close{background:linear-gradient(135deg,#0a0a0e 0%,#12101a 100%);}
+.oracle-img-box{background:rgba(255,255,255,0.93);border:2px solid rgba(184,144,64,0.5);padding:6px;width:84px;height:96px;display:flex;align-items:center;justify-content:center;border-radius:2px;flex-shrink:0;}
+.oracle-img-box img{width:68px;height:82px;object-fit:contain;}
 
 .slide-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;border-bottom:1px solid var(--border);padding-bottom:12px;}
 .lesson-tag{font-size:10px;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);opacity:0.65;}
@@ -96,17 +100,17 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
     <div class="card purple">
       <div class="tag" style="font-size:10px;color:var(--purple2);margin-bottom:4px;">第一部分 · Partie 1</div>
       <h4 style="font-size:18px;margin-bottom:8px;color:var(--paper);">从神话到历史<br><span style="font-size:13px;font-weight:normal;opacity:0.7;">Du mythe à l'histoire</span></h4>
-      <p>三皇五帝的叙事，夏商周的历史溯源。三星堆与灭绝文明的痕迹。<br><em class="fr">Les Souverains mythiques face aux dynasties Xia, Shang et Zhou.</em></p>
+      <p>三皇五帝的叙事，夏商周的历史溯源。三星堆与灭绝文明的痕迹。<br><em class="fr">Les Souverains mythiques face aux dynasties Xia, Shang et Zhou.</em><br><span style="color:rgba(245,240,232,0.4);font-size:11px;">From mythic sage-kings to the Shang oracle bones: how does a culture construct its own origin story?</span></p>
     </div>
     <div class="card jade">
       <div class="tag" style="font-size:10px;color:var(--jade2);margin-bottom:4px;">第二部分 · Partie 2</div>
       <h4 style="font-size:18px;margin-bottom:8px;color:var(--paper);">权力的进化<br><span style="font-size:13px;font-weight:normal;opacity:0.7;">Évolution du pouvoir</span></h4>
-      <p>封建制与郡县制的区别。「皇帝」概念诞生与集权官僚体制。<br><em class="fr">Féodalité vs Centralisation : l'invention du titre d'"Empereur" et la bureaucratie.</em></p>
+      <p>封建制与郡县制的区别。「皇帝」概念诞生与集权官僚体制。<br><em class="fr">Féodalité vs Centralisation : l'invention du titre d'"Empereur" et la bureaucratie.</em><br><span style="color:rgba(245,240,232,0.4);font-size:11px;">How Qin Shi Huang abolished the aristocracy and invented a new kind of sovereign power — still echoed in modern states.</span></p>
     </div>
     <div class="card gold">
       <div class="tag" style="font-size:10px;color:var(--gold2);margin-bottom:4px;">第三部分 · Partie 3</div>
       <h4 style="font-size:18px;margin-bottom:8px;color:var(--paper);">思想与王朝循环<br><span style="font-size:13px;font-weight:normal;opacity:0.7;">Cycle dynastique</span></h4>
-      <p>轴心突破与儒家困境，思想演变（汉至清）。国-士绅-宗族结构。<br><em class="fr">Le cycle soutenu par la structure État-Gentry-Clan et l'évolution de la pensée.</em></p>
+      <p>轴心突破与儒家困境，思想演变（汉至清）。国-士绅-宗族结构。<br><em class="fr">Le cycle soutenu par la structure État-Gentry-Clan et l'évolution de la pensée.</em><br><span style="color:rgba(245,240,232,0.4);font-size:11px;">Why did Chinese dynasties keep collapsing — and why did Chinese civilisation keep surviving? The three-tier social structure is the answer.</span></p>
     </div>
   </div>
 </div>
@@ -119,43 +123,31 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
       <h2>神话与历史接壤<br><span style="font-size:16px;opacity:0.7;">Mythes et vestiges historiques</span></h2>
       <div class="card blue">
         <h3 style="color:var(--paper);">三皇五帝：后世构建的圣王 · Souverains mythiques</h3>
-        <p>上古神话中的英雄（如黄帝、伏羲），其实是后世（尤其是战国和汉代）为了构建华夏共同体身份而追溯的「文化祖先」，带有强烈的神话色彩。<br><em class="fr">Les 3 Augustes et 5 Empereurs sont des figures mythiques rationalisées plus tard pour incarner les origines de la nation et justifier le pouvoir.</em></p>
+        <p>上古神话中的英雄（如黄帝、伏羲），其实是后世（尤其是战国和汉代）为了构建华夏共同体身份而追溯的「文化祖先」，带有强烈的神话色彩。<br><em class="fr">Les 3 Augustes et 5 Empereurs sont des figures mythiques rationalisées plus tard pour incarner les origines de la nation et justifier le pouvoir.</em><br><span style="color:rgba(245,240,232,0.45);font-size:11px;display:block;margin-top:4px;">The Three Sovereigns (Fuxi, Nüwa, Shennong) and Five Emperors (Yellow Emperor, Yao, Shun...) are not historical figures but retroactively constructed cultural ancestors — invented during the Warring States period to give the emerging Chinese nation a unified origin myth, much as Rome constructed its Romulus-and-Remus founding story.</span></p>
       </div>
       <div class="card jade">
         <h3 style="color:var(--paper);">商、周与三星堆：多源文明 · Civilisations historiques</h3>
-        <p>现代考古证明：<span style="color:var(--gold2);">夏、商、甚至三星堆</span>可能是并行存在、甚至发生过惨烈代替的古代文明。周朝继承并整理了商朝的文化与技术（如青铜器、文字），形成了华夏文明的主轴。<br><em class="fr">Shang, Zhou, et la mystérieuse culture de Sanxingdui révèlent des civilisations perdues et une transmission complexe.</em></p>
+        <p>现代考古证明：<span style="color:var(--gold2);">夏、商、甚至三星堆</span>可能是并行存在、甚至发生过惨烈代替的古代文明。周朝继承并整理了商朝的文化与技术（如青铜器、文字），形成了华夏文明的主轴。<br><em class="fr">Shang, Zhou, et la mystérieuse culture de Sanxingdui révèlent des civilisations parallèles perdues et une transmission culturelle complexe.</em><br><span style="color:rgba(245,240,232,0.45);font-size:11px;display:block;margin-top:4px;">The Sanxingdui site (discovered 1986, Sichuan) shattered the myth of a single cradle of Chinese civilisation: its bronze masks and gold sceptres belong to a completely independent tradition with no textual record. Modern archaeology reveals that "China" was not one civilisation but a competitive ecosystem of parallel Bronze Age cultures — a much more complex origin story than the dynastic sequence suggests.</span></p>
       </div>
     </div>
     <div style="display:flex;flex-direction:column;gap:16px;">
       <h3 style="color:var(--gold2);">字源：权力的起源 · Étymologie du Pouvoir</h3>
       <div style="display:flex;align-items:center;gap:16px;background:rgba(0,0,0,0.4);padding:14px;border:1px solid var(--border);">
-        <div class="picto">
-          <!-- 王: Axe -->
-          <svg width="60" height="70" viewBox="0 0 60 70">
-            <line x1="30" y1="10" x2="30" y2="60" stroke="#d4ad60" stroke-width="3" stroke-linecap="round"/>
-            <line x1="15" y1="50" x2="45" y2="50" stroke="#d4ad60" stroke-width="3" stroke-linecap="round"/>
-            <path d="M 15 50 c 0 -20, 15 -35, 15 -35 s 15 15, 15 35" fill="none" stroke="#d4ad60" stroke-width="2"/>
-          </svg>
+        <div class="oracle-img-box">
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/icon_svg/%E7%8E%8B.svg" alt="王 oracle bone script">
         </div>
         <div>
           <h4 style="font-size:22px;color:var(--gold2);margin-bottom:4px;">王 <span style="font-size:14px;color:var(--red2);">wáng · Roi · King</span></h4>
-          <p style="font-size:12px;line-height:1.6;">甲骨文形似一把<span style="color:var(--gold2);">大斧（钺）</span>。在古代，大斧代表军权。王即是掌握军权与生杀大权的部落首领。<br><em class="fr">Représente une hache d'armes. Le Roi est celui qui détient le pouvoir militaire de vie et de mort.</em></p>
+          <p style="font-size:12px;line-height:1.6;">甲骨文形似一把<span style="color:var(--gold2);">大斧（钺）</span>。在古代，大斧代表军权。王即是掌握军权与生杀大权的部落首领。<br><em class="fr">Représente une hache d'armes. Le Roi est celui qui détient le pouvoir militaire de vie et de mort.</em><br><span style="color:rgba(245,240,232,0.4);font-size:11px;">The bronze battle-axe (钺 yuè) was the supreme emblem of Shang royal authority — archaeological finds from royal tombs confirm it. A later re-reading links 王 to the three horizontal bars meaning Heaven, Humanity, Earth, with the vertical stroke uniting all three: the king as cosmic axis.</span></p>
         </div>
       </div>
       <div style="display:flex;align-items:center;gap:16px;background:rgba(0,0,0,0.4);padding:14px;border:1px solid var(--border);">
-        <div class="picto">
-          <!-- 帝: Burning bundle / Altar -->
-          <svg width="60" height="70" viewBox="0 0 60 70">
-            <line x1="30" y1="10" x2="30" y2="60" stroke="#d4ad60" stroke-width="3" stroke-linecap="round"/>
-            <line x1="15" y1="20" x2="45" y2="20" stroke="#d4ad60" stroke-width="2"/>
-            <line x1="20" y1="35" x2="40" y2="35" stroke="#d4ad60" stroke-width="2"/>
-            <line x1="15" y1="50" x2="45" y2="50" stroke="#d4ad60" stroke-width="2"/>
-            <path d="M 20 20 l 10 -10 l 10 10" fill="none" stroke="#d4ad60" stroke-width="2"/>
-          </svg>
+        <div class="oracle-img-box">
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/icon_svg/%E5%B8%9D.svg" alt="帝 oracle bone script">
         </div>
         <div>
           <h4 style="font-size:22px;color:var(--gold2);margin-bottom:4px;">帝 <span style="font-size:14px;color:var(--red2);">dì · Divinité Suprême</span></h4>
-          <p style="font-size:12px;line-height:1.6;">本义多指祭祀的柴捆（缔），后指代天上的至高神明（上帝）。商代崇拜天帝，王与帝原本有界限。<br><em class="fr">Graphème d'un fagot sacrificiel. Désigne la divinité suprême ou l'esprit céleste transcendant.</em></p>
+          <p style="font-size:12px;line-height:1.6;">本义多指祭祀的柴捆（缔），后指代天上的至高神明（上帝）。商代崇拜天帝，王与帝原本有界限。<br><em class="fr">Graphème d'un fagot sacrificiel. Désigne la divinité suprême ou l'esprit céleste transcendant.</em><br><span style="color:rgba(245,240,232,0.4);font-size:11px;">Under the Shang dynasty, 帝 referred exclusively to the supreme deity in Heaven (上帝 Shàngdì) — a celestial being, not a human ruler. Human kings were merely 王. Qin Shi Huang's fusion of 帝 (divine) + 皇 (magnificent sage-king) was a deliberate act of theological usurpation: claiming divine status for a living mortal.</span></p>
         </div>
       </div>
     </div>
@@ -172,12 +164,12 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
       
       <div style="background:rgba(42,90,138,0.15);border-left:3px solid var(--blue);padding:14px;border-radius:2px;">
         <h4 style="color:var(--blue2);font-size:16px;margin-bottom:6px;">周朝：封建制 · Fengjian (Féodalité)</h4>
-        <p style="font-size:13px;line-height:1.6;">天子将土地分封给亲戚或功臣（诸侯）。诸侯在封地内世代世袭，拥有军队与税收。本质是<span style="color:var(--paper);">血缘贵族分权</span>。<br><em class="fr">Système féodal basé sur les liens du sang. Les seigneurs dirigent leurs fiefs de manière héréditaire avec grande autonomie.</em></p>
+        <p style="font-size:13px;line-height:1.6;">天子将土地分封给亲戚或功臣（诸侯）。诸侯在封地内世代世袭，拥有军队与税收。本质是<span style="color:var(--paper);">血缘贵族分权</span>。<br><em class="fr">Système féodal basé sur les liens du sang. Les seigneurs dirigent leurs fiefs de manière héréditaire avec grande autonomie.</em><br><span style="color:rgba(245,240,232,0.4);font-size:11px;">Structurally parallel to European feudalism: the Zhou king granted land to relatives and meritorious lords (诸侯 <em>zhūhóu</em>), who held hereditary authority over their domains — with their own armies, taxes, and courts. By the Spring and Autumn period (771–476 BCE) these lords were stronger than the king himself, triggering centuries of inter-state warfare (the Warring States period).</span></p>
       </div>
 
       <div style="background:rgba(192,57,43,0.15);border-left:3px solid var(--red);padding:14px;border-radius:2px;">
         <h4 style="color:var(--red2);font-size:16px;margin-bottom:6px;">秦朝：郡县制 · Junxian (Centralisation)</h4>
-        <p style="font-size:13px;line-height:1.6;">废除诸侯，全国划分为郡和县。地方长官由皇帝直接任命、随时调动、不能世袭。本质是<span style="color:var(--paper);">皇权高度流动的集权</span>。<br><em class="fr">Administration centralisée. L'Empereur nomme et révoque les préfets. Fin de l'aristocratie héréditaire territoriale.</em></p>
+        <p style="font-size:13px;line-height:1.6;">废除诸侯，全国划分为郡和县。地方长官由皇帝直接任命、随时调动、不能世袭。本质是<span style="color:var(--paper);">皇权高度流动的集权</span>。<br><em class="fr">Administration centralisée. L'Empereur nomme et révoque les préfets. Fin de l'aristocratie héréditaire territoriale.</em><br><span style="color:rgba(245,240,232,0.4);font-size:11px;">Qin's commandery-county system (郡县制) was revolutionary: all 36 commanderies were governed by appointed officials who could be promoted, demoted, or reassigned at the emperor's will. No hereditary claims. No regional dynasties. For the first time in history, a single bureaucratic state governed a territory the size of Western Europe — a template that every subsequent Chinese dynasty followed for 2,100 years.</span></p>
       </div>
     </div>
     
@@ -223,26 +215,46 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
         <p style="font-size:13px;line-height:1.6;">在秦始皇之前，人间的统治者只称「王」。秦始皇将代表至高神灵的「帝」和最古老圣王的「皇」结合，宣告他的统治不再只是人间的首领，而是具备宇宙神圣合法的至高主宰。<br><em class="fr">Avant Qin Shi Huang, les souverains n'étaient que "Rois" (Wang). En fusionnant "Huang" (Auguste) et "Di" (Dieu), il s'élève au statut de souverain cosmique, justifiant un pouvoir absolu et divin.</em></p>
       </div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:16px;">
-      <h3 style="color:var(--gold2);">字源：璀璨的仪驾 · Étymologie</h3>
-      <div style="display:flex;align-items:center;gap:16px;background:rgba(0,0,0,0.5);padding:16px;border:1px solid var(--border);">
-        <div class="picto">
-          <!-- 皇: feather/lamp/crown -->
-          <svg width="60" height="70" viewBox="0 0 60 70">
-            <line x1="26" y1="45" x2="34" y2="45" stroke="#d4ad60" stroke-width="2"/>
-            <line x1="22" y1="55" x2="38" y2="55" stroke="#d4ad60" stroke-width="2"/>
-            <line x1="15" y1="65" x2="45" y2="65" stroke="#d4ad60" stroke-width="2"/>
-            <line x1="30" y1="45" x2="30" y2="65" stroke="#d4ad60" stroke-width="2"/>
-            <path d="M 30 40 c -10 -15, -15 -25, -5 -30 c 10 -5, 20 -5, 25 5 c 5 10, -5 20, -10 25" fill="none" stroke="#d4ad60" stroke-width="2"/>
-            <line x1="30" y1="36" x2="30" y2="20" stroke="#d4ad60" stroke-width="2"/>
-            <line x1="30" y1="20" x2="20" y2="10" stroke="#d4ad60" stroke-width="2"/>
-            <line x1="30" y1="20" x2="40" y2="10" stroke="#d4ad60" stroke-width="2"/>
-          </svg>
+      <div style="display:flex;flex-direction:column;gap:14px;">
+      <h3 style="color:var(--gold2);">字源溯源 · Étymologie des trois titres · Origins of Three Titles</h3>
+
+      <!-- 王 -->
+      <div style="display:flex;align-items:center;gap:14px;background:rgba(0,0,0,0.4);padding:12px;border:1px solid var(--border);">
+        <div class="oracle-img-box">
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/icon_svg/%E7%8E%8B.svg" alt="王 oracle bone">
         </div>
         <div>
-          <h4 style="font-size:24px;color:var(--gold2);margin-bottom:4px;">皇 <span style="font-size:14px;color:var(--red2);">huáng · Auguste / Sovereign</span></h4>
-          <p style="font-size:13px;line-height:1.6;">字形上半部如光芒万丈的羽饰或灯盘，下半部为「王」。本义指光辉璀璨、盛大，后来引申为至高无上的君主。<br><em class="fr">Représente une couronne de plumes lumineuses sur la tête du Roi. Symbolise la splendeur, l'auguste et la grandeur transcendante du souverain.</em></p>
+          <h4 style="font-size:20px;color:var(--gold2);margin-bottom:3px;">王 <span style="font-size:13px;color:var(--red2);">wáng · Roi · King</span></h4>
+          <p style="font-size:11px;line-height:1.6;">大斧（钺）之形 — 掌握军权与生杀大权的部落首领。<br><em class="fr">Hache d'armes : le maître de la force militaire.</em><br><span style="color:rgba(245,240,232,0.4);">Battle axe: the one who commands the military power of life and death.</span></p>
         </div>
+      </div>
+
+      <!-- 帝 -->
+      <div style="display:flex;align-items:center;gap:14px;background:rgba(0,0,0,0.4);padding:12px;border:1px solid var(--border);">
+        <div class="oracle-img-box">
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/icon_svg/%E5%B8%9D.svg" alt="帝 oracle bone">
+        </div>
+        <div>
+          <h4 style="font-size:20px;color:var(--gold2);margin-bottom:3px;">帝 <span style="font-size:13px;color:var(--red2);">dì · Divinité · God-Emperor</span></h4>
+          <p style="font-size:11px;line-height:1.6;">祭祀柴捆之形（缔）— 本指天上的至高神（上帝）。商代天帝是至上信仰的核心。<br><em class="fr">Fagot sacrificiel. Désigne la Divinité Céleste suprême, liée au sacrifice rituel.</em><br><span style="color:rgba(245,240,232,0.4);">A burning ritual bundle — originally referred to the supreme deity in Heaven.</span></p>
+        </div>
+      </div>
+
+      <!-- 皇 -->
+      <div style="display:flex;align-items:center;gap:14px;background:rgba(0,0,0,0.5);padding:12px;border:1px solid rgba(184,144,64,0.3);">
+        <div class="oracle-img-box">
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/icon_svg/%E7%9A%87.svg" alt="皇 oracle bone">
+        </div>
+        <div>
+          <h4 style="font-size:20px;color:var(--gold2);margin-bottom:3px;">皇 <span style="font-size:13px;color:var(--red2);">huáng · Auguste · Magnificent</span></h4>
+          <p style="font-size:11px;line-height:1.6;">光芒耀目的羽饰或灯盘之形 — 光辉、盛大，引申为最古老的圣王。<br><em class="fr">Plumage ou lampe rayonnante sur la tête d'un roi. Splendeur, majesté absolue.</em><br><span style="color:rgba(245,240,232,0.4);">Radiant feathers / flaming crown — glory, magnificence; used for the most ancient sage-kings.</span></p>
+        </div>
+      </div>
+
+      <div style="background:rgba(192,57,43,0.1);border-left:3px solid var(--red);padding:10px 12px;font-size:11px;line-height:1.6;">
+        <span style="color:var(--red2);font-weight:bold;">秦始皇的天才创举：</span>将人间最高王权「皇」与宇宙至高神明「帝」合而为一，缔造出超越人神界限的统治合法性。<br>
+        <em class="fr" style="font-size:10px;">Qin Shi Huang fusionne le prestige des Augustes mythiques (皇) et l'autorité divine (帝) pour créer une légitimité transcendant l'humain et le divin.</em><br>
+        <span style="color:rgba(245,240,232,0.35);font-size:10px;">By merging 皇 (magnificent sage-king) and 帝 (supreme deity), Qin Shi Huang proclaimed sovereignty beyond the human and divine realms alike.</span>
       </div>
     </div>
   </div>
@@ -251,70 +263,134 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
 <!-- S6: 官僚机器与文字 -->
 <div class="slide bg-culture" id="s6">
   <div class="slide-header"><span class="lesson-tag">官僚机器 · La Bureaucratie</span><span class="slide-num">4</span></div>
-  <h2 style="margin-bottom:14px;">官僚体制的字源：官、史、吏</h2>
+  <h2 style="margin-bottom:14px;">官僚体制的字源：官、史、吏<br><span style="font-size:14px;opacity:0.65;font-weight:300;">Les trois fonctionnaires · The Three Pillars of Bureaucracy</span></h2>
   <div class="three-col" style="gap:20px;">
     <!-- 官 -->
     <div style="display:flex;flex-direction:column;gap:12px;">
       <div style="display:flex;align-items:center;gap:12px;">
-        <div class="picto">
-          <svg width="50" height="60" viewBox="0 0 50 60">
-            <path d="M 25 10 L 10 25 L 10 50 M 25 10 L 40 25 L 40 50" fill="none" stroke="#d4ad60" stroke-width="2"/>
-            <ellipse cx="25" cy="40" rx="6" ry="6" fill="none" stroke="#d4ad60" stroke-width="2"/>
-            <line x1="25" y1="15" x2="25" y2="34" stroke="#d4ad60" stroke-width="2"/>
-          </svg>
+        <div class="oracle-img-box" style="width:70px;height:80px;">
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/swjz/10778.svg" alt="官 oracle bone" style="width:58px;height:68px;">
         </div>
         <div>
           <h4 style="font-size:22px;color:var(--gold2);line-height:1;">官 <span style="font-size:12px;color:var(--red2);">guān</span></h4>
-          <span style="font-size:10px;color:#888;">Officiel / Magistrat</span>
+          <span style="font-size:10px;color:#888;">Officiel · Magistrat · Official</span>
         </div>
       </div>
       <div class="card" style="padding:10px;font-size:12px;">
-        <h4 style="color:var(--gold2);font-size:13px;margin-bottom:4px;">屋下驻军 → 管理者</h4>
-        <p>「宀」+「㠯」。本义驻扎的高级官员。受<span style="color:var(--red2);">儒家</span>影响，官不仅是行政者，更是道德楷模的「父母官」。<br><em class="fr">Un camp militaire sous un toit. Lié au Confucianisme: l'officiel comme leader moral paternaliste.</em></p>
+        <h4 style="color:var(--gold2);font-size:13px;margin-bottom:4px;">屋下驻军 → 管理者 · Camp sous toit</h4>
+        <p>「宀」+「㠯」。本义驻扎的高级官员。受<span style="color:var(--red2);">儒家</span>影响，官不仅是行政者，更是道德楷模的「父母官」。<br><em class="fr">Un camp militaire sous un toit. Lié au Confucianisme : l'officiel comme leader moral paternaliste (« père-mère du peuple »).</em><br><span style="color:rgba(245,240,232,0.45);font-size:11px;">A military camp under a roof. Influenced by Confucianism, the <em>guān</em> was not just an administrator but a moral exemplar — literally the "father-mother official" of the people.</span></p>
       </div>
     </div>
 
     <!-- 吏 -->
     <div style="display:flex;flex-direction:column;gap:12px;">
       <div style="display:flex;align-items:center;gap:12px;">
-        <div class="picto">
-          <svg width="50" height="60" viewBox="0 0 50 60">
-            <path d="M 20 20 L 40 20 L 40 40" fill="none" stroke="#d4ad60" stroke-width="2"/>
-            <line x1="30" y1="10" x2="30" y2="50" stroke="#d4ad60" stroke-width="2"/>
-            <path d="M 20 50 c 10 -10, 20 -10, 20 0" fill="none" stroke="#d4ad60" stroke-width="2"/>
-          </svg>
+        <div class="oracle-img-box" style="width:70px;height:80px;">
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/icon_svg/%E5%90%8F.svg" alt="吏 oracle bone" style="width:58px;height:68px;">
         </div>
         <div>
           <h4 style="font-size:22px;color:var(--jade2);line-height:1;">吏 <span style="font-size:12px;color:var(--red2);">lì</span></h4>
-          <span style="font-size:10px;color:#888;">Clerc / Administrator</span>
+          <span style="font-size:10px;color:#888;">Clerc · Administrateur · Clerk</span>
         </div>
       </div>
       <div class="card jade" style="padding:10px;font-size:12px;">
-        <h4 style="color:var(--jade2);font-size:13px;margin-bottom:4px;">持笔办事 → 执行者</h4>
-        <p>手持笔/简，负责行政实务。受<span style="color:var(--red2);">法家</span>影响，吏代表严刑峻法，唯上是从的基层权力螺丝钉。<br><em class="fr">Main tenant un pinceau. Lié au Légisme: le clerc qui exécute strictement la loi administrative.</em></p>
+        <h4 style="color:var(--jade2);font-size:13px;margin-bottom:4px;">持笔办事 → 执行者 · Fonctionnaire légiste</h4>
+        <p>手持笔/简，负责行政实务。受<span style="color:var(--red2);">法家</span>影响，吏代表严刑峻法，唯上是从的基层权力螺丝钉。<br><em class="fr">Main tenant un pinceau. Lié au Légisme : le clerc exécute strictement la loi sans jugement moral personnel.</em><br><span style="color:rgba(245,240,232,0.45);font-size:11px;">A hand holding a writing brush. Shaped by Legalism, the <em>lì</em> was a disciplined executor of law — obedient, efficient, and morally neutral.</span></p>
       </div>
     </div>
 
     <!-- 史 -->
     <div style="display:flex;flex-direction:column;gap:12px;">
       <div style="display:flex;align-items:center;gap:12px;">
-        <div class="picto">
-          <svg width="50" height="60" viewBox="0 0 50 60">
-            <rect x="25" y="15" width="10" height="15" fill="none" stroke="#d4ad60" stroke-width="2"/>
-            <line x1="30" y1="15" x2="30" y2="50" stroke="#d4ad60" stroke-width="2"/>
-            <path d="M 15 45 L 30 35 L 45 45" fill="none" stroke="#d4ad60" stroke-width="2"/>
-          </svg>
+        <div class="oracle-img-box" style="width:70px;height:80px;">
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/icon_svg/%E5%8F%B2.svg" alt="史 oracle bone" style="width:58px;height:68px;">
         </div>
         <div>
           <h4 style="font-size:22px;color:var(--blue2);line-height:1;">史 <span style="font-size:12px;color:var(--red2);">shǐ</span></h4>
-          <span style="font-size:10px;color:#888;">Historien / Astrologue</span>
+          <span style="font-size:10px;color:#888;">Historien · Astrologue · Annalist</span>
         </div>
       </div>
       <div class="card blue" style="padding:10px;font-size:12px;">
-        <h4 style="color:var(--blue2);font-size:13px;margin-bottom:4px;">持简记录 → 观察者</h4>
-        <p>手（又）持简策记录历史星象。与<span style="color:var(--red2);">道家</span>渊源深（老子曾为史官），观察天道，不主张干预自然。<br><em class="fr">Main tenant un registre. Lié au Taoïsme, observe et consigne la Voie céleste (le Dao) objectivement.</em></p>
+        <h4 style="color:var(--blue2);font-size:13px;margin-bottom:4px;">持简记录 → 观察者 · Observateur du Ciel</h4>
+        <p>手（又）持简策记录历史星象。与<span style="color:var(--red2);">道家</span>渊源深（老子曾为史官），观察天道，不主张干预自然。<br><em class="fr">Main tenant un registre. Lié au Taoïsme : observe et consigne la Voie céleste (Dao) objectivement, sans intervenir.</em><br><span style="color:rgba(245,240,232,0.45);font-size:11px;">A hand holding bamboo tablets, recording celestial events and history. Laozi himself was a royal archivist — the <em>shǐ</em> observes the Way without interference.</span></p>
       </div>
     </div>
+  </div>
+</div>
+
+
+<!-- S6b: 科举制度 — The Imperial Examination -->
+<div class="slide bg-empire" id="s6b">
+  <div class="slide-header"><span class="lesson-tag">知识精英 · Méritocratie · Meritocracy</span><span class="slide-num">4b</span></div>
+  <h2 style="margin-bottom:14px;">科举制度：以知识取代血统<br><span style="font-size:16px;opacity:0.7;">Le <em>Kējǔ</em> — Quand le savoir remplace le sang</span></h2>
+  <div class="two-col" style="gap:28px;">
+
+    <!-- Left: timeline + key facts -->
+    <div style="display:flex;flex-direction:column;gap:13px;">
+      <div style="background:rgba(184,144,64,0.1);border-left:3px solid var(--gold);padding:12px 14px;font-size:12px;line-height:1.65;">
+        <h4 style="color:var(--gold2);margin-bottom:5px;font-size:14px;">核心逻辑 · Principe fondateur · Core Logic</h4>
+        <p>任何男性平民，只要饱读经书，就有资格通过考试进入权力核心。<span style="color:var(--gold2);">知识即权力</span>，而非血统。<br>
+        <em class="fr">Tout homme lettré, quelle que soit sa naissance, pouvait accéder au pouvoir par concours. Le savoir remplace le sang.</em><br>
+        <span style="color:rgba(245,240,232,0.5);">Any literate male, regardless of birth, could compete for government office through examination. Knowledge — not lineage — was the key to power.</span></p>
+      </div>
+
+      <div class="timeline" style="margin-top:4px;">
+        <div class="tl-item">
+          <div class="tl-dot" style="background:var(--jade);"></div>
+          <div class="tl-date" style="color:var(--jade2);">汉朝 · Han Dynasty (202 BCE – 220 CE)</div>
+          <strong style="color:var(--paper);font-size:13px;display:block;margin-bottom:3px;">察举制 · Sélection par recommandation</strong>
+          <p style="font-size:11px;line-height:1.5;">地方官员推荐孝廉人才，尚无统一笔试。<br><em class="fr">Recommandation des "filiales et intègres" par les magistrats locaux — le germe du système.</em><br><span style="color:rgba(245,240,232,0.38);">Local officials nominated filial and upright candidates — the embryonic form of meritocratic selection.</span></p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:var(--blue);"></div>
+          <div class="tl-date" style="color:var(--blue2);">隋唐 · Sui & Tang (605 – 907 CE)</div>
+          <strong style="color:var(--paper);font-size:13px;display:block;margin-bottom:3px;">科举正式确立 · Institutionnalisation</strong>
+          <p style="font-size:11px;line-height:1.5;">隋文帝创设进士科，唐代完善三级体系：州试→省试→殿试。<br><em class="fr">Emperor Wen of Sui crée le <em>Jinshi</em>. Tang perfectionne trois niveaux d'examen.</em><br><span style="color:rgba(245,240,232,0.38);">Emperor Wen of Sui (605 CE) formalized the <em>jinshi</em> degree. Tang expanded to three tiers: prefectural → capital → palace.</span></p>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:var(--gold);"></div>
+          <div class="tl-date" style="color:var(--gold2);">宋至清 · Song to Qing (960 – 1905 CE)</div>
+          <strong style="color:var(--paper);font-size:13px;display:block;margin-bottom:3px;">巅峰与僵化 · Apogée et sclérose</strong>
+          <p style="font-size:11px;line-height:1.5;">八股文成为固定格式，内容限于四书五经，创新受限。1905年清廷废除。<br><em class="fr">Le "huitième-jambe" (八股文) impose un format rigide. Aboli en 1905 face au choc occidental.</em><br><span style="color:rgba(245,240,232,0.38);">The "eight-legged essay" (八股文) imposed rigid form. Abolished in 1905 as Western-style education arrived — ending 1,300 years of the world's longest-running meritocratic system.</span></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: structure + comparison -->
+    <div style="display:flex;flex-direction:column;gap:13px;">
+      <h3 style="color:var(--gold2);">三级考试体系 · Les trois niveaux · Three-Tier Structure</h3>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="background:rgba(0,0,0,0.4);border-left:3px solid var(--jade2);padding:10px 14px;display:grid;grid-template-columns:100px 1fr;gap:8px;align-items:center;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:18px;color:var(--jade2);">院试 / 州试</div>
+          <div>
+            <p style="font-size:11px;color:var(--paper);margin-bottom:2px;">地方级 · Niveau préfectoral · Prefectural Level</p>
+            <p style="font-size:10px;color:rgba(245,240,232,0.45);">通过者称「秀才」(Xiùcai) — Bachelier · First degree holder</p>
+          </div>
+        </div>
+        <div style="text-align:center;color:var(--border);font-size:14px;">↓</div>
+        <div style="background:rgba(0,0,0,0.4);border-left:3px solid var(--blue2);padding:10px 14px;display:grid;grid-template-columns:100px 1fr;gap:8px;align-items:center;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:18px;color:var(--blue2);">乡试 / 省试</div>
+          <div>
+            <p style="font-size:11px;color:var(--paper);margin-bottom:2px;">省级 · Niveau provincial · Provincial Level</p>
+            <p style="font-size:10px;color:rgba(245,240,232,0.45);">通过者称「举人」(Jǔrén) — Licencié · Provincial graduate</p>
+          </div>
+        </div>
+        <div style="text-align:center;color:var(--border);font-size:14px;">↓</div>
+        <div style="background:rgba(184,144,64,0.15);border-left:3px solid var(--gold);padding:10px 14px;display:grid;grid-template-columns:100px 1fr;gap:8px;align-items:center;">
+          <div style="font-family:'Noto Serif SC',serif;font-size:20px;color:var(--gold2);">殿试</div>
+          <div>
+            <p style="font-size:11px;color:var(--paper);margin-bottom:2px;">皇帝主持 · Présidé par l'Empereur · Imperial Palace Exam</p>
+            <p style="font-size:10px;color:rgba(245,240,232,0.45);">通过者称「进士」(Jìnshì) — Doctorat · Top imperial degree — gateway to high office</p>
+          </div>
+        </div>
+      </div>
+      <div style="background:rgba(192,57,43,0.1);border-left:3px solid var(--red2);padding:10px 12px;font-size:11px;line-height:1.6;margin-top:4px;">
+        <span style="color:var(--red2);font-weight:bold;">通过率极低 · Taux de réussite infime · Pass rate:</span> 省试录取率约 1–3%。数百万人参试，仅数百人入选进士。平均备考十年以上，部分考生应试至老年。<br>
+        <em class="fr">Taux de réussite: 1–3% pour les examens provinciaux. Des millions candidats, quelques centaines de <em>jinshi</em> par an. Certains candidats se présentaient jusqu'à leur vieillesse.</em><br>
+        <span style="color:rgba(245,240,232,0.38);">Pass rate: ~1–3% at provincial level. Millions sat; hundreds became <em>jinshi</em> annually. Average preparation: 10+ years. Some candidates sat the exams into old age.</span>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -333,11 +409,15 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
     </div>
     
     <div style="display:flex;flex-direction:column;gap:16px;">
-      <h3 style="color:var(--gold2);">汉代的结合：孝忠绑定</h3>
+      <h3 style="color:var(--gold2);">汉代的结合：孝忠绑定 · La fusion Han</h3>
       <div class="card red" style="padding:16px;">
-        <h4 style="color:var(--paper);font-size:16px;margin-bottom:8px;">儒家沦为帝国意识形态</h4>
-        <p style="font-size:13px;line-height:1.7;">在家庭宗族制度下，对父母的<span style="color:var(--gold2);">「孝」</span>被无缝平移为对君王的<span style="color:var(--gold2);">「忠」</span>。汉代大儒董仲舒进一步将儒家伦理与宇宙规律（天理）绑定，构建了“君权神授+服从权威”的庞大帝国意识形态。<br><br>
-        <em class="fr">Le dilemme confucéen : la piété filiale (Xiao) envers le père est politisée pour exiger la loyauté (Zhong) absolue envers l'Empereur. Plus tard sous les Han, cet ordre hiérarchique moral devient une loi cosmique immuable.</em></p>
+        <h4 style="color:var(--paper);font-size:16px;margin-bottom:8px;">儒家沦为帝国意识形态 · Confucianisme instrumentalisé</h4>
+        <p style="font-size:13px;line-height:1.7;">在家庭宗族制度下，对父母的<span style="color:var(--gold2);">「孝」</span>被无缝平移为对君王的<span style="color:var(--gold2);">「忠」</span>。汉代大儒董仲舒进一步将儒家伦理与宇宙规律（天理）绑定，构建了"君权神授+服从权威"的庞大帝国意识形态。<br><br>
+        <em class="fr">La piété filiale (孝 Xiào) est transposée en loyauté politique absolue (忠 Zhōng). Dong Zhongshu fusionne l'éthique confucéenne et la loi cosmique, faisant de la hiérarchie sociale un ordre naturel immuable.</em></p>
+      </div>
+      <div style="background:rgba(42,90,138,0.12);border-left:3px solid var(--blue2);padding:12px 14px;font-size:11px;line-height:1.65;">
+        <h4 style="color:var(--blue2);font-size:12px;margin-bottom:5px;letter-spacing:.05em;">KEY CONCEPT · Confucianism as State Orthodoxy</h4>
+        <p style="color:rgba(245,240,232,0.6);">Dong Zhongshu (179–104 BCE) persuaded Emperor Wu of Han to make Confucianism the sole state ideology. He mapped the five human relationships onto cosmic order — making social hierarchy a <em>natural law</em>. The imperial exam system that followed ensured only those steeped in this orthodoxy could hold office. This structure endured for over two thousand years.</p>
       </div>
     </div>
   </div>
@@ -354,13 +434,13 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
           <div class="tl-dot" style="background:var(--blue);"></div>
           <div class="tl-date" style="color:var(--blue2);">魏晋 - 隋唐 (3e - 9e siècle)</div>
           <strong style="color:var(--paper);font-size:14px;display:block;margin-bottom:4px;">佛教的冲击与融合 · Intégration Bouddhiste</strong>
-          <p style="font-size:12px;line-height:1.5;">佛教带来了形而上学的「超脱」，冲击了专注现世的中国思想，经过数百年本土化为禅宗。<br><em class="fr">Le bouddhisme (transcendance) est assimilé et sinisé (Bouddhisme Chan/Zen).</em></p>
+          <p style="font-size:12px;line-height:1.5;">佛教带来了形而上学的「超脱」，冲击了专注现世的中国思想，经过数百年本土化为禅宗。<br><em class="fr">Le bouddhisme (transcendance) est assimilé et sinisé (Bouddhisme Chan/Zen).</em><br><span style="color:rgba(245,240,232,0.4);font-size:10px;">Buddhism introduced metaphysical transcendence — a sharp challenge to China's this-worldly focus. Over centuries it was domesticated into Chan (Zen) Buddhism, blending Taoist naturalism with Buddhist meditative practice.</span></p>
         </div>
         <div class="tl-item">
           <div class="tl-dot" style="background:var(--gold);"></div>
           <div class="tl-date" style="color:var(--gold2);">宋 - 明 (10e - 16e siècle)</div>
           <strong style="color:var(--paper);font-size:14px;display:block;margin-bottom:4px;">理学与心性 · Néo-confucianisme</strong>
-          <p style="font-size:12px;line-height:1.5;">为对抗佛教，宋明将儒家伦理提升为宇宙本体（存天理），极度专注于个人心性的修炼。<br><em class="fr">Élévation de la morale confucéenne au rang de principe ontologique.</em></p>
+          <p style="font-size:12px;line-height:1.5;">为对抗佛教，宋明将儒家伦理提升为宇宙本体（存天理），极度专注于个人心性的修炼。<br><em class="fr">Élévation de la morale confucéenne au rang de principe ontologique (Zhu Xi, Wang Yangming).</em><br><span style="color:rgba(245,240,232,0.4);font-size:10px;">Zhu Xi elevated Confucian ethics into a metaphysical system (li 理, heavenly principle). Wang Yangming countered with radical interiority: "moral knowledge is moral action." Both were responses to Buddhist philosophical depth.</span></p>
         </div>
       </div>
     </div>
@@ -370,13 +450,13 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
         <div class="tl-item">
           <div class="tl-dot" style="background:var(--red);"></div>
           <div class="tl-date" style="color:var(--red2);">清朝 (17e - 19e siècle)</div>
-          <strong style="color:var(--paper);font-size:14px;display:block;margin-bottom:4px;">经世致用 · Pragmatisme & Empirisme</strong>
-          <p style="font-size:12px;line-height:1.5;">清军入关的征服打破了信仰。学者痛定思痛，摒弃空谈，转向务实解决社会问题的<span style="color:var(--gold2);">「经世致用」</span>与考据学。<br><em class="fr">Trauma de la conquête : rejet de l'abstrait, retour au pragmatisme (Jingshi) et à la rationalité empirique.</em></p>
+          <strong style="color:var(--paper);font-size:14px;display:block;margin-bottom:4px;">经世致用 · Pragmatisme &amp; Empirisme · Practical Learning</strong>
+          <p style="font-size:12px;line-height:1.5;">清军入关的征服打破了信仰。学者痛定思痛，摒弃空谈，转向务实解决社会问题的<span style="color:var(--gold2);">「经世致用」</span>与考据学（考证、校勘）。<br><em class="fr">Trauma de la conquête mandchoue (1644) : rejet de l'abstraction morale, retour au pragmatisme (Jīngshì) et à la philologie empirique (Kǎozhèng).</em><br><span style="color:rgba(245,240,232,0.4);font-size:10px;">The Manchu conquest (1644) shattered Ming Confucian confidence. Scholars like Gu Yanwu turned to empirical philology and practical governance: learning that could be applied to fix the real world. 18th-century evidential scholarship (考据学) pre-dated European Enlightenment empiricism by decades.</span></p>
         </div>
       </div>
       <div style="background:rgba(46,125,90,0.1);padding:14px;border-left:3px solid var(--jade2);border-radius:2px;">
-        <h4 style="font-size:13px;color:var(--jade2);margin-bottom:6px;">常识理性抵抗纯粹的超越性</h4>
-        <p style="font-size:12px;line-height:1.5;">中国思想核心是<span style="color:var(--paper);">常识理性(Pragmatic Rationality)</span>。十九世纪借壳基督教的「太平天国运动」，最终被儒家士大夫以保卫道统的名义无情镇压，拒绝狂热的宗教化。<br><em class="fr">Rationalité pragmatique : La pure religion (ex: rébellion Taiping pseudo-chrétienne) est repoussée pour protéger l'ordre laïc et moral.</em></p>
+        <h4 style="font-size:13px;color:var(--jade2);margin-bottom:6px;">常识理性抵抗纯粹的超越性 · Pragmatic Rationality vs Pure Transcendence</h4>
+        <p style="font-size:12px;line-height:1.5;">中国思想核心是<span style="color:var(--paper);">常识理性(Pragmatic Rationality)</span>。十九世纪借壳基督教的「太平天国运动」，最终被儒家士大夫以保卫道统的名义无情镇压，拒绝狂热的宗教化。<br><em class="fr">Rationalité pragmatique : La pure religion (ex: rébellion Taiping pseudo-chrétienne) est repoussée pour protéger l'ordre laïc et moral.</em><br><span style="color:rgba(245,240,232,0.42);font-size:10px;">The Taiping Heavenly Kingdom (1850–64) — a pseudo-Christian millenarian movement — was crushed by Confucian gentry armies defending secular moral order. Chinese thought consistently rejected pure religious fervour in favour of this-worldly ethics.</span></p>
       </div>
     </div>
   </div>
@@ -394,7 +474,7 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
         <div class="zh" style="font-size:15px;color:var(--gold2);">天命靡常，唯德是辅。</div>
         <div class="src">——《尚书》 : Le Mandat du Ciel n'est pas éternel, il n'assiste que les vertueux. (Justification de la révolte)</div>
       </div>
-      <p style="font-size:12px;margin-top:4px;"><em class="fr">Le concept du Mandat Céleste offre la justification philosophique à la rébellion rurale lorsque l'empereur en place perd sa vertu et que le peuple meurt de faim.</em></p>
+      <p style="font-size:12px;margin-top:4px;"><em class="fr">Le concept du Mandat Céleste offre la justification philosophique à la rébellion rurale lorsque l'empereur en place perd sa vertu et que le peuple meurt de faim.</em><br><span style="color:rgba(245,240,232,0.4);font-size:10px;">The Mandate of Heaven made rebellion not just possible but morally legitimate: when a ruler lost virtue — shown by floods, droughts, famines — the people had the right to overthrow him. New dynasties always claimed they had received this mandate anew.</span></p>
     </div>
 
     <!-- Power Structure Graph -->
@@ -402,18 +482,18 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
       <h3 style="color:var(--gold2);">长寿的秘密：国-士绅-宗族</h3>
       <div style="background:rgba(0,0,0,0.5);border:1px solid var(--border);padding:24px;border-radius:2px;display:flex;flex-direction:column;gap:10px;">
         <div style="background:var(--red);color:#fff;padding:8px 16px;text-align:center;font-weight:bold;letter-spacing:4px;border-radius:2px;">
-          帝国国家 (国家机器) · L'État Impérial
+          帝国国家 (国家机器) · L'État Impérial · Imperial State
         </div>
-        <div style="text-align:center;color:var(--red);font-size:18px;">↕ 收税 / 保护</div>
+        <div style="text-align:center;color:var(--red);font-size:14px;">↕ 收税 / 保护 · Impôts / Protection · Taxes / Protection</div>
         <div style="background:var(--blue);color:#fff;padding:8px 16px;text-align:center;font-weight:bold;letter-spacing:4px;border-radius:2px;">
-          士绅阶层 (读书知识分子) · La Gentry
+          士绅阶层 (读书知识分子) · La Gentry · Literati-Gentry Class
         </div>
-        <div style="text-align:center;color:var(--blue);font-size:18px;">↕ 教化 / 依附</div>
+        <div style="text-align:center;color:var(--blue);font-size:14px;">↕ 教化 / 依附 · Moralisation / Clientélisme · Moral Education / Patronage</div>
         <div style="background:var(--jade);color:#fff;padding:8px 16px;text-align:center;font-weight:bold;letter-spacing:4px;border-radius:2px;">
-          宗族与乡邦 (底层农村) · Le Clan / Village
+          宗族与乡邦 (底层农村) · Le Clan / Village · Clan &amp; Rural Community
         </div>
       </div>
-      <p style="font-size:12px;line-height:1.6;padding:0 8px;margin-top:4px;"><span style="color:var(--gold2);">超强恢复力：</span>当王朝崩溃，顶层「国家」毁灭了，但底层的「宗族」与「士绅」文化依然存在。新王朝建立后，只需重新吸纳士绅，这套系统就能原地复活。<br><em class="fr">Résilience : Lors des révoltes, l'État tombe, mais la culture clanique et les lettrés survivent. La nouvelle dynastie s'appuie à nouveau sur eux, relançant le même cycle à l'infini.</em></p>
+      <p style="font-size:12px;line-height:1.6;padding:0 8px;margin-top:4px;"><span style="color:var(--gold2);">超强恢复力：</span>当王朝崩溃，顶层「国家」毁灭了，但底层的「宗族」与「士绅」文化依然存在。新王朝建立后，只需重新吸纳士绅，这套系统就能原地复活。<br><em class="fr">Résilience : Lors des révoltes, l'État tombe, mais la culture clanique et les lettrés survivent. La nouvelle dynastie s'appuie à nouveau sur eux, relançant le même cycle à l'infini.</em><br><span style="color:rgba(245,240,232,0.42);font-size:10px;">This three-tier resilience explains why China's civilization survived every dynastic collapse. When the imperial state fell, the gentry managed local governance and the clan structures maintained social order — waiting for a new dynasty to reconstitute the top layer. No complete societal breakdown was permanent.</span></p>
     </div>
   </div>
 </div>
@@ -429,29 +509,29 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
       <div style="display:grid;grid-template-columns:85px 1fr;gap:10px;background:rgba(255,255,255,0.04);padding:10px;border-left:2px solid var(--jade2);">
         <div style="font-family:'DM Mono';color:var(--jade2);font-size:12px;">夏商周<br><span style="font-size:10px;color:#888;">-2070~-256</span></div>
         <div>
-          <div style="font-weight:bold;font-size:14px;color:var(--paper);">文明起源与封建</div>
-          <p style="font-size:11px;">青铜器，甲骨文，诸子百家。<br><em class="fr">Origines, Cent écoles de pensée.</em></p>
+          <div style="font-weight:bold;font-size:14px;color:var(--paper);">文明起源与封建 · Bronze Age Foundations</div>
+          <p style="font-size:11px;">青铜器，甲骨文，诸子百家。<br><em class="fr">Origines, écriture oracle, Cent écoles de pensée.</em><br><span style="color:rgba(245,240,232,0.38);font-size:10px;">Bronze vessels, oracle script, Confucius, Laozi, Sunzi.</span></p>
         </div>
       </div>
       <div style="display:grid;grid-template-columns:85px 1fr;gap:10px;background:rgba(255,255,255,0.04);padding:10px;border-left:2px solid var(--red2);">
         <div style="font-family:'DM Mono';color:var(--red2);font-size:12px;">秦汉<br><span style="font-size:10px;color:#888;">-221~220</span></div>
         <div>
-          <div style="font-weight:bold;font-size:14px;color:var(--paper);">大一统与抗匈奴</div>
-          <p style="font-size:11px;">修长城，确立中央集权与儒家正统。<br><em class="fr">Centralisation, luttes contre les Xiongnu.</em></p>
+          <div style="font-weight:bold;font-size:14px;color:var(--paper);">大一统与抗匈奴 · Unification &amp; the Great Wall</div>
+          <p style="font-size:11px;">修长城，确立中央集权与儒家正统。<br><em class="fr">Centralisation, luttes contre les Xiongnu (nomades des steppes).</em><br><span style="color:rgba(245,240,232,0.38);font-size:10px;">First empire; standardised script, weights, measures; Silk Road opens; Confucianism becomes state doctrine.</span></p>
         </div>
       </div>
       <div style="display:grid;grid-template-columns:85px 1fr;gap:10px;background:rgba(255,255,255,0.04);padding:10px;border-left:2px solid var(--blue2);">
         <div style="font-family:'DM Mono';color:var(--blue2);font-size:12px;">魏晋南北朝<br><span style="font-size:10px;color:#888;">220~589</span></div>
         <div>
-          <div style="font-weight:bold;font-size:14px;color:var(--paper);">分裂与胡汉融合</div>
-          <p style="font-size:11px;">游牧进入中原汉化，佛教传入。<br><em class="fr">Invasions, assimilation, Bouddhisme.</em></p>
+          <div style="font-weight:bold;font-size:14px;color:var(--paper);">分裂与胡汉融合 · Fragmentation &amp; Buddhism</div>
+          <p style="font-size:11px;">游牧进入中原汉化，佛教传入。<br><em class="fr">Invasions nomades, sinisation, entrée du Bouddhisme.</em><br><span style="color:rgba(245,240,232,0.38);font-size:10px;">Four centuries of division; nomadic peoples settled and were sinicised; Buddhism reshaped Chinese metaphysics.</span></p>
         </div>
       </div>
       <div style="display:grid;grid-template-columns:85px 1fr;gap:10px;background:rgba(255,255,255,0.04);padding:10px;border-left:2px solid var(--gold2);">
         <div style="font-family:'DM Mono';color:var(--gold2);font-size:12px;">隋唐<br><span style="font-size:10px;color:#888;">581~907</span></div>
         <div>
-          <div style="font-weight:bold;font-size:14px;color:var(--paper);">盛世天可汗</div>
-          <p style="font-size:11px;">开放的国际帝国，科举制确立。<br><em class="fr">Âge d'or cosmopolite, système d'examens.</em></p>
+          <div style="font-weight:bold;font-size:14px;color:var(--paper);">盛世天可汗 · Tang Cosmopolitan Golden Age</div>
+          <p style="font-size:11px;">开放的国际帝国，科举制确立。<br><em class="fr">Âge d'or cosmopolite ; le système d'examens impériaux se stabilise.</em><br><span style="color:rgba(245,240,232,0.38);font-size:10px;">International empire open to Central Asian, Arab and Persian cultures; Chang'an was the world's largest city; civil exams fully institutionalised.</span></p>
         </div>
       </div>
     </div>
@@ -461,31 +541,56 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
       <div style="display:grid;grid-template-columns:85px 1fr;gap:10px;background:rgba(255,255,255,0.04);padding:10px;border-left:2px solid var(--purple2);">
         <div style="font-family:'DM Mono';color:var(--purple2);font-size:12px;">宋<br><span style="font-size:10px;color:#888;">960~1279</span></div>
         <div>
-          <div style="font-weight:bold;font-size:14px;color:var(--paper);">经济巅峰与文治</div>
-          <p style="font-size:11px;">受辽金游牧政权压迫，理学诞生。<br><em class="fr">Apogée éco, faiblesse militaire (Jurchens).</em></p>
+          <div style="font-weight:bold;font-size:14px;color:var(--paper);">经济巅峰与文治 · Economic Peak &amp; Neo-Confucianism</div>
+          <p style="font-size:11px;">受辽金游牧政权压迫，理学诞生。<br><em class="fr">Apogée économique, faiblesse militaire face aux Jurchens ; naissance du Néo-confucianisme.</em><br><span style="color:rgba(245,240,232,0.38);font-size:10px;">World's first paper money, gunpowder weapons, movable type; yet militarily weak before nomadic states — a paradox of cultural sophistication and strategic vulnerability.</span></p>
         </div>
       </div>
       <div style="display:grid;grid-template-columns:85px 1fr;gap:10px;background:rgba(255,255,255,0.04);padding:10px;border-left:2px solid #888;">
         <div style="font-family:'DM Mono';color:#888;font-size:12px;">元<br><span style="font-size:10px;color:#555;">1271~1368</span></div>
         <div>
-          <div style="font-weight:bold;font-size:14px;color:var(--paper);">蒙古铁骑征服</div>
-          <p style="font-size:11px;">首次全境被游牧民族征服。<br><em class="fr">Conquête totale par l'Empire Mongol.</em></p>
+          <div style="font-weight:bold;font-size:14px;color:var(--paper);">蒙古铁骑征服 · Mongol Conquest</div>
+          <p style="font-size:11px;">首次全境被游牧民族征服。<br><em class="fr">Première conquête totale de la Chine par un Empire nomade (Gengis Khan → Kubilai Khan).</em><br><span style="color:rgba(245,240,232,0.38);font-size:10px;">Kublai Khan's Yuan dynasty: China as part of the largest contiguous land empire in history. Marco Polo visits. Yet after 97 years, Chinese culture absorbs and outlasts its conquerors.</span></p>
         </div>
       </div>
       <div style="display:grid;grid-template-columns:85px 1fr;gap:10px;background:rgba(255,255,255,0.04);padding:10px;border-left:2px solid var(--red2);">
         <div style="font-family:'DM Mono';color:var(--red2);font-size:12px;">明<br><span style="font-size:10px;color:#888;">1368~1644</span></div>
         <div>
-          <div style="font-weight:bold;font-size:14px;color:var(--paper);">汉族复国与专制</div>
-          <p style="font-size:11px;">废丞相导致皇权极峰，对抗蒙古残余。<br><em class="fr">Restauration Han. Absolutisme impérial.</em></p>
+          <div style="font-weight:bold;font-size:14px;color:var(--paper);">汉族复国与专制 · Han Restoration &amp; Absolutism</div>
+          <p style="font-size:11px;">废丞相导致皇权极峰，对抗蒙古残余。<br><em class="fr">Restauration Han. Abolition du Premier Ministre → absolutisme impérial maximal.</em><br><span style="color:rgba(245,240,232,0.38);font-size:10px;">Zheng He's voyages reached Africa; the Great Wall rebuilt in brick; abolition of the chancellorship concentrated all power in the emperor alone.</span></p>
         </div>
       </div>
       <div style="display:grid;grid-template-columns:85px 1fr;gap:10px;background:rgba(255,255,255,0.04);padding:10px;border-left:2px solid var(--gold2);">
         <div style="font-family:'DM Mono';color:var(--gold2);font-size:12px;">清<br><span style="font-size:10px;color:#888;">1644~1912</span></div>
         <div>
-          <div style="font-weight:bold;font-size:14px;color:var(--paper);">满洲入主大一统</div>
-          <p style="font-size:11px;">成功糅合儒家与游牧军事，逢西方冲击。<br><em class="fr">Dynastie Mandchoue. Choc face à l'Occident.</em></p>
+          <div style="font-weight:bold;font-size:14px;color:var(--paper);">满洲入主大一统 · Manchu Qing &amp; Western Impact</div>
+          <p style="font-size:11px;">成功糅合儒家与游牧军事，逢西方冲击。<br><em class="fr">Dynastique Mandchoue : fusion militaire nomade + légitimité confucéenne. Choc des Guerres de l'Opium.</em><br><span style="color:rgba(245,240,232,0.38);font-size:10px;">Tripled China's territory; then confronted European industrial power — the Opium Wars (1839–60) shattered two millennia of imperial self-sufficiency.</span></p>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- S10b: 历史疆域地图 -->
+<div class="slide bg-dark" id="s10b">
+  <div class="slide-header"><span class="lesson-tag">疆域变迁 · Évolution Territoriale</span><span class="slide-num">8b</span></div>
+  <h2 style="margin-bottom:12px;">历史疆域地图<br><span style="font-size:16px;opacity:0.7;">Cartes des territoires historiques · Historical Territory Maps</span></h2>
+  
+  <div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:20px;flex:1;min-height:0;padding-bottom:10px;">
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <h3 style="color:var(--gold2);margin-bottom:0;text-align:center;">秦 · Qin</h3>
+      <div style="flex:1;background:url('https://picx.zhimg.com/v2-102f8f453cc833cff7f8405526a69137_1440w.jpg') center/contain no-repeat;border:1px solid var(--border);border-radius:2px;background-color:rgba(255,255,255,0.02)"></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <h3 style="color:var(--gold2);margin-bottom:0;text-align:center;">汉 · Han</h3>
+      <div style="flex:1;background:url('https://pica.zhimg.com/v2-55aecdc451a0c67d66299f5dc4044d8e_1440w.jpg') center/contain no-repeat;border:1px solid var(--border);border-radius:2px;background-color:rgba(255,255,255,0.02)"></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <h3 style="color:var(--gold2);margin-bottom:0;text-align:center;">唐 · Tang</h3>
+      <div style="flex:1;background:url('https://pica.zhimg.com/v2-f02fa96cdcbd745adb70420ae8b998d4_1440w.jpg') center/contain no-repeat;border:1px solid var(--border);border-radius:2px;background-color:rgba(255,255,255,0.02)"></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <h3 style="color:var(--gold2);margin-bottom:0;text-align:center;">北宋 · Northern Song (Song du Nord)</h3>
+      <div style="flex:1;background:url('https://pic3.zhimg.com/v2-643e541e520421ede00840ab8e13f302_1440w.jpg') center/contain no-repeat;border:1px solid var(--border);border-radius:2px;background-color:rgba(255,255,255,0.02)"></div>
     </div>
   </div>
 </div>
@@ -499,11 +604,11 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
       <h2>汉法文化镜像 · Miroirs</h2>
       <div class="mirror">
         <div class="mt">🪞 镜像一 · Légitimité du Pouvoir</div>
-        <p style="font-size:12px;line-height:1.5;">法国大革命前的王权是绝对的上帝赋予：<span style="color:var(--red2);">「君权神授」 (Droit divin)</span> ；而中国的<span style="color:var(--gold2);">「天命」 (Mandat céleste)</span> 强调道德。无德暴君会被天抛弃，百姓有革命造反的合法性。<br><em class="fr">La royauté française était absolue (droit divin). En Chine, le Mandat Céleste exige la vertu, justifiant moralement le droit inhérent à la révolte.</em></p>
+        <p style="font-size:12px;line-height:1.5;">法国大革命前的王权是绝对的上帝赋予：<span style="color:var(--red2);">「君权神授」 (Droit divin)</span> ；而中国的<span style="color:var(--gold2);">「天命」 (Mandat céleste)</span> 强调道德。无德暴君会被天抛弃，百姓有革命造反的合法性。<br><em class="fr">La royauté française était absolue (droit divin). En Chine, le Mandat Céleste exige la vertu, justifiant moralement le droit inhérent à la révolte.</em><br><span style="color:rgba(245,240,232,0.42);font-size:10px;margin-top:3px;display:block;">Pre-revolutionary French kingship was absolute and God-given — Louis XIV: "L'État, c'est moi." The Chinese Mandate of Heaven was conditional on virtue: a tyrant could legitimately be overthrown. Both systems claimed transcendent authority; only one built in a moral escape clause.</span></p>
       </div>
       <div class="mirror" style="border-left-color:var(--blue);">
         <div class="mt" style="color:var(--blue2);">🪞 镜像二 · Aristocratie vs Bureaucratie</div>
-        <p style="font-size:12px;line-height:1.5;">中国早在两千年前就废除了世袭分封，转为平民通过<span style="color:var(--gold2);">科举考试</span>做官的精英官僚制；而法国直到1789年大革命才真正摧毁了基于血统的「佩剑贵族」(Noblesse d'épée)。<br><em class="fr">La Chine a aboli l'aristocratie héréditaire il y a 2000 ans pour une méritocratie bureaucratique, là où la France a dû attendre la Révolution de 1789.</em></p>
+        <p style="font-size:12px;line-height:1.5;">中国早在两千年前就废除了世袭分封，转为平民通过<span style="color:var(--gold2);">科举考试</span>做官的精英官僚制；而法国直到1789年大革命才真正摧毁了基于血统的「佩剑贵族」(Noblesse d'épée)。<br><em class="fr">La Chine a aboli l'aristocratie héréditaire il y a 2000 ans pour une méritocratie bureaucratique, là où la France a dû attendre la Révolution de 1789.</em><br><span style="color:rgba(245,240,232,0.42);font-size:10px;margin-top:3px;display:block;">China abolished hereditary aristocracy under the Qin (221 BCE) — two millennia before France. The <em>keju</em> exams (605–1905 CE) opened governance in principle to any literate man. France's <em>Grandes Écoles</em> (ENA, Polytechnique) echo this logic of competitive meritocracy, though entry still correlates strongly with social origin.</span></p>
       </div>
     </div>
     
@@ -512,11 +617,11 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
       <div style="display:flex;flex-direction:column;gap:8px;">
         <div style="display:grid;grid-template-columns:24px 1fr;gap:9px;background:rgba(0,0,0,0.3);padding:12px 14px;border-left:3px solid var(--purple);">
           <span style="font-family:'Noto Serif SC',serif;font-size:17px;color:var(--purple2);">一</span>
-          <p style="font-size:12px;line-height:1.6;">「皇帝」称号彰显绝对集权。文明的演进是从周的「封建分权」转变为秦之后流动的「郡县官僚制」(官、史、吏)。<br><em class="fr">Le titre "Empereur" marque le passage d'une féodalité de sang à une centralisation bureaucratique.</em></p>
+          <p style="font-size:12px;line-height:1.6;">「皇帝」称号彰显绝对集权。文明的演进是从周的「封建分权」转变为秦之后流动的「郡县官僚制」(官、史、吏)。<br><em class="fr">Le titre "Empereur" marque le passage d'une féodalité de sang à une centralisation bureaucratique (官 guān, 吏 lì, 史 shǐ).</em><br><span style="color:rgba(245,240,232,0.4);font-size:10px;">The imperial title fused 皇 (splendour) + 帝 (divinity) to claim cosmic authority. The bureaucratic system that followed — staffed by 官, 吏, 史 — replaced hereditary lords with merit-appointed officials who could be promoted or dismissed at will.</span></p>
         </div>
         <div style="display:grid;grid-template-columns:24px 1fr;gap:9px;background:rgba(0,0,0,0.3);padding:12px 14px;border-left:3px solid var(--red);">
           <span style="font-family:'Noto Serif SC',serif;font-size:17px;color:var(--red2);">二</span>
-          <p style="font-size:12px;line-height:1.6;">儒家实现了思想的「轴心突破」，但忠孝绑定的伦理维持了专制。中国的哲学具有强烈的理性与实用性。<br><em class="fr">Le Confucianisme intériorise la morale tout en cimentant la hiérarchie dans une grande rationalité pragmatique.</em></p>
+          <p style="font-size:12px;line-height:1.6;">儒家实现了思想的「轴心突破」，但忠孝绑定的伦理维持了专制。中国的哲学具有强烈的理性与实用性。<br><em class="fr">Le Confucianisme intériorise la morale tout en cimentant la hiérarchie dans une grande rationalité pragmatique.</em><br><span style="color:rgba(245,240,232,0.4);font-size:10px;">Confucius's axial breakthrough: moral authority moved from external Heaven into the individual conscience (仁 rén). Yet Dong Zhongshu's Han synthesis re-externalised it as cosmic hierarchy — Confucianism became the perfect ideology for an empire that wanted both moral legitimacy and absolute obedience.</span></p>
         </div>
         <div style="display:grid;grid-template-columns:24px 1fr;gap:9px;background:rgba(0,0,0,0.3);padding:12px 14px;border-left:3px solid var(--gold);">
           <span style="font-family:'Noto Serif SC',serif;font-size:17px;color:var(--gold2);">三</span>
@@ -534,7 +639,7 @@ em.fr{font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
 <div id="nav">
   <button class="nb" id="pb">←</button>
   <div class="dots" id="dots"></div>
-  <span id="sc">1 / 11</span>
+  <span id="sc">1 / 13</span>
   <button class="nb" id="nb2">→</button>
 </div>
 

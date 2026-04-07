@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="referrer" content="no-referrer">
 <title>第七课 · 地理：地形、气候与文化取向</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IM+Fell+English:ital@0;1&family=DM+Mono:wght@400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
   --ink:#0a0807; --paper:#f5f0e8;
@@ -32,6 +33,12 @@ body{background:#0a0807;font-family:'Cormorant Garamond','Noto Serif SC',Georgia
 .bg-culture{background:linear-gradient(135deg,#0a0904 0%,#130f06 100%);}
 .bg-earth{background:linear-gradient(135deg,#0f0a05 0%,#1a1008 100%);}
 .bg-sea{background:linear-gradient(135deg,#050a10 0%,#0a101a 100%);}
+.bg-close{background:linear-gradient(135deg,#080a0e 0%,#0e1018 100%);}
+.en-note{color:rgba(245,240,232,0.42);font-size:10.5px;line-height:1.65;margin-top:5px;display:block;}
+.timeline{border-left:2px solid var(--border);padding-left:18px;position:relative;}
+.tl-item{position:relative;margin-bottom:14px;}
+.tl-dot{position:absolute;left:-23px;top:4px;width:8px;height:8px;border-radius:50%;background:var(--earth);}
+.tl-date{font-family:'DM Mono',monospace;font-size:11px;color:var(--earth2);margin-bottom:2px;}
 
 .slide-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px;border-bottom:1px solid var(--border);padding-bottom:12px;}
 .lesson-tag{font-size:10px;letter-spacing:0.4em;text-transform:uppercase;color:var(--earth2);opacity:0.85;}
@@ -84,10 +91,11 @@ ul.styled b { color:var(--paper); }
     <div style="font-size:12px;letter-spacing:0.5em;color:var(--earth2);opacity:0.8;text-transform:uppercase;z-index:1;">第七课 · Leçon VII · Lesson 7</div>
     <h1 style="font-size:clamp(36px,5vw,66px);z-index:1;">地理：地形、气候与文化取向</h1>
     <div style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(16px,2vw,24px);color:rgba(245,240,232,0.6);z-index:1;max-width:800px;">Géographie — Relief, Climat, Ressources et Orientation Culturelle</div>
+    <div style="font-family:'Cormorant Garamond',serif;font-size:clamp(13px,1.4vw,17px);color:rgba(245,240,232,0.3);z-index:1;letter-spacing:.05em;">Geography — Terrain, Climate, Resources &amp; Cultural Destiny</div>
     <div style="display:flex;gap:28px;margin-top:20px;z-index:1;">
-      <div style="text-align:center;"><div style="font-size:10px;letter-spacing:0.2em;color:rgba(255,255,255,0.3);text-transform:uppercase;margin-bottom:3px;">核心文字 · Caractères</div><div style="font-size:13px;color:rgba(245,240,232,0.7);">山 · 水 · 田</div></div>
+      <div style="text-align:center;"><div style="font-size:10px;letter-spacing:0.2em;color:rgba(255,255,255,0.3);text-transform:uppercase;margin-bottom:3px;">核心文字 · Caractères</div><div style="font-size:13px;color:rgba(245,240,232,0.7);">山 · 水 · 田 · 日 · 国</div></div>
       <div style="width:1px;background:rgba(255,255,255,0.15);"></div>
-      <div style="text-align:center;"><div style="font-size:10px;letter-spacing:0.2em;color:rgba(255,255,255,0.3);text-transform:uppercase;margin-bottom:3px;">主线 · Fil directeur</div><div style="font-size:13px;color:rgba(245,240,232,0.7);">地理环境的宿命论与文明底色</div></div>
+      <div style="text-align:center;"><div style="font-size:10px;letter-spacing:0.2em;color:rgba(255,255,255,0.3);text-transform:uppercase;margin-bottom:3px;">主线 · Fil directeur</div><div style="font-size:13px;color:rgba(245,240,232,0.7);">地理环境的宿命论与文明底色<br><span style="font-size:10px;color:rgba(245,240,232,0.38);">Geographical Determinism &amp; Civilisational Character</span></div></div>
     </div>
   </div>
 </div>
@@ -101,19 +109,19 @@ ul.styled b { color:var(--paper); }
       <div class="tag" style="font-size:10px;color:var(--earth2);margin-bottom:4px;">第一部分 · Partie 1</div>
       <h3 style="color:var(--paper);font-size:16px;text-transform:none;">地形与植被的两种命运</h3>
       <p style="font-size:12px;margin-bottom:4px;">中原的封闭与地中海的开放；阔叶林的农耕与硬叶林的商业征服。</p>
-      <em class="fr" style="font-size:11px;">Continent fermé vs Mer ouverte. Forêts décidues vs Sclérophylles.</em>
+      <em class="fr" style="font-size:11px;">Continent fermé vs Mer ouverte. Forêts décidues vs Sclérophylles.</em><br><span class="en-note">Why did the Himalayas, the Gobi, and the Pacific Ocean shape a fundamentally different civilisational psychology than the Mediterranean's open sea-lanes?</span>
     </div>
     <div class="card blue">
       <div class="tag" style="font-size:10px;color:var(--blue2);margin-bottom:4px;">第二部分 · Partie 2</div>
       <h3 style="color:var(--paper);font-size:16px;text-transform:none;">降雨、游牧与农业的防守</h3>
       <p style="font-size:12px;margin-bottom:4px;">秦岭淮河降水线如何决定中国北疆的游牧冲突与农业社会的保守主义。</p>
-      <em class="fr" style="font-size:11px;">Isohyète des précipitations (400mm), invasions nomades et conservatisme agraire.</em>
+      <em class="fr" style="font-size:11px;">Isohyète des précipitations (400mm), invasions nomades et conservatisme agraire.</em><br><span class="en-note">How a single rainfall contour line explains the Great Wall, the nomadic invasions, and the cyclical pattern of Chinese dynastic collapse.</span>
     </div>
     <div class="card gold">
       <div class="tag" style="font-size:10px;color:var(--gold2);margin-bottom:4px;">第三部分 · Partie 3</div>
       <h3 style="color:var(--paper);font-size:16px;text-transform:none;">气候、社会学与哲学心态</h3>
       <p style="font-size:12px;margin-bottom:4px;">从“天人合一”到韦伯比较社会学，对比中法/中西在空间上的哲学镜像。</p>
-      <em class="fr" style="font-size:11px;">Harmonie avec la nature vs Conquête. La sociologie de Max Weber appliquée à l'espace.</em>
+      <em class="fr" style="font-size:11px;">Harmonie avec la nature vs Conquête. La sociologie de Max Weber appliquée à l'espace.</em><br><span class="en-note">Why did industrial capitalism emerge in the West but not in China? Weber's answer: the hydraulic empire vs maritime commerce — two fundamentally different relationships between power and land.</span>
     </div>
   </div>
 </div>
@@ -123,31 +131,61 @@ ul.styled b { color:var(--paper); }
   <div class="slide-header"><span class="lesson-tag">大地之纹 · Trace de la Terre</span><span class="slide-num">1</span></div>
   <h2 style="margin-bottom:16px;">自然地理的甲骨印记<br><span style="font-size:16px;opacity:0.7;">Les éléments sculptés dans l'os</span></h2>
   
-  <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:20px;">
+  <div style="display:grid; grid-template-columns: repeat(5, 1fr); gap:12px;">
     <!-- 山 -->
-    <div class="card earth" style="padding:16px; height:100%; display:flex; flex-direction:column; gap:12px;">
-      <div class="picto" style="width:80px;height:80px;align-self:center;"><svg viewBox="0 0 100 100" stroke="var(--earth2)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"><path d="M20,80 L20,40 M50,80 L50,15 M80,80 L80,30 M15,80 L85,80" /></svg></div>
+    <div class="card earth" style="padding:12px; height:100%; display:flex; flex-direction:column; gap:8px;">
+      <div class="picto" style="width:100%;height:60px;align-self:center; display:flex; gap:10px;">
+        <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/icon_svg/%E5%B1%B1.svg" style="height:100%; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(30deg);" />
+        <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/swjz/6623.svg" style="height:100%; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(30deg);" />
+      </div>
       <div style="text-align:center;">
-        <h3 style="font-size:18px;color:var(--paper);margin:0;text-transform:none;">山 (Shān) - <i>La Montagne</i></h3>
-        <p style="font-size:12px;line-height:1.4;margin-top:6px;text-align:left;">象形：三峰并立的形状。中间最高，两侧较低。象征着大地的隆起与屏障。<br><br><em class="fr">Pictogramme de trois pics montagneux. Représente l'élévation terrestre et les barrières naturelles de la Chine.</em></p>
+        <h3 style="font-size:16px;color:var(--paper);margin:0;text-transform:none;">山 (Shān) - <i>Montagne</i></h3>
+        <p style="font-size:11px;line-height:1.4;margin-top:6px;text-align:left;">三峰并立的大地屏障。<br><em class="fr">Trois pics montagneux.</em><br><span class="en-note">山 <em>shān</em>: three peaks side by side — pure pictograph, one of the most visually immediate oracle bone characters. China's mountain ranges (Himalayas, Qinling, Kunlun) were not just scenery but the defining walls of the civilisational enclosure. Mountains = barriers = protection = isolation. The character is the landscape.</span></p>
       </div>
     </div>
     
     <!-- 水 -->
-    <div class="card blue" style="padding:16px; height:100%; display:flex; flex-direction:column; gap:12px;">
-      <div class="picto" style="width:80px;height:80px;align-self:center;"><svg viewBox="0 0 100 100" stroke="var(--blue2)" stroke-width="5" stroke-linecap="round" fill="none"><path d="M50,10 Q60,30 40,50 Q60,70 50,90 M30,30 Q20,40 30,50 M70,30 Q80,40 70,50 M30,70 Q20,60 30,50 M70,70 Q80,60 70,50" /></svg></div>
+    <div class="card blue" style="padding:12px; height:100%; display:flex; flex-direction:column; gap:8px;">
+      <div class="picto" style="width:100%;height:60px;align-self:center; display:flex; gap:10px;">
+        <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/swjz/7870.svg" style="height:100%; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(180deg);" />
+      </div>
       <div style="text-align:center;">
-        <h3 style="font-size:18px;color:var(--paper);margin:0;text-transform:none;">水 (Shuǐ) - <i>L'Eau</i></h3>
-        <p style="font-size:12px;line-height:1.4;margin-top:6px;text-align:left;">象形：中间是弯曲的主流，两侧是散落的水滴或波纹。文明逐水而居。<br><br><em class="fr">Un courant d'eau sinueux au centre entouré de remous. L'eau est la matrice de l'agriculture.</em></p>
+        <h3 style="font-size:16px;color:var(--paper);margin:0;text-transform:none;">水 (Shuǐ) - <i>L'Eau</i></h3>
+        <p style="font-size:11px;line-height:1.4;margin-top:6px;text-align:left;">弯曲的主流散落的水滴。<br><em class="fr">L'eau est la matrice.</em><br><span class="en-note">水 <em>shuǐ</em>: flowing ripples — a central stream with water droplets either side. Water is the dominant force of Chinese geographical imagination: the Yellow River (黄河) gave birth to civilisation and periodically destroyed it; the Yangtze (长江) defined the cultural divide between North and South. Laozi used water as the supreme metaphor for the Tao: soft, yielding, yet wearing away the hardest rock.</span></p>
       </div>
     </div>
     
     <!-- 田 -->
-    <div class="card jade" style="padding:16px; height:100%; display:flex; flex-direction:column; gap:12px;">
-      <div class="picto" style="width:80px;height:80px;align-self:center;"><svg viewBox="0 0 100 100" stroke="var(--jade2)" stroke-width="5" stroke-linecap="round" fill="none"><rect x="20" y="20" width="60" height="60" /><path d="M20,50 L80,50 M50,20 L50,80" /></svg></div>
+    <div class="card jade" style="padding:12px; height:100%; display:flex; flex-direction:column; gap:8px;">
+      <div class="picto" style="width:100%;height:60px;align-self:center; display:flex; gap:10px;">
+        <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/icon_svg/%E7%94%B0.svg" style="height:100%; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(120deg);" />
+      </div>
       <div style="text-align:center;">
-        <h3 style="font-size:18px;color:var(--paper);margin:0;text-transform:none;">田 (Tián) - <i>Le Champ</i></h3>
-        <p style="font-size:12px;line-height:1.4;margin-top:6px;text-align:left;">象形：规整的方形土地，中间被纵横交错的沟渠（井字）划分为小块。<br><br><em class="fr">Un carré divisé par des canaux d'irrigation. Le fondement de l'ordre sédentaire chinois (système puits-champ).</em></p>
+        <h3 style="font-size:16px;color:var(--paper);margin:0;text-transform:none;">田 (Tián) - <i>Le Champ</i></h3>
+        <p style="font-size:11px;line-height:1.4;margin-top:6px;text-align:left;">沟渠划分为小块定居。<br><em class="fr">Le fondement sédentaire.</em><br><span class="en-note">田 <em>tián</em>: a grid of irrigated paddy fields seen from above — the bird's-eye view of agricultural civilisation. The tic-tac-toe pattern encodes the well-field system (井田制 jǐngtiánzhì): eight families each farming their own plot surrounding a central communal field. The character is literally the social contract of the agricultural village, drawn in a single brushstroke.</span></p>
+      </div>
+    </div>
+
+    <!-- 日 -->
+    <div class="card red" style="padding:12px; height:100%; display:flex; flex-direction:column; gap:8px;">
+      <div class="picto" style="width:100%;height:60px;align-self:center; display:flex; gap:10px;">
+        <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/icon_svg/%E6%97%A5.svg" style="height:100%; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(340deg);" />
+        <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/swjz/4767.svg" style="height:100%; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(340deg);" />
+      </div>
+      <div style="text-align:center;">
+        <h3 style="font-size:16px;color:var(--paper);margin:0;text-transform:none;">日 (Rì) - <i>Le Soleil</i></h3>
+        <p style="font-size:11px;line-height:1.4;margin-top:6px;text-align:left;">太阳，农历与作息根基。<br><em class="fr">Le cycle du temps.</em><br><span class="en-note">日 <em>rì</em>: the sun — originally a circle with a dot inside (the corona). The solar cycle was the fundamental clock of agricultural life: planting by the sun, harvesting by the sun, calculating seasons by the sun. The Chinese lunisolar calendar (农历 <em>nónglì</em>) integrated solar terms (节气) — 24 precise seasonal markers guiding every agricultural decision across 3,000 years of continuous use.</span></p>
+      </div>
+    </div>
+
+    <!-- 国 -->
+    <div class="card gold" style="padding:12px; height:100%; display:flex; flex-direction:column; gap:8px;">
+      <div class="picto" style="width:100%;height:60px;align-self:center; display:flex; gap:10px;">
+        <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/swjz/4482.svg" style="height:100%; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(20deg);" />
+      </div>
+      <div style="text-align:center;">
+        <h3 style="font-size:16px;color:var(--paper);margin:0;text-transform:none;">国 (Guó) - <i>Le Pays</i></h3>
+        <p style="font-size:11px;line-height:1.4;margin-top:6px;text-align:left;">城墙与兵器拱卫的领土。<br><em class="fr">Territoire défendu.</em><br><span class="en-note">国 <em>guó</em>: oracle bone form shows a walled enclosure (口 = boundary wall) containing a weapon or population marker. The character encodes the founding definition of a Chinese state: a defended territory. Compare with the Western concept of "nation" (born from <em>natio</em> = birth/origin) — one defines statehood through defence, the other through ethnic origin. The spatial logic differs from the start.</span></p>
       </div>
     </div>
   </div>
@@ -160,7 +198,7 @@ ul.styled b { color:var(--paper); }
   
   <div class="two-col" style="gap:26px;">
     <div style="display:flex;flex-direction:column;gap:12px;">
-      <p style="margin-bottom:4px;">中西文明的根本差异，首先源自于它们所处的<b>宏观地形结构</b>。<br><em class="fr">La première graine de divergence civilisationnelle est topographique.</em></p>
+      <p style="margin-bottom:4px;">中西文明的根本差异，首先源自于它们所处的<b>宏观地形结构</b>。<br><em class="fr">La première graine de divergence civilisationnelle est topographique.</em><br><span class="en-note">This topographic argument is the foundation of geographical determinism: before philosophy, before religion, before language, the shape of the land had already set the trajectory. China's enclosed plateau-desert-ocean perimeter created a world unto itself; the Mediterranean's interconnected coastlines created a permanent crossroads. The civilisational personalities that developed were responses to these physical facts.</span></p>
       
       <div class="card earth" style="padding:16px;">
         <h3 style="color:var(--earth2);font-size:15px;margin-bottom:8px;">🇨🇳 中原封闭地形 (L'enclave chinoise)</h3>
@@ -169,7 +207,7 @@ ul.styled b { color:var(--paper); }
           <li><b>西北部：</b>浩瀚的戈壁与沙漠（Gobi/Taklamakan）。</li>
           <li><b>东/南部：</b>浩瀚无垠的太平洋（Pacifique）。</li>
         </ul>
-        <p style="font-size:12px;margin-top:8px;line-height:1.6;">巨大的天然地理屏障使中国成为一个<b>半封闭的大陆国家</b>。这带来了一种“天下即世界”的自足感，内向且稳定。<br><em class="fr">Entourée de déserts, de l'Himalaya et de l'océan, la Chine ancienne perçoit son territoire comme la totalité du monde (Tianxia). Culture introvertie et autosuffisante.</em></p>
+        <p style="font-size:12px;margin-top:8px;line-height:1.6;">巨大的天然地理屏障使中国成为一个<b>半封闭的大陆国家</b>。这带来了一种“天下即世界”的自足感，内向且稳定。<br><em class="fr">Entourée de déserts, de l'Himalaya et de l'océan, la Chine ancienne perçoit son territoire comme la totalité du monde (Tianxia). Culture introvertie et autosuffisante.</em><br><span class="en-note">The concept of 天下 <em>tiānxià</em> ("all under Heaven") was not megalomania — it was geographical logic. If the Himalayas are your southern wall, the Gobi your northern barrier, and the Pacific your eastern horizon, then what you can see and reach <em>is</em> the world. China's self-perception as the "Middle Kingdom" (中国 <em>zhōngguó</em>) arose from this enclosed geography: you are naturally at the centre when you are ringed by impassable barriers.</span></p>
       </div>
     </div>
 
@@ -180,9 +218,25 @@ ul.styled b { color:var(--paper); }
           <li><b>内海网络：</b>地中海是欧、亚、非三大洲的交通枢纽。</li>
           <li><b>破碎的岛屿：</b>希腊等地多山缺土，海岸线曲折。</li>
         </ul>
-        <p style="font-size:12px;margin-top:8px;line-height:1.6;">陆地纵深极小，迫使居民向海洋拓展。海洋提供了四通八达的航线，造就了<b>开放、商业、多文明交汇</b>的海洋文明特征。<br><em class="fr">Une mer intérieure reliant 3 continents. Terres pauvres et côtes dentelées poussent vers un réseau maritime ouvert, commercial et cosmopolite.</em></p>
+        <p style="font-size:12px;margin-top:8px;line-height:1.6;">陆地纵深极小，迫使居民向海洋拓展。海洋提供了四通八达的航线，造就了<b>开放、商业、多文明交汇</b>的海洋文明特征。<br><em class="fr">Une mer intérieure reliant 3 continents. Terres pauvres et côtes dentelées poussent vers un réseau maritime ouvert, commercial et cosmopolite.</em><br><span class="en-note">The Mediterranean was a school for cosmopolitanism: Phoenicians, Greeks, Romans, Arabs, and Venetians all shared the same sea, competing and mixing. The Greek city-states developed democracy partly because their rocky terrain could not support large agrarian states — you had to trade, negotiate, and persuade rather than conquer and administer. The sea made argument necessary; argument made philosophy possible.</span></p>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- S4b: 中国地形图 -->
+<div class="slide bg-earth" id="s4b" style="padding:16px 64px 32px;overflow-y:auto;pointer-events:all;">
+  <div class="slide-header" style="margin-bottom:12px;"><span class="lesson-tag">地形概览 · Topographie</span><span class="slide-num">2b</span></div>
+  <h2 style="margin-bottom:12px;">西高东低的世界阶梯与封闭网格<br><span style="font-size:16px;opacity:0.7;">Le relief en terrasses : d'Ouest en Est</span></h2>
+  <div style="background:rgba(0,0,0,0.35);border-left:3px solid var(--earth2);padding:8px 14px;margin-bottom:8px;font-size:11px;line-height:1.65;color:rgba(245,240,232,0.65);">
+    <strong style="color:var(--earth2);">三级阶梯 · Trois marches · Three Descending Terraces:</strong>
+    第一级：青藏高原（平均4500m）→ 第二级：黄土高原·内蒙古高原·四川盆地（1000-2000m）→ 第三级：华北平原·长江中下游平原（0-200m）。河流天然自西向东流入大海。<br>
+    <em class="fr" style="font-size:10px;">Première terrasse: Tibet (4500m) → Deuxième: Plateaux et bassins (1000-2000m) → Troisième: Grandes plaines côtières. Tous les fleuves coulent naturellement d'Ouest en Est vers la mer.</em><br>
+    <span class="en-note" style="font-size:10px;">China's three-step terrain descends from the "roof of the world" (Tibetan Plateau) eastward to the coastal plains. This means all major rivers — Yellow River, Yangtze, Pearl River — flow east toward the Pacific, creating natural east-west transportation corridors but making north-south movement difficult. The terrain literally channelled history's flow.</span>
+  </div>
+  
+  <div style="flex:1; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); padding:8px; overflow:hidden; min-height:0;">
+    <img src="https://pic4.zhimg.com/v2-31700a2e6d068d15c13986ede2a370a7_1440w.jpg" style="width:100%; height:100%; object-fit:contain;" />
   </div>
 </div>
 
@@ -192,13 +246,13 @@ ul.styled b { color:var(--paper); }
   <div class="two-col" style="gap:30px;">
     <div style="display:flex;flex-direction:column;gap:14px;">
       <h2 style="font-size:24px;margin-bottom:0;">树叶的命运：不同植被下的文明<br><span style="font-size:14px;opacity:0.7;">Forêts décidues vs Forêts sclérophylles</span></h2>
-      <p style="font-size:13px;">生存环境（气候与植被）直接决定了人类最初是种田还是经商。<em class="fr">L'écologie pré-détermine les modes de survie.</em></p>
+      <p style="font-size:13px;">生存环境（气候与植被）直接决定了人类最初是种田还是经商。<em class="fr">L'écologie pré-détermine les modes de survie.</em><br><span class="en-note">The ecological argument: before any emperor, philosopher, or general shaped Chinese history, the forests had already written the script. Broadleaf deciduous forests (oak, chestnut, maple) with their seasonal cycle and fertile leaf-litter soils are the natural home of intensive grain agriculture. Mediterranean sclerophyllous forests (olive, cork oak, maquis) on thin rocky soils are not — and that agricultural impossibility drove the Greeks to the sea.</span></p>
       
       <div class="card jade" style="background:rgba(46,125,90,0.1); border:none; padding:16px;">
         <h3 style="color:var(--jade2);font-size:15px;">🇨🇳 阔叶林文化：农耕·循环·稳定</h3>
         <p style="font-size:12px;line-height:1.6;">黄河流域和长江流域属于温带/亚热带阔叶林。四季分明，雨热同期（春种秋收）。<br>
         土地肥沃，先民可以通过精耕细作养活庞大人口。形成了<b>安土重迁、日出而作、循环往复的保守型农耕文明</b>。<br>
-        <em class="fr">Forêts de feuillus à grandes feuilles. Saisons nettes et pluies estivales idéales pour l'agriculture intensive. Engendre une sédentarité profonde, la routine des saisons et le respect de la terre.</em></p>
+        <em class="fr">Forêts de feuillus à grandes feuilles. Saisons nettes et pluies estivales idéales pour l'agriculture intensive. Engendre une sédentarité profonde, la routine des saisons et le respect de la terre.</em><br><span class="en-note">The Yellow River valley's loess plateau (黄土高原) is one of the world's deepest topsoil deposits — up to 100 metres of wind-blown silt accumulated over millennia, extraordinarily fertile and easy to cultivate with primitive tools. This is why Chinese civilisation settled here: the soil was a gift that made large sedentary populations possible before metallurgy or advanced irrigation. The land fed the civilisation that would define the next 4,000 years.</span></p>
       </div>
     </div>
     
@@ -207,7 +261,7 @@ ul.styled b { color:var(--paper); }
         <h3 style="color:var(--gold2);font-size:15px;">🇬🇷/🇫🇷 硬叶林文化：商贸·征服·流动</h3>
         <p style="font-size:12px;line-height:1.6;">地中海式气候夏季炎热干燥，冬季温和多雨。典型植被是常绿硬叶林（如橄榄树、葡萄藤）。<br>
         这种环境不利于谷物大面积连片种植，但适合种植经济作物（榨油、酿酒）。这迫使西方先民出海<b>进行商品交换和殖民夺取粮食</b>（斯巴达、雅典），造就了流动与征服的基因。<br>
-        <em class="fr">Climat méditerranéen (étés secs) favorable aux sclérophylles (olivier, vigne) impropres aux grands empires céréaliers. Pousse à exporter du vin/huile pour importer du blé : genèse du commerce, de la navigation et de la conquête.</em></p>
+        <em class="fr">Climat méditerranéen (étés secs) favorable aux sclérophylles (olivier, vigne) impropres aux grands empires céréaliers. Pousse à exporter du vin/huile pour importer du blé : genèse du commerce, de la navigation et de la conquête.</em><br><span class="en-note">Greece's ecological paradox: the birthplace of Western philosophy, science, and democracy was also a land chronically short of grain. Attica's rocky hillsides could grow olives and grapes — but not enough wheat to feed Athens. The solution: trade olive oil and wine for Scythian grain from the Black Sea. This trade dependency forced Athens to develop contracts, courts, and commercial law — the institutional infrastructure of capitalism, all to solve a soil problem.</span></p>
       </div>
     </div>
   </div>
@@ -218,23 +272,81 @@ ul.styled b { color:var(--paper); }
   <div class="slide-header"><span class="lesson-tag">社会底色 · Conservatisme agraire</span><span class="slide-num">4</span></div>
   <h2 style="margin-bottom:12px;">守望黄土：为什么产生保守主义<br><span style="font-size:16px;opacity:0.7;">Pourquoi l'agriculture engendre-t-elle le conservatisme ?</span></h2>
   
-  <p style="margin-bottom:18px;">以农为本的生存方式，深刻塑造了中国人的政治伦理与社会心理。<em class="fr">Vivre de la terre a forgé une mentalité où la stabilité est la valeur suprême.</em></p>
+  <p style="margin-bottom:18px;">以农为本的生存方式，深刻塑造了中国人的政治伦理与社会心理。<em class="fr">Vivre de la terre a forgé une mentalité où la stabilité est la valeur suprême.</em><br><span class="en-note">The agricultural personality: security over adventure, continuity over innovation, community over individual. These are not cultural accidents or ethnic characteristics — they are rational responses to an environment where deviation from proven methods means starvation. The farmer who experiments with a new crop and fails loses everything; the farmer who follows tradition survives. In an agricultural civilisation, conservatism is not backwardness — it is intelligence.</span></p>
 
   <div class="three-col" style="gap:20px;">
     <div class="card earth">
       <h3 style="color:var(--earth2);font-size:14px;margin-bottom:6px;">1. 土地不可移动 (Immobilité)</h3>
-      <p style="font-size:12px;line-height:1.6;">财富就是土地。农民被紧紧绑定在土地上不可轻易迁徙（<b>安土重迁</b>）。因此形成了极强的乡土观念和对故乡的眷恋。<br><em class="fr">La terre est fixe. Le paysan ne fuit pas. Naissent l'attachement viscéral aux racines et la peur du déracinement.</em></p>
+      <p style="font-size:12px;line-height:1.6;">财富就是土地。农民被紧紧绑定在土地上不可轻易迁徙（<b>安土重迁</b>）。因此形成了极强的乡土观念和对故乡的眷恋。<br><em class="fr">La terre est fixe. Le paysan ne fuit pas. Naissent l'attachement viscéral aux racines et la peur du déracinement.</em><br><span class="en-note">安土重迁 (ān tǔ zhòng qiān) — "settle comfortably on your land, think twice before moving." This four-character proverb encodes the entire psychology of agricultural rootedness. Even today, China's <em>hukou</em> (household registration) system reflects this ancient logic: your identity is tied to your home village, not portable like a citizen's passport. The land owns you as much as you own the land.</span></p>
     </div>
     
     <div class="card red">
       <h3 style="color:var(--red2);font-size:14px;margin-bottom:6px;">2. 经验的权威 (Autorité de l'expérience)</h3>
-      <p style="font-size:12px;line-height:1.6;">农业生产极度依赖气象规律和祖辈经验。老年人因为积累了最多经验，拥有绝对的权威。知识代表着“回溯过去”而非“创新”。<br><em class="fr">L'agriculture dépend des cycles climatiques connus. Les anciens détiennent le savoir vital. L'innovation est risquée, la tradition sauve.</em></p>
+      <p style="font-size:12px;line-height:1.6;">农业生产极度依赖气象规律和祖辈经验。老年人因为积累了最多经验，拥有绝对的权威。知识代表着“回溯过去”而非“创新”。<br><em class="fr">L'agriculture dépend des cycles climatiques connus. Les anciens détiennent le savoir vital. L'innovation est risquée, la tradition sauve.</em><br><span class="en-note">This is the deepest root of Confucian elder-veneration: it was not mere sentiment — it was epistemological. The oldest farmer had survived the most unusual weather events; his memory was the community's risk-management database. This made innovation structurally dangerous: the new is, by definition, untested. Only when an elder could say "I saw this before and it worked" could new practices gain legitimacy. The past was the authority because the past had survived.</span></p>
     </div>
 
     <div class="card purple">
       <h3 style="color:var(--purple2);font-size:14px;margin-bottom:6px;">3. 宗族秩序 (Réseau clanique)</h3>
-      <p style="font-size:12px;line-height:1.6;">兴修水利、抗旱防灾、大家庭耕作需要极其严密的集体协作。这种需求催生了中国以血缘为纽带的宗族社会，压抑了个人主义。<br><em class="fr">Irriguer et récolter exige une main d'œuvre massive. L'individu s'efface au profit du clan (système patriarcal) essentiel à la survie collective.</em></p>
+      <p style="font-size:12px;line-height:1.6;">兴修水利、抗旱防灾、大家庭耕作需要极其严密的集体协作。这种需求催生了中国以血缘为纽带的宗族社会，压抑了个人主义。<br><em class="fr">Irriguer et récolter exige une main d'œuvre massive. L'individu s'efface au profit du clan (système patriarcal) essentiel à la survie collective.</em><br><span class="en-note">Karl Wittfogel's "hydraulic society" thesis (1957) argued that large-scale irrigation management — dredging the Yellow River, building reservoirs, coordinating planting schedules across thousands of villages — necessitated a powerful centralised bureaucracy. You cannot manage the Yellow River without a state; therefore, having the Yellow River produces a state. Geography creates the government. Weber agreed: China's massive hydraulic infrastructure required and perpetuated its centralised imperial bureaucracy.</span></p>
     </div>
+  </div>
+</div>
+
+
+<!-- S6b: 大河的文明 — 黄河·长江·莱茵河·卢瓦尔河 -->
+<div class="slide bg-earth" id="s6b">
+  <div class="slide-header"><span class="lesson-tag">大河文明 · Les Grands Fleuves · Rivers of Civilisation</span><span class="slide-num">4b</span></div>
+  <h2 style="margin-bottom:12px;">大河与文明：黄河、长江与欧洲大河的比较<br><span style="font-size:14px;opacity:0.65;">Fleuves et Civilisations : Fleuve Jaune, Yangtsé, Loire, Rhin · Comparing Rivers that Built Civilisations</span></h2>
+  
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;flex:1;align-items:start;">
+
+    <!-- Yellow River -->
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div style="border-bottom:1px solid var(--border);padding-bottom:6px;display:flex;align-items:baseline;gap:10px;">
+        <span style="font-family:'Noto Serif SC',serif;font-size:22px;color:var(--gold2);">黄河</span>
+        <span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold2);">Huáng Hé · Fleuve Jaune · Yellow River</span>
+      </div>
+      <div class="card gold" style="padding:10px 12px;">
+        <p style="font-size:11px;line-height:1.65;">黄河的泵沙量是世界最高的大河之一（每年1.6全10万顿沙）。她孕育了中国文明，也母亲覇掘了她。历史上黄河汁滥共1593次，局部山洪就发生了2000+次。<br>
+        <em class="fr" style="font-size:10px;">Le Fleuve Jaune : berceau de la civilisation mais aussi "Chagrin de la Chine" (中国的忧患). 1593 inondations majeures en 3000 ans. Nourrit et détruit alternativement.</em><br>
+        <span class="en-note" style="font-size:9.5px;">The Yellow River earned its nickname "China's Sorrow" (中国的忧患) from its catastrophic flood record — it changed course 26 times in 3,000 years of recorded history, sometimes shifting hundreds of kilometres overnight. Managing it required the centralised imperial bureaucracy that Weber identified as the key structural difference from European capitalism. The river that gave birth to Chinese civilisation also demanded the political system that defined it.</span></p>
+      </div>
+
+      <div class="card jade" style="padding:10px 12px;margin-top:2px;">
+        <div style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--jade2);margin-bottom:4px;">长江 · Yangtsé · Yangtze River</div>
+        <p style="font-size:11px;line-height:1.65;">长江是中国的经济命脉，全长6380km，是中国南北文化分界的象征性界线。长江三角洲是世界最重要的第一大经济带第一大稀米主产区。<br>
+        <em class="fr" style="font-size:10px;">Le Yangtsé (6380 km) : axe économique de la Chine du Sud. Son delta produit la majorité du riz chinois. Frontière culturelle Nord-Sud.</em><br>
+        <span class="en-note" style="font-size:9.5px;">The Yangtze is China's economic spine: 40% of China's GDP is generated in its basin. Its delta (Shanghai) is the world's busiest port region. The cultural divide it marks — wheat-eating, Mandarin-speaking North vs rice-eating, diverse-dialect South — persists in Chinese regional identity to this day.</span></p>
+      </div>
+    </div>
+
+    <!-- European Rivers -->
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div style="border-bottom:1px solid var(--border);padding-bottom:6px;display:flex;align-items:baseline;gap:10px;">
+        <span style="font-family:'Noto Serif SC',serif;font-size:22px;color:var(--blue2);">莱茵河</span>
+        <span style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue2);">Rhin · Le Rhin &amp; La Loire · Rhine &amp; Loire</span>
+      </div>
+      <div class="card blue" style="padding:10px 12px;">
+        <p style="font-size:11px;line-height:1.65;">莱茵河（Rhin）是欧洲的经济血脉，自古以来即是罗马、辛布锡、汉萨、法兰庆商贸与农业共存的设计；卡乔山谷、葡萄埼、居汉萨南辺的温和气候，形成高价微小网络的秘密。<br>
+        <em class="fr" style="font-size:10px;">Le Rhin : artère commerciale de l'Europe depuis Rome. Frontière politique, route économique, symbole romantique (Loreley). La vallée mosellane et le Palatinat : vignobles sur ardoise et calcaire.</em><br>
+        <span class="en-note" style="font-size:9.5px;">The Rhine was Europe's commercial highway: Roman wine amphorae found in Germany, medieval Hanseatic trade goods, modern coal and steel barges. Unlike the Yellow River which demanded management from a central authority, the Rhine was shared among dozens of competing city-states, counts, and bishops — each extracting tolls, each competing for trade. Fragmented political geography produced the competitive institutional evolution that drove European capitalism.</span></p>
+      </div>
+
+      <div class="card red" style="padding:10px 12px;margin-top:2px;">
+        <div style="font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--red2);margin-bottom:4px;">卢瓦尔河 · La Loire · Loire River</div>
+        <p style="font-size:11px;line-height:1.65;">卢瓦尔河是法国的文化聊求：法山城堡强调了生活艺术，法国独特的Terroir品居，形合着法国国内小型多元化较少属于高大山游离充足。<br>
+        <em class="fr" style="font-size:10px;">La Loire : le "jardin de la France". Châteaux royaux, vignes d'Anjou et de Touraine. Le fleuve qui a fait la douceur angevine et la civilisation de la villégiature aristocratique.</em><br>
+        <span class="en-note" style="font-size:9.5px;">The Loire Valley (UNESCO World Heritage) embodies the French philosophy of terroir: its gentle climate, diverse soils, and moderate scale produce an extraordinary range of wines (Muscadet, Sancerre, Chinon) within 200km — exactly the kind of micro-diversity that Chinese continental geography cannot produce. The Loire made the châteaux possible; the châteaux made the cuisine culture possible; the cuisine culture became France's greatest soft-power export.</span></p>
+      </div>
+
+      <div style="background:rgba(140,115,85,0.12);border-left:3px solid var(--earth2);padding:8px 12px;margin-top:4px;font-size:10.5px;line-height:1.6;color:rgba(245,240,232,0.6);">
+        <strong style="color:var(--earth2);">关键对比 · Point clé · Key Comparison:</strong>
+        黄河需要集权责任；莱茵河孕育竞争多元。一个造就帝国，一个孕育资本主义。
+        <br><em class="fr" style="font-size:10px;">Fleuve Jaune = centralisation obligatoire. Rhin = concurrence politique multiple. L'un engendre l'Empire, l'autre le Capitalisme.</em>
+        <br><span class="en-note" style="font-size:10px;">This is Weber's thesis in its purest geographic form: the Yellow River required a centralised empire to manage it; the Rhine's fragmented political landscape required competitive commercial institutions. Same river logic, opposite political outcomes. Geography wrote the first chapter; institutions wrote the rest.</span>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -244,10 +356,10 @@ ul.styled b { color:var(--paper); }
   <div class="two-col" style="gap:30px;">
     <div style="display:flex;flex-direction:column;gap:14px;">
       <h2 style="font-size:26px;margin-bottom:0;">雨水的政治：400毫米生命线<br><span style="font-size:14px;opacity:0.7;">La ligne des 400 mm de précipitations</span></h2>
-      <p style="font-size:13px;line-height:1.7;">中国历史的宏大史诗，本质上是一部关于<b>气候与降水</b>的历史。<em class="fr">L'histoire chinoise est dictée par la mousson.</em></p>
+      <p style="font-size:13px;line-height:1.7;">中国历史的宏大史诗，本质上是一部关于<b>气候与降水</b>的历史。<em class="fr">L'histoire chinoise est dictée par la mousson.</em><br><span class="en-note">The monsoon was the master clock of Chinese history. When the monsoon shifted south — as it did during cooling periods — the grasslands of Inner Mongolia and the Mongolian Plateau dried out. Nomadic herds died. Nomadic peoples had two choices: starve or invade. The agricultural south, which retained its rainfall, became the target. Chinese history's pattern of northern invasions is essentially a climate record disguised as military history.</span></p>
       
       <ul class="styled">
-        <li><b>生态限界：</b>年降水量 400mm 等值线，是中国农业与游牧业的天然分界线。<em class="fr">Sépare naturellement les terres arables de la steppe nomade.</em></li>
+        <li><b>生态限界：</b>年降水量 400mm 等值线，是中国农业与游牧业的天然分界线。<em class="fr">Sépare naturellement les terres arables de la steppe nomade.</em><br><span class="en-note">The 400mm annual rainfall isohyet runs from the Greater Khingan Range (northeast) to the edge of the Tibetan Plateau (southwest) — almost exactly following the course of the Great Wall. North of this line: too dry for reliable grain agriculture. South of it: reliable enough for sedentary farming. The Wall did not create this boundary; the rainfall did. The Wall was humanity's attempt to mark on stone what the monsoon had already written in the soil.</span></li>
         <li><b>长城（La Grande Muraille）：</b>长城的走势几乎与这条降水线完美重合！这是农耕文明对抗游牧铁骑的防御堡垒。</li>
       </ul>
     </div>
@@ -266,6 +378,22 @@ ul.styled b { color:var(--paper); }
   </div>
 </div>
 
+<!-- S7b: 秦岭淮河分界线图 -->
+<div class="slide bg-dark" id="s7b" style="padding:16px 64px 32px;overflow-y:auto;pointer-events:all;">
+  <div class="slide-header" style="margin-bottom:12px;"><span class="lesson-tag">南北边界 · Ligne de division Nord-Sud</span><span class="slide-num">5b</span></div>
+  <h2 style="margin-bottom:12px;">秦岭—淮河生态分界点<br><span style="font-size:16px;opacity:0.7;">La ligne des Monts Qinling et de la Rivière Huaihe</span></h2>
+  <div style="background:rgba(0,0,0,0.35);border-left:3px solid var(--earth2);padding:8px 14px;margin-bottom:8px;font-size:11px;line-height:1.65;color:rgba(245,240,232,0.65);">
+    <strong style="color:var(--earth2);">南北分水岭 · Ligne de partage · The Great North-South Divide:</strong>
+    秦岭—淮河线是中国最重要的自然地理分界线：北方种小麦、吃馒头；南方种水稻、吃米饭。年均气温0°C等温线。年均降水量800mm等降水线。暖温带与亚热带的边界。<br>
+    <em class="fr" style="font-size:10px;">La ligne Qinling-Huaihe divise la Chine en deux mondes : au Nord, blé et boulettes (温带); au Sud, riz et vapeur (subtropical). Aussi la frontière climatique 0°C en hiver.</em><br>
+    <span class="en-note" style="font-size:10px;">This invisible line determines everything: wheat vs rice, bread vs steamed buns, north Chinese dialect (Mandarin) vs southern languages, Han furniture customs (chairs entered from the north, borrowed from nomads) vs traditional floor-level living. Even today, whether your apartment building has central heating (north does, south doesn't) is determined by this line drawn by rainfall and temperature 3,000 years ago.</span>
+  </div>
+  
+  <div style="flex:1; display:flex; justify-content:center; align-items:center; background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); padding:8px; overflow:hidden; min-height:0;">
+    <img src="https://mmbiz.qpic.cn/sz_mmbiz_jpg/BIticHEaQ5iaTicCsCfzeQbo0EJuygmQVMKB1tZ7uuHoVIQ1HyGicwdtfiaPB1Oxo99hFZj5NicPzAI7g6I0ULc8YMTw/640?wx_fmt=jpeg&from=appmsg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" style="width:100%; height:100%; object-fit:contain;" />
+  </div>
+</div>
+
 <!-- S8: 气候影响心态 -->
 <div class="slide bg-sea" id="s8">
   <div class="slide-header"><span class="lesson-tag">思想溯源 · Philosophie et Nature</span><span class="slide-num">6</span></div>
@@ -277,7 +405,7 @@ ul.styled b { color:var(--paper); }
       <h3 style="color:var(--earth2);font-size:18px;text-transform:none;">🇨🇳 靠天吃饭与“天人合一”</h3>
       <p style="font-size:13px;line-height:1.7;">农业文明极度依赖气候（暴雨、旱灾、蝗灾瞬间摧毁一切），人类在庞大的季风系统前显得渺小无力。<br>
       因此，中国思想史发展出<b>“敬畏自然、顺应天时”</b>的“天人合一”哲学。人不是自然的主宰，而是环境的一部分，寻求内在的和谐与修心。<br>
-      <em class="fr">L'agriculteur soumis aux caprices dévastateurs de la mousson développe une terreur sacrée. D'où l'harmonie philosophique ("Tianren Heyi") : l'homme est une fraction de la nature (Cosmos), il doit s'y fondre et non la dompter.</em></p>
+      <em class="fr">L'agriculteur soumis aux caprices dévastateurs de la mousson développe une terreur sacrée. D'où l'harmonie philosophique ("Tianren Heyi") : l'homme est une fraction de la nature (Cosmos), il doit s'y fondre et non la dompter.</em><br><span class="en-note">天人合一 (tiānrén héyī — "Heaven and Humanity as One") was not a comfortable platitude but a hard-won lesson from centuries of agricultural vulnerability. When drought or flood could destroy everything in weeks, the only sane response was to read the sky, study the seasons, and try to align human action with natural rhythms — not fight them. This produced Taoist naturalism, Chinese landscape painting's vastness (humans as tiny figures in immense landscapes), and feng shui's systematic study of environmental energies.</span></p>
     </div>
     
     <!-- 征服自然 -->
@@ -285,7 +413,7 @@ ul.styled b { color:var(--paper); }
       <h3 style="color:var(--blue2);font-size:18px;text-transform:none;">🇬🇷 主客二分与“征服自然”</h3>
       <p style="font-size:13px;line-height:1.7;">海洋文明面对的是可以通过造船术、罗盘和航海知识克服的波浪。商业竞争需要探索未知、打破界限。<br>
       这催生了西方的<b>“主客二分”</b>视角。自然被视为人类（主体）可以客观研究、解剖并最终<b>去征服与利用</b>的客体（对象），孕育了科学实验冒险精神。<br>
-      <em class="fr">L'Océan se navigue grâce à la technique et l'audace. L'Occident développe la dichotomie "Sujet/Objet". La Nature est conçue comme un Object scientifique et matériel à comprendre, maîtriser, exploiter et vaincre.</em></p>
+      <em class="fr">L'Océan se navigue grâce à la technique et l'audace. L'Occident développe la dichotomie "Sujet/Objet". La Nature est conçue comme un Object scientifique et matériel à comprendre, maîtriser, exploiter et vaincre.</em><br><span class="en-note">The Cartesian dualism that shaped Western science — René Descartes (1596–1650): <em>"I think, therefore I am"</em> — posited a radical separation of thinking subject from extended material world. Nature became an "object" to be studied, measured, and ultimately mastered. This philosophical stance arose in the same northwestern European Atlantic context that had already spent centuries building ships to conquer unpredictable seas. Subject/object split = sailor/ocean split, scaled up into a worldview.</span></p>
     </div>
   </div>
 </div>
@@ -296,7 +424,7 @@ ul.styled b { color:var(--paper); }
   <div class="two-col" style="gap:30px;">
     <div style="display:flex;flex-direction:column;gap:16px;">
       <h2 style="font-size:26px;margin-bottom:0;">马克思·韦伯的断言<br><span style="font-size:14px;opacity:0.7;">Max Weber et La Religion de la Chine (1915)</span></h2>
-      <p style="font-size:13px;margin-top:8px;">德国社会学家马克斯·韦伯 (Max Weber) 在比较社会学中认为，地理与生态塑造了两种完全不同的理性结构 (Rationalités)。<br><em class="fr">Pour Max Weber, l'espace écologique forge deux types de bureaucraties et de rationalités.</em></p>
+      <p style="font-size:13px;margin-top:8px;">德国社会学家马克斯·韦伯 (Max Weber) 在比较社会学中认为，地理与生态塑造了两种完全不同的理性结构 (Rationalités)。<br><em class="fr">Pour Max Weber, l'espace écologique forge deux types de bureaucraties et de rationalités.</em><br><span class="en-note">Weber's 1915 work <em>The Religion of China</em> (Konfuzianismus und Taoismus) asked a fundamental question: why did capitalism emerge in the Protestant West and not in China, which had sophisticated commerce, paper money, and complex markets for centuries? His answer: not intelligence or culture, but the <em>type</em> of rationality that each geography required. Managing floods requires centralised bureaucratic rationality. Trading across seas requires contractual, legal rationality. Two different problems produced two different institutional solutions.</span></p>
       
       <div class="quote" style="border-left-color:var(--gold);">
          <div class="zh" style="font-size:14px;">“西方的资本主义动力来自于新教伦理与对外部世界的理性改造；而中国的传统理性，则是致力于和平维持庞大的农业帝国运转，形成内卷的官僚体制。”</div>
@@ -306,10 +434,74 @@ ul.styled b { color:var(--paper); }
     <div class="card purple" style="padding:16px; display:flex; flex-direction:column; gap:12px; justify-content:center;">
       <h3 style="color:var(--purple2);font-size:14px;text-transform:none;border-bottom:1px solid rgba(255,255,255,0.2);padding-bottom:8px;">农业官府 vs 航海私产</h3>
       <ul class="styled">
-        <li><b>治水官僚 (Hydraulic Bureaucracy):</b> 在中国修筑黄河大坝，必须建立一个高度中央集权的大政府。权力压倒资本。<em class="fr">Maîtriser les fleuves géants exige un empire centralisé et un fonctionnariat ultra-puissant (Despotisme hydraulique).</em></li>
-        <li><b>海商产权 (Maritime Capitalism):</b> 航运贸易需要保护私人财产和契约法，这是欧洲资本主义萌芽的地缘基础。<em class="fr">Le commerce maritime réclame des contrats (Loi) et la protection de la propriété privée (Bourgeoisie).</em></li>
+        <li><b>治水官僚 (Hydraulic Bureaucracy):</b> 在中国修筑黄河大坝，必须建立一个高度中央集权的大政府。权力压倒资本。<em class="fr">Maîtriser les fleuves géants exige un empire centralisé et un fonctionnariat ultra-puissant (Despotisme hydraulique).</em><br><span class="en-note">Wittfogel's "Oriental Despotism" (1957) extended Weber: the Yellow River floods on average once every two years and had changed course 26 times in recorded history, killing millions each time. Managing this required the equivalent of a modern project management system across thousands of villages — which only a powerful central state could coordinate. The state that could control the water could tax and conscript everyone who depended on the water. Hydraulic power = political power.</span></li>
+        <li><b>海商产权 (Maritime Capitalism):</b> 航运贸易需要保护私人财产和契约法，这是欧洲资本主义萌芽的地缘基础。<em class="fr">Le commerce maritime réclame des contrats (Loi) et la protection de la propriété privée (Bourgeoisie).</em><br><span class="en-note">Mediterranean maritime commerce required institutions that Chinese hydraulic bureaucracy did not: contract law (what happens if the ship sinks?), property protection (the merchant needs to keep his profits), and dispute resolution between strangers (who arbitrates between a Phoenician seller and a Greek buyer?). These institutional needs drove the development of Roman law, the Justinian Code, and eventually the legal infrastructure of capitalism. The sea forced the invention of the contract; the river forced the invention of the bureaucrat.</span></li>
       </ul>
     </div>
+  </div>
+</div>
+
+
+<!-- S9b: 韦伯比较框架深度表格 -->
+<div class="slide bg-dark" id="s9b">
+  <div class="slide-header"><span class="lesson-tag">对比框架 · Tableau Comparatif · Comparative Framework</span><span class="slide-num">7b</span></div>
+  <h2 style="margin-bottom:14px;">地理词汇表：中华与欧洲文明的对应<br><span style="font-size:14px;opacity:0.65;">Tableau trilingue · Chinese &amp; European Civilisational Contrasts</span></h2>
+  
+  <div style="overflow-y:auto;flex:1;">
+    <table style="width:100%;border-collapse:collapse;font-size:11px;">
+      <thead>
+        <tr style="border-bottom:2px solid var(--earth2);">
+          <th style="text-align:left;padding:6px 10px;color:var(--earth2);font-size:10px;letter-spacing:.1em;text-transform:uppercase;width:18%;">维度<br>Dimension</th>
+          <th style="text-align:left;padding:6px 10px;color:var(--jade2);font-size:10px;letter-spacing:.1em;text-transform:uppercase;width:27%;">🇨🇳 中国<br>Chine · China</th>
+          <th style="text-align:left;padding:6px 10px;color:var(--blue2);font-size:10px;letter-spacing:.1em;text-transform:uppercase;width:27%;">🌊 地中海/欧洲<br>Méditerranée · Europe</th>
+          <th style="text-align:left;padding:6px 10px;color:var(--gold2);font-size:10px;letter-spacing:.1em;text-transform:uppercase;width:28%;">根因<br>Racine · Root Cause</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--border);background:rgba(46,125,90,0.06);">
+          <td style="padding:8px 10px;color:var(--earth2);font-weight:bold;">地形<br>Terrain</td>
+          <td style="padding:8px 10px;color:rgba(245,240,232,0.75);">封闭大陆<br><em class="fr" style="font-size:10px;">Continent enclavé</em><br><span class="en-note" style="font-size:9px;">Closed by Himalayas, Gobi, Pacific — a world unto itself</span></td>
+          <td style="padding:8px 10px;color:rgba(245,240,232,0.75);">开放海洋网络<br><em class="fr" style="font-size:10px;">Mer intérieure connectée</em><br><span class="en-note" style="font-size:9px;">Open Mediterranean linking 3 continents — permanent crossroads</span></td>
+          <td style="padding:8px 10px;color:rgba(245,240,232,0.55);font-size:10px;">地理决定了初始接触模式</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:8px 10px;color:var(--earth2);font-weight:bold;">生产方式<br>Mode de prod.</td>
+          <td style="padding:8px 10px;color:rgba(245,240,232,0.75);">精耕细作农业<br><em class="fr" style="font-size:10px;">Agriculture intensive</em><br><span class="en-note" style="font-size:9px;">Loess soil + monsoon = high-yield grain farming possible for millions</span></td>
+          <td style="padding:8px 10px;color:rgba(245,240,232,0.75);">海洋贸易与殖民<br><em class="fr" style="font-size:10px;">Commerce maritime &amp; colonies</em><br><span class="en-note" style="font-size:9px;">Thin soils → must trade oil/wine for grain → develops shipping/contract law</span></td>
+          <td style="padding:8px 10px;color:rgba(245,240,232,0.55);font-size:10px;">土壤类型与降水决定初始生存策略</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);background:rgba(46,125,90,0.06);">
+          <td style="padding:8px 10px;color:var(--earth2);font-weight:bold;">权力结构<br>Structure polit.</td>
+          <td style="padding:8px 10px;color:rgba(245,240,232,0.75);">水利官僚集权帝国<br><em class="fr" style="font-size:10px;">Despotisme hydraulique</em><br><span class="en-note" style="font-size:9px;">Yellow River management requires central coordination → empire</span></td>
+          <td style="padding:8px 10px;color:rgba(245,240,232,0.75);">竞争城邦/王国<br><em class="fr" style="font-size:10px;">Cités-États en concurrence</em><br><span class="en-note" style="font-size:9px;">Fragmented geography → competing states → no single authority to impose order</span></td>
+          <td style="padding:8px 10px;color:rgba(245,240,232,0.55);font-size:10px;">大河管理 vs 海洋竞争</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:8px 10px;color:var(--earth2);font-weight:bold;">理性类型<br>Type de raison</td>
+          <td style="padding:8px 10px;color:rgba(245,240,232,0.75);">官僚行政理性<br><em class="fr" style="font-size:10px;">Rationalité bureaucratique</em><br><span class="en-note" style="font-size:9px;">The mandarin ideal: correct procedure, hierarchy, precedent, loyalty</span></td>
+          <td style="padding:8px 10px;color:rgba(245,240,232,0.75);">契约商业理性<br><em class="fr" style="font-size:10px;">Rationalité contractuelle</em><br><span class="en-note" style="font-size:9px;">The merchant ideal: profit calculation, legal contract, innovation, risk-taking</span></td>
+          <td style="padding:8px 10px;color:rgba(245,240,232,0.55);font-size:10px;">韦伯"理性化"类型分化</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);background:rgba(46,125,90,0.06);">
+          <td style="padding:8px 10px;color:var(--earth2);font-weight:bold;">自然观<br>Rapport nature</td>
+          <td style="padding:8px 10px;color:rgba(245,240,232,0.75);">天人合一 · 顺应<br><em class="fr" style="font-size:10px;">Harmonie cosmique</em><br><span class="en-note" style="font-size:9px;">Monsoon vulnerability → align with natural rhythms, not fight them → Taoism</span></td>
+          <td style="padding:8px 10px;color:rgba(245,240,232,0.75);">主客二分 · 征服<br><em class="fr" style="font-size:10px;">Dualisme Sujet/Objet</em><br><span class="en-note" style="font-size:9px;">Ocean navigability through technology → nature as object to master → Descartes</span></td>
+          <td style="padding:8px 10px;color:rgba(245,240,232,0.55);font-size:10px;">对自然威胁的不同回应</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:8px 10px;color:var(--earth2);font-weight:bold;">时间观<br>Rapport au temps</td>
+          <td style="padding:8px 10px;color:rgba(245,240,232,0.75);">循环·治乱·天命<br><em class="fr" style="font-size:10px;">Cyclique (calendrier lunaire)</em><br><span class="en-note" style="font-size:9px;">Agricultural seasons → cyclical time → dynasties rise and fall like harvests</span></td>
+          <td style="padding:8px 10px;color:rgba(245,240,232,0.75);">线性·进步·末世<br><em class="fr" style="font-size:10px;">Linéaire (chrétien/laïc)</em><br><span class="en-note" style="font-size:9px;">Christian eschatology → progress toward an end → cumulative improvement possible</span></td>
+          <td style="padding:8px 10px;color:rgba(245,240,232,0.55);font-size:10px;">农业时间 vs 宗教时间</td>
+        </tr>
+        <tr>
+          <td style="padding:8px 10px;color:var(--earth2);font-weight:bold;">地理美学<br>Esthétique</td>
+          <td style="padding:8px 10px;color:rgba(245,240,232,0.75);">风水·山水画·留白<br><em class="fr" style="font-size:10px;">Paysage cosmique (feng shui)</em><br><span class="en-note" style="font-size:9px;">Ink landscape painting: tiny humans in vast mountains = human as fraction of nature</span></td>
+          <td style="padding:8px 10px;color:rgba(245,240,232,0.75);">风土·透视画·比例<br><em class="fr" style="font-size:10px;">Terroir &amp; perspective artistique</em><br><span class="en-note" style="font-size:9px;">Renaissance perspective: the human eye at the vanishing point = human as measure of all things</span></td>
+          <td style="padding:8px 10px;color:rgba(245,240,232,0.55);font-size:10px;">大陆山水 vs 海洋人本</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 
@@ -353,25 +545,37 @@ ul.styled b { color:var(--paper); }
       <div style="margin-bottom:10px;">
         <div style="font-size:13px;color:var(--paper);font-weight:600;margin-bottom:2px;">🇫🇷 风土 (Le Terroir - Art de Vivre)</div>
         <p style="font-size:12px;margin:0;line-height:1.5;">法国人将土地视为个性和感官享受的来源。同一山坡两边的葡萄园，因光照微差就能酿出迥异的红酒。地理是浪漫和享受（Gastronomie）。<br>
-        <em class="fr">Le sol est une identité gustative et esthétique. Célébration des micro-climats et de la jouissance de la Terre.</em></p>
+        <em class="fr">Le sol est une identité gustative et esthétique. Célébration des micro-climats et de la jouissance de la Terre.</em><br><span class="en-note">The French concept of <em>terroir</em> (literally "earth/soil") captures a philosophy radically different from feng shui: the soil is not a cosmic force to be respected and aligned with — it is a source of specific sensory pleasure to be explored and celebrated. Two vineyards separated by 100 metres of chalk vs clay produce wines with entirely different personalities. The French relationship with land is intimate, individualistic, and hedonistic. The Chinese relationship is cosmic, defensive, and collective.</span></p>
       </div>
 
       <div>
         <div style="font-size:13px;color:var(--paper);font-weight:600;margin-bottom:2px;">🇨🇳 风水 (Le Fengshui - Survie et Destin)</div>
         <p style="font-size:12px;margin:0;line-height:1.5;">中国人将地理视为气运和兴衰的密码。讲究背山面水（藏风聚气）。与其说是在享受土地，不如说是怀着敬畏之心在地脉中寻找安全的庇护所。<br>
-        <em class="fr">Le sol est une géométrie vitale et cosmique (Énergies Qi). On ne cherche pas la saveur du sol, mais son asile protecteur face au chaos.</em></p>
+        <em class="fr">Le sol est une géométrie vitale et cosmique (Énergies Qi). On ne cherche pas la saveur du sol, mais son asile protecteur face au chaos.</em><br><span class="en-note">Feng shui (风水, literally "wind and water") is China's systematic science of landscape energy: how topographic features channel qi (vital energy), which orientations protect and which expose, where to build a house, site a grave, or found a city. It is not superstition — it is a sophisticated environmental risk-management system, developed by agricultural people who knew that the wrong hillside meant flooding, drought, or erosion. Beijing's location (mountains behind, water in front) follows classical feng shui principles perfectly.</span></p>
       </div>
     </div>
     
     <!-- Summary -->
     <div style="display:flex;flex-direction:column;gap:12px;">
-      <h3 style="color:var(--gold);font-size:14px;margin-bottom:4px;">第七课 总结 · Résumé</h3>
-      <ul style="color:var(--paper);font-size:13px;line-height:1.6;padding-left:16px;opacity:0.8;display:flex;flex-direction:column;gap:12px;">
-        <li><b>山水铸命 :</b> 亚洲大陆的封闭地形与季风阔叶林，决定了中国早熟的农业文明。</li>
-        <li><b>降雨边界 :</b> 400毫米降水线是长城的基石，气候变冷刻画了游牧与农耕的千年战争。</li>
-        <li><b>稳定与保守 :</b> 深植于泥土，催生了宗室家族、经验权威以及“安土重迁”的保守防御心态。<em class="fr">(L'agriculture a engendré stabilité, clan patriarcal et prudence).</em></li>
-        <li><b>顺应 vs 征服 :</b> 中华文明在“天人合一”中寻求和谐，而西方在海洋中学会了征服自然。</li>
-      </ul>
+      <h3 style="color:var(--gold);font-size:14px;margin-bottom:8px;">第七课 总结 · Résumé · Summary</h3>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="background:rgba(0,0,0,0.3);border-left:3px solid var(--earth);padding:9px 13px;">
+          <div style="font-size:11px;font-weight:bold;color:var(--earth2);margin-bottom:3px;">山水铸命 · Le Relief comme Destin · Terrain as Destiny</div>
+          <p style="font-size:11px;line-height:1.5;">亚洲大陆的封闭地形与季风阔叶林，决定了中国早熟的农业文明与天下世界观。<br><em class="fr" style="font-size:10px;">Himalaya, Gobi, Pacifique : trois murs créant une civilisation autosuffisante et introvertie (天下 Tianxia).</em><br><span class="en-note" style="font-size:9.5px;">Before any philosopher wrote a word, the mountains, deserts, and ocean had already enclosed Chinese civilisation — creating a world unto itself that naturally thought of itself as the centre.</span></p>
+        </div>
+        <div style="background:rgba(0,0,0,0.3);border-left:3px solid var(--blue);padding:9px 13px;">
+          <div style="font-size:11px;font-weight:bold;color:var(--blue2);margin-bottom:3px;">降雨边界 · La ligne des 400mm · The 400mm Line</div>
+          <p style="font-size:11px;line-height:1.5;">400毫米降水线是长城的基石，气候变冷驱动了游牧南侵——历史的规律其实是气候的规律。<br><em class="fr" style="font-size:10px;">L'isohyète 400mm = le tracé de la Grande Muraille. Les invasions nomades = des sécheresses climatiques déguisées en guerres.</em><br><span class="en-note" style="font-size:9.5px;">The Great Wall followed the rainfall line. Every major nomadic invasion coincides with a documented climate cooling event. Chinese dynastic cycles are partly climate cycles in political disguise.</span></p>
+        </div>
+        <div style="background:rgba(0,0,0,0.3);border-left:3px solid var(--earth2);padding:9px 13px;">
+          <div style="font-size:11px;font-weight:bold;color:var(--earth2);margin-bottom:3px;">稳定与保守 · Sédentarité et Prudence · Stability &amp; Conservatism</div>
+          <p style="font-size:11px;line-height:1.5;">安土重迁、经验权威、宗族网络——农业文明的三大保守逻辑，皆源于土地的不可移动性。<br><em class="fr" style="font-size:10px;">Trois conservatismes agraires : immobilité foncière, autorité des anciens, solidarité clanique.</em><br><span class="en-note" style="font-size:9.5px;">Agricultural conservatism is rational survival strategy: the farmer who experiments and fails starves. Tradition = the tested path that survived. Elders = the living memory of what worked.</span></p>
+        </div>
+        <div style="background:rgba(0,0,0,0.3);border-left:3px solid var(--gold);padding:9px 13px;">
+          <div style="font-size:11px;font-weight:bold;color:var(--gold2);margin-bottom:3px;">顺应 vs 征服 · Harmonie vs Conquête · Adaptation vs Domination</div>
+          <p style="font-size:11px;line-height:1.5;">天人合一 vs 主客二分——中国哲学融入自然，西方哲学征服自然。两种回应，两种文明命运。<br><em class="fr" style="font-size:10px;">天人合一 (Harmonie cosmique) vs Dualisme cartésien. Deux réponses géographiques à la même planète.</em><br><span class="en-note" style="font-size:9.5px;">Neither was simply "right": 天人合一 sustained farming for 4,000 years; Cartesian mastery of nature powered the Industrial Revolution and ecological crisis simultaneously. Geography set the initial conditions; philosophy did the rest.</span></p>
+        </div>
+      </div>
     </div>
     
   </div>
@@ -382,7 +586,7 @@ ul.styled b { color:var(--paper); }
 <div id="nav">
   <button class="nb" id="pb">←</button>
   <div class="dots" id="dots"></div>
-  <span id="sc">1 / 11</span>
+  <span id="sc">1 / 15</span>
   <button class="nb" id="nb2">→</button>
 </div>
 

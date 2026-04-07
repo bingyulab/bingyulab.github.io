@@ -4,11 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>第十课：诗词 · La Poésie Classique</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
 :root {
   --ink:#0a0807; --paper:#f5f0e8;
-  --red:#c0392b; --red2:#e05040;
+  --red:#e85d4f; --red2:#ff8575;
   --gold:#b89040; --gold2:#d4ad60;
   --jade:#2e7d5a; --jade2:#5ecfa0;
   --blue:#2a5a8a; --blue2:#80b4e0;
@@ -42,7 +42,10 @@ h3{font-size:16px;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold
 p{font-size:clamp(13px,1.5vw,16px);line-height:1.8;color:rgba(245,240,232,0.75); margin-bottom: 12px;}
 em.fr, .fr, .fr-text {font-size:0.9em;color:rgba(245,240,232,0.45);font-style:italic;}
 
+
 /* Utility Colors used in 08-12 */
+.en-note { color: rgba(245, 240, 232, 0.45); font-size: 11.5px; font-family: 'DM Mono', monospace; line-height: 1.4; margin-top: 6px; display: block; border-left: 2px solid rgba(255,255,255,0.1); padding-left: 8px; }
+
 .red, .highlight { color: var(--red); font-weight:600; }
 .gold, .brown { color: var(--gold); }
 .blue, .night-blue { color: var(--blue2); }
@@ -94,89 +97,121 @@ h2.red, h2.gold, h2.brown, h2.blue, h2.bamboo, h2.leaf-grn { margin-top:0; margi
     <div class="seal">诗</div>
     <h1>第十课：诗词 —— 格律与意象</h1>
     <h3 class="blue" style="margin-top:20px; font-family: var(--font-fr);">Leçon X : La Poésie Classique — Métrique et Système Symbolique</h3>
-    <div style="width: 80px; height: 1px; background: var(--ink); margin: 40px auto;"></div>
-    <p style="font-size:18px; color:#666; letter-spacing:4px; text-transform:uppercase;">Université du Luxembourg · 文化对比系列</p>
+    <div style="width: 80px; height: 1px; background: var(--paper); margin: 40px auto; opacity: 0.3;"></div>
+    <p style="font-size:18px; color:rgba(255,255,255,0.6); letter-spacing:4px; text-transform:uppercase;">Université du Luxembourg · 文化对比系列</p>
   </div>
 
-  <!-- ================= PAGE 2: CORE SVGs ================= -->
+    <!-- ================= PAGE 2: CORE SVGs ================= -->
   <div class="slide bg-dark" id="slide-2">
-    <h2 class="red">核心甲骨文 · Les Caractères Originels</h2>
-    <h3>诗歌体裁的象形溯源</h3>
-    
-    <div class="four-col" style="margin-top:40px;">
-      <div class="card" style="align-items:center; text-align:center; padding:20px 10px;">
+    <div class="slide-header">
+      <div class="slide-title"><h2 style="font-size:22px;color:var(--red);">核心甲骨文 · Les Caracteres Originels</h2><div class="fr">Etymologie Poetique — Origines des Caracteres de la Poesie</div></div>
+      <span class="page-num">02</span>
+    </div>
+    <div class="five-col" style="margin-top:20px;">
+      <div class="card" style="align-items:center; text-align:center; padding:16px 10px;">
         <div class="picto">
-          <!-- 诗: Words + Foot (going forward/expressing) -->
-          <svg viewBox="0 0 100 100">
-            <!-- 言 on left, 之 on right (simplified for bone script concept) -->
-            <path d="M20 30 L40 30 M25 45 L35 45 M20 60 L40 60 M30 30 L30 80" />
-            <path d="M60 20 L80 20 M70 20 L70 80 M55 80 L85 80" />
-            <path d="M70 50 C60 60 80 80 70 80" />
-          </svg>
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/swjz/1658.svg" style="height:100%; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(30deg);" />
         </div>
-        <p style="font-size:28px; font-weight:600; margin:10px 0;">诗 (詩)</p>
-        <em class="fr" style="font-size:16px;">Poésie (La parole dirigée du cœur)</em>
+        <p style="font-size:26px; font-weight:600; margin:8px 0;">诗 (詩)</p>
+        <em class="fr" style="font-size:13px;">Poesie — La parole dirigee du coeur</em>
+        <p style="font-size:12px;margin-top:8px;line-height:1.6;">言（言语）+ 寺（持）：持续向前行进的语言。诗是有方向感的言语，直指内心深处。</p>
+        <p><em class="fr" style="font-size:11px;">Parole (言) + Direction (寺) : le langage qui avance avec intention vers le coeur.</em></p>
+        <span class="en-note">Shi (詩): "Words" + "holding/directed." Poetry is language with direction and purpose — not random speech, but words aimed at the heart. The oracle-bone form shows a foot moving forward: poetry goes somewhere.</span>
       </div>
 
-      <div class="card" style="align-items:center; text-align:center; padding:20px 10px;">
+      <div class="card" style="align-items:center; text-align:center; padding:16px 10px;">
         <div class="picto">
-          <!-- 歌: Brother/Singing + Yawn/Mouth -->
-          <svg viewBox="0 0 100 100">
-            <path d="M25 20 L45 20 L45 40 L25 40 Z M35 20 L35 80" />
-            <!-- Open mouth / breath on right -->
-            <path d="M65 30 C55 50 85 70 65 90 M60 30 L75 15 M70 15 L80 25" />
-          </svg>
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/swjz/6277.svg" style="height:100%; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(30deg);" />
         </div>
-        <p style="font-size:28px; font-weight:600; margin:10px 0;">歌</p>
-        <em class="fr" style="font-size:16px;">Chanson (Souffle vocal exprimé)</em>
+        <p style="font-size:26px; font-weight:600; margin:8px 0;">歌</p>
+        <em class="fr" style="font-size:13px;">Chanson — Souffle vocal exprime</em>
+        <p style="font-size:12px;margin-top:8px;line-height:1.6;">哥（兄，双口呼号）+ 欠（张口呵气）：两个开口呼喊的人，配合呵气动作，音乐因此而生。</p>
+        <p><em class="fr" style="font-size:11px;">Frere (哥, double bouche) + Haleine (欠, bouche ouverte) : deux voix conjuguees qui font naitre la musique.</em></p>
+        <span class="en-note">Ge (歌): "Elder brother/double mouth" + "exhale/yawn." Two open mouths breathing out together — the physical act of singing encoded in the character. Poetry and song were inseparable in ancient China; the Shijing was originally meant to be performed, not read silently.</span>
       </div>
 
-      <div class="card" style="align-items:center; text-align:center; padding:20px 10px;">
-        <div class="picto">
-          <!-- 风: Insect / Wind spreading -->
-          <svg viewBox="0 0 100 100">
-            <path d="M20 20 C40 10 60 10 80 20 M20 20 C10 50 20 80 40 90 M80 20 C90 50 80 80 60 90 M40 90 C50 80 50 80 60 90" />
-            <!-- Inner insect/motion -->
-            <path d="M50 30 L50 70 M40 40 L60 40 M40 60 L60 60" />
-          </svg>
+      <div class="card" style="align-items:center; text-align:center; padding:16px 10px;">
+        <div class="picto" style="display:flex; justify-content:center; align-items:center; gap:6px;">
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/icon_svg/%E9%A2%A8.svg" style="height:100%; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(30deg);" />
         </div>
-        <p style="font-size:28px; font-weight:600; margin:10px 0;">风 (風)</p>
-        <em class="fr" style="font-size:16px;">Vent/Folklore (Mœurs populaires)</em>
+        <p style="font-size:26px; font-weight:600; margin:8px 0;">风 (風)</p>
+        <em class="fr" style="font-size:13px;">Vent / Folklore — Moeurs populaires</em>
+        <p style="font-size:12px;margin-top:8px;line-height:1.6;">凤（凤鸟）+ 虫（蠕动的生灵）：风像鸟翅扇动，无处不至，携带着各地民俗。《诗经》"十五国风"正是各地民歌之总汇。</p>
+        <p><em class="fr" style="font-size:11px;">Oiseau phenix (凤) + Creature vivante : le vent comme aile d'oiseau, portant les moeurs populaires de region en region.</em></p>
+        <span class="en-note">Feng (風): Originally "phoenix" + "insect/creature." The wind carries folk songs from village to village like a bird carrying seeds. The "Fifteen Guofeng" (十五国风) of the Shijing are folk songs from 15 different states — oral poetry collected and edited by Confucius himself.</span>
       </div>
 
-      <div class="card" style="align-items:center; text-align:center; padding:20px 10px;">
+      <div class="card" style="align-items:center; text-align:center; padding:16px 10px;">
         <div class="picto">
-          <!-- 雅: Bird / Crow -->
-          <svg viewBox="0 0 100 100">
-            <path d="M30 40 L45 30 L60 40 L70 30 L80 40 M30 60 L45 50 L60 60 M50 20 C40 30 40 70 50 80" />
-            <circle cx="65" cy="35" r="3" fill="var(--ink)" />
-          </svg>
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/swjz/2587.svg" style="height:100%; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(30deg);" />
         </div>
-        <p style="font-size:28px; font-weight:600; margin:10px 0;">雅</p>
-        <em class="fr" style="font-size:16px;">Élégance (Musique de cour)</em>
+        <p style="font-size:26px; font-weight:600; margin:8px 0;">雅</p>
+        <em class="fr" style="font-size:13px;">Elegance — Musique de cour</em>
+        <p style="font-size:12px;margin-top:8px;line-height:1.6;">牙（鸦鸟）+ 隹（短尾鸟）：本义为鸦鸟的鸣叫，引申为标准、正统。"雅乐"是贵族宫廷音乐，与民间"俗乐"相对。</p>
+        <p><em class="fr" style="font-size:11px;">Corbeau (鸦) + Oiseau a courte queue : le cri du corbeau comme modele sonore; par extension, le standard elegance et la musique de cour officielle.</em></p>
+        <span class="en-note">Ya (雅): Originally a crow-like bird's call — the "correct" sound. Extended to mean standard, elegant, orthodox. The "Ya" section of the Shijing contains court banquet music and official ceremonial songs for the Zhou aristocracy. The opposite of "Su" (俗, vulgar/popular).</span>
+      </div>
+
+      <div class="card" style="align-items:center; text-align:center; padding:16px 10px;">
+        <div class="picto" style="display:flex; justify-content:center; align-items:center; gap:6px;">
+          <img src="https://ziphoenicia-1300189285.cos.ap-shanghai.myqcloud.com/icon_svg/%E6%9C%88.svg" style="height:100%; object-fit:contain; filter: invert(0.8) sepia(1) saturate(3) hue-rotate(30deg);" />
+        </div>
+        <p style="font-size:26px; font-weight:600; margin:8px 0;">月</p>
+        <em class="fr" style="font-size:13px;">La Lune — Nostalgie universelle</em>
+        <p style="font-size:12px;margin-top:8px;line-height:1.6;">甲骨文为月牙之形（弯月）。月圆象征团圆，月缺象征离散。中国诗中"月"出现逾3万次，是最高频的意象符号。</p>
+        <p><em class="fr" style="font-size:11px;">Forme du croissant de lune en oracle. La pleine lune symbolise la reunion familiale; le croissant, la separation. «Lune» apparait plus de 30 000 fois dans la poesie classique chinoise.</em></p>
+        <span class="en-note">Yue (月): Oracle bone form is a crescent shape with a dot inside (star visible within the moon). The most frequent image in all of classical Chinese poetry — appearing over 30,000 times. Full moon = family reunion; crescent = separation. The moon is the emotional Wi-Fi connecting the separated.</span>
       </div>
     </div>
   </div>
 
-  <!-- ================= PAGE 3: Poetry Function ================= -->
+
+
+    <!-- ================= PAGE 3: Poetry Function ================= -->
   <div class="slide bg-empire" id="slide-3">
-    <div class="two-col">
-      <div style="padding-right:40px; border-right:1px solid var(--shadow);">
-        <h2 class="blue">《诗经》的社会政治功能</h2>
-        <h3>La Poésie comme Langage Diplomatique et Rituel</h3>
-        <p>在中国古代，诗歌从未仅仅是“纯文学”（Littérature pure）。在孔子的时代（《诗经》），诗歌是<b>外交辞令、礼仪规范和政治谈判</b>的最高级形式。所谓“不学诗，无以言”。</p>
-        <p><em class="fr">Dans la Chine antique, le « Classique des Poèmes » (Shijing) n'était pas de l'art pour l'art. C'était la lingua franca de la diplomatie féodale, un code rituel indispensable pour la communication politique et la gouvernance.</em></p>
+    <div class="slide-header">
+      <div class="slide-title"><h2 style="font-size:22px;color:var(--blue2);">《诗经》的社会政治功能</h2><div class="fr">Le Shijing — Poesie comme Langue Diplomatique, Rituelle et Politique</div></div>
+      <span class="page-num">03</span>
+    </div>
+    <div class="two-col" style="margin-top:8px;">
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="card" style="border-left-color:var(--blue2);">
+          <h3 style="color:var(--blue2);">诗歌即外交 · La Poesie comme Diplomatie</h3>
+          <p>在中国古代，诗歌从未仅仅是"纯文学"。孔子时代，《诗经》是<b>外交辞令、礼仪规范和政治谈判</b>的最高级形式。<span class="gold">「不学诗，无以言」</span>——不懂《诗经》，你就无法开口讲话。</p>
+          <p><em class="fr">Dans la Chine antique, le <i>Shijing</i> (Classique des Poemes, ~1000-600 av. J.-C.) n'etait jamais de l'art pour l'art. C'etait la <b>lingua franca de la diplomatie feodale</b> : un code rituel indispensable pour la communication politique entre les elites.</em></p>
+          <span class="en-note">Confucius said: "Without studying the Odes, one has nothing to say." At Zhou-dynasty diplomatic banquets, nobles would quote specific Shijing verses to express political intentions — alliances, warnings, gratitude — without direct speech. To misquote or misunderstand a verse was a diplomatic catastrophe. Poetry was the encryption language of power.</span>
+        </div>
+        <div class="quote-box">
+          <span class="gold">「诗三百，一言以蔽之，曰：思无邪」</span> — 孔子《论语》<br>
+          <em class="fr">«Les trois cents poemes, en un mot : sans pensees deviantes.» — Confucius, Entretiens</em><br>
+          <span class="en-note">Confucius's most important statement about the Shijing: all 305 poems, in one phrase, are "without deviance." For Confucius, poetry was a moral mirror — it simultaneously expressed and cultivated virtue. This is why he included it in the official curriculum for gentlemen (junzi).</span>
+        </div>
       </div>
-      <div>
-        <h3 style="color:var(--seal-red); margin-bottom:15px;">风、雅、颂 (Feng, Ya, Song)</h3>
-        <p>《诗经》分为三类：<br>
-        1. <b>风 (Feng):</b> 民间歌谣 (Chants populaires)<br>
-        2. <b>雅 (Ya):</b> 贵族朝会乐歌 (Musique de Cour Élégante)<br>
-        3. <b>颂 (Song):</b> 宗庙祭祀之音 (Hymnes Sacrificiels)</p>
-        <p><em class="fr">Comme pour l'architecture, la poésie classique est structurée pour refléter l'ordre cosmique et l'harmonie confucéenne entre le souverain, le peuple et les cieux.</em></p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="card" style="border-left-color:var(--gold);">
+          <h3>风、雅、颂 · Feng, Ya, Song — Trois Registres</h3>
+          <p>《诗经》305首诗分为三大类，各有其社会功能：</p>
+          <div style="display:grid;grid-template-columns:1fr;gap:7px;margin-top:8px;">
+            <div style="background:rgba(0,0,0,0.3);padding:8px;border-left:3px solid var(--jade2);">
+              <span style="color:var(--jade2);font-size:13px;font-weight:600;">风 Feng · Chants populaires</span><br>
+              <span style="font-size:12px;line-height:1.6;">160首民间歌谣（恋爱、农耕、战争、哀悼）。来自15个诸侯国。是社会现实的原始记录。<br><em class="fr" style="font-size:11px;">160 chansons folkloriques — amour, agriculture, guerre, deuil. Document social brut de 15 etats feodaux.</em></span>
+            </div>
+            <div style="background:rgba(0,0,0,0.3);padding:8px;border-left:3px solid var(--gold);">
+              <span style="color:var(--gold);font-size:13px;font-weight:600;">雅 Ya · Musique de Cour</span><br>
+              <span style="font-size:12px;line-height:1.6;">105首贵族朝会、宴飨乐歌，歌颂周王室功德。区分"大雅"（朝廷）与"小雅"（贵族宴会）。<br><em class="fr" style="font-size:11px;">105 odes de cour — banquets nobles, celebration de la vertu royale Zhou. Grande Ya (cour) vs Petite Ya (banquets).</em></span>
+            </div>
+            <div style="background:rgba(0,0,0,0.3);padding:8px;border-left:3px solid var(--red);">
+              <span style="color:var(--red2);font-size:13px;font-weight:600;">颂 Song · Hymnes Sacrificiels</span><br>
+              <span style="font-size:12px;line-height:1.6;">40首宗庙祭祀颂歌，是与神灵、祖先沟通的礼仪音乐。最古老，最神圣。<br><em class="fr" style="font-size:11px;">40 hymnes sacrificiels pour communiquer avec les ancetres et les dieux. Les plus anciens, les plus sacres.</em></span>
+            </div>
+          </div>
+        </div>
+        <span class="en-note">The three-tier structure (Folk Songs → Court Odes → Sacred Hymns) mirrors the Confucian social pyramid: commoners → aristocrats → Heaven. Together they form a complete cultural archive of Zhou China — the world's oldest organized anthology of poetry, assembled c. 600 BCE. Confucius reportedly edited it from 3,000+ original poems down to 305.</span>
       </div>
     </div>
   </div>
+
+
 
   <!-- ================= PAGE 4: Metrical Rules ================= -->
   <div class="slide bg-culture" id="slide-4">
@@ -187,54 +222,154 @@ h2.red, h2.gold, h2.brown, h2.blue, h2.bamboo, h2.leaf-grn { margin-top:0; margi
       <div>
         <p>唐诗（特别是律诗）建立在极其苛刻的数学化声调体系上：<b>平仄 (Pingze - Tons plats et obliques)</b>。这要求字音的高低长短必须交错，形成音乐般的起伏。</p>
         <p><em class="fr">La poésie régulée (Lüshi) des Tang impose des contraintes redoutables. Les caractères sont scindés en tons plats (longs/constants) et obliques (courts/modulés), générant une architecture sonore mathématique.</em></p>
-        <p><b>对仗 (Duizhang - Parallélisme)</b>则要求名对名、动对动（如"天"对"地"，"雨"对"风"），创造视觉与语义的绝对平衡。</p>
+<p class="en-note"><strong>EN:</strong> Regulated poetry (Lüshi) of the Tang Dynasty imposes rigorous constraints. Characters are divided into "level" (flat/long) and "oblique" (modulated/short) tones, generating a mathematical, musical architecture of sound across the verses.</p>
+
+        <p><strong>对仗 (Duizhang - Parallélisme)</strong>则要求名对名、动对动（如"天"对"地"，"雨"对"风"），创造视觉与语义的绝对平衡。</p>
+<p class="en-note"><strong>EN:</strong> "Duizhang" (Parallelism) requires nouns to match nouns and verbs to match verbs (e.g., "Heaven" matches "Earth", "Rain" matches "Wind"), creating an absolute visual and semantic equilibrium.</p>
+        <p style="margin-top:10px;">这种声调与结构的双重束缚，不仅是为了听觉上的悦耳，更是为了在方块字的矩阵中再现宇宙的阴阳平衡平衡法则。</p>
+        <p><em class="fr">Ce double carcan tonal et temporel n'est pas seulement pour le plaisir auditif, mais pour reproduire les lois de l'équilibre cosmique (Yin/Yang) dans la matrice des caractères carrés.</em></p>
+        <p class="en-note"><strong>EN:</strong> This dual constraint of tone and structure is not merely for auditory pleasure, but to reproduce the cosmic laws of Yin and Yang equilibrium within the matrix of square characters.</p>
       </div>
       <div class="card" style="background:#151318; color:var(--paper);">
         <h3 style="color:#d4a345;">书法哲学的复现</h3>
         <p>与书法和“榫卯”一样，律诗的本质是：<br><b>在极其严苛的物理框架内，探寻最大的精神自由。</b></p>
         <p><em class="fr">À l'instar de la calligraphie chinoise, l'objectif n'est pas d'écrire sans règles, mais de transcender une cage structurelle (les règles tonales intraitables) pour atteindre la pure liberté de l'esprit émotionnel (le Yi).</em></p>
+<p class="en-note"><strong>EN:</strong> Similar to Chinese calligraphy, the goal is not to write without rules, but to transcend a rigid structural cage (the intractable tonal rules) to achieve pure freedom of the emotional spirit (Yi).</p>
+        <p style="margin-top:10px;">最伟大的诗人不仅能精密的遵守这些数学般的规则，还能在严丝合缝的字句中流露出不留痕迹的、浑然天成的自然之美，这就是所谓的“带着镣铐跳舞”。</p>
+        <p><em class="fr">Les plus grands poètes respectent ces règles mathématiques tout en dégageant une beauté naturelle sans trace d'effort, ce que l'on appelle "danser avec des chaînes".</em></p>
+        <p class="en-note"><strong>EN:</strong> The greatest poets strictly obey these mathematical rules while effortlessly exuding a natural, seemingly uncrafted beauty—a practice known as "dancing in shackles."</p>
       </div>
     </div>
   </div>
 
-  <!-- ================= PAGE 5: Structural Example ================= -->
-  <div class="slide bg-jade" id="slide-5">
-    <h2 class="red">平仄与对仗展示：杜甫的忧愁</h2>
-    <h3>Exemple de Symétrie absolue (Du Fu)</h3>
-    
-    <p>杜甫《春望》 (Le Printemps contemplé) 是“对仗”的极致体现。视觉、听觉、情感完全对称。</p>
-    
-    <div class="two-col" style="margin-top:20px;">
-      <div class="card" style="font-size:24px; text-align:center; padding:40px; font-weight:600;">
-        <p style="color:var(--seal-red); margin-bottom:5px;">国<span style="color:#666">破</span> · 山河<span style="color:#666">在</span></p>
-        <p style="font-size:16px; margin-bottom:30px; font-weight:normal;">L'État [est] détruit · Montagnes & Fleuves subsistent</p>
-        
-        <p style="color:var(--night-blue); margin-bottom:5px;">城<span style="color:#666">春</span> · 草木<span style="color:#666">深</span></p>
-        <p style="font-size:16px; font-weight:normal;">Cité [au] printemps · Herbes & Arbres s'épaississent</p>
+    <!-- ================= PAGE 5: Structural Example ================= -->
+  <div class="slide bg-jade" id="slide-5" style="overflow-y:auto; padding-bottom:80px;">
+    <div class="slide-header">
+      <div class="slide-title"><h2 style="font-size:22px;color:var(--red);">平仄与对仗展示：杜甫的忧愁</h2><div class="fr">Demonstration de Symetrie Absolue — Du Fu, «Contemplation du Printemps» (春望)</div></div>
+      <span class="page-num">05</span>
+    </div>
+    <div class="two-col" style="margin-top:8px;">
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="card" style="border-left-color:var(--red);background:rgba(20,5,5,0.6);">
+          <h3 style="color:var(--red2);text-align:center;font-size:18px;letter-spacing:0.2em;">杜甫《春望》755 CE</h3>
+          <div style="text-align:center;margin:12px 0;line-height:2.2;font-size:20px;font-family:'Noto Serif SC',serif;">
+            <p style="margin:0;"><span style="color:var(--red2);">国</span><span style="color:rgba(255,255,255,0.5);">破</span> · <span style="color:var(--blue2);">山河</span><span style="color:rgba(255,255,255,0.5);">在</span></p>
+            <p style="font-size:12px;color:rgba(255,255,255,0.45);margin:0 0 8px 0;">L'Etat [est] detruit · Montagnes &amp; Fleuves persistent</p>
+            <p style="margin:0;"><span style="color:var(--red2);">城</span><span style="color:rgba(255,255,255,0.5);">春</span> · <span style="color:var(--blue2);">草木</span><span style="color:rgba(255,255,255,0.5);">深</span></p>
+            <p style="font-size:12px;color:rgba(255,255,255,0.45);margin:0 0 14px 0;">La cite [au] printemps · Herbes &amp; Arbres s'epaississent</p>
+            <p style="margin:0;"><span style="color:var(--gold);">感时</span> · <span style="color:var(--jade2);">花</span><span style="color:rgba(255,255,255,0.5);">溅泪</span></p>
+            <p style="font-size:12px;color:rgba(255,255,255,0.45);margin:0 0 8px 0;">Emu par l'epoque · Les fleurs font jaillir les larmes</p>
+            <p style="margin:0;"><span style="color:var(--gold);">恨别</span> · <span style="color:var(--jade2);">鸟</span><span style="color:rgba(255,255,255,0.5);">惊心</span></p>
+            <p style="font-size:12px;color:rgba(255,255,255,0.45);margin:0 0 0 0;">La douleur de separation · Les oiseaux brisent le coeur</p>
+          </div>
+        </div>
       </div>
-      <div>
-        <p><b>解构：</b> “国”与“城”对仗（名词对名词）；“破”与“春”对状态；“山河”与“草木”对仗。这种结构类似于建筑中的古典双开门。</p>
-        <p><em class="fr">L'architecture du vers est un miroir parfait. "État" fait face à "Cité", "Montagnes/Fleuves" à "Herbes/Arbres". Cette rigidité formelle amplifie paradoxalement la douleur chaotique du poète face à la guerre.</em></p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="card" style="border-left-color:var(--gold);">
+          <h3>结构解码 · Decryptage Structurel</h3>
+          <p><b>对仗分析（Parallelisme）：</b></p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:12px;margin:8px 0;">
+            <div style="background:rgba(0,0,0,0.3);padding:7px;">
+              <div style="color:var(--red2);margin-bottom:3px;font-size:11px;">名词对 · Noms</div>
+              国 (Etat) ↔ 城 (Cite)<br>
+              山河 (Mts/Fleuves) ↔ 草木 (Herbes/Arbres)<br>
+              花 (Fleur) ↔ 鸟 (Oiseau)
+            </div>
+            <div style="background:rgba(0,0,0,0.3);padding:7px;">
+              <div style="color:var(--blue2);margin-bottom:3px;font-size:11px;">动词对 · Verbes</div>
+              破 (detruit) ↔ 春 (printemps)<br>
+              在 (existe) ↔ 深 (s'epaissit)<br>
+              溅泪 (fait pleurer) ↔ 惊心 (brise le coeur)
+            </div>
+          </div>
+          <p style="font-size:12px;line-height:1.6;"><em class="fr">L'architecture du vers est un miroir parfait. La rigidite formelle extreme amplifie paradoxalement la douleur chaotique du poete face a la guerre : la nature (fleurs, oiseaux) persiste, indifferente, tandis que la civilisation s'effondre.</em></p>
+          <span class="en-note">Written during the An Lushan Rebellion (755–763 CE), one of history's deadliest wars (est. 36 million dead). Du Fu watches the capital Luoyang in ruins. The formal perfection of the poem creates a devastating contrast with its content: the tighter the structure, the more unbearable the chaos it contains.</span>
+        </div>
+        <div class="card" style="border-left-color:var(--jade2);">
+          <h3 style="color:var(--jade2);">平仄音律 · Schema Tonal</h3>
+          <p style="font-size:12px;line-height:1.7;">每个汉字在诗中必须遵循严格的声调序列：<b>平声</b>（阴平/阳平，长音）与<b>仄声</b>（上/去/入声，短促调）必须交错排列，产生音乐般的起伏韵律。</p>
+          <p style="font-size:13px;text-align:center;letter-spacing:0.25em;margin:8px 0;font-family:'DM Mono',monospace;">
+            <span style="color:var(--gold);">仄</span><span style="color:rgba(255,255,255,0.4);">仄</span> · <span style="color:var(--gold);">平</span><span style="color:rgba(255,255,255,0.4);">平</span><span style="color:var(--gold);">仄</span><br>
+            <span style="color:rgba(255,255,255,0.4);font-size:10px;">国破 · 山河在</span>
+          </p>
+          <p><em class="fr" style="font-size:11px;">Chaque caractere doit suivre une sequence stricte : tons plats (平, longs) vs tons obliques (仄, courts/module) — une architecture sonore aussi precise que la musique serielle.</em></p>
+          <span class="en-note">The tonal pattern of regulated verse (律诗 Lushi) follows rules as strict as serial music. Each of the 8 lines must follow a prescribed pattern of level vs. oblique tones. Violating even one tone makes the poem technically invalid — regardless of its emotional power. The greatest poets make this invisible.</span>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- ================= PAGE 6: Imagery System ================= -->
-  <div class="slide bg-oracle" id="slide-6">
-    <div class="two-col">
-      <div>
-        <h2 class="plum">意象系统 (Yìxiàng)</h2>
-        <h3>Le Système de Codage Culturel (Images)</h3>
-        <p>中国诗歌不重长篇叙事（如西方的《荷马史诗》），而重“抒情”。为了在脱离复杂从句的短短几十个字内传达极大的信息量，中国人发展出了宏大的<b>意象解码系统</b>。</p>
-        <p><em class="fr">La poésie chinoise rejette l'épopée narrative kilométrique. Elle repose sur le lyrisme et un système d'"Images-Signes" (Yixiang) où chaque élément naturel est crypté avec des émotions morales et historiques de haute densité.</em></p>
+
+
+    <!-- ================= PAGE 6: Imagery System ================= -->
+  <div class="slide bg-oracle" id="slide-6" style="overflow-y:auto; padding-bottom:80px;">
+    <div class="slide-header">
+      <div class="slide-title"><h2 style="font-size:22px;color:var(--purple2);">意象系统 (Yixiang) · Le Systeme de Codage Poetique</h2><div class="fr">Nature as Encrypted Emotion — Comment la Nature Devient Code Culturel</div></div>
+      <span class="page-num">06</span>
+    </div>
+    <div class="two-col" style="margin-top:8px;">
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="card" style="border-left-color:var(--purple2);">
+          <h3 style="color:var(--purple2);">意象的定义 · Definition du Yixiang</h3>
+          <p>中国诗歌不重长篇叙事（如西方《荷马史诗》），而重"<b>抒情</b>"。在短短20-40字内传达极大的信息量，中国人发展出了宏大的<b>意象解码系统</b>：每一个自然元素都携带着固定的情感、道德与历史密码。</p>
+          <p><em class="fr">La poesie chinoise rejette l'epopee narrative (Homere, Virgile). Elle repose sur le lyrisme pur et un systeme d'«Images-Signes» (意象 Yixiang) : chaque element naturel est <b>crypte</b> avec des emotions morales et historiques de haute densite. La nature devient un langage secret partage.</em></p>
+          <span class="en-note">The Yixiang system works because educated Chinese readers share a vast common library of symbolic associations built over 3,000 years of poetry. When Li Bai writes "moonlight," every reader simultaneously accesses: homesickness, the Mid-Autumn Festival, family reunion, exile, and cosmic loneliness — all in two characters (明月).</span>
+        </div>
+        <div class="card" style="border-left-color:var(--gold);">
+          <h3>月 (La Lune) · Le Terminal de Nostalgie</h3>
+          <p>月亮是中国文化中最核心的意象符号。<span class="gold">「举头望明月，低头思故乡」</span>（李白）——望月即是思乡，这是中国人心中的情感公理。</p>
+          <p><em class="fr">La lune est le symbole dominant de toute la poesie classique. «Lever la tete, voir la lune brillante / Baisser la tete, penser a mon village natal» (Li Bai). La lune est le <b>serveur terminal de la nostalgie</b> : quiconque la regarde partage le meme espace emotionnel que ses proches a 1000 km.</em></p>
+          <span class="en-note">The moon appears in Chinese poetry over 30,000 times. It creates emotional connection across distance — the same moon seen by the exiled official and his family at home. Compare with French: "la lune" is mostly astronomical or romantic (Verlaine). In Chinese, it carries a specific emotional frequency: homesickness + separation + the longing for reunion.</span>
+        </div>
       </div>
-      <div class="card">
-        <h3 class="red" style="margin-bottom:15px;">月 (La Lune)</h3>
-        <p>月亮是中国文化中最核心的思乡终端服务器。李白“举头望明月，低头思故乡”。</p>
-        <p><em class="fr">La lune n'est jamais un astre mort. C'est le serveur terminal de la nostalgie familiale et de l'unité. Quiconque regarde la lune partage le même espace émotionnel que son ami à 1000 km de là.</em></p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="card" style="border-left-color:var(--jade2);">
+          <h3 style="color:var(--jade2);">常见意象密码表 · Table des Codes Poetiques</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:12px;">
+            <div style="background:rgba(0,0,0,0.3);padding:8px;">
+              <div style="color:var(--gold);margin-bottom:4px;font-weight:600;">🌙 月 Lune</div>
+              思乡 · Nostalgie familiale<br>
+              团圆/离散 · Reunion/Separation<br>
+              <em class="fr" style="font-size:10px;">Terminal emotionnel universel</em>
+            </div>
+            <div style="background:rgba(0,0,0,0.3);padding:8px;">
+              <div style="color:var(--purple2);margin-bottom:4px;font-weight:600;">🍂 秋 Automne</div>
+              悲凉、衰老、别离 · Melancolie<br>
+              政治失意 · Echec politique<br>
+              <em class="fr" style="font-size:10px;">Saison du deuil intellectuel</em>
+            </div>
+            <div style="background:rgba(0,0,0,0.3);padding:8px;">
+              <div style="color:var(--blue2);margin-bottom:4px;font-weight:600;">🌊 水/江 Eau/Fleuve</div>
+              时间流逝 · Temps qui passe<br>
+              离别 · Adieu<br>
+              <em class="fr" style="font-size:10px;">Metaphore du temps irreversible</em>
+            </div>
+            <div style="background:rgba(0,0,0,0.3);padding:8px;">
+              <div style="color:var(--red2);margin-bottom:4px;font-weight:600;">🌸 落花 Fleurs tombantes</div>
+              青春逝去 · Jeunesse perdue<br>
+              王朝覆灭 · Chute dynastique<br>
+              <em class="fr" style="font-size:10px;">La beaute comme fragilite tragique</em>
+            </div>
+            <div style="background:rgba(0,0,0,0.3);padding:8px;">
+              <div style="color:var(--jade2);margin-bottom:4px;font-weight:600;">🐦 雁 Oies sauvages</div>
+              传递音讯 · Messageries lointaines<br>
+              游子思乡 · Exil et nostalgie<br>
+              <em class="fr" style="font-size:10px;">L'oiseau qui porte les lettres perdues</em>
+            </div>
+            <div style="background:rgba(0,0,0,0.3);padding:8px;">
+              <div style="color:var(--gold2);margin-bottom:4px;font-weight:600;">🌲 松 Pin</div>
+              长寿、坚贞不渝 · Longevite<br>
+              高洁节操 · Integrite morale<br>
+              <em class="fr" style="font-size:10px;">Vertu indestructible face au temps</em>
+            </div>
+          </div>
+        </div>
+        <span class="en-note">The Yixiang system is the reason Chinese poetry is so difficult to translate. A translator can render the words "wild geese" but not the automatic emotional-historical package every Chinese reader receives: separation, news from home, autumn, exile, the Tang frontier. The image is a compression algorithm for 3,000 years of shared cultural memory.</span>
       </div>
     </div>
   </div>
+
+
 
   <!-- ================= PAGE 7: Flora Decoding ================= -->
   <div class="slide bg-dark" id="slide-7">
@@ -246,100 +381,263 @@ h2.red, h2.gold, h2.brown, h2.blue, h2.bamboo, h2.leaf-grn { margin-top:0; margi
         <h3 style="color:var(--plum); font-size:22px; text-align:center;">梅 (Prunier)</h3>
         <p style="font-size:16px;">由于在严冬大雪中独自绽放，梅花编码了知识分子<b>“傲骨”于昏庸政局、不屈服的清高</b>。</p>
         <p><em class="fr" style="font-size:16px; line-height:1.4;">Fleurissant sous la neige, il incarne l'intégrité intellectuelle tenace refusant de se corrompre face à un pouvoir obscur.</em></p>
+<p class="en-note"><strong>EN:</strong> Blooming alone in the bitter winter snow, the plum blossom encodes the tenacious "proud bones" of intellectuals, refusing to bow or corrupt themselves before dark political powers.</p>
       </div>
       
       <div class="card" style="border-top:4px solid var(--bamboo);">
         <h3 style="color:var(--bamboo); font-size:22px; text-align:center;">竹 (Bambou)</h3>
         <p style="font-size:16px;">中空（虚心），外直，有节（气节）。微风中弯曲而不折断，代表了儒家修养中<b>坚韧与妥协的平衡</b>。</p>
         <p><em class="fr" style="font-size:16px; line-height:1.4;">Creux (modeste) et articulé (intègre). Il plie mais ne rompt pas. Symbole de la flexibilité morale et de l'humilité.</em></p>
+<p class="en-note"><strong>EN:</strong> Hollow inside (modesty) and straight outside with joints (integrity). It bends in the wind but never breaks, symbolizing the Confucian balance of resilience, moral flexibility, and humility.</p>
       </div>
 
       <div class="card" style="border-top:4px solid #d4a345;">
         <h3 style="color:#d4a345; font-size:22px; text-align:center;">菊 (Chrysanthème)</h3>
         <p style="font-size:16px;">秋天盛开，避开百花争艳的春天。陶渊明“采菊东篱下”，赋予其<b>隐士、淡泊名利、逃离世俗</b>的终极代码。</p>
         <p><em class="fr" style="font-size:16px; line-height:1.4;">Évitant le printemps, il fleurit en automne. Emblème ultime de l'ermite (Tao Yuanming) se retirant de la vanité politique.</em></p>
+<p class="en-note"><strong>EN:</strong> Blooming in autumn, it avoids competing with spring flowers. It is the ultimate emblem of the hermit (like Tao Yuanming), retreating from political vanity and worldly desires.</p>
       </div>
     </div>
   </div>
 
-  <!-- ================= PAGE 8: Philosophy of Poetry ================= -->
-  <div class="slide bg-empire" id="slide-8">
-    <h2 class="blue">诗言志：《中国思想史》的折射</h2>
-    <h3>"La Poésie exprime l'Intention" (Shi Yan Zhi)</h3>
-
-    <div class="two-col" style="margin-top:20px;">
-      <div>
-        <p>在西方，诗歌往往与神明、缪斯（Muses）的灵感附体有关。而在中国古典思想中，诗的源头极其人本化——<b>“诗言志，歌永言”</b>。</p>
-        <p><em class="fr">En Occident, l'inspiration poétique descend souvent des dieux ou des muses (Homère, Platon). En Chine, la poésie est purement humaniste, ancrée dans la volonté socio-politique et morale de l'auteur.</em></p>
-        <div class="quote-box" style="margin-top:10px;">
-          老庄思想（道家）赋予了古诗“空灵、留白”的视觉框架；而孔孟思想（儒家）赋予了古诗“忧国忧民”的底层悲剧感。
+    <!-- ================= PAGE 8: Philosophy of Poetry ================= -->
+  <div class="slide bg-empire" id="slide-8" style="overflow-y:auto; padding-bottom:80px;">
+    <div class="slide-header">
+      <div class="slide-title"><h2 style="font-size:22px;color:var(--blue2);">诗言志：诗歌作为人格镜像</h2><div class="fr">«La Poesie Exprime l'Intention» (Shi Yan Zhi) — Miroir de l'Ame Politique</div></div>
+      <span class="page-num">08</span>
+    </div>
+    <div class="two-col" style="margin-top:8px;">
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="card" style="border-left-color:var(--blue2);">
+          <h3 style="color:var(--blue2);">诗言志 vs 西方灵感论</h3>
+          <p>西方诗歌传统认为灵感来自神明（希腊缪斯女神）或神秘的超自然力量。中国古典思想则截然相反——<b>「诗言志，歌永言」</b>（《尚书·尧典》）：诗是人的主观意志、政治理想与道德情感的直接表达，完全<b>以人为本</b>。</p>
+          <p><em class="fr">La tradition occidentale attribue l'inspiration poetique aux dieux ou aux Muses (Homere, Platon). La pensee classique chinoise est a l'oppose : «La poesie exprime l'intention» (诗言志). La poesie est la voix directe de la <b>volonte humaine</b>, morale et politique — sans intermediaire divin.</em></p>
+          <span class="en-note">"Shi Yan Zhi" (诗言志, "Poetry expresses intention/will") from the Book of Documents (c. 600 BCE) is the foundational statement of Chinese poetics. It declares poetry to be fundamentally human, not divine — the exact opposite of the Platonic concept of poetic "mania" (divine madness) or Homer's invocation of the Muse.</span>
+        </div>
+        <div class="quote-box">
+          <span class="gold">「文以载道」</span> — 韩愈 · Tang Dynasty<br>
+          <em class="fr">«La litterature est le vehicule du Dao (de la Voie morale).» — Han Yu</em><br>
+          <span class="en-note">"Literature carries the Dao." Han Yu's (768–824) declaration became the official Confucian aesthetic doctrine: writing has a moral duty. Art for art's sake is not merely frivolous — it is irresponsible. Every poem must serve virtue, history, or governance.</span>
         </div>
       </div>
-      <div>
-        <p>因此，中国伟大的诗人（李白、杜甫、苏轼）首先是<b>政治家与哲学家</b>（官员/被贬谪的官员），其次才是文学家。他们的诗不是抽象的浪漫表达，而是政治流放途中对生命、道德与宇宙的叹息。</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="card" style="border-left-color:var(--gold);">
+          <h3>三大诗人：政治与诗歌的不可分割</h3>
+          <p>中国最伟大的诗人首先是<b>官员或被贬谪的官员</b>，其次才是文学家。他们的诗不是抽象的浪漫表达，而是政治流亡途中对生命、道德与宇宙的叹息。</p>
+          <div style="display:grid;grid-template-columns:1fr;gap:8px;margin-top:8px;">
+            <div style="background:rgba(0,0,0,0.3);padding:8px;border-left:3px solid var(--gold);">
+              <span style="color:var(--gold);font-size:13px;font-weight:600;">李白 Li Bai (701–762) · «L'Immortel ivre»</span><br>
+              <span style="font-size:12px;line-height:1.6;">道家浪漫主义诗仙。终身未获重用，借酒与月亮表达对自由与宇宙的渴望。<br><em class="fr" style="font-size:11px;">Le «Poete Immortel» taoiste. Jamais employe a sa mesure par la cour, il exprime la liberte cosmique et le vin comme verite.</em></span>
+              <span class="en-note">Li Bai spent most of his life wandering, briefly serving at court before being dismissed. His 1,000+ surviving poems celebrate wine, the moon, friendship, and cosmic freedom — the Daoist escape from Confucian obligation. His death (supposedly drunk, trying to embrace the moon's reflection) may be legendary but perfectly encodes his poetic persona.</span>
+            </div>
+            <div style="background:rgba(0,0,0,0.3);padding:8px;border-left:3px solid var(--red);">
+              <span style="color:var(--red2);font-size:13px;font-weight:600;">杜甫 Du Fu (712–770) · «Le Sage-Poete»</span><br>
+              <span style="font-size:12px;line-height:1.6;">儒家社会责任的最高体现。一生颠沛流离，以格律精严的诗记录安史之乱的人间地狱。<br><em class="fr" style="font-size:11px;">Le «Sage-Poete» confuceen. Refuge durant la guerre An Lushan, il documente la souffrance du peuple avec une precision metriculee.</em></span>
+              <span class="en-note">Du Fu never passed the imperial exam. He wandered during the An Lushan Rebellion witnessing mass death and destruction. His poems are the greatest war literature in Chinese history — the Confucian conscience forced to witness history's worst horror. He wrote over 1,400 surviving poems, many in perfect regulated verse.</span>
+            </div>
+            <div style="background:rgba(0,0,0,0.3);padding:8px;border-left:3px solid var(--blue2);">
+              <span style="color:var(--blue2);font-size:13px;font-weight:600;">苏轼 Su Shi (1037–1101) · «Dongpo»</span><br>
+              <span style="font-size:12px;line-height:1.6;">儒释道三合一的全才，多次遭贬。每次流放都以诗词化解悲剧，达到超然旷达的生命哲学。<br><em class="fr" style="font-size:11px;">Polymathie confuceo-bouddhiste-taoiste. Exile multiple fois, il transcende chaque tragedie politique par la poesie et la gastronomie.</em></span>
+              <span class="en-note">Su Dongpo was simultaneously a poet, painter, calligrapher, gastronome (inventor of Dongpo Pork), engineer, and government official. Exiled three times, each time to more remote locations, he turned each exile into a creative explosion. His "Red Cliff Odes" (赤壁赋), written while stranded, are among the greatest prose-poems in Chinese literature.</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- ================= PAGE 9: Translation Untranslatability ================= -->
-  <div class="slide bg-culture" id="slide-9">
-    <div class="two-col">
-      <div>
-        <h2 class="red">翻译的“失重”</h2>
-        <h3>L'Îlot Intraduisible : L'Écriture Visuelle</h3>
-        
-        <p>西方诗歌的基础是“声音/音节”（Phonologie）。法国诗句（Alexandrin）计算的是音节的数量（12个音节）。</p>
-        <p>然而，中文古诗不仅是听觉的，更是<b>视觉（方块字）</b>的。当你把《绝句》翻译成法语时，拼音字母破坏了汉字偏旁部首的象形矩阵，导致“诗意失重”。</p>
+
+
+    <!-- ================= PAGE 9: Translation Untranslatability ================= -->
+  <div class="slide bg-culture" id="slide-9" style="overflow-y:auto; padding-bottom:80px;">
+    <div class="slide-header">
+      <div class="slide-title"><h2 style="font-size:22px;color:var(--red);">翻译的"失重"· L'Intraduisible</h2><div class="fr">Why Classical Chinese Poetry Cannot Be Fully Translated — La Perte Visuelle</div></div>
+      <span class="page-num">09</span>
+    </div>
+    <div class="two-col" style="margin-top:8px;">
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="card" style="border-left-color:var(--red);">
+          <h3 style="color:var(--red2);">音节 vs 方块字 · Phonologie vs Ideographie</h3>
+          <p>西方诗歌的基础是<b>"声音/音节"（Phonologie）</b>。法国古典诗（亚历山大体 Alexandrin）计算12个音节，英语十四行诗计算抑扬格五音步（iambic pentameter）。而中文古诗不仅是听觉的，更是<b>视觉（方块字）</b>的——汉字本身就是画，携带偏旁部首的图像层。</p>
+          <p><em class="fr">La poesie occidentale repose sur la <b>phonologie</b> (syllabes, pieds metriques). L'Alexandrin compte 12 syllabes; le sonnet shakespearien compte ses iambes. La poesie chinoise classique est simultanement <b>sonore ET visuelle</b> : chaque caractere est une image portant ses radicaux graphiques.</em></p>
+          <span class="en-note">Chinese classical poetry operates on at least three simultaneous levels: (1) Sound: tones and rhyme. (2) Visual: the shape and radicals of each character. (3) Symbolic: the cultural encoding of each image. Western alphabetic translation can only capture layer 1 imperfectly, and destroys layers 2 and 3 entirely.</span>
+        </div>
+        <div class="card" style="border-left-color:var(--blue2);">
+          <h3 style="color:var(--blue2);">视觉联想的断裂 · La Rupture Visuelle</h3>
+          <p>以「清明时节雨纷纷」为例：连续出现的"<span style="color:var(--blue2);">氵</span>"（水字旁）在视觉上在页面上下起了一场雨。翻译成法文 <em>"Il pleut en cette période de Qingming"</em> — 语义完全正确，但水字旁在潜意识中制造的<b>视觉暴雨被彻底抹杀</b>了。</p>
+          <p><em class="fr">«清明时节雨纷纷» : le radical de l'eau «氵» apparait trois fois dans quatre caracteres (清, 时, 纷, 纷... dont les radicaux evoquent flux et mouvement). La traduction «Il pleut» est semantiquement correcte mais <b>detruit la matrice visuelle idéographique</b> — une couche de sens entierement perdue.</em></p>
+          <span class="en-note">"Qingming season, rain falls scattered" (清明时节雨纷纷) — the character 清 (clear/pure) contains 氵water + 青 blue-green. 纷纷 (scattered/profuse) contains 糸 silk/threads. The page itself rains. No alphabet can do this. It is the typography of nature.</span>
+        </div>
       </div>
-      <div class="card" style="justify-content:center;">
-        <h3 class="blue" style="margin-bottom:10px;">视觉联想的断裂</h3>
-        <p>像“清明时节雨纷纷”，汉字中连续的“氵”（水字旁）在视觉上就下起了一场暴雨。翻译成法文 "Il pleut", 尽管语义正确，但水部首的<b>潜意识视觉冲击被完全抹杀了</b>。</p>
-        <p><em class="fr">La traduction détruit la matrice visuelle des radicaux chinois (ex: le radical de l'eau « 氵» répété sur la page). L'alphabet phonétique efface cette surcouche idéographique intraduisible.</em></p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="card" style="border-left-color:var(--jade2);">
+          <h3 style="color:var(--jade2);">无主语诗学 · La Poetique sans Sujet</h3>
+          <p>中文古诗另一个不可译的特征：<b>无主语</b>。「枯藤老树昏鸦」（马致远）——是谁在看？不知道。诗的主体在汉语中可以完全消失，让读者投射自己进入场景，实现"我即诗，诗即我"的彻底融合。</p>
+          <p><em class="fr">Autre intraduisible : le <b>sujet grammatical inexistant</b>. «Liane seche, vieil arbre, corbeau du crepuscule» — qui regarde ? On ne sait pas. Le chinois supprime le sujet, permettant au lecteur de se projeter entierement dans la scene. Toute traduction doit <i>inventer</i> un «je» ou un «on» absent dans l'original.</em></p>
+          <span class="en-note">Ma Zhiyuan's "Autumn Thoughts" (秋思) opens with 12 pure nouns: "Withered vine, old tree, evening crow / Small bridge, flowing water, people's home / Ancient road, west wind, thin horse." No verb, no subject, no pronoun. The reader IS the exhausted traveler. Every translation must add grammatical structure that violates the poem's intentional formlessness.</span>
+        </div>
+        <div class="quote-box">
+          <span class="gold">「书不尽言，言不尽意」</span> — 《周易·系辞》<br>
+          <em class="fr">«L'ecriture n'epuise pas les mots, les mots n'epuisent pas la pensee.» — Yi Jing, Xici</em><br>
+          <span class="en-note">"Writing cannot exhaust speech; speech cannot exhaust thought." — This ancient statement from the Yi Jing is the philosophical foundation of Chinese poetic incompleteness (留白 in poetry as in painting). The poem is most powerful where it stops speaking. Translation, by necessity, fills in the silence.</span>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- ================= PAGE 10: MIRROR ================= -->
+
+
+    <!-- ================= PAGE 10: MIRROR ================= -->
   <div class="slide bg-jade" id="slide-10">
-    <div style="background-color: var(--night-blue); color: var(--paper); padding:40px; border-radius:8px; height:100%;">
-      <h2 style="color:var(--paper); margin-bottom:10px;">汉法文化镜像</h2>
-      <h3 style="color:#d4a345;">Miroir Franco-Chinois : Sonnet vs Lüshi (律诗)</h3>
-      
-      <div class="two-col" style="margin-top:40px;">
-        <div style="border-right: 1px inset rgba(255,255,255,0.2); padding-right: 30px;">
-          <h3 style="color:#dce8f3; font-size:22px;">📍 法国十四行诗 (Le Sonnet Français)</h3>
-          <p><b>理性的结构递进与情感爆发：</b><br>无论是龙沙（Ronsard）还是波德莱尔（Baudelaire），14行诗（2个四行+2个三行）构建了一种如三段论般递进的逻辑结构。前八句铺陈矛盾，最后两句通过"Chute"（转折爆发）得出尖锐的哲学或情感结论。</p>
+    <div class="slide-header">
+      <div class="slide-title"><h2 style="font-size:22px;color:var(--paper);">汉法文化镜像 · Miroir Culturel</h2><div class="fr">Sonnet Francais vs Lushi Chinois — Deux Architectures Poetiques</div></div>
+      <span class="page-num">10</span>
+    </div>
+    <div class="two-col" style="margin-top:8px;">
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="card" style="border-left-color:var(--blue2);background:rgba(10,20,40,0.5);">
+          <h3 style="color:var(--blue2);">📍 法国十四行诗 · Le Sonnet Francais</h3>
+          <p><b>理性的结构递进与情感爆发。</b> 无论是龙沙（Ronsard）还是波德莱尔（Baudelaire），14行诗（2个四行+2个三行）构建了一种如三段论般递进的<b>逻辑结构</b>：前8句铺陈矛盾，最后两句通过"Chute"（转折爆发）得出尖锐的哲学或情感结论。</p>
+          <p><em class="fr">Le sonnet (Ronsard, Du Bellay, Baudelaire) : 14 vers, 2 quatrains + 2 tercets. Structure syllogistique : les octets posent la these et l'antithese, le sestet delivre la <b>«chute»</b> — la conclusion philosophique ou emotionnelle percutante. La poesie comme <i>argument logique</i>.</em></p>
+          <span class="en-note">Baudelaire's "Correspondances": 4 lines of thesis (nature is a temple), 4 lines of development (symbolic forests), then 6 lines driving to the explosive conclusion (synesthesia as mystical unity). The sonnet has a direction: it arrives somewhere. It convinces. It concludes. This is fundamentally Western — rhetoric made lyrical.</span>
         </div>
-        <div>
-          <h3 style="color:#eac496; font-size:22px;">📍 中国律诗 (Le Lüshi Tang)</h3>
-          <p><b>宇宙的对称循环与留白消解：</b><br>八句律诗（起承转合）不以逻辑推理为导向，而以时空环境的重组为导向。它拒绝西方诗歌最后一首的高潮爆炸，而是追求言有尽而意无穷（余音绕梁），把结论留给客观的山水与空白的宇宙。</p>
+        <div class="card" style="border-left-color:var(--gold);">
+          <h3 style="color:var(--gold);">核心对比 · Vocabulaire Comparatif</h3>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px;font-size:11px;margin-top:6px;color:var(--paper);">
+            <div style="background:rgba(0,0,0,0.3);padding:6px;text-align:center;">
+              <div style="color:var(--blue2);margin-bottom:3px;font-size:10px;">SONNET FR</div>
+              14 syllabes<br>
+              Chute (conclusion)<br>
+              Argument logique<br>
+              Volta (retournement)<br>
+              Sujet marque (je/tu)
+            </div>
+            <div style="background:rgba(0,0,0,0.3);padding:6px;text-align:center;">
+              <div style="color:var(--gold);margin-bottom:3px;font-size:10px;">中文对比</div>
+              5/7字一行<br>
+              余音绕梁<br>
+              意境空灵<br>
+              起承转合<br>
+              无主语 / 留白
+            </div>
+            <div style="background:rgba(0,0,0,0.3);padding:6px;text-align:center;">
+              <div style="color:var(--jade2);margin-bottom:3px;font-size:10px;">律诗 LUSHI</div>
+              Caracteres visu.<br>
+              Silence final<br>
+              Espace poétique<br>
+              Pivot naturel<br>
+              Sujet efface
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="card" style="border-left-color:var(--jade2);background:rgba(5,20,10,0.5);">
+          <h3 style="color:var(--jade2);">📍 中国律诗 · Le Lushi Tang</h3>
+          <p><b>宇宙的对称循环与留白消解。</b> 八句律诗（<b>起承转合</b>：introduction · developpement · pivot · resolution）不以逻辑推理为导向，而以<b>时空环境的重组</b>为导向。它拒绝西方诗歌的高潮爆炸，而是追求<span class="gold">「言有尽而意无穷」</span>——把结论留给客观的山水与空白的宇宙。</p>
+          <p><em class="fr">Le Lushi (8 vers, 5 ou 7 caracteres) : structure 起承转合 (introduction, developpement, pivot, resolution). Non logique, mais <b>spatiotemporal</b>. Il refuse l'explosion finale occidentale pour atteindre «des mots finis, une signification infinie» — laissant la conclusion au paysage et au silence cosmique.</em></p>
+          <span class="en-note">Wang Wei's "Deer Fence" (鹿柴): "Empty mountain, no one in sight / Yet voices of people can be heard / Returning sunlight enters the deep forest / And shines again on the green moss." No conclusion. No argument. The poem ends before it ends — the silence after is the poem's most important line. This is profoundly anti-rhetorical, anti-Western.</span>
+        </div>
+        <div class="quote-box">
+          <span class="gold">「言有尽而意无穷」</span> — 严羽《沧浪诗话》<br>
+          <em class="fr">«Les mots finissent, la signification est infinie.» — Yan Yu, Canglang Shihua (c. 1235)</em><br>
+          <span class="en-note">The supreme criterion of Chinese poetics: the poem must contain silence — a space the reader enters with their own imagination. The Sonnet concludes and closes; the Lushi opens and refuses to close. One is a door; the other is a window. Two entirely different philosophies of what a poem is for.</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ================= PAGE 11: SUMMARY ================= -->
-  <div class="slide bg-oracle" id="slide-11">
-    <h2 class="red">第十课总结 · Conclusion</h2>
-    <h3>框架内的自由与意象代码</h3>
-    
-    <div style="max-width: 900px; margin: 40px auto 0; text-align: left;">
-      <p>1. <b>政治与教化起点：</b> 中国诗歌脱胎于治理社会的《诗经》，本质上深受儒家“文以载道”的影响，承载着知识分子浓厚的政治忧患与道德担当。</p>
-      <p><em class="fr">1. Origine sociopolitique : Née des rites confucéens (Shijing), la poésie n'est d'abord pas romantique, mais l'outil moral du serviteur de l'État pour exprimer son fardeau intellectuel.</em></p>
-      
-      <p>2. <b>加密的自然密码：</b> 借由月亮、梅、竹、菊等自然植物密码体系，中国诗歌在极端苛刻的字数、平仄与对仗之中，发展出了超越几何语言的意境美学。</p>
-      <p><em class="fr">2. Les Cryptogrammes du Paysage : À travers un système contraint de tons et de parallélisme abstrait, la nature (Lune, Bambou) encode l'idéal de pureté morale et de détachement taoïste de l'auteur.</em></p>
+
+
+    <!-- ================= PAGE 11: SUMMARY ================= -->
+  <div class="slide bg-oracle" id="slide-11" style="overflow-y:auto; padding-bottom:80px;">
+    <div class="slide-header">
+      <div class="slide-title"><h2 style="font-size:22px;color:var(--red);">第十课总结 · Conclusion de la Lecon X</h2><div class="fr">From the Shijing to Su Dongpo — Three Thousand Years of Poetic Intention</div></div>
+      <span class="page-num">11</span>
     </div>
-    
-    <div class="cover" style="margin-top:60px; background: transparent;">
-      <div class="seal" style="width:60px; height:60px; font-size:28px;">完</div>
+    <div class="two-col" style="margin-top:8px;">
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="card" style="border-left-color:var(--blue2);">
+          <h3 style="color:var(--blue2);">① 政治与教化的起点 · Origine Sociopolitique</h3>
+          <p>中国诗歌脱胎于治理社会的《诗经》，本质上深受儒家"文以载道"影响，承载着知识分子浓厚的<b>政治忧患与道德担当</b>。最伟大的诗人首先是官员，其次是文人——被贬谪的现实催生了最不朽的诗篇。</p>
+          <p><em class="fr">Nee des rites confucéens (Shijing), la poesie n'est pas romantique mais l'outil moral du serviteur de l'Etat. Les plus grands poetes (Du Fu, Su Shi) etaient des fonctionnaires en exil : l'echec politique genere le chef-d'oeuvre.</em></p>
+          <span class="en-note">The great paradox: Chinese poetry's greatest masterpieces were produced during political failure. Du Fu wrote in the ruins of war; Su Shi wrote in remote exile; Qu Yuan drowned himself after banishment but left the Lisao. Confucian obligation frustrated by reality transforms into Daoist poetic transcendence.</span>
+        </div>
+        <div class="card" style="border-left-color:var(--jade2);">
+          <h3 style="color:var(--jade2);">③ 镣铐中的自由 · Liberte dans les Chaines</h3>
+          <p>格律（平仄、对仗）不是诗的枷锁，而是诗的骨架。正如书法与榫卯，中国美学的最高境界是：<b>在极严苛的物理框架内，探寻最大的精神自由。</b>"带着镣铐跳舞"——这种自由比无拘束的自由更难，也更高贵。</p>
+          <p><em class="fr">La metrique (平仄, 对仗) n'est pas une prison — c'est le squelette de la liberte. Comme la calligraphie ou le Sun Mao, l'ideal esthetique chinois : <b>liberte maximale de l'esprit dans un cadre physique extremement strict</b>. «Danser avec des chaines» — plus difficile et plus noble que la liberte sans contrainte.</em></p>
+          <span class="en-note">Compare with French poetry: Malherbe's strict rules (17th c.) were rebelled against by the Romantics (Hugo: "I put a red bonnet on the old dictionary"). Chinese poets never rebelled against the rules — they internalized them so deeply they became invisible. The rules became the poet's second nature.</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="card" style="border-left-color:var(--gold);">
+          <h3>② 加密的自然密码 · Les Cryptogrammes du Paysage</h3>
+          <p>借由月、梅、竹、菊、雁等意象密码体系，中国诗歌在极端苛刻的字数与格律约束中，发展出了超越几何语言的<b>意境美学</b>。每个自然元素都是一个压缩了3000年集体记忆的情感芯片。</p>
+          <p><em class="fr">A travers un systeme de codes naturels (Lune = nostalgie, Bambou = integrite, Oies = messages perdus), la poesie chinoise developpe une esthetique de l'«atmosphere poetique» (意境) qui depasse le langage. Chaque element naturel est une puce emotionnelle compressant 3000 ans de memoire collective.</em></p>
+          <span class="en-note">The Yixiang system is untranslatable not because it is too complex, but because it requires a shared cultural memory. A French reader seeing "wild geese" sees birds. A Chinese reader sees: autumn, separation, the frontier, letters that never arrived, exile, and the sound of wings at dusk over an empty plain. The image is a portal, not a description.</span>
+        </div>
+        <div class="card" style="border-left-color:var(--red);">
+          <h3 style="color:var(--red2);">④ 翻译的根本局限 · L'Intraduisible Fondamental</h3>
+          <p>中文古诗的<b>三重不可译</b>：①汉字偏旁部首的视觉层（字形即意象）；②无主语的投射诗学（读者即主体）；③意象系统的文化编码（3000年的集体记忆）。翻译只能是一幅素描，永远无法复制原作的油画维度。</p>
+          <p><em class="fr">La <b>triple intraduisibilite</b> : ① couche visuelle des radicaux (le caractere est une image) ; ② poetique sans sujet (le lecteur s'y projette) ; ③ encodage culturel des images (3000 ans de memoire partagee). La traduction ne peut etre qu'un croquis — jamais le tableau original en huile.</em></p>
+          <span class="en-note">Ezra Pound's "Cathay" (1915) — translations of Chinese poetry — are considered masterpieces of English poetry. But Pound didn't read Chinese: he worked from a scholar's notes. His "translations" are original poems inspired by Chinese images. This is perhaps the only honest approach: not translation, but creative re-imagination.</span>
+        </div>
+      </div>
     </div>
   </div>
 
+
+
   
-  
-  
-  
+
+    <!-- ================= PAGE 11b: Vocabulary/Glossary ================= -->
+  <div class="slide bg-dark" id="slide-11b">
+    <div class="slide-header">
+      <div class="slide-title"><h2 style="font-size:22px;color:var(--gold);">核心概念 · Concepts Cles · Key Concepts</h2><div class="fr">Trilingual Glossary — 三语词汇表 — Glossaire Trilingue</div></div>
+      <span class="page-num">12</span>
+    </div>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; margin-top:8px; flex:1;">
+      <div style="background:rgba(0,0,0,0.4); border:1px solid var(--border); padding:14px;">
+        <h4 style="color:var(--gold); margin:0 0 5px 0; font-size:16px;">诗言志 Shi Yan Zhi</h4>
+        <p style="font-size:12px;color:rgba(245,240,232,0.9);margin:0 0 4px;line-height:1.5;">字面：诗歌表达意志。中国最古老的诗论：诗是人的主观意志与道德情感的直接表达，而非神灵灵感的赐予。</p>
+        <em class="fr" style="font-size:11px;">«La poesie exprime l'intention/la volonte» — fondement humaniste de la poetique chinoise : la poesie vient de l'homme, non des dieux.</em>
+        <span class="en-note">"Poetry expresses intention." From the Book of Documents (c. 600 BCE). The foundational statement distinguishing Chinese poetics from Western divine-inspiration theory. Poetry is human will, not divine gift.</span>
+      </div>
+      <div style="background:rgba(0,0,0,0.4); border:1px solid var(--border); padding:14px;">
+        <h4 style="color:var(--gold); margin:0 0 5px 0; font-size:16px;">意象 Yixiang</h4>
+        <p style="font-size:12px;color:rgba(245,240,232,0.9);margin:0 0 4px;line-height:1.5;">字面：意（意义/意图）+ 象（形象/符号）。诗歌中用自然物象传达情感与哲学的符号系统。月=思乡，竹=气节，雁=离别。</p>
+        <em class="fr" style="font-size:11px;">Intention (意) + Image (象) : le systeme de «signes naturels cryptes» encodant emotions morales et historiques. Lune = nostalgie ; Bambou = integrite ; Oies = separation.</em>
+        <span class="en-note">"Image-Signs." The system of culturally encrypted natural symbols that allows Chinese poetry to compress 3,000 years of shared emotional memory into two characters. Untranslatable because it requires the cultural memory to decode it.</span>
+      </div>
+      <div style="background:rgba(0,0,0,0.4); border:1px solid var(--border); padding:14px;">
+        <h4 style="color:var(--gold); margin:0 0 5px 0; font-size:16px;">平仄 Pingze</h4>
+        <p style="font-size:12px;color:rgba(245,240,232,0.9);margin:0 0 4px;line-height:1.5;">字面：平声（长调）与仄声（短促调）。唐诗格律的核心：声调的高低长短必须按规定序列交错排列，产生音乐般的起伏节奏。</p>
+        <em class="fr" style="font-size:11px;">Tons plats (平, longs/constants) vs tons obliques (仄, courts/modules) — l'architecture sonore mathematique de la poesie Tang, aussi precise que la musique serielle.</em>
+        <span class="en-note">Level and oblique tones. The tonal prosody system of regulated Tang poetry. Each character's tone must follow a prescribed pattern — as strict as serial music. The greatest poets make this invisible. Violating even one tone invalidates the poem technically.</span>
+      </div>
+      <div style="background:rgba(0,0,0,0.4); border:1px solid var(--border); padding:14px;">
+        <h4 style="color:var(--gold); margin:0 0 5px 0; font-size:16px;">对仗 Duizhang</h4>
+        <p style="font-size:12px;color:rgba(245,240,232,0.9);margin:0 0 4px;line-height:1.5;">字面：对（对立/对应）+ 仗（依仗/结构）。律诗中间两联必须严格对仗：名词对名词，动词对动词，方位对方位，数字对数字。</p>
+        <em class="fr" style="font-size:11px;">Parallelisme strict : dans les 4 vers centraux du Lushi, chaque mot doit correspondre en classe grammaticale et categorie semantique. «Etat» face a «Cite», «Montagnes/Fleuves» face a «Herbes/Arbres».</em>
+        <span class="en-note">Strict parallelism. The middle four lines of regulated verse (律诗) must perfectly mirror each other: noun against noun, verb against verb, number against number, direction against direction. It creates visual and semantic symmetry — like two facing mirrors inside the poem.</span>
+      </div>
+      <div style="background:rgba(0,0,0,0.4); border:1px solid var(--border); padding:14px;">
+        <h4 style="color:var(--gold); margin:0 0 5px 0; font-size:16px;">意境 Yijing</h4>
+        <p style="font-size:12px;color:rgba(245,240,232,0.9);margin:0 0 4px;line-height:1.5;">字面：意（意图/情感）+ 境（境界/空间）。诗歌所营造的那种只可意会、无法言传的情感与哲学氛围。好的意境让读者"进入"诗中。</p>
+        <em class="fr" style="font-size:11px;">Intention (意) + Espace/Dimension (境) : l'atmosphere emotionnelle et philosophique inexprimable qu'evoque un poeme — l'espace que le lecteur <i>habite</i> plutot que lit.</em>
+        <span class="en-note">"Poetic atmosphere/dimension." The emotional and philosophical space a poem creates that the reader inhabits rather than simply reads. The highest criterion of Chinese poetics: a poem with great yijing opens a world; a poem without it is merely technically correct.</span>
+      </div>
+      <div style="background:rgba(0,0,0,0.4); border:1px solid var(--border); padding:14px;">
+        <h4 style="color:var(--gold); margin:0 0 5px 0; font-size:16px;">起承转合 Qi Cheng Zhuan He</h4>
+        <p style="font-size:12px;color:rgba(245,240,232,0.9);margin:0 0 4px;line-height:1.5;">字面：起（开启）· 承（承接）· 转（转折）· 合（收束）。律诗四联的结构原则：如同音乐的奏鸣曲式，引入—发展—转变—收尾。</p>
+        <em class="fr" style="font-size:11px;">Introduction (起) · Developpement (承) · Pivot/Surprise (转) · Resolution/Ouverture (合) — la structure en 4 mouvements du Lushi : comme la forme sonate en musique, mais s'ouvrant sur le silence plutot que la conclusion.</em>
+        <span class="en-note">The four-movement structure of regulated verse. Unlike the Western sonnet's "Volta" which drives toward conclusion, the "He" (合, resolution) of the Lushi often opens onto silence and infinity rather than closing. The poem ends by refusing to end.</span>
+      </div>
+    </div>
+  </div>
+
+
 </div>
 
 
